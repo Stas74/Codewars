@@ -13,3 +13,8 @@ function maps(x){
   x.forEach(element => doubledArr.push(element * 2));
   return doubledArr;
 }
+
+
+// function maps(x){
+//   return x.map(n => n * 2);
+// }
