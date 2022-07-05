@@ -17,3 +17,14 @@ function lovefunc(flower1, flower2) {
 lovefunc(1, 4); // true
 lovefunc(2, 2); // false
 
+
+
+// function lovefunc(flower1, flower2){
+//   return flower1 % 2 !== flower2 % 2;
+// }
+
+
+// function lovefunc(flower1, flower2){
+//   return (flower1 + flower2) % 2 === 1
+// }
+
