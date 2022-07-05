@@ -15,3 +15,17 @@ function disemvowel(str) {
   return finalStr;
 }
 disemvowel("This website is for losers LOL!"); // "Ths wbst s fr lsrs LL!"
+
+
+// --------------------------------------------------------------
+
+// disemvowel = str => str.replace(/[aeiou]/gi,'');
+
+
+// const vowels = 'aeiou';
+// function disemvowel(str) {
+//   return str
+//     .split('')
+//     .filter(letter => !vowels.includes(letter.toLowerCase()))
+//     .join('');
+// }
