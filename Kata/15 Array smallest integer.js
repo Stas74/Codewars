@@ -24,3 +24,11 @@ findSmallestInt([78, 56, 232, 12, 8]); // 8
 findSmallestInt([78, 56, 232, 12, 18]); // 12
 
 
+// findSmallestInt(args) {
+//     return Math.min(...args)
+//   }
+
+
+// findSmallestInt(args) {
+//     return args.sort((a,b)=>a-b)[0];
+//   }
