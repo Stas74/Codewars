@@ -22,3 +22,17 @@ console.log(abbrevName("sam Harris")) // "S.H"
 console.log(abbrevName("Patrick Feenan")) // "P.F"
 
 
+
+function abbrevName(name){
+    return name.split(' ').map(i => i[0].toUpperCase()).join('.')
+}
+
+
+
+function abbrevName(name){
+  if (typeof name === 'string') {
+    let names = name.split(' ');
+    return `${names[0][0]}.${names[1][0]}`.toUpperCase();
+  }
+  console.log(arguments.callee.name + ': Argument must be string!');
+}
