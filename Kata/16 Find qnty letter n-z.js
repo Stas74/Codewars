@@ -46,3 +46,17 @@ printerError("aaabbbbhaijjjm"); // "0/14"
 printerError("aaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbmmmmmmmmmmmmmmmmmmmxyz"); // "3/56"
 
 
+
+// function printerError(s) {
+//     // your code
+//     var count = 0;
+//     for(var i = 0; i < s.length; i++) {
+//       if (s[i] > "m") {
+//         count++;
+//       }
+//     }
+//     return count+"/"+s.length;
+// }
+
+
+// const printerError = s => `${s.replace(/[a-m]/gi, "").length}/${s.length}`;
