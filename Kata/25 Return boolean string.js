@@ -10,3 +10,8 @@ function booleanToString(b){
 console.log(booleanToString(true));  // "true"
 console.log(booleanToString(false));  // "false"
 
+
+
+function booleanToString(b){
+  return b.toString();
+}
