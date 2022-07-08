@@ -20,3 +20,15 @@ function areYouPlayingBanjo(name) {
 console.log(areYouPlayingBanjo("Adam"))  // "Adam does not play banjo"
 console.log(areYouPlayingBanjo("Ringo"))  // "Ringo plays banjo"
 console.log(areYouPlayingBanjo("rolf"))  // "rolf plays banjo"
+
+
+
+function areYouPlayingBanjo(name) {
+  return name + (name[0].toLowerCase() == 'r' ? ' plays' : ' does not play') + " banjo";
+}
+
+
+
+function areYouPlayingBanjo(name) {
+  return name + (/^r/i.test(name) ? " plays " : " does not play ") + "banjo";
+}
