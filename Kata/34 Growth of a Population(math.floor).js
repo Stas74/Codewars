@@ -41,3 +41,37 @@ console.log(nbYear(1500, 5, 100, 5000)); // 15
 console.log(nbYear(1500000, 2.5, 10000, 2000000)); // 10
 console.log(nbYear(1500000, 0.25, 1000, 2000000)); // 94
 
+
+// ------------------------------------------------------------
+
+
+function nbYear(p0, percent, aug, p) {
+    
+  for (var years = 0; p0 < p; years++) {
+    p0 = Math.floor(p0 + p0 * percent / 100 + aug);
+  }
+  return years
+}
+
+
+function nbYear(p0, percent, aug, p) {
+  let n
+  for (n = 1; p0 < p; n++) {
+    p0 += parseInt(p0 * (percent / 100))
+    p0 += aug
+  }
+  return n-1
+}
+
+
+//Recursive function: exit condition p0 >= p
+function nbYear(p0, percent, aug, p) {
+  p0 =  Math.floor(p0*(1+percent/100)+aug)
+  if (p0>=p)
+     return 1
+  return nbYear(p0,percent,aug,p)+1
+}
+
+
+
+nbYear=f=(a,b,c,d,r=0)=>d/a>1?f(a+~~(a*b/1e2)+c,b,c,d,++r):r
