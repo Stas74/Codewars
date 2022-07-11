@@ -28,3 +28,23 @@ var number = function(busStops){
 
 console.log(number([[10,0],[3,5],[5,8]])) // 5
 console.log(number([[3,0],[9,1],[4,10],[12,2],[6,1],[7,10]])) // 17
+
+
+
+const number = (busStops) => busStops.reduce((rem, [on, off]) => rem + on - off, 0);
+
+const number = busStops => {
+  return busStops.reduce((people, next) => { 
+    const [on, off] = next;
+    return (people + on) - off;
+  }, 0);
+}
+
+
+
+const number = busStops => {
+  const sumOfIndex = x => busStops.map(arr => arr[x]).reduce((a, b) => a + b, 0);
+  let enter = sumOfIndex(0);
+  let leave = sumOfIndex(1);
+  return enter - leave;
+}
