@@ -34,3 +34,23 @@ function openOrSenior(data){
 
 console.log(openOrSenior([[45, 12],[55,21],[19, -2],[104, 20]])); // ['Open', 'Senior', 'Open', 'Senior']
 console.log(openOrSenior([[3, 12],[55,1],[91, -2],[53, 23]])); // ['Open', 'Open', 'Open', 'Open']
+
+
+/ ---------------------------------------------------------------
+
+// Destructuring: [age, handicap] https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+// Arrow Functions: () => {} https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+
+function openOrSenior(data){
+  return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+}
+
+
+function openOrSenior(data){
+  function determineMembership(member){
+    return (member[0] >= 55 && member[1] > 7) ? 'Senior' : 'Open';
+  }
+  return data.map(determineMembership);
+}
+
+
