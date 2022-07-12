@@ -20,3 +20,18 @@ function litres(time) {
 console.log(litres(2)); // 1
 console.log(litres(1.4)); // 0
 console.log(litres(12.3)); // 6
+
+
+// ---------------------------------------------
+
+function litres(time) {
+  return Math.floor(time/2);
+}
+
+
+litres = t => ~~(t / 2);
+
+
+function litres(time) {
+  return parseInt(time/2);
+}
