@@ -15,3 +15,19 @@ const stringToNumber = function(str){
 
 console.log(stringToNumber("1234")); // 1234
 console.log(stringToNumber("-7")); // -7
+
+
+// --------------------------------------------------
+
+var stringToNumber = function(str){
+  return parseInt(str);
+}
+
+
+var stringToNumber = function(str){
+  // put your code here
+  return Number(str);
+}
+
+
+var stringToNumber = Number;
