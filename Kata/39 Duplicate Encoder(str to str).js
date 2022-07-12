@@ -27,3 +27,59 @@ function duplicateEncode(word) {
 
 console.log(duplicateEncode("din")); // "((("
 console.log(duplicateEncode("recede")); // "()()()"
+
+// -------------------------------------------
+
+
+function duplicateEncode(word){
+  return word
+    .toLowerCase()
+    .split('')
+    .map( function (a, i, w) {
+      return w.indexOf(a) == w.lastIndexOf(a) ? '(' : ')'
+    })
+    .join('');
+}
+
+
+function duplicateEncode(word){
+   
+    var unique='';
+    word = word.toLowerCase();
+    for(var i=0; i<word.length; i++){
+        if(word.lastIndexOf(word[i]) == word.indexOf(word[i])){
+            unique += '(';
+        }
+        else{
+            unique += ')';
+        }
+    }
+    return unique;
+
+}
+
+
+function duplicateEncode(word) {
+  var letters = word.toLowerCase().split('')
+  return letters.map(function(c, i) {
+    return letters.some(function(x, j) { return x === c && i !== j }) ? ')' : '('
+  }).join('')
+}
+
+
+
+function countCharacters(chars) {
+  return chars
+    .reduce( function(memo, char){
+      memo[char] = memo[char] ? memo[char] + 1 : 1;
+      return memo;
+    }, {});
+}
+
+function duplicateEncode(word){
+  const chars = word.split('').map(ch => ch.toLowerCase());
+  const charsCount = countCharacters(chars);
+  return chars
+    .map( ch => charsCount[ch] > 1 ? ')' : '(' )
+    .join('');
+}
