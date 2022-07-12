@@ -24,3 +24,19 @@ var uniqueInOrder=function(iterable){
 console.log(uniqueInOrder("AAAABBBCCDAABBB")); // ['A','B','C','D','A','B']
 
 console.log(uniqueInOrder([1, 2, 2, 3, 3])); // [1,2,3]
+
+// ------------------------------------------------------------
+
+
+var uniqueInOrder=function(iterable){
+    return [...iterable].filter((a, i) => a !== iterable[i-1])
+}
+
+
+var uniqueInOrder = function (iterable)
+{
+  return [].filter.call(iterable, (function (a, i) { return iterable[i - 1] !== a }));
+}
+
+
+const uniqueInOrder = d => [...d].filter((x, i, a) => x != a[i + 1])
