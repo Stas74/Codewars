@@ -18,3 +18,18 @@ function positiveSum(arr) {
 console.log(positiveSum([1, 2, 3, 4, 5])); // 15
 console.log(positiveSum([1, -2, 3, 4, 5])); // 13
 console.log(positiveSum([0])); // 0
+
+// -------------------------------------------
+
+
+function positiveSum(arr) {
+   return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
+}
+
+
+const positiveSum = (arr) => arr.reduce((sum, n) => n > 0 ? sum + n : sum, 0);
+
+
+function positiveSum (arr) {
+  return arr.filter(x => x>=0).reduce((a, c) => a + c, 0);
+}
