@@ -25,3 +25,15 @@ console.log(oddOrEven([0])); // even
 console.log(oddOrEven([1])); // odd
 console.log(oddOrEven([])); // even
 console.log(oddOrEven([-1023, -1, 3])); // odd
+
+
+
+
+function oddOrEven(array) {
+  var result = 0;
+  for (var i = 0; i < array.length; i++)
+  {result+=array[i];}
+  if (result%2 == 0)
+  {return "even";}
+  else{return "odd";}
+}
