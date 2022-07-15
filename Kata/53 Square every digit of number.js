@@ -16,3 +16,19 @@ function squareDigits(num) {
 console.log(squareDigits(3212)); // 9414
 console.log(squareDigits(2112)); // 4114
 console.log(squareDigits(0)); // 0
+
+
+
+function squareDigits(num){
+  return +num.toString().split('').map(i => i*i).join('');
+}
+
+
+function squareDigits(num){
+  var array = num.toString().split('').map( function(int) {
+    var i = parseInt(int);
+    return i * i;
+  });
+  
+  return parseInt(array.join(""));
+}
