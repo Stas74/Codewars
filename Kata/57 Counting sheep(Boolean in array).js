@@ -31,3 +31,31 @@ var array1 = [true,  true,  true,  false,
   false, false, true,  true ];
 
 console.log(countSheeps(array1)); // 17
+
+
+
+
+function countSheeps(arrayOfSheeps) {
+  return arrayOfSheeps.filter(Boolean).length;
+}
+
+
+let countSheeps = x => x.filter( s => s ).length;
+
+
+function countSheeps(arrayOfSheep) {
+  var array = arrayOfSheep.reduce((a,b)=>a + (b===true?1:0),0)
+  return array;
+}
+
+
+
+function countSheeps(arrayOfSheep) {
+  var count = 0;  
+  arrayOfSheep.forEach( function (sheep) {
+    if (sheep)
+      count++;
+  });  
+  return count;
+}
+
