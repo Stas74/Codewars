@@ -11,3 +11,22 @@ function numberToString(num) {
 }
 
 console.log(numberToString(67)) // "67"
+
+
+
+function numberToString(num) {
+  return num.toString();
+}
+
+
+function numberToString(num) {
+  // Return a string of the number here!
+  return String(num);
+}
+
+
+
+function numberToString(num) {
+  // Return a string of the number here!
+  return String(num);
+}
