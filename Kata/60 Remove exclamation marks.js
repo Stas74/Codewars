@@ -7,3 +7,14 @@ function removeExclamationMarks(s) {
 
 
 console.log(removeExclamationMarks("Hello World!"));  //  "Hello World"
+
+
+
+function removeExclamationMarks(s) {
+  return s.replace(/!/gi, '');
+}
+
+
+function removeExclamationMarks(s) {
+  return s.split('!').join('');
+}
