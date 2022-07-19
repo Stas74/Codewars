@@ -21,3 +21,14 @@ function twoSum(numbers, target) {
 
 console.log(twoSum([1, 2, 3], 4)); // [0,2]
 console.log(twoSum([1234, 5678, 9012], 14690)); // [1,2]
+
+
+
+function twoSum(numbers, target) {
+  for (i = 0; i < numbers.length; i++) {
+    second = numbers.indexOf(target - numbers[i], i+1);
+    if (second > i) {
+      return [i, second];
+    }
+  }
+}
