@@ -14,3 +14,12 @@ function cockroachSpeed(s) {
 
 console.log(cockroachSpeed(1.08)); // 30
 console.log(cockroachSpeed(1.09)); // 30
+
+
+
+const cockroachSpeed = s => Math.floor(s / 0.036);
+
+
+function cockroachSpeed(s) {
+  return Math.floor(s*100000/3600);
+}
