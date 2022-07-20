@@ -18,3 +18,18 @@ function feast(beast, dish) {
 
 console.log(feast("great blue heron", "garlic naan")); // true
 console.log(feast("brown bear", "bear claw")); // false
+
+
+
+function feast(beast, dish) {
+  return beast[0]===dish[0] && beast.slice(-1)===dish.slice(-1);
+}
+
+
+function feast(beast, dish) {
+  return dish.startsWith(beast[0]) && dish.endsWith(beast[beast.length-1])
+}
+
+
+
+feast=(beast, dish)=>beast.slice(0,1)==dish.slice(0,1)&&beast.slice(-1)==dish.slice(-1)
