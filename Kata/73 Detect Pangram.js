@@ -35,3 +35,43 @@ function isPangram(string) {
 
 
 console.log(isPangram("The quick brown fox jumps over the lazy dog.")); // true
+
+
+
+
+function isPangram(string){
+  string = string.toLowerCase();
+  return "abcdefghijklmnopqrstuvwxyz".split("").every(function(x){
+    return string.indexOf(x) !== -1;
+  });
+}
+
+
+function isPangram(string){
+  return 'abcdefghijklmnopqrstuvwxyz'
+    .split('')
+    .every((x) => string.toLowerCase().includes(x));
+}
+
+
+
+function isPangram(string){
+  return (string.match(/([a-z])(?!.*\1)/ig) || []).length === 26;
+}
+
+
+function isPangram(string) {
+  const alphabetList = [...'abcdefghijklmnopqrstuvwxyz'];
+
+  return alphabetList.every((letter) => string.toLowerCase().includes(letter));
+}
+
+
+function isPangram(str) {
+    var s = str.toLowerCase();
+    var letters = "zqxjkvbpygfwmucldrhsnioate";
+    for (var i = 0; i < 26; i++)
+        if (s.indexOf(letters.charAt(i)) == -1)
+            return false;
+    return true;
+}
