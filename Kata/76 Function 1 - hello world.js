@@ -12,3 +12,12 @@ function greet() {
 
 console.log(greet()); // "hello world!"
 
+
+
+
+const greet = () => "hello world!";
+
+
+var greet = function() {
+  return "hello world!";
+  }
