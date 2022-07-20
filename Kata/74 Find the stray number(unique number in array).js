@@ -15,3 +15,20 @@ function stray(numbers) {
 
 
 console.log(stray([1, 1, 2])); // 2
+
+
+
+
+const stray = nums => nums.reduce((a, b) => a ^ b);
+
+
+function stray(numbers) {
+  var a = numbers.sort();
+  
+  if(a[0] != a[1]) {
+    return a[0]
+  } 
+  return a[a.length-1]
+}
+
+
