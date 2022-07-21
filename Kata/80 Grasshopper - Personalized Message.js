@@ -13,3 +13,10 @@ function greet (name, owner) {
 
 console.log(greet('Daniel', 'Daniel')); // 'Hello boss'
 console.log(greet('Greg', 'Daniel')); // 'Hello guest'
+
+
+
+function greet (name, owner) {
+  return `Hello ${ name == owner ? 'boss' : 'guest' }`
+}
+
