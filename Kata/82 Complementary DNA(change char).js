@@ -24,3 +24,31 @@ function DNAStrand(dna){
 console.log(DNAStrand("AAAA")); // "TTTT"
 console.log(DNAStrand("ATTGC")); // "TAACG"
 console.log(DNAStrand("GTAT")); // "CATA"
+
+
+
+function DNAStrand(dna) {
+  return dna.replace(/./g, function(c) {
+    return DNAStrand.pairs[c]
+  })
+}
+
+DNAStrand.pairs = {
+  A: 'T',
+  T: 'A',
+  C: 'G',
+  G: 'C',
+}
+
+
+
+
+var pairs = {'A':'T','T':'A','C':'G','G':'C'};
+function DNAStrand(dna){
+  return dna.split('').map(function(v){ return pairs[v] }).join('');
+}
+
+
+
+let pairs = {A:'T',T:'A',C:'G',G:'C'};
+const DNAStrand = dna => dna.replace(/./g, c => pairs[c]);
