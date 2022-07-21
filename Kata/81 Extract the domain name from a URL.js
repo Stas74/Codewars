@@ -16,3 +16,21 @@ function domainName(url){
 console.log(domainName("http://google.com")); // "google"
 console.log(domainName("www.xakep.ru")); // "xakep"
 console.log(domainName("https://youtube.com")); // "youtube"
+
+
+
+function domainName(url){
+  return  url.replace('http://', '')
+             .replace('https://', '')
+             .replace('www.', '')
+             .split('.')[0];
+}
+
+
+function domainName(url){
+  return url.replace(/(https?:\/\/)?(www\.)?/, '').split('.')[0]
+}
+
+function domainName(url){
+  return url.match(/(?:http(?:s)?:\/\/)?(?:w{3}\.)?([^\.]+)/i)[1];
+}
