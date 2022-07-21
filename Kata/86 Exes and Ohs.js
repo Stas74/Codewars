@@ -29,3 +29,18 @@ function XO(str) {
 console.log(XO('xo')); // true
 console.log(XO('xxOo')); // true
 console.log(XO('xxxm')); // false
+
+
+
+function XO(str) {
+  let x = str.match(/x/gi);
+  let o = str.match(/o/gi);
+  return (x && x.length) === (o && o.length);
+}
+
+
+const XO = str => {
+  str = str.toLowerCase().split('');
+  return str.filter(x => x === 'x').length === str.filter(x => x === 'o').length;
+}
+
