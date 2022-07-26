@@ -59,3 +59,32 @@ console.log(encrypt("This is a test!", 2)); // "s eT ashi tist!"
 console.log(decrypt("This is a test!", 0)); // "This is a test!"
 console.log(decrypt("hsi  etTi sats!", 1)); // "This is a test!"
 console.log(decrypt("s eT ashi tist!", 2)); // "This is a test!"
+
+
+
+
+function encrypt(text, n) {
+  for (let i = 0; i < n; i++) {
+    text = text && text.replace(/.(.|$)/g, '$1') + text.replace(/(.)./g, '$1') 
+  }
+  return text
+}
+
+function decrypt(text, n) {
+  let l = text && text.length / 2 | 0
+  for (let i = 0; i < n; i++) {
+    text = text.slice(l).replace(/./g, (_, i) => _ + (i < l ? text[i] : ''))
+  }
+  return text
+}
+
+
+
+
+function encrypt(text, n=0) {
+  return n<1 || text==null ? text : encrypt( [...text].reduce(([a,b],v,i)=> i%2 ? [a+v,b]:[a,b+v],['','']).join(''), n-1)
+}
+
+function decrypt(text, n) {
+  return n<1 || text==null ? text : decrypt( [...text].slice(text.length/2).map((v,i) => v+text[i] ).join('').slice(0,text.length), n-1)
+}
