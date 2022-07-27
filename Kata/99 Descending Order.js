@@ -18,3 +18,15 @@ function descendingOrder(n){
 console.log(descendingOrder(0)); // 0
 console.log(descendingOrder(111)); // 111
 console.log(descendingOrder(15)); // 51
+
+
+
+
+function descendingOrder(n){
+  return +(n + '').split('').sort(function(a,b){ return b - a }).join('');
+}
+
+
+function descendingOrder(n){
+  return +(n+'').split('').sort().reverse().join('')
+}
