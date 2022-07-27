@@ -33,7 +33,32 @@ function removeSmallest(numbers) {
   return newArray
 }
 
+// Delete Item At Index
+
+// const array = ['a', 'b', 'c'];
+// const targetIdx = 1;
+// const newArray = array.filter((item, i) => i !== targetIdx);
+// newArray = ['a', 'c']
+
+
 console.log(removeSmallest([1, 2, 3, 4, 5])); // [2, 3, 4, 5]
 console.log(removeSmallest([5, 3, 2, 1, 4])); // [5, 3, 2, 4]
 console.log(removeSmallest([2, 2, 1, 2, 1])); // [2, 2, 2, 1]
 console.log(removeSmallest([])); // []
+
+
+
+
+
+function removeSmallest(numbers) {
+  let indexOfMin = numbers.indexOf(Math.min(...numbers));
+  return [...numbers.slice(0, indexOfMin), ...numbers.slice(indexOfMin + 1)];
+}
+
+
+function removeSmallest(numbers) {
+  const min = Math.min.apply(this, numbers);
+  return numbers.filter((num, idx, arr) => idx !== arr.indexOf(min));
+}
+
+
