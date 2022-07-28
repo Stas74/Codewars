@@ -24,3 +24,9 @@ function friend(friends) {
 
 console.log(friend(["Ryan", "Kieran", "Mark"])); // ["Ryan", "Mark"]
 console.log(friend(["Ryan", "Jimmy", "123", "4", "Cool Man"])); // ["Ryan"]
+
+
+
+function friend(friends){
+  return friends.filter(n => n.length === 4)
+}
