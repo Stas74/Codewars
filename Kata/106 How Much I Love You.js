@@ -33,3 +33,36 @@ console.log(howMuchILoveYou(3)); //"a lot"
 console.log(howMuchILoveYou(6)); // "not at all"
 console.log(howMuchILoveYou(248)); // 'a little'
 console.log(howMuchILoveYou(444)); // 'not at all'
+
+
+
+const phrases = [
+    'I love you',
+    'a little',
+    'a lot',
+    'passionately',
+    'madly',
+    'not at all',
+]
+
+function howMuchILoveYou(n) {
+     return phrases[(n - 1) % phrases.length] 
+}
+
+
+
+const howMuchILoveYou=n=>['not at all','I love you','a little','a lot','passionately','madly'][n % 6]
+
+
+
+function howMuchILoveYou(nbPetals) {
+  let phrase = {    
+    0: "not at all",
+    1: "I love you",
+    2: "a little",
+    3: "a lot",
+    4: "passionately",
+    5: "madly"
+  }
+  return phrase[nbPetals % 6]
+}
