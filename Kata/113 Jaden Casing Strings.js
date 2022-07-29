@@ -39,3 +39,15 @@ String.prototype.toJadenCase = function () {
 String.prototype.toJadenCase = function () {
   return this.replace(/(^|\s)[a-z]/g, function(x){ return x.toUpperCase(); });
 };
+
+
+
+String.prototype.toJadenCase = function () {
+  var words = this.split(' ');
+
+  for(var i = 0, wordsLen = words.length; i < wordsLen; i++) {
+    words[i] = words[i][0].toUpperCase() + words[i].slice(1);
+  }
+
+  return words.join(' ');
+};
