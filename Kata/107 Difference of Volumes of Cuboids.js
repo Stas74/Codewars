@@ -19,3 +19,15 @@ function findDifference(a, b) {
 
 console.log(findDifference([3, 2, 5], [1, 4, 4])); // 14
 console.log(findDifference([9, 7, 2], [5, 2, 2])); // 106
+
+
+
+
+function find_difference(a, b) {
+  return Math.abs(a.reduce((previous, current) => previous * current) - b.reduce((previous, current) => previous * current));
+}
+
+
+function find_difference(a, b) {
+  return Math.abs(a[0]*a[1]*a[2]-b[0]*b[1]*b[2]);
+}
