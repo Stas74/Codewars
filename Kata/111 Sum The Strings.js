@@ -20,3 +20,16 @@ function sumStr(a, b) {
 
 console.log(sumStr("4", "5")); // "9"
 console.log(sumStr("34", "5")); // "39"
+
+sumStr = (a,b) => String(+a + +b);
+
+
+function sumStr(a,b) {
+  return (+a + +b)+''  
+}
+
+
+
+function sumStr(a, b) {
+  return ((parseInt(a) || 0) + (parseInt(b) || 0)).toString();
+}
