@@ -18,3 +18,15 @@ function solution(string) {
 }
 
 console.log(solution("camelCasing")); // "camel Casing"
+
+
+
+
+function solution(string) {
+  return(string.replace(/([A-Z])/g, ' $1'));
+}
+
+
+const solution = string => string.replace(/[A-Z]/g, ' $&');
+
+
