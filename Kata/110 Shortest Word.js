@@ -17,3 +17,22 @@ function findShort(s) {
 
 console.log(findShort("bitcoin take over the world maybe who knows perhaps")); // 3
 console.log(findShort("Let's travel abroad shall we")); // 2
+
+
+const findShort = (s) => s
+  .split(' ')
+  .sort((a, b) => b.length - a.length)
+  .pop()
+  .length;
+
+
+function findShort(s){
+  return Math.min.apply(null, s.split(' ').map(w => w.length));
+}
+
+
+function findShort(s){
+    return Math.min(...s.split(" ").map (s => s.length));
+}
+
+
