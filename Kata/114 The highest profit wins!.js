@@ -19,3 +19,15 @@ function minMax(arr) {
 }
 
 console.log(minMax([1, 2, 3, 4, 5])); // [1, 5]
+
+
+
+
+function minMax(arr){
+  return [Math.min(...arr), Math.max(...arr)];
+}
+
+
+function minMax(arr){
+  return [Math.min.apply(Math, arr), Math.max.apply(Math, arr)];
+}
