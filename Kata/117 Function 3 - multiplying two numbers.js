@@ -8,3 +8,9 @@ function multiply(a, b) {
 
 console.log(multiply(2, 3)); // 6
 
+
+
+
+let multiply = (a, b) => a * b;
+
+
