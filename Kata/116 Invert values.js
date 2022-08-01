@@ -15,3 +15,15 @@ function invert(array) {
 console.log(invert([1, 2, 3, 4, 5])); // [-1,-2,-3,-4,-5]
 console.log(invert([1, -2, 3, -4, 5])); // [-1,2,-3,4,-5]
 console.log(invert([])); // []
+
+
+
+
+const invert = array => array.map(num => -num);
+
+
+function invert(array) {
+   return array.map(i => 0 - i);
+}
+
+
