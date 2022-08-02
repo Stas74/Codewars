@@ -52,3 +52,50 @@ console.log(diamond(5)); //   "  *\n ***\n*****\n ***\n  *\n"
 console.log(diamond(2)); //   null
 console.log(diamond(-3)); //   null
 console.log(diamond(0)); //   null
+
+
+
+
+
+function diamond (n) {
+  if (n <= 0 || n % 2 === 0) return null
+  str = ''
+  for (let i = 0; i < n; i++) { 
+    let len = Math.abs((n-2*i-1)/2)
+    str += ' '.repeat(len)
+    str += '*'.repeat(n-2*len)
+    str += '\n'
+  }
+  return str
+}
+
+
+
+
+function diamond(n){
+  if (n < 0 || !(n % 2)) return null; 
+  const middleIndex = Math.floor(n / 2);
+  
+  return Array.apply(null, {length: n})
+      .map((el, index) => {
+        const indentation = Math.abs(index - middleIndex);
+        const numberOfAsterisks = n - indentation * 2;
+        return Array(indentation + 1).join(' ') + Array(numberOfAsterisks + 1).join('*');
+      })
+      .join('\n') + '\n';
+}
+
+
+
+function diamond(n){
+  if (n < 0 || !(n % 2)) return null; 
+  const middleIndex = Math.floor(n / 2);
+  
+  return Array.apply(null, {length: n})
+      .map((el, index) => {
+        const indentation = Math.abs(index - middleIndex);
+        const numberOfAsterisks = n - indentation * 2;
+        return Array(indentation + 1).join(' ') + Array(numberOfAsterisks + 1).join('*');
+      })
+      .join('\n') + '\n';
+}
