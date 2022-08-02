@@ -26,3 +26,33 @@ console.log(sequenceSum(2, 6, 2)); //  12
 console.log(sequenceSum(1, 5, 1)); //  15
 console.log(sequenceSum(1, 5, 3)); //  5
 console.log(sequenceSum(5, 1, 3)); //  0
+
+
+
+
+const sequenceSum = (begin, end, step) => {
+  var sum = 0;
+  for(var i=begin;i<=end;i+=step)
+  {
+    sum += i;
+  }
+  return sum;
+};
+
+
+
+
+const sequenceSum = (begin, end, step) => {
+  if (begin > end) {
+    return 0;
+  }
+  return begin + sequenceSum(begin + step, end, step);
+};
+
+
+
+
+sequenceSum = (b, e, s) =>  b > e ? 0 : b + sequenceSum(b + s, e, s);
+
+
+
