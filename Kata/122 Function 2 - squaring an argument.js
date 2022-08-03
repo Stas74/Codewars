@@ -7,3 +7,13 @@ const square = (n) => {
 };
 
 console.log(square(3)); //  9
+
+
+
+
+const square = (n) => n * n;
+
+
+function square(x) {
+  return x ** 2;
+}
