@@ -23,3 +23,16 @@ function getDivisorsCnt(n) {
 console.log(getDivisorsCnt(1)); //  1
 console.log(getDivisorsCnt(10)); //  4
 console.log(getDivisorsCnt(11)); //  2
+
+
+
+
+function getDivisorsCnt(n) {
+  var cnt = 1;
+  for (var i = 0; i <= n / 2; ++i)
+    if (n % i == 0)
+      ++cnt;
+  return cnt;
+}
+
+
