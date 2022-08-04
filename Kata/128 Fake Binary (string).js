@@ -12,3 +12,20 @@ function fakeBin(x){
 }
 
 console.log(fakeBin('45385593107843568')) // '01011110001100111'
+
+
+
+
+function fakeBin(x) {
+  return x.replace(/\d/g, d => d < 5 ? 0 : 1);
+}
+
+
+function fakeBin(x){
+  return x.replace( /[0-4]/g, "0" ).replace( /[5-9]/g, "1" )
+}
+
+
+function fakeBin(x){
+  return x.replace(/[1234]/g, '0').replace(/[56789]/g, '1')
+}
