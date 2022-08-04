@@ -23,3 +23,18 @@ function expandedForm(num) {
 
 console.log(expandedForm(12)); // '10 + 2'
 console.log(expandedForm(70304)); // '70000 + 300 + 4'
+
+
+
+
+
+const expandedForm = n => n.toString()
+                            .split("")
+                            .reverse()
+                            .map( (a, i) => a * Math.pow(10, i))
+                            .filter(a => a > 0)
+                            .reverse()
+                            .join(" + ");
+
+
+expandedForm = n => [...String(n)].reverse().map((x,i) => x == '0' ? '' : x + '0'.repeat(i)).filter(x => x != '').reverse().join(' + ')
