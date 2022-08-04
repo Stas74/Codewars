@@ -28,3 +28,10 @@ function roundToNext5(n){
 console.log(roundToNext5(0)) // 0
 console.log(roundToNext5(12)) // 15
 console.log(roundToNext5(21)) // 25
+
+
+
+
+function roundToNext5(n){
+  return Math.ceil(n/5)*5;
+}
