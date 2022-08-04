@@ -13,3 +13,19 @@ function removeUrlAnchor(url) {
 
 
 console.log(removeUrlAnchor("www.codewars.com#about")); // 'www.codewars.com'
+
+
+
+
+function removeUrlAnchor(url){
+  return url.split('#')[0];
+}
+
+
+function removeUrlAnchor(url){
+  // TODO: complete
+  return url.replace(/#.*/gi,"");
+}
+
+
+const removeUrlAnchor = url => url.replace(/#.+$/,'');
