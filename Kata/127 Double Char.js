@@ -18,3 +18,7 @@ function doubleChar(str) {
 }
 
 console.log(doubleChar("abcd")) // "aabbccdd"
+
+
+
+const doubleChar = (str) => str.split("").map(c => c + c).join("");
