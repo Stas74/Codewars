@@ -23,3 +23,13 @@ function findSum(n) {
 
 console.log(findSum(5)); // 8
 console.log(findSum(10)); // 33
+
+
+
+
+function findSum(n) {
+ if (n < 3) return 0
+ return (n % 3 === 0 || n % 5 === 0) ? n + findSum(n-1) : findSum(n-1)
+}
+
+
