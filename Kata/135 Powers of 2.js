@@ -21,3 +21,14 @@ function powersOfTwo(n){
 
 console.log(powersOfTwo(0)); // [1]
 console.log(powersOfTwo(4)); // [1, 2, 4, 8, 16]
+
+
+
+function powersOfTwo(n) {
+  return Array.from({length: n + 1}, (v, k) => 2 ** k);
+}
+
+
+function powersOfTwo(n) {
+  return [...Array(n + 1)].map((_, i) => 2 ** i)
+}
