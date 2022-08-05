@@ -35,3 +35,36 @@ function nbDig(n, d) {
 console.log(nbDig(10, 1)); // 4
 console.log(nbDig( 5750, 0)) // 4700
 console.log(nbDig(11011, 2)) // 9481
+
+
+
+
+function nbDig(n, d) {
+  var res = 0;
+  for (var g = 0; g <= n; g++) {
+    var square = (g * g + "").split("");
+    square.forEach((s) => (s == d ? res++ : null));
+  }
+  return res;
+}
+
+
+function nbDig(n, d) {
+  var o = "";
+  for (var i = 0; i <= n; i++) {
+    o += Math.pow(i, 2);
+  }
+  return o.split(d).length - 1;
+}
+
+
+
+// crazy condition
+function nbDig(n, d) {
+  let count = '';
+  const re = RegExp(d, 'g');
+  for (let i = 0; i <= n; i++){
+    count += i**2;
+  }
+  return count.match(re).length;  
+}
