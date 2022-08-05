@@ -26,3 +26,34 @@ function gimme (triplet) {
 
 console.log(gimme([2, 3, 1])) // 0
 console.log(gimme([5, 10, 14])) // 1
+
+
+
+
+function gimme(a) {
+  return a.indexOf(a.concat().sort(function(a, b) { return a - b })[1])
+}
+
+
+
+
+
+var gimme = function (inputArray) {
+  let index = 0;
+  let max = Math.max(...inputArray);
+  let min = Math.min(...inputArray);
+  for(let i = 0; i < inputArray.length; i++){
+    if(inputArray[i] !== max && inputArray[i] !== min){        
+      index = i;
+    }
+  }
+  return index;
+};
+
+
+
+
+var gimme = function (inputArray) {
+ var order = inputArray.slice().sort(function(a,b) { return a-b;});
+ return inputArray.indexOf(order[1]);  
+};
