@@ -17,3 +17,16 @@ function testEven(n) {
 
 console.log(testEven(0)); // true
 console.log(testEven(0.5)); // false
+
+
+
+
+function testEven(n){
+  return !(n % 2);
+}
+
+
+
+function testEven(n) {
+  return n % 2 === 0 ? true : false;
+}
