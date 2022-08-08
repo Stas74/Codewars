@@ -43,3 +43,24 @@ function expressionMatter(a, b, c) {
 console.log(expressionMatter(2, 1, 2)); // 6
 console.log(expressionMatter(1, 2, 3)); // 9
 console.log(expressionMatter(1, 3, 1)); // 5
+
+
+
+
+
+function expressionMatter(a, b, c) {
+  return Math.max(
+    a + b + c,
+    a * b * c,
+    a * (b + c),
+    (a + b) * c,
+    a + b * c,
+    a * b + c,
+  );
+}
+
+
+
+function expressionMatter(a, b, c) {
+  return Math.max(a+b+c, a*b*c, (a+b)*c, a*(b+c));
+}
