@@ -14,3 +14,18 @@ function reverseWords(str) {
 
 console.log(reverseWords('apple')); // 'elppa'
 console.log(reverseWords('double  spaced  words')); // 'elbuod  decaps  sdrow'
+
+
+
+
+function reverseWords(str) {
+  return str.split(' ').map(function(word){
+    return word.split('').reverse().join('');
+  }).join(' ');
+}
+
+
+
+var reverseWords=s=>s.replace(/\S+/g,v=>[...v].reverse().join``)
+
+
