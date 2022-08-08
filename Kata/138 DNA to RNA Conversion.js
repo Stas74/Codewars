@@ -28,3 +28,17 @@ function DNAtoRNA(dna) {
 
 console.log(DNAtoRNA("TTTT")); // "UUUU"
 console.log(DNAtoRNA("GCAT")); // "GCAU"
+
+
+
+function DNAtoRNA(dna){
+  return dna.replace(/T/g, 'U');
+}
+
+
+function DNAtoRNA(dna) {
+  return dna.split("T").join("U");
+}
+
+
+DNAtoRNA = ($) => [...$].map(el => el === 'T' ? el='U': el).join`` 
