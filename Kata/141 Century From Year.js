@@ -20,3 +20,13 @@ function century(year) {
 console.log(century(1705)); // 18
 console.log(century(1601)); // 17
 console.log(century(89)); // 1
+
+
+
+
+function century(year) {
+  return (year + 99) / 100 | 0;
+}
+
+
+const century = year => year % 100 === 0 ? parseInt(year / 100) : parseInt(year / 100) + 1;
