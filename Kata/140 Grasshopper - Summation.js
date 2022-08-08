@@ -18,3 +18,28 @@ var summation = function (num) {
 
 console.log(summation(1)); // 1
 console.log(summation(8)); // 36
+
+
+
+const summation = n => n * (n + 1) / 2;
+
+function summation(num) {
+  return num * (num + 1) / 2
+}
+
+
+function summation(num) {
+  return num * (num + 1) / 2
+}
+
+
+
+
+var summation = function (num) {
+  let result = 0;
+  for (var i = 1; i <= num; i++) {
+    result += i;
+  }
+  
+  return result;
+}
