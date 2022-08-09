@@ -22,3 +22,17 @@ function findNextSquare(sq) {
 console.log(findNextSquare(121)); // 144
 console.log(findNextSquare(625)); // 676
 console.log(findNextSquare(623)); // -1
+
+
+
+
+function findNextSquare(sq) {
+  return Math.sqrt(sq) % 1 ? -1 : Math.pow(Math.sqrt(sq) + 1, 2);
+}
+
+
+function findNextSquare(sq) {
+  var root = Math.sqrt(sq);
+  return root % 1 === 0 ? Math.pow(root + 1, 2) : -1;
+}
+
