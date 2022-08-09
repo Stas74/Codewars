@@ -26,3 +26,22 @@ function strCount(str, letter){
 console.log(strCount('Hello', 'o')); // 1
 console.log(strCount('Hello', 'l')); // 2
 console.log(strCount('', 'z')); // 0
+
+
+
+
+function strCount(str, letter){  
+  return str.split(letter).length-1
+}
+
+
+
+function strCount(str, letter){  
+  return str.split('').filter(c => c == letter).length;
+}
+
+
+
+function strCount(str, letter) {  
+  return str.length - str.replace(new RegExp(letter, "gi"), '').length;
+}
