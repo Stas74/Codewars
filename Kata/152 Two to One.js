@@ -24,3 +24,13 @@ function longest(s1, s2) {
 
 console.log(longest("aretheyhere", "yestheyarehere")); // "aehrsty"
 console.log(longest("inmanylanguages", "theresapairoffunctions")); // "acefghilmnoprstuy"
+
+
+
+
+const longest = (s1, s2) => [...new Set(s1 + s2)].sort().join("");
+
+
+function longest(s1, s2) {
+  return (s1+s2).split('').sort().join('').replace(/(.)\1+/g, '$1');
+}
