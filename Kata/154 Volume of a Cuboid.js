@@ -9,3 +9,10 @@ function getVolumeOfCuboid(length, width, height) {
 
 console.log(getVolumeOfCuboid(1,2,2)); // 4
 console.log(getVolumeOfCuboid(6.3,2,5)); // 63
+
+
+
+var Kata = (() => {
+  this.getVolumeOfCuboid = (l, w, h) => l * w * h;
+  return this;
+})();
