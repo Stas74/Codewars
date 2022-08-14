@@ -14,3 +14,16 @@ function solution(nums){
 
 console.log(solution([1,2,3,10,5])); // [1,2,3,5,10]
 console.log(solution(null)); // []
+
+
+
+function solution(nums){
+  return (nums || []).sort(function(a, b){
+    return a - b
+  });
+}
+
+
+function solution(nums){
+    return nums !== null ? nums.sort(function(a,b){return a-b}) : [];
+}
