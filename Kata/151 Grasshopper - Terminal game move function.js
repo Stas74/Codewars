@@ -18,3 +18,19 @@ function move (position, roll) {
 console.log(move(0, 4)); // 8
 console.log(move(3, 6)); // 15
 console.log(move(2, 5)); // 12
+
+
+
+
+
+function move (position, roll) {
+  // return the new position
+  return roll >= 1 && roll <= 6 ? roll * 2 + position : null;
+}
+
+
+
+function move (position, roll) {
+  // return the new position
+  return roll >= 1 && roll <= 6 ? roll * 2 + position : null;
+}
