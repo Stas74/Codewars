@@ -24,3 +24,12 @@ function reverseLetter(str) {
 
 console.log(reverseLetter("krishan")); // "nahsirk"
 console.log(reverseLetter("ultr53o?n")); // "nortlu"
+
+
+
+
+function reverseLetter(str) {
+  
+  return str.match(/[a-z]/ig).reverse().join('');  
+}
+
