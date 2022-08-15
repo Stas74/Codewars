@@ -22,3 +22,9 @@ function saleHotdogs(n){
 console.log(saleHotdogs(1)) // 100
 console.log(saleHotdogs(5)) // 475
 console.log(saleHotdogs(10)) // 900
+
+
+
+function saleHotdogs(n) {
+  return n * (n < 5 ? 100 : n < 10 ? 95 : 90);
+}
