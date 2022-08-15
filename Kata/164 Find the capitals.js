@@ -21,3 +21,27 @@ var capitals = function (word) {
 
 console.log(capitals('CodEWaRs')) // [0,3,4,6]
 
+
+
+
+var capitals = function (word) {
+  return word.split('').reduce(function(memo, v, i) {
+    return v === v.toUpperCase() ? memo.concat(i) : memo;
+  }, []);
+};
+
+
+
+var capitals = function (word) {
+  return word.split('')
+             .map(function(l, i) { if (l.toUpperCase() === l) return i; })
+             .filter(function(i) { return i != null })
+};
+
+
+
+var capitals = function (word) {
+  return word.split('').reduce(function(n, l, i){
+    return /[A-Z]/.test(l) && n.push(i), n;
+  }, []);
+};
