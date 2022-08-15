@@ -11,3 +11,8 @@ function simpleMultiplication(number) {
 
 console.log(simpleMultiplication(5)) // 45
 console.log(simpleMultiplication(8)) // 64
+
+
+function simpleMultiplication(n) {
+    return n * (n % 2 ? 9 : 8);
+}
