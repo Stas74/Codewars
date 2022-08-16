@@ -20,3 +20,17 @@ function shortcut (string) {
 
 console.log(shortcut("hello")) // 'hll'
 console.log(shortcut("how are you today?")) // 'hw r y tdy?'
+
+
+
+function shortcut(string){
+  return string.replace(/[aeiou]/gi, '');
+}
+
+
+
+function shortcut(str) {
+  return str.split('').filter(function(e) {
+    return ['a', 'e', 'i', 'o', 'u'].indexOf(e) == -1 
+  }).join('')
+}
