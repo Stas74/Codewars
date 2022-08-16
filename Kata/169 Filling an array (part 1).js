@@ -21,3 +21,11 @@ const arr = N => {
 
 
 console.log(arr(4)) // [0,1,2,3]
+
+
+
+
+const arr = n => Array.from({length: n}, (_, i) => i);
+
+
+arr = n => n ? [...Array(n).keys()] : [];
