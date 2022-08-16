@@ -29,3 +29,15 @@ function minValue(values){
 
 console.log(minValue([1, 3, 1])) // 13
 console.log(minValue([4, 7, 5, 7])) // 457
+
+
+
+
+function minValue(values){
+  const n = values
+    .filter((e, i, arr) => arr.indexOf(e) === i)
+    .sort()
+    .join('');
+  return Number(n);
+}
+
