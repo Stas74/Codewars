@@ -28,3 +28,12 @@ String.prototype.isUpperCase = function() {
 
 console.log(isUpperCase('hello I AM DONALD')) // false
 console.log(isUpperCase('HELLO I AM DONALD')) // true
+
+
+
+String.prototype.isUpperCase=function() {return this == this.toUpperCase()}
+
+
+String.prototype.isUpperCase = function () {
+  return !/[a-z]/.test(this);
+};
