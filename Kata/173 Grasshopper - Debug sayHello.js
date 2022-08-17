@@ -17,3 +17,9 @@ function sayHello(name) {
 
 console.log(sayHello('Mr. Spock')) // 'Hello, Mr. Spock'
 console.log(sayHello('Captain Kirk')) // 'Hello, Captain Kirk'
+
+
+
+function sayHello (name) {
+  return 'Hello, ' +  name;
+}
