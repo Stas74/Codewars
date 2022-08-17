@@ -23,6 +23,17 @@ function helloWorld() {
   console.log(str)
 }
 
-
-
 console.log(helloWorld()) 
+
+
+
+helloWorld = function() {
+  var str = "Hello World!";
+  console.log( str );
+}
+
+
+const helloWorld = () => {
+  var str = `Hello World!`;
+  console.log(str);
+};
