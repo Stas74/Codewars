@@ -23,6 +23,19 @@ function solve(s){
 }
 
 
-
 console.log(solve("CODe")) // "CODE"
 console.log(solve("Code")) // "code"
+
+
+
+
+const solve = s => s.replace(/[A-Z]/g,'').length < s.length/2 ? s.toUpperCase() : s.toLowerCase()
+
+
+
+function solve(s){
+  let upper = s.split('').filter(x => x === x.toUpperCase()).length
+  let lower = s.length - upper
+  return (upper > lower) ? s.toUpperCase() : s.toLowerCase() 
+}
+
