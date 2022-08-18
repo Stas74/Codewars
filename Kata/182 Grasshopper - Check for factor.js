@@ -23,3 +23,8 @@ function checkForFactor (base, factor) {
 
 console.log(checkForFactor(10, 2))  // true
 console.log(checkForFactor(9, 2))  // false
+
+
+
+
+const checkForFactor = (base, factor) => !(base % factor);
