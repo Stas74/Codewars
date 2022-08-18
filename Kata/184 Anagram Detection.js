@@ -31,3 +31,19 @@ var isAnagram = function(test, original) {
 console.log(isAnagram("foefet", "toffee"))  // true
 console.log(isAnagram("Buckethead", "DeathCubeK"))  // true
 console.log(isAnagram("apple", "pale"))  // false
+
+
+
+
+
+var isAnagram = function(test, original) {
+  var t = test.toLowerCase().split('').sort().join('');
+  var o = original.toLowerCase().split('').sort().join('');
+  return (t==o)?true:false;
+};
+
+
+
+function isAnagram (test, original) {
+  return test.toLowerCase().split("").sort().join("") === original.toLowerCase().split("").sort().join("");
+}
