@@ -49,3 +49,14 @@ function equal5(){
 
 // 100
 
+
+
+
+
+
+
+const equal1 = () => v1 + v1
+const equal2 = () => v3 - v1
+const equal3 = () => v1 * v5
+const equal4 = () => v4 / v5
+const equal5 = () => v2 % v4
