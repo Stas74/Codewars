@@ -31,3 +31,26 @@ function findOdd(A) {
 
 console.log(findOdd([1,2,1]))  // 2
 console.log(findOdd([0,1,0,1,0]))  // 0
+
+
+
+
+const findOdd = (xs) => xs.reduce((a, b) => a ^ b);
+
+
+
+function findOdd(arr) {
+  return arr.find((item, index) => arr.filter(el => el == item).length % 2)
+}
+
+
+function findOdd(A) {
+  var obj = {};
+  A.forEach(function(el){
+    obj[el] ? obj[el]++ : obj[el] = 1;
+  });
+  
+  for(prop in obj) {
+    if(obj[prop] % 2 !== 0) return Number(prop);
+  }
+}
