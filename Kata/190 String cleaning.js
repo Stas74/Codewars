@@ -22,3 +22,16 @@ function stringClean(s){
 console.log(stringClean("(E3at m2e2!!)"))  // "(Eat me!!)"
 console.log(stringClean("! !"))  // "! !"
 console.log(stringClean("123456789"))  // ""
+
+
+
+
+
+function stringClean(s){
+  return s.replace(/\d/g, "");
+}
+
+
+function stringClean(s){
+  return s.split('').filter((n) => n != parseInt(n)).join('');
+}
