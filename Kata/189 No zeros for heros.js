@@ -26,3 +26,16 @@ function noBoringZeros(n) {
 console.log(noBoringZeros(1450))  // 145
 console.log(noBoringZeros(960000))  // 96
 console.log(noBoringZeros(0))  // 0
+
+
+
+
+function noBoringZeros(n) {
+  return +`${n}`.replace(/0*$/, "");
+}
+
+
+
+function noBoringZeros(n) {
+  return Number(String(n).replace(/0+$/,''));
+}
