@@ -21,3 +21,11 @@ function preFizz(n) {
 
 console.log(preFizz(3))  // [1,2,3]
 console.log(preFizz(4))  // [1,2,3,4]
+
+
+
+
+const preFizz = n => Array.from({length: n}, (_, i) => i + 1)
+
+
+let preFizz = n => [...Array(n)].map((x, i) => i+1);
