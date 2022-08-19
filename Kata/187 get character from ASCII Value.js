@@ -18,3 +18,9 @@ function getChar(c){
 
 console.log(getChar(55))  // 7
 console.log(getChar(65))  // A
+
+
+
+const getChar = String.fromCharCode;
+
+getChar = c => String.fromCharCode(c);
