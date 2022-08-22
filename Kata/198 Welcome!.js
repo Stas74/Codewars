@@ -58,3 +58,10 @@ function greet(language) {
 console.log(greet("english")); // 'Welcome'
 console.log(greet("dutch")); // 'Welcome'
 console.log(greet("IP_ADDRESS_INVALID")); // 'Welcome'
+
+
+
+function greet(lang) {
+  return langs[lang]||langs['english'];
+}
+
