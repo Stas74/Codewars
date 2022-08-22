@@ -17,3 +17,14 @@ function replace(s){
 
 console.log(replace("Hi!"))  // "H!!"
 console.log(replace("ABCDE"))  // "!BCD!"
+
+
+
+function replace(s){
+  return s.replace(/[aeoiu]/ig, '!')  
+}
+
+
+const replace = w => (w.split('').map(e => 'aeiou'.includes(e.toLowerCase()) ? '!' : e)).join('');
+
+const replace = w => (w.split('').map(e => ['a','e','i','o','u'].includes(e.toLowerCase()) ? '!' : e)).join('');
