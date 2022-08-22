@@ -20,3 +20,8 @@ function mouthSize(animal) {
 
 console.log(mouthSize("toucan"))  // "wide"
 console.log(mouthSize("alligator"))  // "small"
+
+
+
+
+mouthSize=x=>x.match(/alligator/i) ? 'small' : 'wide';
