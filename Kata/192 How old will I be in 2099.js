@@ -27,3 +27,22 @@ console.log(calculateAge(2000, 2090))  // "You are 90 years old."
 console.log(calculateAge(2000, 1990))  // "You will be born in 10 years."
 console.log(calculateAge(3400, 3400))  // "You were born this very year!"
 console.log(calculateAge(2011, 2012)) // "You are 1 year old."
+
+
+
+
+function  calculateAge(m, n) {
+  if(m == n) return 'You were born this very year!';
+  var year = Math.abs(m-n) == 1 ? 'year' : 'years';
+  if(m < n) return "You are "+(n-m)+' '+year+' old.';
+  if(m > n) return "You will be born in "+(-n+m)+' '+year+'.';
+}
+
+
+function calculateAge(a, b) {
+  return a > b
+    ? `You will be born in ${a - b} year${a - b == 1 ? "" : "s"}.`
+    : a < b
+    ? `You are ${b - a} year${b - a == 1 ? "" : "s"} old.`
+    : `You were born this very year!`;
+}
