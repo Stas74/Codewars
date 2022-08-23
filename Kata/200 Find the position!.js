@@ -14,3 +14,13 @@ function position(letter){
 
 console.log(position("a")); // "Position of alphabet: 1"
 console.log(position("z")); // "Position of alphabet: 26"
+
+
+
+
+function position(letter){
+  const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  return 'Position of alphabet: ' + (alphabet.indexOf(letter) + 1);
+}
+
+
