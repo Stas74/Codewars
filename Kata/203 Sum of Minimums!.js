@@ -37,3 +37,11 @@ console.log(
     [9, 8, 6, 7],
   ])
 ); // 76
+
+
+
+
+function sumOfMinimums(arr) {
+  return arr.reduce((p, c) => p + Math.min(...c), 0);
+}
+
