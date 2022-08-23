@@ -12,3 +12,12 @@ function distinct(a) {
 
 console.log(distinct([1])); // [1]
 console.log(distinct([1, 1, 1, 2])); // [1,2]
+
+
+
+function distinct(a) {
+  return Array.from(new Set(a));
+}
+
+
+const distinct = a => a.filter((item, index) => a.indexOf(item) === index);
