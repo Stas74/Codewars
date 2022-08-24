@@ -21,3 +21,13 @@ function hello(name) {
 console.log(hello('alice'))  // "Hello, Alice!"
 console.log(hello())  // "Hello, World!"
 console.log(hello(''))  // "Hello, World!"
+
+
+
+const hello = s =>
+  `Hello, ${s ? (s[0].toUpperCase() + s.slice(1).toLowerCase()) : 'World'}!`;
+
+
+
+const hello = name =>
+  `Hello, ${name ? name.toLowerCase().replace(/^\w/, val => val.toUpperCase()) : `World`}!`;
