@@ -21,3 +21,15 @@ console.log(isPalindrome("anna")) // true
 console.log(isPalindrome("walter")) // false
 console.log(isPalindrome(12321)) // true
 console.log(isPalindrome(123456)) // false
+
+
+
+function isPalindrome(line) {
+  line = '' + line;
+  return line === (line.split('').reverse().join(''));
+}
+
+
+const isPalindrome = line =>
+  [...`${line}`].reverse().join(``) == line;
+
