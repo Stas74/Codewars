@@ -20,3 +20,12 @@ function chromosomeCheck(sperm) {
 
 console.log(chromosomeCheck('XY'))  // "Congratulations! You're going to have a son."
 console.log(chromosomeCheck('XX'))  // "Congratulations! You're going to have a daughter."
+
+
+
+chromosomeCheck = s => `Congratulations! You're going to have a ${s[1] == 'X' ? 'daughter' : 'son'}.`;
+
+
+const chromosomeCheck = (sperm) => (
+  `Congratulations! You're going to have a ${sperm.includes('Y') ? 'son' : 'daughter'}.`
+);
