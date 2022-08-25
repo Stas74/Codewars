@@ -22,3 +22,13 @@ function remove(string) {
 console.log(remove("Hi!")); // "Hi"
 console.log(remove("Hi!!!")); // "Hi!!"
 console.log(remove("Hi")); // "Hi"
+
+
+
+
+const remove = s => s.replace(/!$/, '');
+
+
+function remove(s) {
+  return s.endsWith('!') ? s.slice(0, -1) : s;
+}
