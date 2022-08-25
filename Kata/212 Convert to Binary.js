@@ -16,3 +16,10 @@ function toBinary(n){
 console.log(toBinary(1))  // 1
 console.log(toBinary(2))  // 10
 console.log(toBinary(11))  // 1011
+
+
+
+toBinary = (n) => parseInt(n.toString(2));
+
+
+const toBinary = n => Number(n.toString(2)) ;
