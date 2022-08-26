@@ -30,3 +30,29 @@ function meeting(s) {
 
 console.log(meeting("Fred:Corwill;Wilfred:Corwill;Barney:Tornbull;Betty:Tornbull;Bjon:Tornbull;Raphael:Corwill;Alfred:Corwill")); 
 // "(CORWILL, ALFRED)(CORWILL, FRED)(CORWILL, RAPHAEL)(CORWILL, WILFRED)(TORNBULL, BARNEY)(TORNBULL, BETTY)(TORNBULL, BJON)"
+
+
+
+const meeting = s => {
+  return s.toUpperCase()
+         .replace(/(\w+):(\w+)/g, "($2, $1)")
+         .split(';')
+         .sort()
+         .join('')
+};
+
+
+
+function meeting(s) {
+    return s.split(';').map(i => i.toUpperCase().split(':').reverse().join(', ')).sort().map(i => '(' + i + ')').join('')
+}
+
+
+
+function meeting(s) {
+  let string = s.toUpperCase().split(';')
+                .map(x => x.split(':').reverse().join(', '))
+                .sort()
+                .join(')(')
+  return '(' + string + ')'
+}
