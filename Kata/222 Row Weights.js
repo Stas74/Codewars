@@ -24,3 +24,16 @@ function rowWeights(array){
 
 console.log(rowWeights([80]))  // [80, 0]
 console.log(rowWeights([50, 60, 70, 80]))  // [120, 140]
+
+
+
+
+function rowWeights(array){
+  let t1 = array.filter((x, i)=>i%2==0).reduce((a,item)=>a+item,0);
+  let t2 = array.filter((x, i)=>i%2!=0).reduce((a,item)=>a+item,0);
+  
+  return [t1, t2]
+}
+
+
+rowWeights = (arr) => arr.reduce((a, b, i) => ((a[i % 2] += b), a), [0, 0]);
