@@ -42,3 +42,24 @@ console.log(sumDigPow(1, 10))  // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 console.log(sumDigPow(1, 100))  // [1, 2, 3, 4, 5, 6, 7, 8, 9, 89]
 
 
+
+
+
+function sumDigPow(a, b) {
+  var arr = [];
+  for (var i = a; i <= b; i++) {
+    var sum = 0;
+    for (var j = 0; j <= String(i).length; j++) {
+      sum += Math.pow(parseInt(String(i)[j]), j+1);  
+      if (sum == i) arr.push(i);
+    }
+  }
+  return arr;
+}
+
+
+
+const EUREKAS = [1, 2, 3, 4, 5, 6, 7, 8, 9, 89,135, 175, 518, 598, 1306, 1676, 2427, 2646798];
+const sumDigPow = (a, b) => EUREKAS.filter( (n) => a <= n && n <= b );
+
+
