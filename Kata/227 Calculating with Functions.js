@@ -86,7 +86,46 @@ function dividedBy(right) {
 // function plus( b )      { return function( a ) { return a + b; }; };
 // function minus( b )     { return function( a ) { return a - b; }; };
 // function times( b )     { return function( a ) { return a * b; }; };
-// function dividedBy( b ) { return function( a ) { return a / b; }; };  // floor ???
+// function dividedBy( b ) { return function( a ) { return a / b; }; };  // floor ???   
+// function dividedBy( b ) { return function( a ) { return Math.floor(a / b); }; };
 
 console.log(seven(times(five()))) // 35
 console.log(four(plus(nine()))) // 13
+
+
+
+
+
+
+var n = function(digit) {
+  return function(op) {
+    return op ? op(digit) : digit;
+  }
+};
+var zero = n(0);
+var one = n(1);
+var two = n(2);
+var three = n(3);
+var four = n(4);
+var five = n(5);
+var six = n(6);
+var seven = n(7);
+var eight = n(8);
+var nine = n(9);
+
+function plus(r) { return function(l) { return l + r; }; }
+function minus(r) { return function(l) { return l - r; }; }
+function times(r) { return function(l) { return l * r; }; }
+function dividedBy(r) { return function(l) { return l / r; }; }
+
+
+
+const
+  id = x => x,
+  number = x => (f = id) => f(x),
+  [zero, one, two, three, four, five, six, seven, eight, nine] =
+    [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(number),
+  plus = x => y => y + x,
+  minus = x => y => y - x,
+  times = x => y => y * x,
+  dividedBy = x => y => y / x;
