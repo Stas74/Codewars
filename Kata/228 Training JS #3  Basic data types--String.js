@@ -60,3 +60,15 @@ function answer3(){
 console.log(Dad()) // Dad
 console.log(Bee()) // Bee
 console.log(banana()) // banana
+
+
+
+
+
+const Dad = () => d1 + a2 + d2
+const Bee = () => b1 + e2 + e2
+const banana = () => b2 + a2 + n2 + a2 + n2 + a2
+
+const answer1 = () => "no"
+const answer2 = () => "no"
+const answer3 = () => "yes"
