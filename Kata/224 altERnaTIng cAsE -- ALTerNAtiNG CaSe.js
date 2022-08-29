@@ -26,8 +26,26 @@ String.prototype.toAlternatingCase = function () {
 }
 
 
-
 console.log("hello world".toAlternatingCase()) 
 console.log("Hello World".toAlternatingCase()) 
 
 
+
+
+String.prototype.toAlternatingCase = function () {
+    return this.split("").map(a => a === a.toUpperCase()? a.toLowerCase(): a.toUpperCase()).join('')
+}
+
+
+
+String.prototype.toAlternatingCase = function () {
+  return this.replace(/./g, function (match) {
+    return /[a-z]/.test(match) ? match.toUpperCase() : match.toLowerCase();
+  });
+}
+
+
+
+String.prototype.toAlternatingCase = function () {
+  return this.replace(/[A-Za-z]/g, x => x > "Z" ? x.toUpperCase() : x.toLowerCase()) 
+}
