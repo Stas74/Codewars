@@ -18,3 +18,10 @@ function check(a,x){
 console.log(check([66, 101], 66)) // true
 console.log(check(['t', 'e', 's', 't'], 'e')) // true
 console.log(check(['what', 'a', 'great', 'kata'], 'kat')) // false
+
+
+
+function check(a, x) {
+  return a.includes(x);
+}
+
