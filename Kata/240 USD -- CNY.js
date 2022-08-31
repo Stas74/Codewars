@@ -20,3 +20,13 @@ function usdcny(usd) {
 console.log(usdcny(15)); // '101.25 Chinese Yuan'
 console.log(usdcny(465)); // '3138.75 Chinese Yuan'
 console.log(usdcny(10)); // '101.25 Chinese Yuan'
+
+
+
+usdcny = $ => `${($ * 6.75).toFixed(2)} Chinese Yuan`;
+
+
+function usdcny(usd) {
+  return (usd * 6.75).toFixed(2) + " Chinese Yuan";
+}
+
