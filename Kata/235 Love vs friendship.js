@@ -22,3 +22,12 @@ function wordsToMarks(string) {
 
 console.log(wordsToMarks("attitude")); // 100
 console.log(wordsToMarks("family")); // 66
+
+
+
+
+
+const wordsToMarks = s => [...s].reduce((res, c) => res += c.charCodeAt() - 96, 0)
+
+
+const wordsToMarks = (abc) =>  [0,...abc].reduce(($, b) => $ + ' abcdefghijklmnopqrstuvwxyz'.indexOf(b))
