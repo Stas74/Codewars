@@ -19,3 +19,15 @@ function spEng(sentence){
 console.log(spEng("english")); // true
 console.log(spEng("abcEnglishdef")); // true
 console.log(spEng("abcnEglishsef")); // false
+
+
+
+function spEng(s){
+   return /english/i.test(s)
+}
+
+
+function spEng(sentence){
+  let sentenceLower = sentence.toLowerCase();
+  return sentenceLower.includes('english');
+}
