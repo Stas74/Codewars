@@ -29,3 +29,8 @@ function animal(obj){
 
 console.log(animal({name:"dog",legs:4,color:"white"})); // "This white dog has 4 legs."
 
+
+
+function animal({name, legs, color}) {
+  return `This ${color} ${name} has ${legs} legs.`;
+}
