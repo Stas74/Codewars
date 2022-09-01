@@ -21,3 +21,16 @@ function sumOfDifferences(arr) {
 
 console.log(sumOfDifferences([1, 2, 10])); // 9
 console.log(sumOfDifferences([-3, -2, -1])); // 2
+
+
+
+
+const sumOfDifferences = arr => arr
+  .sort((a, b) => b - a)
+  .map((a, i) => a - arr[i + 1] || 0)
+  .reduce((a, b) => a + b, 0);
+
+
+
+const sumOfDifferences = arr =>
+  arr.sort((a, b) => b - a).shift() - arr.pop() || 0;
