@@ -35,3 +35,8 @@ function checkExam(array1, array2) {
 console.log(checkExam(["a", "a", "b", "b"], ["a", "c", "b", "d"])); // 6
 console.log(checkExam(["a", "a", "b", "c"], ["a", "a", "b", "c"])); // 16
 console.log(checkExam(["b", "c", "b", "a"], ["",  "a", "a", "c"])); // 0
+
+
+
+checkExam = (x, y) => (x = y.reduce((s, e, i) => s + (e === x[i] ? 4 : e === '' ? 0 : -1), 0)) > 0 ? x : 0;
+
