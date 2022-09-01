@@ -24,3 +24,19 @@ function array(arr){
 console.log(array("1,2,3")); // "2"
 console.log(array("1,2,3,4")); // "2 3"
 console.log(array("")); // null
+
+
+
+
+function array(arr){
+  return arr.split(",").slice(1,-1).join(" ") || null;
+}
+
+
+
+const array = (arr) => {
+  arr = arr.split(',')
+  arr.pop()
+  arr.shift()
+  return arr.join(' ') === '' ? null : arr.join(' ')
+}
