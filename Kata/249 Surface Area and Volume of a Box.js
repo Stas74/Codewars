@@ -13,3 +13,17 @@ function getSize(width, height, depth) {
 
 console.log(getSize(4, 2, 6)); // [88, 48]
 console.log(getSize(10, 10, 10)); // [600, 1000]
+
+
+
+const getSize = (w, h, d) => [
+  (w * h + w * d + h * d) * 2,
+  w * h * d
+];
+
+
+function getSize(w, h, d){
+  var area = (2*d*h) + (2*w*h) + (2*d*w);
+  var volume = d*w*h;
+  return [area, volume];
+}
