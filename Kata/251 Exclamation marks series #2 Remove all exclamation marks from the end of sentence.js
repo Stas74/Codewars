@@ -24,3 +24,20 @@ console.log(remove("Hi!"))  // "Hi"
 console.log(remove("Hi! Hi!"))  // "Hi! Hi"
 console.log(remove("Hi"))  // "Hi"
 
+
+
+function remove(s){
+  return s.replace(/!+$/, '');
+}
+
+const remove = s => s.replace(/!+$/, '');
+
+
+function remove(s)
+{
+    while(s && s.slice(-1) == "!") 
+    { 
+        s = s.slice(0,-1) 
+    }
+    return s;
+}
