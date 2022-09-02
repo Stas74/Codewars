@@ -27,10 +27,32 @@ function dataReverse(data) {
   return finArr.flat()
 }
 
-console.log(
-  dataReverse([
-    1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1,
-    0, 1, 0, 1, 0, 1, 0,
-  ])
-);
+console.log(dataReverse([1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0,]));
 // [1,0,1,0,1,0,1,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,1,1,1,1,1,1,1,1]
+
+
+
+
+const dataReverse = data => {
+  const bytes = [];
+  for (let i = 0; i < data.length; i += 8) {
+    bytes.unshift(...data.slice(i, i + 8));
+  }
+  return bytes;
+ 
+ 
+ const dataReverse = a => a.join``.match(/\d{8}/g).reverse().join``.split``.map(Number);
+ 
+ 
+ 
+ const dataReverse = data => {
+
+  const result = [];
+
+  while(data.length){
+    result.push(...data.splice(-8))
+  }
+
+  return result;
+}
+};
