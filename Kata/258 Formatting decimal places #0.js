@@ -16,3 +16,9 @@ function twoDecimalPlaces(n) {
 
 
 console.log(twoDecimalPlaces(4.659725356))  // 4.66
+
+
+
+function twoDecimalPlaces(n) {
+  return Math.round(parseFloat(n) * 100) / 100;
+}
