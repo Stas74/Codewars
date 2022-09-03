@@ -21,3 +21,11 @@ console.log(dutyFree(12, 50, 1000))  // 166
 console.log(dutyFree(10, 10, 500))  // 500
 
 
+
+
+function dutyFree(normPrice, discount, hol){
+  return(Math.floor(hol / normPrice / discount * 100))
+}
+
+
+dutyFree = (p, d, h) => ~~(100 * h / p / d)
