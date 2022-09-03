@@ -24,3 +24,7 @@ var findAverage = function (nums) {
 
 
 console.log(findAverage([1, 3, 5, 7]))  // 4
+
+
+
+const findAverage = nums => nums.reduce((a, b) => a + b) / nums.length;
