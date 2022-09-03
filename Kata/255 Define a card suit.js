@@ -21,3 +21,22 @@ function defineSuit(card) {
 
 console.log(defineSuit('Q♠'))  // 'spades'
 console.log(defineSuit('J♥'))  // 'hearts'
+
+
+
+function defineSuit(card) {
+    return {'♣': 'clubs', '♠': 'spades', '♦': 'diamonds', '♥': 'hearts'}[card.slice(-1)];
+}
+
+
+function defineSuit(card) {
+  const s = {
+    "♣": "clubs",
+    "♠": "spades",
+    "♦": "diamonds",
+    "♥": "hearts"
+  }
+  return s[card.charAt(card.length - 1)]
+}
+
+
