@@ -25,3 +25,12 @@ function lowercaseCount(str){
 console.log(lowercaseCount("abc"))  // 3
 console.log(lowercaseCount("abcABC123"))  // 3
 console.log(lowercaseCount(""))  // 0
+
+
+
+
+function lowercaseCount(str){
+  return str.replace(/[^a-z]/g, "").length;
+}
+
+
