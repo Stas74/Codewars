@@ -35,3 +35,22 @@ function adjacentElementsProduct(array) {
 
 console.log(adjacentElementsProduct([1, 2, 3]))  // 6
 console.log(adjacentElementsProduct([4, 12, 3, 1, 5]))  // 48
+
+
+
+
+
+function adjacentElementsProduct(array) {
+  let newArr = []
+  for(i=0; i < array.length-1; i++){
+    newArr.push(array[i]*array[i+1])
+  }  
+  return Math.max(...newArr)
+}
+
+
+
+
+function adjacentElementsProduct(a) {
+  return Math.max(...a.map((x,i)=>x*a[i+1]).slice(0,-1))
+}
