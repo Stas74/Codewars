@@ -26,3 +26,16 @@ function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
 console.log(checkCoupon('123','123','September 5, 2014','October 1, 2014'))  // true
 console.log(checkCoupon('123a','123','September 5, 2014','October 1, 2014'))  // false
 console.log(checkCoupon('123','123','October 5, 2014','September 1, 2014'))  // false
+
+
+
+
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+  return enteredCode === correctCode && Date.parse(expirationDate) >= Date.parse(currentDate)
+}
+
+
+
+function checkCoupon(enteredCode, correctCode, currentDate, expirationDate){
+  return enteredCode===correctCode && new Date(currentDate) <= new Date(expirationDate);
+}
