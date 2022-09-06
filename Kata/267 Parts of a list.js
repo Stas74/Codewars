@@ -31,3 +31,25 @@ function partlist(arr) {
 
 console.log(partlist(["cdIw", "tzIy", "xDu", "rThG"]));
 // [["cdIw", "tzIy xDu rThG"], ["cdIw tzIy", "xDu rThG"], ["cdIw tzIy xDu", "rThG"]]
+
+
+
+
+function partlist(arr) {
+    return arr.map((v, i) => [arr.slice(0, i).join(' '), arr.slice(i).join(' ')]).slice(1)
+}
+
+
+
+function partlist(arr) {
+    var newArray;
+    var returnArray=[];
+    for( var i=1; i<arr.length; i++){
+      newArray = [];
+      newArray.push(arr.slice(0,i).join(" "));
+      newArray.push(arr.slice(i).join(" "));
+      returnArray.push(newArray);
+    }
+    
+    return returnArray;
+}
