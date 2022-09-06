@@ -21,3 +21,11 @@ console.log(evenNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9], 3))  // [4, 6, 8]
 console.log(evenNumbers([-22, 5, 3, 11, 26, -6, -7, -8, -9, -8, 26], 2))  // [-8, 26]
 
 
+
+
+const evenNumbers = (array, number) =>
+  array.filter(val => !(val & 1)).slice(-number);
+
+
+const evenNumbers = (a, n) => a.filter(e => !(e % 2)).slice(-n);
+
