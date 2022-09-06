@@ -18,6 +18,9 @@ console.log(getEvenNumbers([12,14,15]));  // [12,14]
 
 
 
+const getEvenNumbers = arr => 
+  arr.filter(x => !(x & 1));
+
 
 function getEvenNumbers(numbersArray){
   return numbersArray.filter(function(num){return !(num % 2) })  // 0 is falsy
