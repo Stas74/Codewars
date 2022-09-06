@@ -63,3 +63,34 @@ function pickIt(arr) {
 }
 
 console.log(pickIt([1, 2, 3])); //  [[1,3],[2]]
+
+
+
+
+
+function pickIt (arr) {
+  
+  let odd = []
+  let even =[]
+      
+  for (var x of arr) {
+      ((x % 2) ? odd : even).push(x)    
+  }
+      
+  return [odd, even]
+}
+
+
+function pickIt(arr){
+  var odd=[],even=[];
+  for (i of arr) {
+    if (i % 2 === 0) {
+      even.push(i);
+    } else {
+      odd.push(i);
+    }
+  }
+  
+  
+  return [odd,even];
+}
