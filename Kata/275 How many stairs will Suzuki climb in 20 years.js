@@ -69,3 +69,19 @@ let stairs = [sunday,monday,tuesday,wednesday,thursday,friday,saturday];
     assert.strictEqual(stairsIn20(stairs), 54636040);
   })
 })
+
+
+
+
+
+// A proper solution
+function stairsIn20(a) {
+  return 20 * a.reduce((s, a) => s + a.reduce((s, n) => s + n, 0), 0);
+}
+
+
+function stairsIn20(s){
+   var arr = [].concat(...s)
+   var newArr = [].concat(...arr)
+   return newArr.reduce((a, b) => a+b)*20
+}
