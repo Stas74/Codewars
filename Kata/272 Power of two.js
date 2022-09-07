@@ -31,3 +31,27 @@ function isPowerOfTwo(n) {
 console.log(isPowerOfTwo(2)); // true
 console.log(isPowerOfTwo(4096)); // true
 console.log(isPowerOfTwo(5)); // false
+
+
+
+
+function isPowerOfTwo(n){
+    return Number.isInteger(Math.log2(n));    
+}
+
+
+function isPowerOfTwo(n) {
+  return n === 0 ? false : (n & (n - 1)) == 0
+}
+
+
+
+function isPowerOfTwo(n){
+  if(n == 1)
+    return true
+  if(n < 1)
+    return false
+
+ return isPowerOfTwo(n / 2)
+
+}
