@@ -49,3 +49,27 @@ function calculateYears(principal, interest, tax, desired) {
 console.log(calculateYears(1000, 0.05, 0.18, 1100)); // 3
 console.log(calculateYears(1000,0.01625,0.18,1200)); // 14
 console.log(calculateYears(1000,0.05,0.18,1000)); // 0
+
+
+
+
+function calculateYears(principal, interest, tax, desired) {
+  return Math.ceil(
+    Math.log(desired / principal) / 
+    Math.log(1 + interest * (1 - tax))
+  );
+}
+
+
+
+function calculateYears(principal, interest, tax, desired) {
+    // your code
+    var years = 0;
+    while(principal < desired){
+      principal += (principal * interest) * (1 - tax);
+      years++;
+    }
+    return years;
+}
+
+
