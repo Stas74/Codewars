@@ -33,3 +33,13 @@ function solve(s) {
 console.log(solve("zodiac"))  // 26
 console.log(solve("chruschtschov"))  // 80
 console.log(solve("strength"))  // 57
+
+
+
+
+const solve = s => s.split(/[aeiou]+/).reduce((s,n)=> Math.max(s, n.split('').reduce((a,b)=> a + b.charCodeAt(0)-96,0 )), 0);
+
+
+function solve(s) {
+  return Math.max(...s.match(/[^aeiou]+/g).map(x => [...x].reduce((s, v) => s + v.charCodeAt() - 96, 0)))
+}
