@@ -20,3 +20,15 @@ describe('hex number', () => {
     Test.assertEquals('14'.digit(), false);
   });
 });
+
+
+
+
+String.prototype.digit = function() {
+  return /^\d$/.test(this);
+};
+
+
+String.prototype.digit = function() {
+  return /^[0-9]$/.test(this);
+};
