@@ -30,3 +30,33 @@ console.log(findDigit(-2825, 3)) // 8
 console.log(findDigit(-456, 4)) // 0
 console.log(findDigit(0, 20)) // 0
 console.log(findDigit(65, 0)) // -1
+
+
+
+
+const findDigit = (num, nth) =>
+  nth > 0 ? +[...`${num}`].reverse()[--nth] || 0 : -1;
+
+
+var findDigit = function(num, nth) {
+  return --nth < 0?-1:+(''+Math.abs(num)).split('').reverse()[nth] || 0;
+};
+
+
+var findDigit = function(num, nth){
+    if ( nth <= 0 ) return -1;
+    let arr = Math.abs(num).toString().split("");
+    if ( nth > arr.length ) return 0;
+    return Number(arr[arr.length - nth])
+}
+
+
+
+var findDigit = function(num, nth){
+    if (nth < 1) return -1;
+    if (num < 0) return findDigit(-num, nth);
+    if (num == 0) return 0;
+    if (nth > 1) return findDigit(Math.floor(num/10), nth - 1);
+    return num % 10;
+}
+
