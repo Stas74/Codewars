@@ -26,3 +26,16 @@ function isLockNessMonster(s) {
 
 console.log(isLockNessMonster("Your girlscout cookies are ready to ship. Your total comes to tree fiddy"))
 console.log(isLockNessMonster("Your girlscout cookies are ready to ship."))
+
+
+
+
+function isLockNessMonster(s) {
+  return s.includes("tree fiddy") || s.includes("3.50");
+}
+
+
+function isLockNessMonster(s) {
+  return /3\.50|th?ree fi(?:ft|dd)y/g.test(s);
+}
+
