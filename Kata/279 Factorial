@@ -1,0 +1,20 @@
+// Factorial
+
+/*
+Your task is to write function factorial.
+*/
+
+function factorial(n){
+  let answer = 1
+  if (n < 2) return answer
+  while (n > 1) {
+    answer *= n;
+    n--
+  }
+  return answer
+}
+
+
+console.log(factorial(0));  //  1
+console.log(factorial(1));  //  1
+console.log(factorial(4));  //  24
