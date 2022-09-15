@@ -16,3 +16,7 @@ console.log(checkTheBucket(["stone", "stone", "stone", "stone", "stone"])) // fa
 console.log(checkTheBucket(["stone", "stone", "stone", "stone", "gold"])) // true
 
 
+
+
+
+const checkTheBucket=b=>b.indexOf("gold")!=-1;
