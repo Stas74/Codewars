@@ -33,3 +33,21 @@ console.log(remainder(17, 5)) // 2
 console.log(remainder(13, 72)) // 7 (remainder of `72 / 13`)
 console.log(remainder(0, -1)) // 0
 console.log(remainder(1, 0)) // Nan
+
+
+
+
+function remainder(a, b){
+  // Divide the larger argument by the smaller argument and return the remainder
+  var min = Math.min(a,b);
+  var max = Math.max(a,b);
+
+  return min ? max % min : NaN;
+}
+
+
+
+
+function remainder(a, b){  
+  return Math.max(a,b) % (Math.min(a,b) || NaN);
+}
