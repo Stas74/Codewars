@@ -15,3 +15,16 @@ function printArray(array){
 }
 
 console.log(printArray(["h","o","l","a"]))  // "h,o,l,a"
+
+
+
+
+function printArray(array){
+  return array.join();
+}
+
+
+
+function printArray(array){
+  return array.toString();
+}
