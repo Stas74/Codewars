@@ -45,3 +45,34 @@ var SequenceSum = (function() {
 console.log(SequenceSum.showSequence(6)) // "0+1+2+3+4+5+6 = 21"
 console.log(SequenceSum.showSequence(-15)) // "-15<0"
 console.log(SequenceSum.showSequence(0)) // "0=0"
+
+
+
+class SequenceSum {
+  static showSequence(n) {
+    return n < 0
+      ? `${n}<0`
+      : `${Array.from({length: n+1}, (v, k) => k).join('+')}${n?' = ':'='}${n*(n+1)/2}`;
+  }
+}
+
+
+var SequenceSum = (function() {
+  function SequenceSum() {}
+
+  SequenceSum.showSequence = function(count) {
+    var m = [], s=0;
+    if(count === 0) return count + '=' + 0;
+    if(count < 0) return count + '<' + 0;
+    
+    for(var i=0; i<=count; i++) {
+      s+=i; 
+      m.push(i);
+    };
+
+    return m.join('+') + ' = ' + s;
+  };
+
+  return SequenceSum;
+
+})();
