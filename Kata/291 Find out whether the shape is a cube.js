@@ -23,3 +23,19 @@ var cubeChecker = function(volume, side){
 console.log(cubeChecker(56.3, 1))  // false
 console.log(cubeChecker(-1, 2))  // false
 console.log(cubeChecker(125, 5))  // true
+
+
+
+
+var cubeChecker = function(v, s){
+  return s > 0 && v == s * s * s;
+};
+
+
+
+var cubeChecker = function(volume, side){
+  return Math.pow(side, 3) === volume && side > 0;
+};
+
+
+const cubeChecker = (volume, side) => volume > 0 && side > 0 && volume === Math.pow(side, 3);
