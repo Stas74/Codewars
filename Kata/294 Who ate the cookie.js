@@ -13,12 +13,31 @@ Ex: Input = "hi" --> Output = "Who ate the last cookie? It was Zach! (The reason
 Note: Make sure you return the correct message with correct spaces and punctuation.
 */
 
+
 function cookie(x){
   return `Who ate the last cookie? It was ${typeof(x) === "string" ? "Zach!" : typeof(x) === "number" ? "Monica!" : "the dog!"}`
 }
 
 
-
 console.log(cookie("Ryan"))  // "Who ate the last cookie? It was Zach!"
 console.log(cookie(26))  // "Who ate the last cookie? It was Monica!"
 console.log(cookie(true))  // "Who ate the last cookie? It was the dog!"
+
+
+
+function cookie(x){
+  return `Who ate the last cookie? It was ${({string: "Zach", number: "Monica"}[typeof x] || "the dog")}!`;
+}
+
+
+cookie = x => `Who ate the last cookie? It was ${x.big ? 'Zach' : x.toFixed ? 'Monica' : 'the dog'}!`
+
+
+function cookie(x){
+var resultString = "Who ate the last cookie? It was "
+  switch (typeof x){
+    case "string": return resultString += "Zach!";
+    case "number": return resultString += "Monica!";
+    default: return resultString += "the dog!";
+  }
+}
