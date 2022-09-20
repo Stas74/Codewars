@@ -44,3 +44,43 @@ function longestConsec(strarr, k) {
 console.log(longestConsec(["zone", "abigail", "theta", "form", "libe", "zas"], 2))  // "abigailtheta"
 console.log(longestConsec(["ejjjjmmtthh", "zxxuueeg", "aanlljrrrxx", "dqqqaaabbb", "oocccffuucccjjjkkkjyyyeehh"], 1))  // "oocccffuucccjjjkkkjyyyeehh"
 console.log(longestConsec([], 3))  // ""
+
+
+
+
+
+function longestConsec(strarr, k) {
+  if (k <= 0 || k > strarr.length) {
+    return '';
+  }
+  
+  return strarr.reduce((long, item, i) => {
+    const currString = strarr.slice(i, i + k).join('');
+    return (currString.length > long.length)
+      ? currString
+      : long;
+  }, '');
+}
+
+
+
+function longestConsec(strarr, k) {
+    if (k <= 0 || k > strarr.length) {
+      return "";
+    }
+    
+    return strarr
+    .map((value, index) => (
+      strarr.slice(index, index+k).join('')
+    ))
+    .reduce((longest, current) => current.length > longest.length ? current : longest)
+    
+}
+
+
+function longestConsec(strarr, k) {
+  if( strarr.length==0 || k> strarr.length || k <1 ) return "";
+  let lens = strarr.map( (_,i,arr) => arr.slice(i,i+k).join('').length ),
+      i = lens.indexOf( Math.max(...lens) );
+  return strarr.slice(i,i+k).join('')
+}
