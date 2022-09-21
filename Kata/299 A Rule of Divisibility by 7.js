@@ -47,3 +47,31 @@ console.log(seven(1021))  // [10, 2]
 console.log(seven(1603))  // [7, 2]
 console.log(seven(371))  // [35, 1]
 console.log(seven(483))  // [42, 1]
+
+
+
+
+function seven(m) {
+  var i = 0;
+  while (m.toString().length > 2) {
+    m = Math.floor(m / 10) - (m % 10) * 2;
+    i++;
+  }
+  return [m, i];
+}
+
+
+
+function seven(m, n = 0) {
+  return m < 100 ? [m, n] : seven(Math.floor(m/10) - 2 * (m % 10), ++n);
+}
+
+
+function seven(m) {
+    var steps = 0;
+    while (m > 99){
+      m = Math.floor(m / 10) - 2 * (m % 10);
+      ++steps;
+    };
+    return [m, steps];
+}
