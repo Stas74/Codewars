@@ -48,10 +48,41 @@ function upArray(arr) {
 console.log(upArray([2, 3, 9])); // [2,4,0]
 console.log(upArray([4, 3, 2, 5])); // [4,3,2,6]
 console.log(upArray([1, -9])); // null
-console.log(
-  upArray([
+console.log(upArray([
     9, 2, 2, 3, 3, 7, 2, 0, 3, 6, 8, 5, 4, 7, 7, 5, 8, 0, 7, 5, 3, 2, 6, 7, 8,
     4, 2, 4, 2, 6, 7, 8, 7, 4, 5, 2, 1,
   ])
 );
 // [9, 2, 2, 3, 3, 7, 2, 0, 3, 6, 8, 5, 4, 7, 7, 5, 8, 0, 7, 5, 3, 2, 6, 7, 8, 4, 2, 4, 2, 6, 7, 8, 7, 4, 5, 2, 2]
+
+
+
+
+const BigNumber = require('bignumber.js');
+
+const upArray = arr =>
+  arr.length === 0 || arr.filter(x => x < 0 || x > 9).length > 0
+    ? null
+    : (new BigNumber(arr.join('')).plus(1))
+        .toPrecision()
+        .split('')
+        .map(Number);
+
+
+function upArray(arr) {
+  if (arr.length == 0 || arr.some(e => e < 0 || e > 9)) return null
+  
+  let i = arr.length - 1
+  
+  while (i >= 0 && arr[i] == 9)
+    arr[i--] = 0
+  
+  if (i < 0)
+    arr.unshift(1)
+  else
+    arr[i]++
+  
+  return arr
+}
+
+
