@@ -17,3 +17,16 @@ function toNumberArray(stringarray){
 }
   
 console.log(toNumberArray(["1.1","2.2","3.3"]))  // [1.1,2.2,3.3]
+
+
+
+
+function toNumberArray(stringarray) {
+  return stringarray.map(parseFloat);
+}
+
+
+function toNumberArray(stringarray) {
+  return stringarray.map(Number);
+}
+
