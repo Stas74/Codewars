@@ -37,3 +37,8 @@ console.log(toCsvText([
   [ -25, 21, 2, -33, 48 ],
   [ 30,31,-32,33,-34 ]
  ] ))  // '-25,21,2,-33,48\n30,31,-32,33,-34'
+
+
+
+
+const toCsvText = array => array.map(row => row.join(',')).join('\n');
