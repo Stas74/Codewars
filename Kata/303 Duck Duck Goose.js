@@ -27,3 +27,9 @@ let ex_names = ["a", "b", "c", "d", "c", "e", "f", "g", "h", "z"];
 console.log(duckDuckGoose(ex_names, 1))  // "a"
 console.log(duckDuckGoose(ex_names, 3))  // "c"
 console.log(duckDuckGoose(ex_names, 18))  // "g"
+
+
+
+function duckDuckGoose(players, goose) {
+  return goose ? players[(goose - 1) % players.length].name : '';
+}
