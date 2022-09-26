@@ -24,3 +24,13 @@ function isDigit(s) {
 
 console.log(isDigit("s2324"))  // false
 console.log(isDigit("-234.4"))  // true
+
+
+
+function isDigit(s) {
+  return parseFloat(s) === Number(s)
+}
+
+
+const isDigit = s => /^-?\d+(\.\d+)?$/.test(s);
+
