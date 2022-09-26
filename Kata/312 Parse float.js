@@ -11,3 +11,11 @@ function parseF(s) {
 
 console.log(parseF("1"))  // 1.0
 console.log(parseF("one"))  // null
+
+
+
+function parseF(s) {
+  return isNaN(parseFloat(s)) ? null : parseFloat(s);
+}
+
+
