@@ -54,3 +54,15 @@ console.log(automorphic(6)); // "Automorphic"
 console.log(automorphic(9)); // "Not!!"
 console.log(automorphic(25)); // "Automorphic"
 console.log(automorphic(53)); // "Not!!"
+
+
+
+
+const automorphic = n => String(n*n).endsWith(String(n)) ? "Automorphic" : "Not!!" ;
+
+
+function automorphic(n){  
+  return Math.pow(n,2).toString().endsWith(n.toString()) ? "Automorphic" : "Not!!" 
+}
+
+const automorphic = n => RegExp(`${n}$`).test(n**2) ? "Automorphic" : "Not!!";
