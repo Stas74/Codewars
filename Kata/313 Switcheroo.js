@@ -22,3 +22,25 @@ function switcheroo(x){
 console.log(switcheroo('abc'))  // "bac"
 console.log(switcheroo('aaabcccbaaa'))  // "bbbacccabbb"
 console.log(switcheroo('ccccc'))  // "ccccc"
+
+
+
+
+const switcheroo = x => x.replace(/[ab]/g, x => x == "a" ? "b" : "a")
+
+const switcheroo = x => x.replace(/[ab]/gi, match => match === 'a' ? 'b' : 'a');
+
+
+function switcheroo(x){
+  return [...x].map(v => v == 'a' ? v = 'b' : v == 'b' ? v = 'a' : v).join('');
+}
+
+function switcheroo(x){
+  return x.split('').map(function(e){
+    if (e =='b')return 'a';
+    if (e == 'a') return 'b';
+    if(e=='c') return 'c'
+  }).join('');
+}
+
+
