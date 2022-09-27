@@ -69,3 +69,42 @@ console.log(balancedNum(959))  // "Balanced"
 console.log(balancedNum(432))  // "Not Balanced"
 console.log(balancedNum(56239814))  // "Balanced"
 console.log(balancedNum(1230987))  // "Not Balanced"
+
+
+
+
+
+function balancedNum(number) {
+
+  let str = `${number}`
+  ,   len = (str.length - (str.length % 2 ? -1 : -2)) / 2
+  ,   sum = digits => [ ...digits ].reduce((a, b) => a + +b, 0);
+
+  return sum(str.slice(0, len)) === sum(str.slice(-len)) 
+  ? 'Balanced' 
+  : 'Not Balanced';
+
+}
+
+
+
+function balancedNum(number){
+    let i, result = 0;
+    number = number + "";
+    for(i = 0; i < number.length / 2 - 1; i++){
+        result += +number[i] - +number[number.length - 1 - i];
+    }
+    return result === 0 ? "Balanced" : "Not Balanced";
+}
+
+
+
+function balancedNum(number){
+    const str = String(number);
+    let leftTotal = 0, rightTotal = 0;
+    for(let i=0; i<(str.length/2)-1 ; i++){
+      leftTotal += Number(str[i]);
+      rightTotal += Number (str[str.length-1-i]);
+    }
+    return leftTotal===rightTotal?'Balanced':'Not Balanced';
+}
