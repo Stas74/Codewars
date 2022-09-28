@@ -63,3 +63,89 @@ function presses(phrase) {
 
 console.log(presses("LOL"))  // 9
 console.log(presses("HOW R U"))  // 13
+
+
+
+
+function presses(phrase) {
+  var chunks = ['1', 'ABC2', 'DEF3', 'GHI4', 'JKL5', 'MNO6', 'PQRS7', 'TUV8', 'WXYZ9', ' 0'],
+      phrase = phrase.toUpperCase().split(''),
+      total = 0;
+  
+  phrase.forEach(function(l) {
+    var key = chunks.filter(function(c) {
+      return c.indexOf(l) > -1;
+    })[0];
+    total += key.indexOf(l) + 1;
+  });
+  
+  return total;      
+}
+
+
+
+function presses(phrase) {
+  var sumpress = 0;
+  for (var i = 0; i < phrase.length; i++)
+  {
+    switch (true)
+    {
+      case (/[1adgjmptw\s]/i.test(phrase[i])):
+        sumpress++;
+        break;
+      case (/[behknqux0]/i.test(phrase[i])):
+        sumpress += 2;
+        break;
+      case (/[cfilorvy]/i.test(phrase[i])):
+        sumpress += 3;
+        break;
+      case (/[sz234568]/i.test(phrase[i])):
+        sumpress += 4;
+        break;
+      case (/[79]/.test(phrase[i])):
+        sumpress += 5;
+        break;
+      default:
+        sumpress++;
+        break;
+    }
+  }
+  return sumpress;
+}
+
+
+
+
+var buttons = {
+    
+  1: ['1'],
+  2: ['A','B','C','2'],
+  3: ['D','E','F','3'],
+  4: ['G','H','I','4'],
+  5: ['J','K','L','5'],
+  6: ['M','N','O','6'],
+  7: ['P','Q','R','S','7'],
+  8: ['T','U','V','8'],
+  9: ['W','X','Y','Z','9'],
+  0: [' ','0'],
+  '*':['*'],
+  '#':['#']
+    
+};
+function presses(phrase) { 
+  return phrase
+    .toUpperCase()
+    .split('')
+    .map( 
+      (elm) => Object
+                .keys(buttons)
+                .map( 
+                  (current) => buttons[current].indexOf(elm) + 1
+                )
+      
+    )
+    .reduce( 
+      (sum,current) => sum + current.reduce( (count,val) => count+val ,0) 
+    ,0);
+      
+}
