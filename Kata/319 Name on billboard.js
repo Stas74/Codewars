@@ -21,3 +21,22 @@ function billboard(name, price = 30){
 
 console.log(billboard("Jeong-Ho Aristotelis"))  // 600
 console.log(billboard("Hadufuns John", 20))  // 260
+
+
+
+
+function billboard(name, price = 30) {
+  return name.split('').reduce((sum, letter) => sum + price, 0); 
+}
+
+
+const billboard = (name, price = 30) =>
+  [...name].reduce(pre => pre + price, 0);
+
+
+const billboard = (name, price = 30) => +(name.length / (1 / price))
+
+
+function billboard(name, price = 30){
+  return name.repeat(price).length;
+} 
