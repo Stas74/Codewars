@@ -41,3 +41,19 @@ function closeCompare(a, b, margin){
 
 console.log(closeCompare(4, 5))  // -1
 console.log(closeCompare(2, 5, 3))  // 0
+
+
+
+
+
+function closeCompare(a, b, margin = 0) {
+  if (a < b - margin) return -1;
+  if (a - margin > b) return 1;
+  return 0;
+}
+
+
+
+function closeCompare(a, b, margin = 0) {
+  return Math.abs(a - b) <= margin ? 0 : a < b ? -1 : 1;
+}
