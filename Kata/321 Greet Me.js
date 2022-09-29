@@ -16,3 +16,19 @@ var greet = function(name) {
 
 
 console.log(greet('riley'))  // 'Hello Riley!'
+
+
+
+
+var greet = function(name) {
+  return "Hello " + name.charAt(0).toUpperCase() + name.slice(1).toLowerCase() + "!";
+};
+
+
+
+greet = n => `Hello ${n[0].toUpperCase()}${n.substr(1).toLowerCase()}!`;
+
+
+var greet = function(name) {
+  return "Hello " + name.charAt(0).toUpperCase() + name.slice(1).toLowerCase() + "!";
+};
