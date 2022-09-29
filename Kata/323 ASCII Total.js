@@ -15,3 +15,7 @@ function uniTotal(string) {
 
 console.log(uniTotal("a")); // 97
 console.log(uniTotal("aaa")); // 291
+
+
+
+const uniTotal = str => [...str].reduce((acc, char) => acc + char.charCodeAt(0), 0);
