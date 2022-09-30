@@ -24,3 +24,11 @@ function toFreud(string) {
 console.log(toFreud(""))  // ""
 console.log(toFreud("test"))  // "sex"
 console.log(toFreud("This is a test"))  // "sex sex sex sex"
+
+
+
+
+function toFreud(string) {
+  return string.replace(/\S+/g, 'sex');
+}
+
