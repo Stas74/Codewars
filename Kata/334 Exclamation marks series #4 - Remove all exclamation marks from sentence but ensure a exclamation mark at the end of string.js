@@ -27,3 +27,9 @@ function remove (string) {
 
 console.log(remove("Hi!"))  // "Hi!"
 console.log(remove("Hi! Hi!"))  // "Hi Hi!"
+
+
+
+const remove = s => s.replace(/!+/g, "")+"!";
+
+const remove = s => s.split("!").join("") + "!";
