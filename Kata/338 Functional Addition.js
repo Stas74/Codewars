@@ -17,3 +17,7 @@ function add(n) {
 }
 
 console.log(add(1)(3)); // 4
+
+
+
+const add = n => (num) => n + num
