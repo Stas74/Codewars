@@ -41,3 +41,23 @@ function decipherThis(str) {
 
 console.log(decipherThis('72olle 103doo 100ya'))  // 'Hello good day'
 console.log(decipherThis("82yade 115te 103o"))  // 'Ready set go'
+
+
+
+
+function decipherThis(str) {
+  return str
+    .split(" ")
+    .map((w) =>
+      w
+        .replace(/^\d+/, (c) => String.fromCharCode(c))
+        .replace(/^(.)(.)(.*)(.)$/, "$1$4$3$2")
+    )
+    .join(" ");
+}
+
+
+const decipherThis = str =>
+  str.replace(/\b(\d+)(\w?)(\w*?)(\w?)\b/g, (_, $1, $2, $3, $4) => String.fromCharCode($1) + $4 + $3 + $2);
+
+
