@@ -29,3 +29,10 @@ function pointsPer48(ppg, mpg) {
 console.log(pointsPer48(12, 20))  // 28.8
 console.log(pointsPer48(10, 10))  // 48.0
 console.log(pointsPer48(0, 0))  // 0
+
+
+
+function pointsPer48(ppg, mpg) {
+  return +(ppg / mpg * 48).toFixed(1) || 0
+}
+
