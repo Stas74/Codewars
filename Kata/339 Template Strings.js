@@ -16,3 +16,10 @@ var TempleStrings = function(obj, feature) {
 }
 
 console.log(TempleStrings("Animals","Good")); // 'Animals are Good'
+
+
+
+
+var TempleStrings = (...s) => `${s[0]} are ${s[1]}`
+
+
