@@ -15,4 +15,15 @@ var Ghost = function() {
   this.color = ["white", "yellow", "purple", "red"][Math.floor(Math.random() * 4)]
 };
 
-console.log()
+
+
+
+class Ghost {
+  constructor() {
+    this.color = [`red`, `yellow`, `purple`, `white`][Math.random() * 4 ^ 0];
+  }
+}
+
+
+
+
