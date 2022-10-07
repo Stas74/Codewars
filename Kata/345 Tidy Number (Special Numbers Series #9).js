@@ -21,3 +21,11 @@ console.log(tidyNumber(12)); // true
 console.log(tidyNumber(102)); // false
 console.log(tidyNumber(2789)); // true
 console.log(tidyNumber(9672)); // false
+
+
+
+
+function tidyNumber(n){
+  return [...n + ''].sort().join('') == n;
+}
+
