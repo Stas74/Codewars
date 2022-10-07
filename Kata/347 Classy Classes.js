@@ -25,15 +25,48 @@ class Person {
 //   }
 
 //   // Getter
-//   get Info() {
+//   get Info() {                     // Capital letter!!!! (((
 //     return this.getInfo();
 //   }
 
 //   // Method
 //   getInfo() {
-//     return `${this.name}s age is ${this.name}`;
+//     return `${this.name}s age is ${this.age}`;
 //   }
 // }
 
 var john = new Person('john', 34)
 console.log() // 'johns age is 34'
+
+
+
+class Person {
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  get info() {
+    return this.getInfo();
+  }
+
+  getInfo() {
+    return `${this.name}s age is ${this.age}`;
+  }
+}
+
+
+
+
+class Person {
+
+  constructor(name, age) {
+    this.name = name;
+    this.age = age;
+  }
+  
+  get info() {
+    return `${this.name}s age is ${this.age}`;
+  }
+  
+}
