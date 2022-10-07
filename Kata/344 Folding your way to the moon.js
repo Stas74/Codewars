@@ -28,3 +28,22 @@ function foldTo(distance) {
 
 console.log(foldTo(384000000)); // 42
 
+
+
+
+const THICKNESS = 0.0001;
+
+function foldTo(distance) {
+  if (distance < 0) { return null; }
+  if (distance < THICKNESS) { return 0; }
+  return Math.ceil(Math.log2(distance/THICKNESS));
+}
+
+
+function foldTo(distance) {
+  if(distance <= 0) return null;
+  let folds = 0;
+  for(var i = 0.0001; i < distance; i+= i) folds++;
+  return folds;
+}
+
