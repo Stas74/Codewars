@@ -65,3 +65,34 @@ console.log(grabDoll(["Mickey Mouse","Hello Kitty","Snow white"])); // ["Hello K
 console.log(grabDoll(["Mickey Mouse","Hello Kitty","Hello Kitty","Snow white"])); // ["Hello Kitty","Hello Kitty"]
 console.log(grabDoll(["Mickey Mouse","Barbie doll","Hello Kitty","Hello Kitty","Hello Kitty","Snow white"])); 
   // ["Barbie doll","Hello Kitty","Hello Kitty"]
+
+
+
+
+function grabDoll(dolls){
+  var bag=[];
+  
+  for(var i = 0; i < dolls.length; i++) {
+  
+    if(dolls[i] === "Hello Kitty" || dolls[i] === "Barbie doll")
+      bag.push(dolls[i]);
+    else
+      continue;
+      
+    if(bag.length === 3) break;
+  }
+  
+  return bag;
+}
+
+
+
+function grabDoll(dolls){
+  var bag=[], doll;
+  for( doll of dolls ){
+    if( doll == "Hello Kitty" || doll == "Barbie doll" ) bag.push(doll)
+    else continue
+    if( bag.length > 2 ) break
+  }
+  return bag;
+}
