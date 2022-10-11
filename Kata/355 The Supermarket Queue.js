@@ -61,3 +61,29 @@ console.log(queueTime([], 1)); // 0
 console.log(queueTime([1, 2, 3, 4], 1)); // 10
 console.log(queueTime([2, 2, 3, 3, 4, 4], 2)); // 9
 console.log(queueTime([1, 2, 3, 4, 5], 100)); // 5
+
+
+
+
+function queueTime(customers, n) {
+  var w = new Array(n).fill(0);
+  for (let t of customers) {
+    let idx = w.indexOf(Math.min(...w));
+    w[idx] += t;
+  }
+  return Math.max(...w);
+}
+
+
+
+function queueTime(customers, n) {
+  let tills = Array(n).fill(0);
+  
+  customers.forEach((customer) => {
+    let nextTill = tills.indexOf(Math.min(...tills))
+    tills[nextTill] += customer;
+  });
+
+  return Math.max(...tills);
+}
+
