@@ -16,3 +16,12 @@ function distanceBetweenPoints(a, b) {
 
 console.log(distanceBetweenPoints(new Point(3, 3), new Point(3, 3))); // 0
 console.log(distanceBetweenPoints(new Point(1, 6), new Point(4, 2))); // 5
+
+
+
+
+function distanceBetweenPoints(a, b) {
+  return Math.sqrt(Math.pow(a.x - b.x, 2) + Math.pow(a.y - b.y, 2));
+}
+
+
