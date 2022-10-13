@@ -19,3 +19,11 @@ function solve(arr) {
 
 console.log(solve([3,4,4,3,6,3])); // [4,6,3]
 console.log(solve([1,1,4,5,1,2,1])); // [4,5,2,1]
+
+
+
+
+function solve(arr){
+    return arr.filter((val,i) => arr.lastIndexOf(val) == i);
+}
+
