@@ -22,3 +22,19 @@ function contamination(text, char){
 
 console.log(contamination("abc","z")) // "zzz"
 console.log(contamination("abc"," ")) // "   "
+
+
+function contamination(text, char){
+  return char.repeat(text.length)
+}
+
+
+function contamination(text, char){
+  return text.replace(/./g, char);
+}
+
+
+
+function contamination(text, char) {
+  return text.split("").fill(char).join("");
+}
