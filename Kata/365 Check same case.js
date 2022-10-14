@@ -24,3 +24,24 @@ const sameCase = (a, b) =>{
 
 console.log(sameCase('C', 'B')) // 1
 console.log(sameCase('b', 'Z')) // 0
+
+
+
+
+function sameCase(a, b){
+ if(a.toUpperCase() === a.toLowerCase() || b.toLowerCase() === b.toUpperCase()){
+    return -1
+  }else if(a === a.toLowerCase() && b === b.toLowerCase() || a === a.toUpperCase() && b === b.toUpperCase()){
+      return 1
+  }else{
+    return 0
+  }
+}
+
+
+function sameCase(a, b){
+  if (/[a-zA-Z]/.test(a) === false || /[a-zA-Z]/.test(b) === false) return -1;
+  if (a === a.toUpperCase() && b !== b.toUpperCase()) return 0;
+  if (a !== a.toUpperCase() && b === b.toUpperCase()) return 0;
+  return 1;
+}
