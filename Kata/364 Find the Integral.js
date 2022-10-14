@@ -26,3 +26,14 @@ function integrate(coefficient, exponent) {
 
 console.log(integrate(3,2)) // "1x^3"
 console.log(integrate(12,5)) // "2x^6"
+
+
+
+integrate = (c, e) => `${c / (e += 1)}x^${e}`;
+
+function integrate(coeff, exp) {
+  return (coeff / (++exp)) + 'x^' + exp;
+}
+
+
+
