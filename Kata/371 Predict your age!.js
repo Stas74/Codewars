@@ -23,3 +23,12 @@ function predictAge(...ages) {
 
 console.log(predictAge(65,60,75,55,60,63,64,45)); // 86
 
+
+
+function predictAge(age1,age2,age3,age4,age5,age6,age7,age8){
+  let arr = [age1, age2, age3, age4, age5, age6, age7, age8]
+  return Math.floor(Math.sqrt(arr.map(a => a * a).reduce((b,c) => b + c)) / 2)
+}
+
+
+const predictAge = (...ages) => Math.hypot(...ages) / 2 | 0;
