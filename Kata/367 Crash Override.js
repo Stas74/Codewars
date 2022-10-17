@@ -46,3 +46,20 @@ const aliasGen = (fName, sName) =>
 console.log(aliasGen("Aike", "billington")) //  "Malware Mike"
 console.log(aliasGen("Fahima", "Tash")) // "Function T-Rex"
 console.log(aliasGen("7393424", "Anumbha")) // "Your name must start with a letter from A - Z."
+
+
+
+
+const initialCap = (str) => str[0].toUpperCase();
+const isValidName = (name) => /^[a-z]/i.test(name);
+const aliasGen = (fName, lName) => {
+  return (isValidName(fName) && isValidName(lName))
+    ? `${ firstName[initialCap(fName)] } ${ surname[initialCap(lName)] }`
+    : 'Your name must start with a letter from A - Z.';
+}
+
+
+function aliasGen(a, b) {
+  return /^[a-z]/i.test(a) && /^[a-z]/i.test(b) ? `${firstName[a[0].toUpperCase()]} ${surname[b[0].toUpperCase()]}` 
+  : "Your name must start with a letter from A - Z.";  
+}
