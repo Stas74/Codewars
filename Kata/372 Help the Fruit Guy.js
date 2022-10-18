@@ -23,3 +23,12 @@ console.log(removeRotten(["apple", "banana", "kiwi", "melone", "orange"])); // [
 console.log(removeRotten([])); // []
 console.log(removeRotten(null)); // []
 console.log(removeRotten(["apple", "rottenBanana", "apple"])); // ["apple","banana","apple"]
+
+
+
+function removeRotten(arr){
+    return arr ? arr.map(x=>x.replace('rotten', '').toLowerCase()) : [] ;
+}
+
+
+removeRotten = a => a == null ? [] : a.map(e => e.replace('rotten', '').toLowerCase());
