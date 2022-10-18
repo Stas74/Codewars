@@ -14,3 +14,14 @@ function digits(n) {
 
 console.log(digits(5)) //  1
 console.log(digits(9876543210)) //  10
+
+
+
+function digits(n) {
+  return String(n).length
+}
+
+
+function digits(n) {
+  return `${n}`.length;
+}
