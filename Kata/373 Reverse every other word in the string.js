@@ -12,3 +12,20 @@ function reverse(str){
 
 console.log(reverse("Reverse this string, please!")) //  "Reverse siht string, !esaelp"
 console.log(reverse("I really don't like reversing strings!")) //  "I yllaer don't ekil reversing !sgnirts"
+
+
+
+function reverse(string) {
+  return string
+    .split` `
+    .map((w, i) => i & 1 ? [...w].reverse().join`` : w)
+    .join` `
+    .trim();
+}
+
+
+function reverse(str){
+  return str.split(` `).map((it, index) => {
+    return index%2 !== 0 ? it.split(``).reverse().join(``) : it
+  }).join(` `).trim();
+}
