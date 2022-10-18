@@ -29,3 +29,10 @@ const incrementer = (nums) => nums.map((el, index) => +String(el + index + 1).sl
 console.log(incrementer([1, 2, 3])); //  [2, 4, 6]
 console.log(incrementer([4, 6, 7, 1, 3])); //  [5, 8, 0, 5, 8]
 console.log(incrementer([1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 9, 9, 9, 8])); //  [2, 4, 6, 8, 0, 2, 4, 6, 8, 9, 0, 1, 2, 2]
+
+
+
+function incrementer(num) { 
+  return num.map((a,i) => (a+i+1)%10);
+}
+
