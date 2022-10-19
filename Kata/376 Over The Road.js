@@ -38,3 +38,10 @@ function overTheRoad(address, n){
 
 console.log(overTheRoad(1,3)) // 6
 console.log(overTheRoad(3,3)) // 4
+
+
+
+
+function overTheRoad(address, n){
+  return (n * 2 + 1) - address;
+}
