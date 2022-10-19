@@ -19,7 +19,16 @@ function numberToPower(number, power){
   return total
 }
 
-
-
 console.log(numberToPower(4, 2)); // 16
 console.log(numberToPower(10, 4)); // 10000
+
+
+
+
+const numberToPower = (number,power) => power > 0 ? number * numberToPower(number,power-1) : 1;
+
+
+function numberToPower(number, power){
+  return Array(power).fill(number).reduce((res, n) => res * n, 1);
+}
+
