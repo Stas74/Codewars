@@ -30,3 +30,21 @@ console.log(calculate(3.2, "+", 8)); // 11.2
 console.log(calculate(3.2, "-", 8)); // -4.8
 console.log(calculate(-3, "/", 0)); // null
 console.log(calculate(-3, "w", 0)); // null
+
+
+
+const calculate = (a, o, b) => /[^-+/*]/.test(o) || !b && o == '/' ? null : eval(a + o + b) || 0;
+
+
+
+
+
+function calculate(num1, operation, num2) {
+  var ops = {
+    '+': function(x, y) { return x + y; },
+    '-': function(x, y) { return x - y; },
+    '*': function(x, y) { return x * y; },
+    '/': function(x, y) { return y === 0 ? null : x / y; }
+  };
+  return (ops[operation] || function() { return null; })(num1, num2);
+}
