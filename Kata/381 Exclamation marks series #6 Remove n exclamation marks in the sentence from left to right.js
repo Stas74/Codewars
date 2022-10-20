@@ -23,3 +23,24 @@ function remove(s, n) {
 
 console.log(remove("Hi!", 1)); // "Hi"
 console.log(remove("Hi!!!", 1)); // "Hi!!"
+
+
+
+function remove(s,n){
+  while(n) {
+    s = s.replace("!", "");
+    n--;
+  }
+  return s;
+}
+
+
+function remove(s, n) {
+  return s.replace(/!/g, c => n-- > 0 ? "" : c)
+}
+
+
+function remove(s,n){
+  for (var i = 0; i < n; i++) s=s.replace("!","");
+  return s;
+}
