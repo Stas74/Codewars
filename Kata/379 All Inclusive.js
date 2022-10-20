@@ -46,3 +46,15 @@ console.log(
     "ABhRXjY",
   ])
 ); // false
+
+
+
+function containAllRots(strng, arr) {
+    return [...strng].map((_,i) => strng.substr(i)+strng.slice(0,i)).every(x => arr.includes(x));
+}
+
+
+
+containAllRots = (s, a) => Array.from(s).map((e, i) => s.slice(i) + s.slice(0, i)).every(e => a.includes(e));
+
+
