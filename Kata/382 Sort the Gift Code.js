@@ -25,3 +25,12 @@ function sortGiftCode(code){
 
 console.log(sortGiftCode('abcdef')); // 'abcdef'
 console.log(sortGiftCode('pqksuvy')); // 'kpqsuvy'
+
+
+
+function sortGiftCode(code){
+  return code.split('').sort().toString().replace(/,/g,''); 
+}
+
+
+const sortGiftCode = code => "abcdefghijklmnopqrstuvwxyz".split("").filter(letter => code.includes(letter)).join("")
