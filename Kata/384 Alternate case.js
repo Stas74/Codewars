@@ -11,3 +11,14 @@ function alternateCase(s) {
 
 console.log(alternateCase("abc")); // "ABC"
 console.log(alternateCase("Hello World")); // "hELLO wORLD"
+
+
+
+
+const alternateCase = s =>
+  s.replace(/\w/g, val => val[`to${val < `a` ? `Low` : `Upp`}erCase`]());
+
+
+function alternateCase(s) {
+  return s.replace(/([a-z])|[A-Z]/g,(a,b)=>b?a.toUpperCase():a.toLowerCase());
+}
