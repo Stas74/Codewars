@@ -42,3 +42,19 @@ function logicalCalc(array, op){
 
 console.log(logicalCalc([true, true, true, false], "AND")); // false
 console.log(logicalCalc([true, true, true, false], "OR")); // true
+
+
+
+
+function logicalCalc(array, op) {
+  return eval(array.map(x => +x).join({AND: "&", OR: "|", XOR: "^"}[op])) !== 0
+}
+
+
+const logicalCalc = (array, op) => {
+  return array.reduce((acc, cur) => {
+    if (op === 'AND') return acc && cur;
+    if (op === 'OR') return acc || cur;
+    if (op === 'XOR') return acc != cur;
+  });
+};
