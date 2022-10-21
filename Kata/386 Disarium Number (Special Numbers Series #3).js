@@ -33,3 +33,14 @@ console.log(disariumNumber(89)); // "Disarium !!"
 console.log(disariumNumber(564)); // "Not !!"
 console.log(disariumNumber(1024)); // "Not !!"
 console.log(disariumNumber(135)); // "Disarium !!"
+
+
+
+
+const disariumNumber = n => `${n === n
+  .toString()
+  .split``
+  .reduce((r, e, i) => r + e ** (i + 1), 0) ?
+  'Disarium' : 
+  'Not'} !!`;
+
