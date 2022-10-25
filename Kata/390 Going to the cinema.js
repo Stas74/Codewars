@@ -42,3 +42,15 @@ function movie(card, ticket, perc) {
 
 console.log(movie(500, 15, 0.9)); // 43
 console.log(movie(100, 10, 0.95)); // 24
+
+
+
+
+const movie = (card, ticket, perc) => {
+  let cnt = 0;
+  while (ticket * cnt <= Math.ceil(card)) {
+    cnt++;
+    card += ticket * perc ** cnt;
+  }
+  return cnt;
+}
