@@ -18,3 +18,14 @@ function generateShape(integer) {
 }
 
 console.log(generateShape(8)); // '++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++\n++++++++'
+
+
+
+
+function generateShape(n){
+  return ("+".repeat(n)+"\n").repeat(n).trim()
+}
+
+
+
+let generateShape = int => [...Array(int)].map(_ => "+".repeat(int)).join("\n")
