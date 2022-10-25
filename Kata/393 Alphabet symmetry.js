@@ -36,3 +36,25 @@ function solve(arr) {
 
 console.log(solve(["abode", "ABc", "xyzD"])); // [4,3,1]
 console.log(solve(["abide", "ABc", "xyz"])); // [4,3,0]
+
+
+
+
+function solve(arr){  
+  var alphabeth = "abcdefghijklmnopqrstuvwxyz";
+  return arr.map(x => x.toLowerCase().split('').filter((y,i) => i == alphabeth.indexOf(y)).length);
+};
+
+
+
+function solve(arr) {  
+  return arr.map(x => [...x.toLowerCase()].reduce((s,v,i) => s + (v.charCodeAt() == i + 97), 0))
+}
+
+
+
+// map&map&reduce
+function solve(arr, abc = 'abcdefghijklmnopqrstuvwxyz'){
+  arr = arr.map(el => el.toLowerCase());
+  return arr.map(el => [...el].map((e, i)=> e === abc[i] ? 1 : 0).reduce((a, b) => a+b, 0))
+};
