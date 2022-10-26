@@ -19,3 +19,8 @@ function jumpingNumber(n) {
 
 console.log(jumpingNumber(8987)); // "Jumping!!"
 console.log(jumpingNumber(8981)); // "Not!!"
+
+
+
+const jumpingNumber = n => n.toString().split``.every((e, i, a) => i < 1 || Math.abs(e - a[i - 1]) === 1) ? 'Jumping!!' : 'Not!!';
+
