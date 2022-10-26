@@ -18,3 +18,13 @@ function catMouse(x){
 console.log(catMouse('C....m')); // "Escaped!"
 console.log(catMouse('C..m')); // "Caught!"
 console.log(catMouse('C.....m')); // "Escaped!"
+
+
+
+
+function catMouse(x) {
+  return x.length <= 5 ? 'Caught!' : 'Escaped!';
+}
+
+
+
