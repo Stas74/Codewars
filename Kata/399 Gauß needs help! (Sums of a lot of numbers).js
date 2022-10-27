@@ -30,3 +30,21 @@ function f(n) {
 console.log(f(100)); // 5050
 console.log(f(300)); // 45150
 console.log(f("n")); // false
+
+
+
+
+function f(n){
+  return (parseInt(n) === n && n > 0) ? n * (n+1) / 2 : false;
+};
+
+
+
+function f(n){
+  /* This problem can be solved using the summation function in math "n * (n + 1) / 2"
+   * Number must be greater than 0 and NOT a decimal hence n % 1 must equal to 0
+   * Wrapped up in a beautiful ternary expression you get:
+   */
+    
+  return (n % 1 !== 0 || n <= 0)? false : (((n + 1) * n) / 2) ;
+};
