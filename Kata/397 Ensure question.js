@@ -17,3 +17,23 @@ function ensureQuestion(s) {
 console.log(ensureQuestion('')); // "?"
 console.log(ensureQuestion("Yes")); // "Yes?"
 console.log(ensureQuestion("No?")); // "No?"
+
+
+
+const ensureQuestion = s => s.endsWith('?') ? s : s + '?'
+
+
+
+function ensureQuestion(s) {
+  return s.includes('?') ? s : `${s}?`;
+}
+
+
+function ensureQuestion(s) {
+  return s.split('?').join('').concat('?')
+}
+
+
+function ensureQuestion(s) {
+    return s[s.length-1] === '?' ? s : `${s}?`
+}
