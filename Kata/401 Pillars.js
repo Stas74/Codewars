@@ -19,3 +19,13 @@ function pillars(numPill, dist, width) {
 console.log(pillars(1, 10, 10)); // 0
 console.log(pillars(2, 20, 25)); // 2000
 console.log(pillars(11, 15, 30)); // 15270
+
+
+
+
+function pillars(num_pill, dist, width) {
+  return num_pill <= 1 ? 0 : (num_pill - 1) * dist * 100 + (num_pill - 2) * width;
+}
+
+
+const pillars = (n, d, w) => Math.max(0, n - 1) * (d * 100) + Math.max(0, n - 2) * w; 
