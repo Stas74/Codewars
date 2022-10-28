@@ -14,3 +14,18 @@ function sevenAte9(str) {
 console.log(sevenAte9('797')); // "77"
 console.log(sevenAte9('7979797')); // "7777"
 console.log(sevenAte9('165561786121789797')); // "16556178612178977"
+
+
+
+function sevenAte9(str){
+  return str.replace(/79(?=7)/g, '7');
+}
+
+
+function sevenAte9(str){
+  str =  str.replace(/797/g, "77");
+  return str;
+}
+
+
+const sevenAte9 = $ => { while($.includes('797')){$ = $.replace('797', '77')} return $}
