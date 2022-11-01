@@ -123,3 +123,11 @@ function cutIt(arr){
 console.log(cutIt(["ab","cde","fgh"])); // ["ab","cd","fg"]
 console.log(cutIt(["abc","defgh","ijklmn"])); // ["abc","def","ijk"]
 console.log(cutIt(["codewars","javascript","java"])); // ["code","java","java"]
+
+
+
+
+const cutIt = arr =>
+  arr.map(val => val.slice(0, Math.min(...arr.map(val => val.length))));
+
+
