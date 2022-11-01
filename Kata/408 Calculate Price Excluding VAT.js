@@ -22,3 +22,13 @@ function excludingVatPrice(price) {
 
 console.log(excludingVatPrice(230)); // 200.00
 console.log(excludingVatPrice(123)); // 106.96
+
+
+
+
+excludingVatPrice = p => p === null ? -1 : +(p / 1.15).toFixed(2);
+
+
+function excludingVatPrice(price) {
+  return (price == null) ? -1 : Math.round((price / 1.15) * 100) / 100;
+}
