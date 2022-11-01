@@ -22,3 +22,15 @@ function discoverOriginalPrice(discountedPrice, salePercentage) {
 console.log(discoverOriginalPrice(75, 25)); // 100
 console.log(discoverOriginalPrice(25, 75)); // 100
 console.log(discoverOriginalPrice(75.75, 25)); // 101
+
+
+
+
+function discoverOriginalPrice(discountedPrice, salePercentage){
+  return Math.round(discountedPrice / (1 - salePercentage / 100) * 100) / 100;
+}
+
+
+function discoverOriginalPrice(discountedPrice, salePercentage){
+  return +(discountedPrice / (1 - salePercentage / 100)).toFixed(2);
+}
