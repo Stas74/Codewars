@@ -27,3 +27,16 @@ console.log(yearDays(-64)); // '-64 has 366 days'
 console.log(yearDays(800)); // '800 has 366 days'
 console.log(yearDays(700)); // '700 has 365 days'
 console.log(yearDays(1974)); // '1974 has 365 days'
+
+
+
+
+function yearDays(year) {
+  return year + ' has ' + (!(year % 100) && year % 400 || year % 4 ? '365' : '366') + ' days';
+}
+
+
+function yearDays(year)
+{
+  return `${year} has ${(year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) ? 366 : 365} days`;
+}
