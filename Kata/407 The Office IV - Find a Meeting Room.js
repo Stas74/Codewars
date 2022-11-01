@@ -20,3 +20,16 @@ function meeting(x) {
 console.log(meeting(["X", "O", "X"])); // 1
 console.log(meeting(["O", "X", "X", "X", "X"])); // 0
 console.log(meeting(["X", "X", "X", "X", "X"])); // 'None available!'
+
+
+
+
+meeting = x => (x = x.join('').indexOf('O')) > -1 ? x : 'None available!'
+
+
+const meeting = x =>
+  !x.includes(`O`) ? `None available!` : x.indexOf(`O`);
+
+function meeting(x){
+  return x.indexOf("O") != -1 ? x.indexOf("O") : "None available!";
+}
