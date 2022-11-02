@@ -26,3 +26,25 @@ function solve(a, b) {
 console.log(solve("xyab", "xzca")); // "ybzc"
 console.log(solve("xyabb","xzca")); // "ybbzc"
 console.log(solve("xxx","xzca")); // "zca"
+
+
+
+
+function solve(a,b){
+ return (a+b).split("").filter(c => !a.includes(c) || !b.includes(c)).join("");
+};
+
+
+function solve(a,b,c =''){
+  c = [...a].filter(e => !b.includes(e)).join('')
+  b = [...b].filter(e => !a.includes(e)).join('')
+  return c + b
+};
+
+
+
+function solve(a,b) {
+  let setA = new Set(a);
+  let setB = new Set(b);
+  return [...(a+b)].filter(c => setA.has(c) ^ setB.has(c)).join("");
+};
