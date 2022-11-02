@@ -14,3 +14,18 @@ function add(a, b){
 
 console.log(add('1', 1)); // true
 console.log(add('1', 0)); // false
+
+
+
+
+add = (a, b) => +a - +b == 0;
+
+
+function add(a, b){
+  return +a == +b;
+}
+
+
+function add(a, b){
+  return (`${a}`)==(`${b}`);
+}
