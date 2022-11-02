@@ -29,3 +29,27 @@ console.log(duplicateCount("abcde")); // 0
 console.log(duplicateCount("aabbcde")); // 2
 console.log(duplicateCount("aabBcde")); // 2 "should ignore case"
 console.log(duplicateCount("Indivisibilities")); // 2 "characters may not be adjacent"
+
+
+
+
+function duplicateCount(text){
+  return (text.toLowerCase().split('').sort().join('').match(/([^])\1+/g) || []).length;
+}
+
+
+
+function duplicateCount(text){
+  var lower = text.toLowerCase();
+  var count = 0;
+  var used = [];
+  
+  lower.split('').forEach(function(letter) {
+    if (!used.includes(letter) && (lower.split(letter).length - 1) > 1) {
+      count++;
+      used.push(letter);
+    }
+  });
+  
+  return count;
+}
