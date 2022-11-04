@@ -22,3 +22,19 @@ function sumCubes(n) {
 
 console.log(sumCubes(2)); // 9
 console.log(sumCubes(3)); // 36
+
+
+
+const sumCubes = n => [...Array(n + 1).keys()].reduce((r, i) => r + i ** 3);
+
+
+const sumCubes = (n, total = 0, i = 1) => i > n ? total : sumCubes(n, total += Math.pow(i, 3), ++i)
+
+
+function sumCubes(n){
+  if (n == 1) {
+    return n ** 3;
+  } else {
+    return n ** 3 + sumCubes(n - 1);
+  }
+}
