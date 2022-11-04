@@ -29,3 +29,24 @@ function sortMyString(S) {
 
 console.log(sortMyString("CodeWars")); // "CdWr oeas"
 console.log(sortMyString("YCOLUE'VREER")); // "YOU'RE CLEVER"
+
+
+
+
+
+const sortMyString = s => {
+    let even = s.split('').filter((v, i) => i % 2 === 0).join('')
+    let odd = s.split('').filter((v, i) => i % 2 !== 0).join('')
+    return even + ' ' + odd
+}
+
+
+const sortMyString = s => s.replace(/(.)./g, '$1') + ' ' + s.replace(/.(.)?/g, '$1')
+
+
+function sortMyString(s) {
+  return [...s].reduce(function(a, c, i) {
+    a[i&1] += c;
+    return a;
+  }, ['','']).join(' ');
+}
