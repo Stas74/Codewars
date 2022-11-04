@@ -25,3 +25,21 @@ function differenceOfSquares(n){
 
 console.log(differenceOfSquares(10)); // 2640
 console.log(differenceOfSquares(5)); // 170
+
+
+
+
+
+function differenceOfSquares(x){
+  var sum = 0, squareSum = 0, i;
+  for (i =1 ; i <= x; i++) {
+    sum += i * i;
+    squareSum += i;
+  }
+  return squareSum * squareSum - sum;
+}
+
+
+
+differenceOfSquares=x=>x * (x * x - 1) * (3 * x + 2) / 12
+
