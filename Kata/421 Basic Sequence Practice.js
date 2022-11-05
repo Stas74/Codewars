@@ -31,3 +31,32 @@ function sumOfN(n) {
 
 console.log(sumOfN(3)); // [0, 1, 3, 6]
 console.log(sumOfN(-4)); // [0, -1, -3, -6, -10]
+
+
+
+function sumOfN(n) {
+  var array = [];
+  array[0] = 0;
+  for (var i = 1; i < Math.abs(n)+1; i++) {
+    if (n > 0) array[i] = array[i-1]+i;
+    else array[i] = array[i-1]-i;
+  }
+  return array;
+};
+
+
+
+function sumOfN(n) {
+  let sign = n < 0 ? -1 : 1;
+  return Array.apply(null, Array(Math.abs(n))).reduce((acc, c, i) => { acc.push(acc[i] + (i + 1) * sign); return acc}, [0]);
+};
+
+
+
+function sumOfN(n) {
+  for (var i = 0, list = []; i <= Math.abs(n); i++) {
+    list.push((list[i - 1] || 0) + i * (n < 0 ? -1 : 1))
+  }
+  
+  return list
+}
