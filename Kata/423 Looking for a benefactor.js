@@ -52,3 +52,28 @@ function newAvg(arr, newavg) {
 console.log(newAvg([14, 30, 5, 7, 9, 11, 16], 90)); // 628
 console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 92)); // 645
 console.log(newAvg([14, 30, 5, 7, 9, 11, 15], 2)); // "Expected New Average is too low"
+
+
+
+
+
+function newAvg(arr, newavg) {
+  let out = 0;
+  if ( arr.length !== 0 ){
+    let temp = newavg * (arr.length + 1) - arr.reduce((a, b) => a + b, 0)
+    out = Math.ceil(temp)
+  } else {
+    out = newavg
+  }
+  return out <= 0 ? error : out;
+}
+
+
+
+function newAvg(arr, newavg) {
+    var sm = arr === [] ? 0 : arr.reduce(function(a, b) { return a + b; }, 0);
+    var add = (arr.length + 1) * newavg - sm;
+    if (add > 0)
+        return Math.ceil(add);
+    throw new RangeError("Expected New Average is too low"); 
+}
