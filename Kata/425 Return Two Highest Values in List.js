@@ -20,3 +20,12 @@ function twoHighest(arr) {
 console.log(twoHighest([15, 20, 20, 17])); // [20, 17]
 console.log(twoHighest([])); // []
 console.log(twoHighest([15])); // [15]
+
+
+
+const twoHighest = a => a
+  .filter((e, i) => i === a.lastIndexOf(e))
+  .sort((x, y) => y - x)
+  .slice(0, 2);
+
+
