@@ -29,3 +29,29 @@ function vowelIndices(word) {
 
 console.log(vowelIndices("mmm")); // []
 console.log(vowelIndices("apple")); // [1, 5]
+
+
+
+
+function vowelIndices(word,a=[]){
+  return (word.replace(/[aeiouy]/gi,(m,i)=>(a.push(i+1),m)),a)
+}
+
+
+
+const vowelIndices = (word) => [...word].map((el, i) => el.match(/[aeiouy]/ig) ? i+1 : '').filter(el => el)
+
+
+
+
+
+function vowelIndices(word){
+  vowels = ['a', 'e', 'i', 'o', 'u', 'y', 'A', 'E', 'I', 'O', 'U', 'Y'];
+  result = []
+  for (var i = 0; i < word.length; i++) {
+    if (vowels.indexOf(word[i]) != -1) {
+      result.push(i + 1);
+    }
+  }
+  return result;
+}
