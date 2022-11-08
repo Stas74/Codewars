@@ -23,3 +23,16 @@ function lostSheep(friday, saturday, total) {
 
 console.log(lostSheep([1, 2], [3, 4], 15)); // 5
 console.log(lostSheep([3, 1, 2], [4, 5], 21)); // 6
+
+
+
+
+function lostSheep(friday,saturday,total){
+  return friday.concat(saturday).reduce((s, l) => s - l, total)
+}
+
+
+const lostSheep = (friday, saturday, total) =>
+  [...friday, ...saturday].reduce((acc, n) => acc - n, total);
+
+
