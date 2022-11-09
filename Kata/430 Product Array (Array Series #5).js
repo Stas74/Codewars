@@ -53,3 +53,10 @@ function productArray(numbers) {
 
 console.log(productArray([3, 27, 4, 2])); // [216,24,162,324]
 console.log(productArray([13, 10, 5, 2, 9])); // [900,1170,2340,5850,1300]
+
+
+
+
+function productArray(numbers){
+  return numbers.map(x => numbers.reduce((a,b) => a * b) / x)
+}
