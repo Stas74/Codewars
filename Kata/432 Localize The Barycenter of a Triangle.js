@@ -29,3 +29,13 @@ function barTriang(p1, p2, p3){
 
 
 console.log(barTriang([4, 6], [12, 4], [10, 10])); // [8.6667, 6.6667]
+
+
+
+const barTriang = ([xA, yA], [xB, yB], [xC, yC]) => [Math.round((xA + xB + xC) / .0003) / 10000, Math.round((yA + yB + yC) / .0003) / 10000];
+
+
+function barTriang([xA, yA], [xB, yB], [xC, yC]){
+  return [[xA, xB, xC], [yA, yB, yC]].map(a => +(a.reduce((s, n) => s + n, 0) / 3).toFixed(4));
+}
+
