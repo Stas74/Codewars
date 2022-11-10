@@ -31,3 +31,8 @@ function quadratic(x1, x2) {
 console.log(quadratic(0, 1)); // [1, -1,   0]
 console.log(quadratic(1, 1)); // [1, -2,   1]
 console.log(quadratic(-5, -4)); // [1,  9,  20]
+
+
+
+// quadratic equation
+var quadratic = (x1, x2) => [1, (x1 + x2)* -1, x1 * x2]
