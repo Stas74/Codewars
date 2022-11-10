@@ -38,3 +38,37 @@ console.log(strong(145)); // "STRONG!!!!"
 console.log(strong(7)); // "Not Strong !!"
 console.log(strong(93)); // "Not Strong !!"
 console.log(strong(104)); // "Not Strong !!"
+
+
+
+
+
+function strong(n) {
+  let arr = String(n).split("");
+  
+  let sum = 0;
+  
+  function factorial(fnNum){
+    if(fnNum <= 1){
+      return 1;
+    }else{
+      return fnNum * factorial(fnNum - 1);
+    }
+  }
+  
+  for(let i = 0; i < arr.length; i++){
+    sum += factorial(arr[i]);
+  }
+  
+  return n == sum ? "STRONG!!!!" : "Not Strong !!"; 
+}
+
+
+const strong = n =>
+  [...`${n}`].reduce((pre, val) => pre + [...Array(+val)].reduce((factorial, _, idx) => factorial * ++idx, 1), 0) === n ? `STRONG!!!!` : `Not Strong !!`;
+
+
+
+function strong(n) {
+  return [1,2,145,40585].includes(n)?'STRONG!!!!':'Not Strong !!';
+}
