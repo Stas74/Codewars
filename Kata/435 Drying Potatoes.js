@@ -35,3 +35,15 @@ function potatoes(p0, w0, p1) {
 
 console.log(potatoes(82, 127, 80)); // 114
 console.log(potatoes(93, 129, 91)); // 100
+
+
+  //DO THE MATH FIRST
+  //
+  //50 = 100-99+49
+  //w1 = w0 - w0*p0 + w1*p1
+  //
+  // =>
+  //
+  //w1 - w1*p1 = w0 - w0*p0
+  //w1*(1 -p1) = w0 - w0*p0
+  //w1 = (w0 - w0*p0) / (1 - p1)
