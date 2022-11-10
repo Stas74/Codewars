@@ -16,3 +16,10 @@ function solution(value){
 console.log(solution(5)); // "Value is 00005"
 console.log(solution(1204)); // "Value is 01204"
 console.log(solution(0)); // "Value is 00000"
+
+
+
+function solution(value){
+  return "Value is " + ("00000" + value).slice(-5);
+}
+
