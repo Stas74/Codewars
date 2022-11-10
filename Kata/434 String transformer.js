@@ -18,3 +18,31 @@ function stringTransformer(str) {
 }
 
 console.log(stringTransformer('Example string')); // 'STRING eXAMPLE'
+
+
+
+
+function stringTransformer(str) {
+  return str
+    .split(' ')
+    .reverse()
+    .join(' ')
+    .split('')
+    .map(v => v == v.toUpperCase() ?
+      v.toLowerCase() :
+      v.toUpperCase())
+    .join('');
+}
+
+
+
+const stringTransformer = s => s.split(' ').reverse().join(' ').split('').map(invertCase).join('');
+const invertCase = c => /[a-z]/.test(c) ? c.toUpperCase() : c.toLowerCase();
+
+
+
+function stringTransformer(s) {
+  return s.replace(/./g,m=>m.toUpperCase()==m?m.toLowerCase():m.toUpperCase()).split(' ').reverse().join(' ')
+}
+
+
