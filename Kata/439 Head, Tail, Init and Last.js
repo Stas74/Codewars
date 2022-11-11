@@ -52,3 +52,29 @@ console.log(head([5, 1])); // 5
 console.log(tail([1])); // []
 console.log(init([1, 5, 7, 9])); // [1,5,7]
 console.log(last([7, 2])); // 2
+
+
+
+
+function head(a) {return a[0]}
+
+function last(a) {return a[a.length - 1]}
+
+function init(a) {return a.slice(0, -1)}
+
+function tail(a) {return a.slice(1)}
+
+
+
+var head = (arr) => arr[0];
+var tail = (arr) => arr.slice(1);
+var init = (arr) => arr.slice(0, arr.length-1);
+var last = (arr) => arr[arr.length-1];
+
+
+
+
+const head = ([head, ...tail]) => head;
+const tail = ([head, ...tail]) => tail;
+const init = (arr) => arr.slice(0, -1);
+const last = (arr) => arr.slice(-1)[0];
