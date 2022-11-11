@@ -34,3 +34,20 @@ function crap(x, bags, cap) {
 console.log(crap([['_','_','_','_'], ['_','_','_','@'], ['_','_','@', '_']], 2, 2)); // "Clean"
 console.log(crap([['_','_','_','_'], ['_','_','_','@'], ['_','_','@', '_']], 1, 1)); // "Cr@p"
 console.log(crap([['_','_'], ['_','@'], ['D','_']], 2, 2)); // "Dog!!"
+
+
+
+
+const crap = (x, bags, cap) =>
+  `${x}`.includes(`D`) ? `Dog!!` : `${x}`.split(`@`).length > bags * cap ? `Cr@p` : `Clean`;
+
+
+
+crap=(a,b,c)=>(a+"").includes("D")?"Dog!!":(a+"").split("@").length-1<=b*c?"Clean":"Cr@p"
+
+
+
+function crap(x, bags, cap){
+  var yard = x.reduce( (a, b) => a.concat(b) );
+  return yard.includes('D') ? 'Dog!!' : bags * cap - yard.filter( val => val === '@' ).length > 0 ? 'Clean' : 'Cr@p';
+}
