@@ -21,3 +21,19 @@ function generateIntegers(m, n) {
 }
 
 console.log(generateIntegers(2, 5)); // [2, 3, 4, 5]
+
+
+
+
+function generateIntegers(m, n) {
+  return Array.from({ length: n - m + 1 }, (_, i) => i + m);
+}
+
+
+function generateIntegers(m, n) {
+  return Array.from({ length: n - m + 1 }, (_, i) => i + m);
+}
+
+
+const generateIntegers = (m, n) => 
+  [...Array(++n).keys()].slice(m);
