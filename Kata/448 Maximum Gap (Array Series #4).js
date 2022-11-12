@@ -57,3 +57,25 @@ function maxGap(numbers) {
 console.log(maxGap([13, 10, 2, 9, 5])); // 4
 console.log(maxGap([24, 299, 131, 14, 26, 25])); // 168
 console.log(maxGap([-7,-42,-809,-14,-12])); // 767
+
+
+
+function maxGap(numbers) {
+  return numbers
+    .sort((a, b) => a - b)
+    .reduce((max, n, i) => {
+      let gap = numbers[i + 1] - n
+      if (max < gap) {
+        max = gap
+      }
+      return max
+    }, 0);
+}
+
+const maxGap = a => Math.max(...a.sort((x, y) => x - y).map((e, i, a) => i > 0 ? Math.abs(e - a[i - 1]) : 0));
+
+
+const maxGap = numbers =>
+  Math.max(...numbers.sort((a, b) => a - b).slice(1).map((val, idx) => val - numbers[idx]));
+
+
