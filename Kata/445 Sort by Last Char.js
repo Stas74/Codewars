@@ -14,3 +14,13 @@ function last(x){
 
 console.log(last('man i need a taxi up to ubud')); // ['a', 'need', 'ubud', 'i', 'taxi', 'man', 'to', 'up']
 console.log(last('take me to semynak')); // ['take', 'me', 'semynak', 'to']
+
+
+
+
+const last = ( $ ) => $.split(' ').sort((a,b)=> a.slice(-1) > b.slice(-1))
+
+
+function last (words) {
+  return words.split(' ').sort((a, b) => a.slice(-1).localeCompare(b.slice(-1)))
+}
