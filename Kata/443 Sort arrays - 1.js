@@ -10,3 +10,10 @@ sortme = function( names ){
 }
 
 console.log(sortme(['one', 'two', 'three' ])); // ["one", "three", "two"]
+
+
+
+
+sortme = function( names ){
+  return names.sort(function(a, b) { return a > b ? 1 : a < b ? -1 : 0 });
+}
