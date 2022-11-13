@@ -26,3 +26,28 @@ function hydrate(s) {
 console.log(hydrate("1 beer")); // "1 glass of water"
 console.log(hydrate("2 glasses of wine and 1 shot")); // "3 glasses of water"
 console.log(hydrate("1 shot, 5 beers, 2 shots, 1 glass of wine, 1 beer")); // "10 glasses of water"
+
+
+
+
+function hydrate(s) {
+  let answer = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (parseInt(s[i]) > 0) {
+      answer += +s[i];
+    }
+  }
+  return answer > 1 ? `${answer} glasses of water`: '1 glass of water'
+}
+
+
+
+const hydrate = (s, w = [...s].filter(x => !isNaN(x)).reduce((a, b) => a + +b, 0)) => `${w} glass${w === 1 ? '' : 'es'} of water`;
+
+
+
+hydrate = (s, sum = 0) =>
+  (sum = s.match(/\d+/g).reduce((x, y) => x + +y, 0)) +
+  ` glass${sum > 1 ? "es" : ""} of water`;
+
+
