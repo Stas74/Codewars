@@ -24,3 +24,33 @@ function squares(x, n) {
 console.log(squares(2,5)); // [2,4,16,256,65536]
 console.log(squares(3,3)); // [3,9,81]
 console.log(squares(2,0)); // []
+
+
+
+function squares(x, n) {
+  return Array.from({length: n}, (v, k) => Math.pow(x, Math.pow(2, k)))
+}
+
+
+function squares(x, n) {
+  var ret = [];
+  for(var i=0; i<n; i++){
+    ret.push(x);
+    x*= x;
+  }
+  return ret;
+}
+
+
+function squares(x, n) {
+  let arr = [];
+  if(n === 0 || n < 0) return arr;
+  for(let i = x; arr.length < n; i*=i) {
+      arr.push(i);
+  }
+  return arr
+}
+
+
+const squares = (x, n) =>
+  [...Array((n > 0) * n)].map((_, idx) => x ** 2 ** idx);
