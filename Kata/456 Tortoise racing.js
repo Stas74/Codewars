@@ -47,3 +47,18 @@ function race(v1, v2, g) {
 
 console.log(race(720, 850, 70)); // [0, 32, 18]  1938 sec
 console.log(race(80, 91, 37)); // [3, 21, 49] 12109 sec
+
+
+
+
+
+function race(v1, v2, g) {
+  let time = g / (v2 - v1);
+  return v2 > v1
+    ? [
+        Math.floor(time),
+        Math.floor((time * 60) % 60),
+        Math.floor((time * 3600) % 60),
+      ]
+    : null;
+}
