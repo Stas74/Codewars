@@ -29,3 +29,23 @@ var splitInParts = function (s, partLength) {
 
 console.log(splitInParts("supercalifragilisticexpialidocious", 3)); // "sup erc ali fra gil ist ice xpi ali doc iou s"
 console.log(splitInParts("HelloKata", 1)); // "H e l l o K a t a"
+
+
+
+var splitInParts = function(s, partLength){
+  var parts = [];
+  var array = s.split('');
+  while(array.length) {
+    parts.push(array.splice(0,partLength).join(''));
+  }
+  return parts.join(' ');
+}
+
+
+
+const splitInParts = (s, partLength) => 
+  s.match(new RegExp(`.{1,${ partLength }}`, 'g')).join(' ');
+
+
+const splitInParts = (s, partLength) =>
+  s.match(new RegExp(`.\{1,${partLength}\}`, `g`)).join(` `);
