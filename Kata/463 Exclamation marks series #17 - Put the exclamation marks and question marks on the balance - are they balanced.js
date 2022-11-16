@@ -30,8 +30,22 @@ console.log(balance("!?!!", "?!?")); // "Left"
 console.log(balance("!!???!????", "??!!?!!!!!!!")); // "Balance"
 
 
+
+
 function balance(left, right) {
   l = [...left].reduce((s, a) => s + (a == "?" ? 3 : 2), 0);
   r = [...right].reduce((s, a) => s + (a == "?" ? 3 : 2), 0);
   return l == r ? "Balance" : l > r ? "Left" : "Right";
 }
+
+
+
+const balance = (left, right) =>
+  (fn => fn(left) > fn(right) ? `Left` : fn(left) < fn(right) ? `Right` : `Balance`)
+  (str => [...str].reduce((pre, val) => pre + (val === `!` ? 2 : 3), 0));
+
+
+
+const weight=(x)=>[...x].reduce((a,i)=> a+(i=='!' ? 2 : i=='?' ? 3 : 0), 0)
+const wbalance=(wl,wr)=> wl>wr ? 'Left' : wr>wl ? 'Right' : 'Balance'
+const balance=(l,r)=>wbalance(weight(l), weight(r))
