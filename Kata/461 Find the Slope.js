@@ -24,3 +24,18 @@ console.log(slope([19, 3, 20, 3])); // "0"
 console.log(slope([2, 7, 4, -7])); // "-7"
 console.log(slope([10, 50, 30, 150])); // "5"
 console.log(slope([-10, 6, -10, 3])); // "undefined"
+
+
+
+
+function slope([ x1, y1, x2, y2 ]) {
+  let slope = (y2 - y1) / (x2 - x1);
+  return Number.isFinite(slope) ? `${slope}` : 'undefined';
+}
+
+
+
+const slope = points => points[2] == points[0] ? "undefined" : (points[3] - points[1]) / (points[2] - points[0]) + "";
+
+
+let slope = ([a, b, c, d]) => a == c ? "undefined" : "" + ((b - d) / (a - c));
