@@ -95,3 +95,13 @@ function splitAndMerge(string, separator) {
 
 console.log(splitAndMerge("My name is John"," ")); // "M y n a m e i s J o h n"
 console.log(splitAndMerge("Hello World!",".")); // "H.e.l.l.o W.o.r.l.d.!"
+
+
+
+
+const splitAndMerge = (str, sp) => str.split(' ').map(x => [...x].join(sp)).join(' ')
+
+
+function splitAndMerge(str, sp) {
+  return str.replace(/\S+/g, w => w.replace(/.(?=.)/g, '$&' + sp));
+}
