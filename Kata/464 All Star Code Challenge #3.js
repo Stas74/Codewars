@@ -14,3 +14,16 @@ var removeVowels = function (str) {
 
 console.log(removeVowels("drake")); // "drk"
 console.log(removeVowels("aeiou")); // ""
+
+
+
+var removeVowels = function(str){
+  const chng = str.split("")
+    const items = chng.filter(function(letter) {
+      return ["a", "e", "i", "o", "u"].indexOf(letter) < 0  
+  })
+  return items.join("")
+}
+
+
+const removeVowels = $ => $.replace(/[aeiou]/gi, '')
