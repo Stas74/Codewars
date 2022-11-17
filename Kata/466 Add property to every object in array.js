@@ -52,3 +52,23 @@ var questions = [
 
 addProp(questions);
 console.log(questions);
+
+
+
+
+questions.forEach(function (i) {
+        i.usersAnswer = null;
+    });
+
+questions.forEach(x => x.usersAnswer = null);
+
+
+
+for (key in questions)
+  questions[key].usersAnswer = null;
+
+
+
+for (obj of questions) {
+  obj['usersAnswer'] = null;
+}
