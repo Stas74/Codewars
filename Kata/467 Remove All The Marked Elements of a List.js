@@ -15,3 +15,17 @@ Array.prototype.remove_ = function(integer_list, values_list){
 };
 
 // console.log(remove_([1, 1, 2, 3, 1, 2, 3, 4], [1, 3])); // [2, 2, 4]
+
+
+
+Array.prototype.remove_ = function(integer_list, values_list){
+  return integer_list.filter(function (element) {
+    return values_list.indexOf(element) === -1;
+  });
+}
+
+
+
+Array.prototype.remove_ = (integer_list, values_list) => integer_list.filter(v => values_list.indexOf(v) == -1);
+
+
