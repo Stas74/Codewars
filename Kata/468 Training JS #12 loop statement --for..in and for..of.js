@@ -102,3 +102,21 @@ function giveMeFive(obj) {
 
 console.log(giveMeFive({Our:"earth",is:"a",beautyful:"world"})); // ["earth","world"]
 console.log(giveMeFive({Ihave:"enough", money:"to",buy:"a",car:"model"})); // ["Ihave","money","model"]
+
+
+
+
+// Converting object to => string to => to array and filter it
+
+giveMeFive = obj => 
+  Object              // converting instead for ( in )
+    .entries(obj)
+    .join(',')
+    .split(',')         
+    .filter(i => i.length == 5);
+
+
+
+const giveMeFive = obj =>
+  [].concat(...Object.entries(obj, `for( in `)).filter(val => val.length === 5);
+
