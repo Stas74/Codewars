@@ -17,3 +17,17 @@ function SafeInteger(n) {
 
 console.log(SafeInteger(9007199254740992)) // false
 console.log(SafeInteger(9007199254740990)) // true
+
+
+
+var SafeInteger = (n) => Math.abs(n)<Number.MAX_SAFE_INTEGER
+
+
+function SafeInteger(n){
+  return n <= Number.MAX_SAFE_INTEGER;
+}
+
+
+function SafeInteger(n) {
+  return n < 9007199254740992
+}
