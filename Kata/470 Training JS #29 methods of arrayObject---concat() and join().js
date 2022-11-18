@@ -112,3 +112,10 @@ function bigToSmall(arr){
 
 console.log(bigToSmall([[1,2],[3,4],[5,6]])) // "6>5>4>3>2>1"
 console.log(bigToSmall([[1,3,5],[2,4,6]])) // "6>5>4>3>2>1"
+
+
+
+
+const desc = (a,b) => b - a
+const bigToSmall = a => a.reduce((s,v)=>s.concat(v),[]).sort(desc).join('>')
+
