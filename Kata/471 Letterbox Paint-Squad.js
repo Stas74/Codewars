@@ -49,3 +49,31 @@ var paintLetterboxes = function (start, end) {
 };
 
 console.log(paintLetterboxes(125, 132)); // [1,9,6,3,0,1,1,1,1,1]
+
+
+
+
+const paintLetterboxes = (start, end) => {
+  let res = Array(10).fill(0);
+  for (let i = start; i <= end; i++) {
+    for (let n of (i + '')) {
+      res[n]++;
+    }
+  }
+  return res;
+}
+
+
+
+function paintLetterboxes(start, end) {
+  const frequencies = new Array(10).fill(0);
+  for(let number=start; number<=end; number++) {
+    number.toString().split('').forEach(x => frequencies[x]++);
+  }
+  return frequencies;
+}
+
+
+
+const paintLetterboxes = (start, end) =>
+  [...Array(end - start + 1)].reduce((pre, _, idx) => ([...`${start + idx}`].forEach(val => pre[val]++), pre), Array(10).fill(0))
