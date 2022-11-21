@@ -17,3 +17,23 @@ function shorter_reverse_longer(a,b){
 console.log(shorter_reverse_longer("first", "abcde")); // "abcdetsrifabcde"
 console.log(shorter_reverse_longer("hello", "bau")); // "bauollehbau"
 console.log(shorter_reverse_longer("fghi", "abcde")); // "fghiedcbafghi"
+
+
+
+
+var shorter_reverse_longer = function(a,b) {
+  var longest = a.length >= b.length ? a : b;
+  var shortest = a.length >= b.length ? b : a;
+  return shortest + longest.split('').reverse().join('') + shortest;
+}
+
+
+function shorter_reverse_longer(a,b){
+  if (a.length >= b.length) [a,b] = [b,a];
+  return a + b.split('').reverse().join('') + a;
+}
+
+
+
+const shorter_reverse_longer = (a, b) =>
+  b.length > a.length ? a + [...b].reverse().join(``) + a : b + [...a].reverse().join(``) + b;
