@@ -27,3 +27,11 @@ function unluckyDays(year){
 console.log(unluckyDays(1586)); // 1
 console.log(unluckyDays(1001)); // 3
 console.log(unluckyDays(2792)); // 2
+
+
+
+function unluckyDays(year){
+  return Array.from({ length: 12 }).filter((_, i) => new Date(year, i, 13).getDay() === 5).length
+}
+
+
