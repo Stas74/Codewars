@@ -32,3 +32,22 @@ function amIWilson(p) {
 console.log(amIWilson(5)); // true
 console.log(amIWilson(6)); // false
 console.log(amIWilson(9)); // false
+
+
+
+
+function amIWilson(p) {
+  p = BigInt(p);
+  const fac = n => n ? n * fac(n-1n) : 1n;
+  const d = (fac(p-1n) + 1n);
+  return !(d % (p * p));
+}
+
+
+const amIWilson = p => [5, 13, 563].includes(p);
+
+
+
+function amIWilson(p) {
+  return p === 5 || p === 13 || p === 563
+}
