@@ -26,3 +26,19 @@ function menFromBoys(arr) {
 console.log(menFromBoys([7, 3, 14, 17])); // [14,17,7,3]
 console.log(menFromBoys([2, 43, 95, 90, 37])); // [2,90,95,43,37]
 console.log(menFromBoys([20, 33, 50, 34, 43, 46])); // [20,34,46,50,43,33]
+
+
+
+const menFromBoys = arr => {
+  let [evens, odds] = [[], []];
+  [...new Set(arr)].sort((a, b) => a - b) .forEach(n => n % 2 ? odds.unshift(n) : evens.push(n));
+  return [...evens, ...odds];
+};
+
+
+
+var menFromBoys = (arr) => [...new Set(arr.filter(e => e % 2 === 0).sort((a,b)=> a-b)),...new Set(arr.filter(e => e % 2).sort((a,b)=>b-a))]
+
+
+const menFromBoys = arr =>
+  [...new Set([...arr.filter(val => !(val % 2)).sort((a, b) => a - b), ...arr.filter(val => val % 2).sort((a, b) => b - a)])];
