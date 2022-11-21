@@ -26,3 +26,30 @@ function sumOfIntegersInString(s) {
 console.log(sumOfIntegersInString("12.4")); // 16
 console.log(sumOfIntegersInString("h3ll0w0rld")); // 3
 console.log(sumOfIntegersInString("2 + 3 = ")); // 5
+
+
+
+
+function sumOfIntegersInString(s) {
+  return (s.match(/\d+/g) || []).reduce((s, n) => s + +n, 0);
+}
+
+
+
+function sumOfIntegersInString(s){
+return s.replace(/\D/gi,' ')
+        .split(" ")
+        .map(value=>Number(value))
+        .reduce((a,b)=>a+b); 
+}
+
+
+
+function sumOfIntegersInString(s){
+  const searchNumber = s.split(/[^0-9]/gi)
+  let total = 0
+  for (let i = 0; i < searchNumber.length; i++) {
+    total += Number(searchNumber[i])
+  }
+  return total
+}
