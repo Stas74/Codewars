@@ -62,3 +62,19 @@ console.log(alphabetWar("wwwwwwz")); //  Left side wins!
 console.log(alphabetWar("mkumtbeuhmwxwq")); // 'Right side wins!'
 
 // console.log("mkumtbeuhmwxwq".replace(/[^wpbsmqdz]/ig, ''))
+
+
+
+
+function alphabetWar(fight) {
+    let map = { w: -4, p: -3, b: -2, s: -1, m: 4, q: 3, d: 2, z: 1 };
+    let result = fight.split('').reduce((a, b) => a + (map[b] || 0), 0);
+    return result ? (result < 0 ? "Left" : "Right") + " side wins!" : "Let's fight again!";
+}
+
+
+function alphabetWar(fight){
+  const dic = {'w':4, 'p':3, 'b':2, 's':1,'m':-4, 'q':-3, 'd':-2, 'z':-1};
+  const out = [...fight].map(el => dic[el] ? dic[el] : 0).reduce((a, b) => a + b, 0)
+  return out > 0 ? 'Left side wins!' : out < 0 ? 'Right side wins!' : 'Let\'s fight again!';
+}
