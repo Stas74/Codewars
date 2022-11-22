@@ -31,3 +31,32 @@ function sumTriangularNumbers(n) {
 console.log(sumTriangularNumbers(6)); // 56
 console.log(sumTriangularNumbers(34)); // 7140
 console.log(sumTriangularNumbers(-234)); // 0
+
+
+
+
+function sumTriangularNumbers(n) {
+  return n < 0 ? 0 : n * (n + 1) * (n + 2) / 6;
+}
+
+
+function sumTriangularNumbers(n) {
+  if  (n < 0){
+  return 0;
+  }
+  else  {
+    return n*(n+1)/2 + sumTriangularNumbers(n-1);
+  }
+}
+
+
+
+
+function sumTriangularNumbers(n) {
+  if  (n < 0){
+  return 0;
+  }
+  else  {
+    return n*(n+1)/2 + sumTriangularNumbers(n-1);
+  }
+}
