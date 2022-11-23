@@ -16,5 +16,12 @@ Array.prototype.numberOfOccurrences = function (num) {
 };
 
 var arr = [0, 4, 4, 3];
-
 console.log(arr.numberOfOccurrences(4)); //  2
+
+
+
+Array.prototype.numberOfOccurrences = function(element) {
+  return this.reduce(function(acc, current) {
+    return current === element ? acc + 1 : acc;
+  }, 0);
+}
