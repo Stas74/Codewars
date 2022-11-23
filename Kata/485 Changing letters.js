@@ -24,3 +24,18 @@ function swap(string) {
 console.log(swap("HelloWorld!")); //  "HEllOWOrld!"
 console.log(swap("abracadabra")); //  "AbrAcAdAbrA!"
 console.log(swap("Monday")); //  "MOndAy"
+
+
+
+function swap(st){
+  return st.replace(/[aeiou]/g, v => v.toUpperCase() )
+}
+
+
+function swap(str) {
+  return str.replace(/[aeiou]/g, c => "AEIOU"["aeiou".indexOf(c)])
+}
+
+
+const vowels = ["a", "e", "i", "o", "u"];
+const swap = s => s.split('').map(x => vowels.includes(x) ? x.toUpperCase() : x).join('');
