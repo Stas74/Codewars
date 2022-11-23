@@ -39,3 +39,18 @@ function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin) {
 console.log(shark(12, 50, 4, 8, true)); //  "Alive!"
 console.log(shark(7, 55, 4, 16, true)); //  "Alive!"
 console.log(shark(24, 0, 4, 8, true)); //  "Shark Bait!"
+
+
+
+function shark(pontoonDistance, sharkDistance, youSpeed, sharkSpeed, dolphin){
+  if(dolphin){
+    sharkSpeed /= 2;
+  }
+  return pontoonDistance/youSpeed < sharkDistance/sharkSpeed ? "Alive!" : "Shark Bait!";
+}
+
+
+
+shark = (pD, sD, yS, sS, d) => yS / pD  > sS / sD / (d ? 2 : 1) ? "Alive!" : "Shark Bait!";
+
+
