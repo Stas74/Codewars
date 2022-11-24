@@ -46,3 +46,24 @@ console.log(specialNumber(6)); //  "NOT!!"
 console.log(specialNumber(26)); //  "NOT!!"
 console.log(specialNumber(3011)); //  "Special!!"
 console.log(specialNumber(2783)); // "NOT!!"
+
+
+
+
+function specialNumber(n){
+  return /[6-9]/.test(n) ? "NOT!!" : "Special!!"
+}
+
+
+function specialNumber(n){
+  return /^[012345]+$/g.test(n)? 'Special!!' : 'NOT!!';
+}
+
+
+const specialNumber = (n, arr = [...String(n)]) => arr.every(el => '012345'.includes(el)) ? 'Special!!' : 'NOT!!'
+
+
+const specialNumber = (n) => {
+    let regex = /^[0-5]+$/;
+    return regex.test(n) ? 'Special!!' : 'NOT!!';
+};
