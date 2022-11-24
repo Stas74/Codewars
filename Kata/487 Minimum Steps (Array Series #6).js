@@ -55,3 +55,22 @@ function minimumSteps(numbers, value) {
 console.log(minimumSteps([4, 6, 3], 7)); //  1
 console.log(minimumSteps([10, 9, 9, 8], 17)); //  1
 console.log(minimumSteps([8, 9, 10, 4, 2], 23)); //  3
+
+
+
+function minimumSteps(numbers, value){
+   return numbers.sort((a,b)=>a-b).filter((e,i)=> (value = value - e) > 0).length;
+}
+
+
+const minimumSteps = (numbers, value) =>
+  numbers.sort((a, b) => a - b).filter(val => (value -= val) > 0).length;
+
+
+
+function minimumSteps(arr, max, sum = (arr.sort((a,b) => a - b), arr.shift``)){
+  if (sum >= max) return 0
+  sum += arr[0]
+  return 1 + minimumSteps(arr.slice`1`, max, sum)
+}
+
