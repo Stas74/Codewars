@@ -27,3 +27,19 @@ function lastSurvivor(letters, coords) {
 console.log(lastSurvivor("abc", [1, 1])); //  'a'
 console.log(lastSurvivor("kbc", [0, 1])); //  'b'
 console.log(lastSurvivor("zbk", [2, 1])); //  'z'
+
+
+
+     function lastSurvivor(letters, coords) {
+         letters = letters.split('');
+         for (let i = 0; i < coords.length; i++) {
+            letters.splice(coords[i], 1)
+         }
+         return letters.join('')
+      }
+
+
+
+const lastSurvivor = (l, c) => c.length==0?  l : lastSurvivor(l.slice(0,c[0])+l.slice(c[0]+1), c.slice(1, c.length));
+
+
