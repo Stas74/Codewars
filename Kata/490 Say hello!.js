@@ -18,3 +18,11 @@ function greet(name) {
 
 console.log(greet("Niks")); //  "hello Niks!"
 console.log(greet(null)); //  null
+
+
+
+function greet(name) {
+  return name ? 'hello ' + name + '!' : null;
+}
+
+
