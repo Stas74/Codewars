@@ -23,3 +23,23 @@ console.log(dashatize(274)); //  "2-7-4"
 console.log(dashatize(86320)); //  "86-3-20"
 console.log(dashatize(974302)); // "9-7-4-3-02"
 console.log(dashatize(NaN)); // "NaN"
+
+
+
+
+function dashatize(num) {
+  return isNaN(num) ? 'NaN' : num.toString().match(/([13579]|[02468]+)/g).join('-');
+};
+
+
+
+function dashatize(num) {
+  return num = num.toString().split("").map(function(c){
+    return c % 2 ? "-" + c + "-" :  c ;
+  }).join("").split("-").filter(a => a != "").join("-");  
+};
+
+
+
+const dashatize = num =>
+  (String(num).match(/([13579]|[02468]+)/g) || [`NaN`]).join('-');
