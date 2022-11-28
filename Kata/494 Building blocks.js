@@ -66,3 +66,49 @@ console.log(block.getLength()); //  4
 console.log(block.getHeight()); //  6
 console.log(block.getVolume()); //  48
 console.log(block.getSurfaceArea()); //  88
+
+
+
+
+
+
+class Block {
+  constructor(data){
+    [this.w, this.l, this.h] = data;
+  }
+  getWidth(){ return this.w }
+  getLength(){ return this.l }
+  getHeight(){ return this.h }
+  getVolume(){
+    let {l, w, h} = this;
+    return w*l*h;
+  }
+  getSurfaceArea(){
+    let {l, w, h} = this;
+    return 2 * (l*w + l*h + w*h);
+  }
+}
+
+
+
+
+
+class Block {
+  constructor([width, length, height]) {
+    this.x = width
+    this.y = length
+    this.z = height
+  }
+  
+  getWidth() { return this.x }
+  getLength() { return this.y }
+  getHeight() { return this.z }
+  
+  getVolume() {
+    return this.x * this.y * this.z
+  }
+  
+  getSurfaceArea() {
+    return 2 * this.x * this.y + 2 * this.x * this.z + 2 * this.y * this.z
+  }
+}
