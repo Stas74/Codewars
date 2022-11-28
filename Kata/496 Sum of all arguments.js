@@ -22,3 +22,23 @@ function sum() {
 
 console.log(sum(1, 2, 3)); //  6
 console.log(sum(12, 1, 1, 1, 1)); //  16
+
+
+
+function sum(...xs) {
+  return xs.reduce((x, y) => x + y);
+}
+
+
+function sum() { return [].reduce.call(arguments, function(s,v){ return s+v },0 ) }
+
+function sum() {
+  return Array.prototype.reduce.call(arguments, function(t, v) { 
+    return t + v; 
+  }, 0);
+}
+
+
+
+
+
