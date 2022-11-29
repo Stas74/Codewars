@@ -32,3 +32,34 @@ function maxBall(v0) {
 
 console.log(maxBall(37)); // 10
 console.log(maxBall(45)); // 13
+
+
+
+
+function maxBall(v0) {
+  const g = 9.81, mpsToKph = 3.6, secondsToTenths = 10;
+  return Math.round(secondsToTenths * v0 / mpsToKph / g);
+}
+
+
+
+const maxBall = v => Math.round(v / 3.5316)
+
+
+function maxBall(v0) {
+
+  // Linear coefficient - initial speed, unit conversion form km/h to m/s
+  v0 *= 1000 / 3600;
+
+  // Quadratic coefficient - Earth's gravity constant, in m/s**2
+  const g = 0.5 * 9.81;
+
+  // Solving linear equation: (v0 - g * t) * t = 0
+  // Converting time from seconds to tenths of second
+  return Math.round(v0 / g * 5);
+}
+
+
+
+const maxBall = v0 => 
+  Math.round(0.283157 * v0);
