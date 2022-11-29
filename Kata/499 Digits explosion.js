@@ -21,3 +21,12 @@ function explode(s) {
 console.log(explode("312")); // "333122"
 console.log(explode("123")); // "122333"
 console.log(explode("00")); // ""
+
+
+
+
+const explode = s => s.replace(/\d/g, d => d.repeat(d));
+
+
+
+explode = (s) => [...s].map((n) => n.repeat(n)).join``;
