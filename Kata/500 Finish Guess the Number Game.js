@@ -36,3 +36,19 @@ console.log(guesser.guess(10));
 console.log(guesser.guess(1));
 console.log(guesser.guess(2));
 console.log(guesser.guess(3));
+
+
+
+guess(n) {
+    if (!this.lives) throw Error
+    this.lives--
+    return n === this.number
+}
+
+
+guess(n) {
+    if (!this.lives) throw 'No guesses left';
+    if (n === this.number) return true;
+    this.lives--;
+    return false;
+  }
