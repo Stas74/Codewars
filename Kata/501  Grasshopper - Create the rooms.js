@@ -15,4 +15,46 @@ var rooms = {
   "Bedroom": {name:"Bedroom", description:"Nightmares", completed:"No"},  
 };
 
-console.log();
+
+
+const rooms = {
+  bedroom: {
+    name: 'Bedroom',
+    description: 'For... sleeping',
+    completed: true,
+  },
+  bathroom: {
+    name: 'Bathroom',
+    description: 'This will get you clean',
+    completed: false,
+  },
+  kitchen: {
+    name: 'Kitchen',
+    description: 'Hungry? Why wait?',
+    completed: true,
+  },
+}
+
+
+
+class Room  {
+  constructor() {
+    this.name = '';
+    this.description = '';
+    this.completed= '';
+  }
+}
+var rooms = {
+  bedroom : new Room(),
+  kitchen : new Room(),
+  bathroom : new Room(),
+}
+
+
+
+// Add rooms here
+var rooms = {}
+for (var i = 0; i < 3; i++) {
+    rooms[`room${i}`] = {'a': 1, 'b': 2, 'c': 3}
+}
+
