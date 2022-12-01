@@ -24,3 +24,21 @@ function flyBy(lamps, drone){
 console.log(flyBy('xxxxxx', '====T')); //  'ooooox'
 console.log(flyBy('xxxxxxxxx', '==T')); //  'oooxxxxxx'
 console.log(flyBy('xxxxxxxxxxxxxxx', '=========T')); //  'ooooooooooxxxxx'
+
+
+
+const flyBy = (lamps, drone) => [...lamps].fill(`o`, 0, drone.length).join(``)
+
+
+
+function flyBy(lamps, drone){
+  if(drone.length > lamps.length) return 'o'.repeat(lamps.length)
+  return lamps.replace('x'.repeat(drone.length), 'o'.repeat(drone.length))
+}
+
+
+
+const flyBy = (lamps, drone) =>
+  `${`o`.repeat(drone.length)}${lamps}`.slice(0, lamps.length);
+
+
