@@ -17,3 +17,13 @@ var filterLucky = (x) => {
 
 console.log(filterLucky([1, 2, 3, 4, 5, 6, 7, 68, 69, 70, 15, 17])); //  [7,70,17]
 console.log(filterLucky([71, 9907, 69])); //  [71,9907]
+
+
+
+const filterLucky = xs => xs.filter(x => x.toString().includes('7'));
+
+
+const filterLucky = list => list.filter(n => /7/.test(n))
+
+
+const filterLucky=x=>(x.filter(n=>n.toString().match(/7/)));
