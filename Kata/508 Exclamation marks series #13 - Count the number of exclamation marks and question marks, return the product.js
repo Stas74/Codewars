@@ -23,3 +23,15 @@ function product(string) {
 console.log(product("!!")); //  0
 console.log(product("!??")); //  2
 console.log(product("!!!??")); //  6
+
+
+
+function product(s){
+  excs = s.split('!').length - 1
+  ques = s.split('?').length - 1
+  return excs * ques
+}
+
+
+
+const product = s => (s.match(/!/g)||[]).length * (s.match(/\?/g)||[]).length ;
