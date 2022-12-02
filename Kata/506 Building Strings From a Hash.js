@@ -16,3 +16,24 @@ function solution(pairs){
 }
 
 console.log(solution({a: 1, b: '2'})); //  "a = 1,b = 2"
+
+
+
+function solution(pairs){
+  return Object.keys(pairs)
+    .map(function(k) { return k + ' = ' + pairs[k] })
+    .join(',');
+}
+
+
+
+const solution = pairs =>
+    Object.entries(pairs)
+        .map(([key, value]) => `${key} = ${value}`)
+        .join(',');
+
+
+
+function solution(pairs) {
+  return Object.keys(pairs).map(k => `${k} = ${pairs[k]}`).join(",");
+}
