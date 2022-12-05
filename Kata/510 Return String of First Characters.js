@@ -17,3 +17,14 @@ function makeString(s) {
 console.log(makeString("sees eyes xray yoat")); //  "sexy"
 console.log(makeString("brown eyes are nice")); //  "bean"
 console.log(makeString("cars are very nice")); //  "cavn"
+
+
+
+const makeString = s => s.split(' ').map(x => x[0]).join('')
+
+
+function makeString(s){
+  return (s.match(/\b\w/g)).join('');
+}
+
+
