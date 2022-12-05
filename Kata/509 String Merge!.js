@@ -21,3 +21,11 @@ console.log(stringMerge("person","here", "e")); //  "pere"
 console.log(stringMerge("apowiejfoiajsf","iwahfeijouh", "j")); //  "apowiejouh"
 console.log(stringMerge("abcdefxxxyzz","abcxxxyyyxyzz", "x")); //  "abcdefxxxyyyxyzz"
 
+
+
+const stringMerge = (string1, string2, letter) =>
+  `${string1.split(letter, 1)}${string2.slice(string2.indexOf(letter))}`;
+
+
+
+const stringMerge = (str1, str2, symb) => str1.match(`[^${symb}]*`) + str2.match(`${symb}.*`)
