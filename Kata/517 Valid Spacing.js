@@ -33,3 +33,21 @@ console.log(validSpacing(' Hello world')); //  false
 console.log(validSpacing('Hello world ')); //  false
 console.log(validSpacing('Hello')); //  true
 
+
+
+function validSpacing(s) {
+  return s.trim() == s && !s.includes("  ");
+}
+
+
+
+const validSpacing = s => s.replace(/\s+/g," ").trim() == s;
+
+
+
+function validSpacing(s) {
+  if (s == "")
+    return true
+  else
+    return !s.split(" ").includes("")
+}
