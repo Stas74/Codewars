@@ -29,3 +29,32 @@ function getStrings(city) {
 console.log(getStrings("Chicago")); //  "c:**,h:*,i:*,a:*,g:*,o:*"
 console.log(getStrings("Bangkok")); //  "b:*,a:*,n:*,g:*,k:**,o:*"
 console.log(getStrings("Las Vegas")); //  "l:*,a:**,s:**,v:*,e:*,g:*"
+
+
+
+const getStrings = city => {
+	const arr = city.replace(/ /g, '').toLowerCase().split('')
+  
+  return JSON.stringify(arr.reduce((obj, item) => {
+      return {
+        ...obj,
+        [item]: obj[item] ? obj[item] + '*' : '*',
+      }
+    
+  }, {})).replace(/['"{}]+/g, '')
+}
+
+
+
+const getStrings = city =>
+  (arr => [...new Set(arr)].join(``).match(/[a-z]/g).map(val => `${val}:${`*`.repeat(arr.filter(v => v === val).length)}`).join(`,`))
+  ([...city.toLowerCase()]);
+
+
+
+const getStrings = (city) => {
+  const cityFmt = city.split(' ').join('').split('').map(c => c.toLowerCase())
+  return [...new Set(cityFmt)].map((c) => {
+    return charStr = c + ":" + "*".repeat(cityFmt.filter((i) => i === c).length)
+  }).join(',')
+}
