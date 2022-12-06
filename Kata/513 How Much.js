@@ -53,3 +53,32 @@ function howMuch(m, n) {
 console.log(howMuch(1, 100)); //  [["M: 37", "B: 5", "C: 4"], ["M: 100", "B: 14", "C: 11"]]
 console.log(howMuch(2950, 2950)); //  []
 console.log(howMuch(10000, 9900)); // [[ 'M: 9928', 'B: 1418', 'C: 1103' ], [ 'M: 9991', 'B: 1427', 'C: 1110' ]]
+
+
+
+
+
+function howMuch(m, n) {
+  let res = []
+  let min = Math.min(m, n)
+  let max = Math.max(m, n)
+  for (let i = min; i <= max; i++){
+    if ((i - 1) % 9 == 0 && (i - 2) % 7 == 0){ 
+      res.push([i, (i - 2) / 7, (i - 1)/9])
+    }
+  }
+  return res.map(a => [`M: ${a[0]}`,`B: ${a[1]}`,`C: ${a[2]}`])
+}
+
+
+
+function howMuch(m, n) {
+    let res = []
+    for (let i = Math.min(m, n); i <= Math.max(m, n); i++) {
+        if (i % 7 === 2 && i % 9 === 1) {
+            res.push([`M: ${i}`, `B: ${Math.floor(i / 7)}`, `C: ${Math.floor(i / 9)}`])
+        } 
+    }
+    return res
+}
+
