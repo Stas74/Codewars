@@ -22,3 +22,17 @@ function twoDecimalPlaces(number) {
 
 console.log(twoDecimalPlaces(10.1289767789)); //  10.12
 console.log(twoDecimalPlaces(-7488.83485834983)); //  -7488.83
+
+
+
+const twoDecimalPlaces = number => Math.trunc(number*100) / 100;
+
+
+function twoDecimalPlaces(number) {
+  return +number.toFixed(4).slice(0, -2);
+}
+
+
+function twoDecimalPlaces(number) {
+  return parseInt(number * 100) / 100
+}
