@@ -13,3 +13,12 @@ function args_count() {
 
 console.log(args_count(1, 2)); //  2
 console.log(args_count('A', 'B', 'C')); //  3
+
+
+
+const args_count = (...args) => args.length
+
+
+function args_count(...args){
+  return args.length
+}
