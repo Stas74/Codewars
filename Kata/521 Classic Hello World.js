@@ -25,3 +25,16 @@ class Solution {
 }
 
 console.log(Solution.main()); //  Hello World!
+
+
+
+Solution = {};
+Solution.main = () => { console.log('Hello World!'); };
+
+
+
+class Solution {
+   static main(a, b) {
+    console.log("Hello World!");
+   }
+}
