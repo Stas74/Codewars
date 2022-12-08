@@ -15,3 +15,10 @@ function reverseBits (n) {
 
 console.log(reverseBits(417));  // 267
 console.log(reverseBits(267));  // 417
+
+
+
+let reverseBits = n => parseInt([...n.toString`2`].reverse``.join``, 2)
+
+
+reverseBits = _ => parseInt([..._.toString`2`].reverse``.join``, 2)
