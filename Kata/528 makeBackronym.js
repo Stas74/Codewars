@@ -52,3 +52,16 @@ var makeBackronym = function(string){
 console.log(makeBackronym('dgm')) // 'disturbing gregarious mustache'
 console.log(makeBackronym('lkj')) // 'literal klingon joke'
 
+
+
+function makeBackronym(string){
+  return string.toUpperCase().split('').map(function(s){
+    return dict[s];
+  }).join(' ');
+}
+
+
+const makeBackronym = string =>
+  [...string].map(val => dict[val.toUpperCase()]).join(` `);
+
+
