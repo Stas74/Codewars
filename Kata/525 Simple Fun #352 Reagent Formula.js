@@ -64,3 +64,21 @@ console.log(isValid([1, 3, 7])); // true
 console.log(isValid([7, 1, 2, 3])); // false
 console.log(isValid([1, 3, 5, 7])); // false
 console.log(isValid([1, 5, 6, 7, 3])); // true
+
+
+
+const isValid = (formula) => {
+  const containsMaterial1Or2 = formula.filter(material => material === 1 || material === 2);
+  const containsMaterial3Or4 = formula.filter(material => material === 3 || material === 4);
+  const containsMaterial5Or6 = formula.filter(material => material === 5 || material === 6);
+  const containsMaterial7Or8 = formula.filter(material => material >= 7);
+
+  return containsMaterial1Or2.length < 2 && containsMaterial3Or4.length < 2 && containsMaterial7Or8.length > 0
+    && (containsMaterial5Or6.length === 0 || containsMaterial5Or6.length === 2);
+};
+
+
+isValid = a => !(a.includes(1) && a.includes(2)) &&
+                !(a.includes(3) && a.includes(4)) &&
+                a.includes(5) === a.includes(6) &&
+                (a.includes(7) || a.includes(8));
