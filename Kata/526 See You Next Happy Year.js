@@ -42,3 +42,26 @@ function nextHappyYear(year) {
 console.log(nextHappyYear(1001)); // 1023
 console.log(nextHappyYear(1123)); // 1203
 console.log(nextHappyYear(2001)); // 2013
+
+
+
+function nextHappyYear(a){
+  while(new Set([...++a+'']).size < 4);
+  return a;
+}
+
+
+const nextHappyYear = year =>
+  new Set(`${++year}`).size < 4 ? nextHappyYear(year) : year;
+
+
+
+function nextHappyYear(year, out = []){
+  while(true){
+    year++
+    out = [...`${year}`].map(e => +e)
+    if (out.map(el => out.filter(e => e === el).length).reduce((a, b)=> a+b) === 4){
+      return year
+    }
+  }
+}
