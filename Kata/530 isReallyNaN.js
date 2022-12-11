@@ -18,3 +18,11 @@ const isReallyNaN = (val) => {
 console.log(isReallyNaN(37)); // false
 console.log(isReallyNaN(NaN)); // true
 console.log(isReallyNaN(undefined)); // false
+
+
+
+const isReallyNaN = val => val != val
+
+
+const isReallyNaN = (val) => Object.is(val, NaN);
+
