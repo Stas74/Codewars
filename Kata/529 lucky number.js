@@ -16,3 +16,13 @@ function isLucky(n) {
 console.log(isLucky(1892376)) // true
 console.log(isLucky(189237)) // false
 
+
+
+const isLucky = n => n % 9 === 0;
+
+
+function isLucky(n) {
+return n % 9 == 0 ? true : false;
+}
+
+
