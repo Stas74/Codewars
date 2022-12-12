@@ -18,3 +18,20 @@ console.log(flatten([1, 2, 3])); // [1, 2, 3]
 console.log(flatten([[1, 2, 3], ["a", "b", "c"], [1, 2, 3]])); // [1, 2, 3, "a", "b", "c", 1, 2, 3]
 
 
+
+
+var flatten = function (lol){
+  return [].concat.apply([],lol);
+}
+
+
+
+var flatten = function (array){
+  return array.reduce(function(a,z) {
+    return a.concat(z);
+  }, []);
+}
+
+
+const flatten = (array) => [].concat(...array);
+
