@@ -46,3 +46,28 @@ var r = "aabbccdd\naabbccdd\naabbccdd\neeffgghh\neeffgghh\neeffgghh\niijjkkll\ni
 console.log(scale(a, 2, 3)); // r
 console.log(scale("", 5, 5)); // ""
 console.log(scale("Kj\nSH", 1, 2)); // "Kj\nKj\nSH\nSH"
+
+
+
+
+
+const scale = (str, k, n) =>
+  str
+    .replace(/[^\n]/g,  c => Array(k + 1).join(c))
+    .replace(/[^\n]+/g, c => Array(n + 1).join("\n" + c).slice(1));
+
+
+
+
+const scale = (strng, k, n) => 
+      strng.split('\n').map( el => Array(n)
+                        .fill( [...el].map(e => e.repeat(k)).join('') )
+                        .join('\n') )
+                        .join('\n')
+                        .trim()
+
+
+
+const scale = (strng, k, n) =>
+  strng.replace(/./g, `$&`.repeat(k)).replace(/.+/g, `$&\n`.repeat(n).trim());
+
