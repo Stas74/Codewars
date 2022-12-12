@@ -27,3 +27,23 @@ console.log(outed({'tim':0, 'jim':2, 'randy':0, 'sandy':7, 'andy':0, 'katie':5, 
 console.log(outed({'tim':1, 'jim':3, 'randy':9, 'sandy':6, 'andy':7, 'katie':6, 'laura':9, 'saajid':9, 'alex':9, 'john':9, 'mr':8}, 'katie')); 
 // 'Nice Work Champ!'
 
+
+
+
+function outed(meet, boss) {
+  let names = Object.keys(meet)
+  let score = names.reduce((s,v) => s + meet[v], 0) + meet[boss]
+  return score / names.length > 5 ? 'Nice Work Champ!' : 'Get Out Now!'
+}
+
+
+
+
+function outed(c, b) {
+  return Object.keys(c).reduce((s, e) => s + c[e] * (e === b ? 2 : 1), 0) / Object.keys(c).length > 5 ? "Nice Work Champ!" : "Get Out Now!";
+}
+
+
+
+const outed = (meet, boss, arr = Object.values(meet)) => 
+  arr.reduce((sum, rating) => sum + rating, meet[boss]) / arr.length > 5 ? 'Nice Work Champ!' : 'Get Out Now!';
