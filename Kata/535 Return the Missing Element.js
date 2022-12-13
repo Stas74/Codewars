@@ -18,3 +18,34 @@ function getMissingElement(superImportantArray) {
 
 console.log(getMissingElement([0, 5, 1, 3, 2, 9, 7, 6, 4])); // 8
 console.log(getMissingElement([9, 2, 4, 5, 7, 0, 8, 6, 1])); // 3
+
+
+
+
+function getMissingElement(superImportantArray) {
+  return superImportantArray.reduce(function (sum, value) {return sum - value;}, 45);
+}
+
+
+
+
+function getMissingElement(a){
+  for(let i=0;i<10;i++)
+    if(!a.includes(i)) return i;
+}
+
+
+
+function getMissingElement(superImportantArray){
+  return [0,1,2,3,4,5,6,7,8,9].filter(function(n) {
+    return superImportantArray.indexOf(n) === -1;
+  })[0];
+}
+
+
+
+function getMissingElement(superImportantArray){
+  for (i = 0; i < 10; i++) {
+    if (superImportantArray.indexOf(i) === -1) return i;
+  }
+}
