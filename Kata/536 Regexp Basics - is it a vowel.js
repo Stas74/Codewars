@@ -12,3 +12,18 @@ String.prototype.vowel = function () {
 console.log("".vowel()); // false
 console.log("a".vowel()); // true
 console.log("E".vowel()); // true
+
+
+
+
+String.prototype.vowel = function() {
+  return /^[aeiouAEIOU]$/.test(this);
+};
+
+
+
+String.prototype.vowel = function() {
+  return this.match(/[aeiou]/gi) && this.length <= 1 ? true : false;
+};
+
+
