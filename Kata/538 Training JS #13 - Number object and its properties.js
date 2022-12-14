@@ -104,3 +104,38 @@ function whatNumberIsIt(n) {
 console.log(whatNumberIsIt(1 / 0)); // "Input number is Number.POSITIVE_INFINITY"
 console.log(whatNumberIsIt(100)); // "Input number is 100"
 console.log(whatNumberIsIt(5e-324)); // "Input number is Number.MIN_VALUE"
+
+
+
+function whatNumberIsIt(n) {
+  return `Input number is ${
+    isNaN(n)
+      ? "Number.NaN"
+      : n == Number.MAX_VALUE
+      ? "Number.MAX_VALUE"
+      : n == Number.MIN_VALUE
+      ? "Number.MIN_VALUE"
+      : n > Number.MAX_VALUE
+      ? "Number.POSITIVE_INFINITY"
+      : n < Number.MIN_VALUE
+      ? "Number.NEGATIVE_INFINITY"
+      : n
+  }`;
+}
+
+
+
+function whatNumberIsIt(n){
+  const CHOICES = Object.getOwnPropertyNames(Number);
+  let choice = CHOICES.filter(a => n === Number[a]).join('');
+  return `Input number is ${(choice ? `Number.${choice}` : isNaN(n) ? 'Number.NaN' : n)}`;
+}
+
+
+
+const whatNumberIsIt = n =>
+  `Input number is ${Number.isNaN(n) ? `Number.NaN` : 
+    n === Number.MAX_VALUE ? `Number.MAX_VALUE` :
+      n === Number.MIN_VALUE ? `Number.MIN_VALUE` :
+        n === Infinity ? `Number.POSITIVE_INFINITY` :
+          n === -Infinity ? `Number.NEGATIVE_INFINITY` : n}`;
