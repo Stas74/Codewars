@@ -34,3 +34,43 @@ var countDeafRats = function (town) {
 console.log(countDeafRats("~O~O~O~O P")); // 0
 console.log(countDeafRats("P O~ O~ ~O O~")); // 1
 console.log(countDeafRats("~O~O~O~OP~O~OO~")); // 2
+
+
+
+var countDeafRats = function(town) {
+  let deafs = 0
+  let ident = 'O'
+  for ( let i = 0; i < town.length; i++){
+     if ( town[i] === 'P' ){
+      ident =  '~'
+     }
+     if (town[i] === ident){
+       deafs++
+     }
+     if (town[i] === '~' || town[i] === 'O'){
+      i++
+     }
+   }
+  return deafs;
+}
+
+
+var countDeafRats = function(town) {
+  return [...town.replace(/ +/g,'')].reduce((a,c,i) => a+(i%2==0 && c=='O'), 0);
+}
+
+
+deaf = town => [...town].filter((x, i, a) => x === 'O' && ((a[i + 1] ==='~' && i < a.indexOf('P')) || (a[i - 1] ==='~' && i > a.indexOf('P')))).length
+
+
+var countDeafRats = function(town) {
+  let deafRats = 0;
+  const townArr = 
+        town.split(' ')
+        .join('')
+        .split('')
+        .reduce((a,b,i) => {
+          return i%2 !== 0 && b === "~" ? deafRats++ : deafRats 
+        });
+  return deafRats
+}
