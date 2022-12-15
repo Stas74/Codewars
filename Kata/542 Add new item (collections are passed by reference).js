@@ -21,3 +21,10 @@ function addExtra( listOfNumbers ){
 
 console.log(addExtra([1,2,3]).length, 4); // 4
 
+
+
+function addExtra(listOfNumbers) {
+  return listOfNumbers.concat(0)
+}
+
+
