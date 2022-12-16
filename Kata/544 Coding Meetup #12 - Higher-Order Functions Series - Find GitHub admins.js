@@ -51,3 +51,19 @@ var answer1 = [
 
 console.log(findAdmin(list1, 'JavaScript')) // answer1
 console.log(findAdmin(list1, 'Ruby')) // []
+
+
+
+
+function findAdmin(list, lang) {
+  return list.filter(function(dev){return dev.language == lang && dev.githubAdmin == 'yes'});
+}
+
+function findAdmin(list, lang) {
+  return list.filter(p => p.language === lang && p.githubAdmin === 'yes');
+}
+
+
+
+
+
