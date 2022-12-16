@@ -61,3 +61,13 @@ console.log(vertMirror(s)); // "dcba\nhgfe\nlkji\nponm"
 console.log(horMirror(s)); // "mnop\nijkl\nefgh\nabcd"
 console.log(oper(vertMirror, "hSgdHQ\nHnDMao\nClNNxX\niRvxxH\nbqTVvA\nwvSyRu"));
 // "QHdgSh\noaMDnH\nXxNNlC\nHxxvRi\nAvVTqb\nuRySvw"
+
+
+
+const vertMirror = s => s.map(s => [...s].reverse().join(''));
+const horMirror = s => s.reverse();
+
+const oper = (fct, s) => fct(s.split("\n")).join("\n");
+
+
+
