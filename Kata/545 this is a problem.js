@@ -35,3 +35,39 @@ var n = new NameMe("John", "Doe");
 console.log(n.firstName); // "John"
 console.log(n.lastName); // "Doe"
 console.log(n.name); // "John Doe"
+
+
+
+
+function NameMe(first, last) {
+    this.firstName = first;
+    this.lastName  = last;
+    this.name = first + ' ' + last;
+}
+
+
+
+function NameMe(first, last) {
+    this.firstName = first;
+    this.lastName = last;
+    this.name = this.firstName + ' ' + this.lastName;
+}
+
+
+
+function NameMe(first, last) {
+    return { 
+      firstName : first,
+      lastName : last,
+      name: first + ' ' + last
+   }
+}
+
+
+
+function NameMe(first, last) {
+  this.firstName = first;
+  this.lastName = last;
+  this.name = this.firstName + ' ' + this.lastName;
+  return this;
+}
