@@ -10,7 +10,24 @@ Example:
 */
 
 function filterLongWords(sentence, n) {
-  return sentence.split(" ").filter(el => el.length > 4);
+  return sentence.split(" ").filter(el => el.length > n);
 }
 
 console.log(filterLongWords("The quick brown fox jumps over the lazy dog", 4)); // ['quick', 'brown', 'jumps']
+
+
+
+const filterLongWords = (sentence, n) => sentence.split(/\s/g).filter( wd => wd.length > n )
+
+
+function filterLongWords(sentence, n) {
+  let words = sentence.split(' ');
+  let longWords = [];
+  
+  for (let word of words) {
+    if (word.length > n) {
+      longWords.push(word);
+    }
+  }
+  return longWords;
+}
