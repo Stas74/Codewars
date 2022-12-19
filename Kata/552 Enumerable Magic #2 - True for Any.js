@@ -12,3 +12,29 @@ function any(arr, fun){
 
 console.log(any([1,2,3,4], function(v,i) {return v > 3})); // true
 console.log(any([1,2,3,4], function(v,i) {return v > 4})); // false
+
+
+
+
+function any(arr, fun){
+  return arr.some(fun)
+}
+
+
+
+function any(arr, fun){
+  return arr.filter(fun).length > 0;
+}
+
+
+
+
+function any(arr, fun){
+  for (var i=0; i<arr.length; ++i)
+    if (fun(arr[i]))
+      return true;
+  return false;
+}
+
+
+
