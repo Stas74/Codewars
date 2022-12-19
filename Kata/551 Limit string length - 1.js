@@ -18,3 +18,14 @@ function solution(string, limit) {
 console.log(solution("Testing String", 3)); // 'Tes...'
 console.log(solution("Testing String", 8)); // 'Testing ...'
 console.log(solution("Test", 8)); // 'Test'
+
+
+
+function solution(string,limit){
+    return string.length > limit ? string.substr(0,limit) + "..." : string;
+}
+
+
+
+const solution = (string,limit) =>
+  string.slice(0, limit) + (string.length > limit ? `...` : ``);
