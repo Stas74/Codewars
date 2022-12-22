@@ -30,3 +30,19 @@ function createDict(keys, values) {
 console.log(createDict(["a", "b", "c"], [1, 2, 3])); // {'a': 1, 'b': 2, 'c': 3}
 console.log(createDict(["a", "b", "c"], [1, 2, 3, 4])); // {'a': 1, 'b': 2, 'c': 3}
 console.log(createDict(["a", "b", "c", "d"], [1, 2, 3])); // {'a': 1, 'b': 2, 'c': 3, 'd':null}
+
+
+
+
+function createDict(keys, values){
+  return keys.reduce(function(o, v, i){
+    return o[v] = i in values ? values[i] : null, o;
+  }, {});
+}
+
+const createDict = (keys, values) =>
+  keys.reduce((pre, val, idx) => (pre[val] = idx in values ? values[idx] : null, pre), {});
+
+
+
+
