@@ -33,3 +33,32 @@ function save(sizes, hd) {
 console.log(save([4, 4, 4, 3, 3], 12)); // 3
 console.log(save([4, 4, 4, 3, 3], 11)); // 2
 console.log(save([4, 8, 15, 16, 23, 42], 108)); // 6
+
+
+
+
+function save(sizes, hd) {
+  let i = -1;
+  while (hd >=0) {
+    hd -= sizes.shift();
+    i++;
+  }
+  return i;
+}
+
+
+
+function save(sizes, hd) {
+  let result = 0;
+  sizes.reduce((acc, curr) => {
+    if ((acc += curr) <= hd) result += 1;
+    return acc;
+  }, 0);
+  return result;
+}
+
+
+
+const save = ([h, ...t], hd) => h <= hd ? 1 + save(t, hd - h) : 0
+
+
