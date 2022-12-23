@@ -22,3 +22,14 @@ function root(x, n) {
 
 console.log(root(4, 2)); // 2
 console.log(root(256, 4)); // 4
+
+
+
+function root(x, n) {
+  return Math.pow(x, 1/n);
+}
+
+
+
+const root = (x, n) =>
+  x ** n ** -1;
