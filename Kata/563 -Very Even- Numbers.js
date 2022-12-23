@@ -31,3 +31,22 @@ console.log(isVeryEvenNumber(4)); // true
 console.log(isVeryEvenNumber(12)); // false
 console.log(isVeryEvenNumber(1234)); // false
 console.log(isVeryEvenNumber(222)); // true
+
+
+
+function isVeryEvenNumber(n) {
+  return !n-- || n % 9 % 2 === 1;
+}
+
+
+const isVeryEvenNumber = n => 
+  !!(--n % 9 % 2);
+
+
+function isVeryEvenNumber(n) {
+  if (n < 10 && n%2 === 0) return true
+  if (n > 9) {
+    return isVeryEvenNumber(String(n).split('').reduce((a,b) => +a + +b))
+  }
+  return false
+}
