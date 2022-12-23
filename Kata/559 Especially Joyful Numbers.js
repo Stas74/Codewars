@@ -23,3 +23,18 @@ function numberJoy(n) {
 console.log(numberJoy(1997)); // false
 console.log(numberJoy(1729)); // true
 console.log(numberJoy(18)); // false
+
+
+
+
+const numberJoy = n =>
+  (val => val * [...`${val}`].reverse().join(``) === n)
+  ([...`${n}`].reduce((pre, val) => pre + +val, 0));
+
+
+
+
+
+function numberJoy(n) {
+  return (x=[...""+n].reduce((a,b)=>+b+a,0))*[...""+x].reverse().join`` == n;
+}
