@@ -61,3 +61,38 @@ function colorOf(r, g, b) {
 console.log(colorOf(255, 0, 0)); // "#ff0000"
 console.log(colorOf(0, 111, 0)); // "#006f00"
 console.log(colorOf(1, 2, 3)); // "#010203"
+
+
+
+function colorOf(r,g,b){
+  //coding here
+  return '#'+r.toString(16).padStart(2,0)+g.toString(16).padStart(2,0)+b.toString(16).padStart(2,0);
+}
+
+
+const colorOf = (...rgb) => '#' + rgb.map(x => `0${x.toString(16)}`.slice(-2)).join('')
+
+
+function colorOf(r,g,b){
+  r.toString(16).length < 2 ? r = '0' + r.toString(16) : r = r.toString(16);
+  g.toString(16).length < 2 ? g = '0' + g.toString(16) : g = g.toString(16);
+  b.toString(16).length < 2 ? b = '0' + b.toString(16) : b = b.toString(16);
+  
+  return '#' + r + g + b;
+}
+
+
+
+function colorOf(r,g,b)
+{
+   return "#" + toHex(r)+ toHex(g)+ toHex(b);  
+}
+
+function toHex(n)
+{
+  var result = n.toString(16);
+  return result.length == 1 ? "0" + result : result;  
+}
+
+
+
