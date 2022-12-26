@@ -15,3 +15,16 @@ function unscrambleEggs(word) {
 
 console.log(unscrambleEggs("ceggodegge heggeregge")); // "code here"
 console.log(unscrambleEggs("FeggUNegg KeggATeggA")); // "FUN KATA"
+
+
+
+
+function unscrambleEggs(word){
+  return word.split("egg").join("")
+}
+
+
+
+function unscrambleEggs(word) {
+  return word.replaceAll('egg', '');
+}
