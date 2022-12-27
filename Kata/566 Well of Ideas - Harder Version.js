@@ -48,3 +48,28 @@ console.log(
 console.log(
   well([["gOOd", "bAd", "BAD", "bad", "bad", "GOOD"], ["bad"], ["gOOd", "BAD"]])
 ); // 'I smell a series!'
+
+
+
+
+function well(x) {
+  let match = (''+x).match(/good/gi) || []
+  if (match.length == 0) return 'Fail!'
+  if (match.length <= 2) return 'Publish!'
+  return 'I smell a series!'
+}
+
+
+
+const well = x => {
+  const totalGoodIdeas = x.reduce((total, ideas) => total + (ideas.join('').match(/good/gi) || []).length, 0)
+  if (totalGoodIdeas > 2) return 'I smell a series!'
+  if (totalGoodIdeas === 0) return 'Fail!'
+  return 'Publish!'
+}
+
+
+function well( x ) {
+  const $ = x.toString().toLowerCase().split(/good/g).length-1
+  return $ > 2 ? 'I smell a series!' : $ > 0 ? 'Publish!' : 'Fail!'
+}
