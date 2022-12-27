@@ -37,6 +37,33 @@ class Person {
   }
 }
 
-console.log(alphabetWar("sz**z**zs")); // "Left side wins!"
-console.log(alphabetWar("zz*zzs")); // "Right side wins!"
-console.log(alphabetWar("z*dq*mw*pb*s")); // "Let's fight again!"
+
+
+class Person {
+  constructor(firstName = 'John', lastName = 'Doe', age = 0, gender = 'Male') {
+    Object.assign(this, { firstName, lastName, age, gender });
+  }
+  sayFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+  static greetExtraTerrestrials(raceName) {
+    return `Welcome to Planet Earth ${raceName}`;
+  }
+}
+
+
+
+class Person {
+  constructor(firstName,lastName,age,gender){
+    this.firstName = firstName || "John";
+    this.lastName = lastName || "Doe";
+    this.age = age || 0;
+    this.gender = gender || "Male";
+  }
+  sayFullName(){
+    return `${ this.firstName } ${ this.lastName }`;
+  }
+  static greetExtraTerrestrials(raceName){
+    return `Welcome to Planet Earth ${ raceName }`;
+  }
+}
