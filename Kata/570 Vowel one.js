@@ -20,3 +20,19 @@ function vowelOne(s) {
 
 console.log(vowelOne("vowelOne")); // "01010101"
 console.log(vowelOne("123, arou")); // "000001011"
+
+
+
+function vowelOne(s){
+  return s.split('').map(x => ('aeiouAEIOU'.includes(x)) ? 1 : 0).join('');
+}
+
+
+let vowelOne = (s) => [...s].map(c => /[aeiou]/i.test(c) ? '1' : '0').join('')
+
+
+function vowelOne(s){
+  return s.replace(/[^aeiou]/gi, '0').replace(/[^\d]/g, '1');
+}
+
+
