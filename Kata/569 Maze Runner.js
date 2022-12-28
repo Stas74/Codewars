@@ -109,6 +109,19 @@ console.log(mazeRunner(maze,["N","E","E","E","E"])); //  'Lost'
 
 
 function mazeRunner(maze, directions) {
+  var size=maze.length,i=-1,j=-1,di={N:-1,S:1,E:0,W:0},dj={W:-1,E:1,N:0,S:0}
+  while(!maze[++i].includes(2));while(maze[i][++j]!=2);
+  for(var s of directions){
+    i+=di[s],j+=dj[s]
+    if(i<0||j<0||i>=size||j>=size||maze[i][j]==1) return "Dead"
+    if(maze[i][j]==3) return "Finish"
+  }
+  return "Lost"
+}
+
+
+
+function mazeRunner(maze, directions) {
   var path = Array(), curX, curY;
   for (var i = 0; i < maze.length; i++) {
     for (var j = 0; j < maze[i].length; j++) {
@@ -133,6 +146,7 @@ function mazeRunner(maze, directions) {
 }
 
 
+
 function mazeRunner(maze, dirs) {
   var y = maze.findIndex(arr => arr.includes(2));
   var x = maze[y].indexOf(2);
@@ -148,4 +162,32 @@ function mazeRunner(maze, dirs) {
     if (curPos === 1 || curPos === undefined) return 'Dead';
   }
   return 'Lost';
+}
+
+
+
+var findStart = function(maze){
+  for(i = 0; i < maze.length; i++){
+    for(j = 0; j < maze.length; j++)
+      if(maze[i][j] == 2)
+        return [i, j];
+  }
+}
+
+function mazeRunner(maze, directions) {
+  let pos = findStart(maze);
+  for(var i = 0; i < directions.length; i++){
+    if(directions[i] == 'N')
+      pos[0] -=1;
+    else if(directions[i] == 'E')
+      pos[1] +=1;
+    else if(directions[i] == 'W')
+      pos[1] -=1;
+    else
+      pos[0] +=1;
+    if(pos[0] <0 || pos[1] <0 || pos[0] >= maze.length || pos[1] >= maze.length) return 'Dead';
+    if(maze[pos[0]][pos[1]] == 1) return 'Dead';
+    if(maze[pos[0]][pos[1]] == 3) return 'Finish';
+  }
+return 'Lost';
 }
