@@ -22,3 +22,21 @@ function getAges(sum, difference) {
 
 console.log(getAges(24, 4)); // 14, 10
 console.log(getAges(63, -14)); // null
+
+
+
+
+function getAges(sum, difference) {
+
+  let average = 0;
+  if (sum < 0 || difference < 0 || sum - difference < 0) return null;
+  else average = (sum - difference) / 2;
+  
+  return [average + difference, average];
+};
+
+
+
+
+const getAges = (sum, difference) =>
+  sum < 0 || difference < 0 || sum < difference ? null : [(sum + difference) / 2, (sum - difference) / 2];
