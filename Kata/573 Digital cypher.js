@@ -45,3 +45,23 @@ function encode(str, n) {
 
 console.log(encode("scout", 1939)); // [ 20, 12, 18, 30, 21]
 console.log(encode("masterpiece", 1939)); // [ 14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8]
+
+
+
+
+function encode(str, n) {
+  const key = String(n)
+  return Array.from(str, (c, i) => c.charCodeAt(0) - 96 + Number(key[i % key.length]))
+}
+
+
+
+function encode(str, num) {
+	var key = num.toString();
+  return str.split('').map(function(char, i) {
+  	return char.charCodeAt(0) - 96 + +key[i % key.length];
+  });
+}
+
+
+
