@@ -24,5 +24,31 @@ function power(x, y) {
 console.log(power(1, 701270)); // 1
 console.log(power(2, 2)); // 4
 console.log(power(3, 2)); // 9
-console.log(power(-1, 40)); // -1
+console.log(power(-1, 40)); // 1
 console.log(power(0, 0)); // 1
+
+
+
+
+function power(x,y){
+  return x ** y;
+}
+
+
+
+
+function power(x,y){
+  var result = 1;
+  for(var i=0;i<y;i++){
+    result = result*x;
+  }
+  return result;
+}
+
+
+
+// recursion
+function power(x,y){
+  if (x == 1) return 1
+  return y ? x * power(x, y-1) : 1
+}
