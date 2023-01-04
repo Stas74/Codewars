@@ -97,6 +97,23 @@ function fiveLine(s) {
   return `${s}\n${s}${s}\n${s}${s}${s}\n${s}${s}${s}${s}\n${s}${s}${s}${s}${s}`;
 }
 
+
 console.log(fiveLine("  a")); // "a\naa\naaa\naaaa\naaaaa"
 console.log(fiveLine("\txy \n")); // "xy\nxyxy\nxyxyxy\nxyxyxyxy\nxyxyxyxyxy"
 console.log(fiveLine("           Ok               ")); // "Ok\nOkOk\nOkOkOk\nOkOkOkOk\nOkOkOkOkOk"
+
+
+
+function fiveLine(s){
+  s = s.trim();
+  return `${s}\n${s.repeat(2)}\n${s.repeat(3)}\n${s.repeat(4)}\n${s.repeat(5)}`;
+}
+
+
+
+function fiveLine(s) {
+  return [1,2,3,4,5].map(n => s.trim().repeat(n)).join('\n');
+}
+
+
+
