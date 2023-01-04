@@ -20,3 +20,13 @@ function sumSquares(array) {
 
 console.log(sumSquares([1, 2, 3, 4, 5])); // 55
 console.log(sumSquares([7, 3, 9, 6, 5])); // 200
+
+
+
+
+let sumSquares = a => a.reduce((s, x) => s + x * x, 0)
+
+
+
+// An alternative solution using both map and reduce
+var sumSquares=a=>a.map(x=>x*x).reduce((x,y)=>x+y);
