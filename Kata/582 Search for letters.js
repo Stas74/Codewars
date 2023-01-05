@@ -22,3 +22,30 @@ function change(string) {
 }
 
 console.log(change("aA **&  bzZ")); // "11000000000000000000000001"
+
+
+
+function change(string) {
+  string = string.toLowerCase()
+  return 'abcdefghijklmnopqrstuvwxyz'.split('').map(function (c) { 
+    return string.indexOf(c) !== -1 ? 1 : 0;
+  }).join('');
+}
+
+
+const change = str => 'abcdefghijklmnopqrstuvwxyz'.split('').map(x => str.toLowerCase().includes(x) ? 1 : 0).join('')
+
+
+function change(s){
+  let a = Array.from({length:26},_=>0);
+  [...s.toUpperCase()].forEach(x=>a[x.charCodeAt(0)-65]=1);
+  return a.join('');  
+}
+
+
+
+const change = string =>
+  [...Array(26)].map((_, idx) => +new RegExp(String.fromCharCode(65 + idx), `i`).test(string)).join(``);
+
+
+
