@@ -34,3 +34,30 @@ const catchSignChange = (arr) => {
 
 console.log(catchSignChange([1, -3, -4, 0, 5])); // 2
 console.log(catchSignChange([-47, 84, -30, -11, -5, 74, 77])); // 3
+
+
+
+
+const catchSignChange = function(arr){
+  var count=0;
+  for (i=0; i<arr.length; i++){
+    if ((arr[i]<0 && arr[i+1]>=0) || (arr[i]>=0 && arr[i+1]<0)){
+    count++;
+    }
+  };
+  return count;
+};
+
+
+
+function catchSignChange(arr) {
+  return arr.slice(1).filter((e,i) => (e < 0) !== (arr[i] < 0)).length;
+}
+
+const catchSignChange = a => a.slice(1).filter((e, i) => (e < 0) !== (a[i] < 0)).length;
+
+
+
+const catchSignChange = arr => 
+  arr.reduce((pre, val, idx) => idx && pre + (val < 0 !== arr[--idx] < 0), 0);
+
