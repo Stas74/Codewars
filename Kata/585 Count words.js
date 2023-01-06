@@ -29,3 +29,22 @@ console.log(countWords("Hello, World!")); // 2
 console.log(countWords("  Hello Gomer  ")); // 2
 console.log(countWords("  Hello     Bart  ")); // 2
 console.log(countWords("")); // 0
+
+
+
+
+function countWords(str) {
+  return (str.match(/[^\s]+/g) || []).length;
+}
+
+
+
+function countWords(str) {
+  str = str.trim();
+  if (str === '') return 0;
+  return str.split(/\s+/).length;
+}
+
+
+
+const countWords = str => str.split(/\S+/).length - 1
