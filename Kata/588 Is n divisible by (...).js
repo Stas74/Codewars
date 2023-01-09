@@ -26,3 +26,28 @@ console.log(isDivisible(3, 3, 4)); // false
 console.log(isDivisible(12, 3, 4)); // true
 console.log(isDivisible(12)); // true
 console.log(isDivisible(8, 3, 4, 2, 5)); // false
+
+
+
+
+function isDivisible(firstN, ...otherN){
+  return otherN.every(n => firstN % n === 0);
+}
+
+
+
+function isDivisible(n) {
+  for (var i = 1; i < arguments.length; i++) {
+    if (n % arguments[i]) { return false };
+  }
+  return true;
+}
+
+
+
+const isDivisible = (n, ...xs) => xs.every(x => n % x == 0);
+
+
+
+const isDivisible = (n, ...rest) =>
+  rest.every(val => !(n % val));
