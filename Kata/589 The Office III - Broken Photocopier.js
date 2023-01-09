@@ -16,3 +16,20 @@ function broken(x) {
 
 console.log(broken("1")); // "0"
 console.log(broken("100010")); // "011101"
+
+
+
+
+const broken = x =>
+  x.replace(/\d/g, val => val ^ 1);
+
+
+function broken(x){
+  return x.replace(/[10]/gi, match=> match ==='0'? '1':'0');
+}
+
+
+
+function broken(x){
+  return x.split('').map(v => +!+v).join('');
+}
