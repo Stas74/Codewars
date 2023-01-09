@@ -24,3 +24,22 @@ console.log(isIntArray([])); // true
 console.log(isIntArray([1, 2, 3, 4])); // true
 console.log(isIntArray([1, 2, 3, NaN])); // false
 console.log(isIntArray(null)); // false
+
+
+
+
+let isIntArray = arr => !!arr && arr.every(Number.isInteger);
+
+
+
+function isIntArray(arr) {
+  return arr ? arr.every(function(n) {return ~~n === n;}) : false;
+}
+
+
+function isIntArray(arr) {
+  return arr ? arr.filter(function(n) { return ~~n === n; }).length === arr.length : false;
+}
+
+
+
