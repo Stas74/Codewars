@@ -28,3 +28,30 @@ console.log(
     ["bar_", "bar@bar.com"],
   ])
 ); // [ [ "bar_", "bar@bar.com" ] ]
+
+
+
+function searchNames( logins ){
+  return logins.filter(a=>a[0].endsWith('_'));
+}
+
+
+
+function searchNames( logins ){
+  return logins.filter(function(arr){
+    return arr[0].match(/_$/);});
+}
+
+
+
+function searchNames( logins ){
+    return logins.filter(x => /_$/.test(x[0]))
+}
+
+
+
+function searchNames( logins ){
+  return logins.filter(function(user) {
+    return user[0].charAt(user[0].length - 1) === '_';
+  });
+}
