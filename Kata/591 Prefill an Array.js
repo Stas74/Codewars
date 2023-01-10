@@ -38,3 +38,30 @@ console.log(prefill(3, 1)); // [1,1,1]
 console.log(prefill(2, "abc")); // ['abc','abc']
 console.log(prefill("1", 1)); // [1]
 console.log(prefill("zzzz", 1)); //  throws TypeError with message "xyz is invalid"
+
+
+
+
+function prefill(num, value) {
+  if(typeof num === 'boolean' || ~~num != num || +num < 0) throw new TypeError(num + ' is invalid')
+  return Array.apply(null, Array(+num)).map(function (d,i) { return value })
+}
+
+
+
+function prefill(n, v) {
+  if (/\D/g.test(n) || n < 0) {throw new TypeError(n + ' is invalid')}
+  return Array.apply(null, new Array(parseInt(n, 10))).map(function() {return v;});
+}
+
+
+
+function prefill(n, v, arr) {
+  var arr = arr ? arr : [];
+  if(n==0 && n!==false) return arr;
+  if(!Number.isInteger(n) || n<0) throw new TypeError(n+' is invalid'); 
+  arr.push(v);
+  return prefill(n-1, v, arr);
+}
+
+
