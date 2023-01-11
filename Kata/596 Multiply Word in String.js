@@ -21,3 +21,12 @@ function modifyMultiply(str, loc, num) {
 // Array(n).fill(v)
 
 console.log(modifyMultiply("This is a string", 3, 5)); // "string-string-string-string-string"
+
+
+
+function modifyMultiply (str,loc,num) {
+  return (str.split(" ")[loc]+"-").repeat(num).slice(0,-1)
+} 
+
+
+
