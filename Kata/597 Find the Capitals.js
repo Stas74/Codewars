@@ -26,3 +26,17 @@ console.log(capital(state_capitals)[0]); // returns "The capital of Maine is Aug
 
 country_capitals = [{'country' : 'Spain', 'capital' : 'Madrid'}]
 console.log(capital(country_capitals)[0]); // returns "The capital of Spain is Madrid"
+
+
+
+function capital(capitals) {
+  return capitals.map(function(e) {
+    return 'The capital of ' + (e.state || e.country) + ' is ' + e.capital
+  })
+}
+
+
+
+function capital(capitals){
+  return capitals.map(({country, state = country, capital}) => `The capital of ${state} is ${capital}`)
+}
