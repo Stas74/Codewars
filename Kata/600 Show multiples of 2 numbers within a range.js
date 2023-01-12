@@ -25,3 +25,30 @@ function multiples(s1, s2, s3) {
 }
 
 console.log(multiples(2, 4, 40)); // [4, 8, 12, 16, 20, 24, 28, 32, 36]
+
+
+
+
+function multiples(s1,s2,s3){
+  const arr = []
+  for (let i = s1; i < s3; i++){
+    if( i % s1 === 0 && i % s2 === 0 ){
+      arr.push(i)
+    }
+  }
+  return arr
+}
+
+
+function multiples(s1, s2, s3) {
+  let res = [];  
+  for (let i = s1; i < s3; i += s1)
+    if (i % s2 === 0)
+      res.push(i)      
+  return res;  
+}
+
+
+
+const multiples = (s1, s2, s3) =>
+  [...Array(s3 - s1)].map((_, idx) => idx + s1).filter(val => !(val % s1 || val % s2));
