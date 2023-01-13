@@ -15,3 +15,17 @@ function pofi(n) {
 console.log(pofi(0)); // '1'
 console.log(pofi(1)); // 'i'
 console.log(pofi(2)); // '-1'
+
+
+
+function pofi(n){
+  switch (n%4) {
+    case 0: return '1'
+    case 1: return 'i'
+    case 2: return '-1'
+    case 3: return '-i'
+  }
+}
+
+
+pofi = n => (n & 2 ? '-' : '' ) + '1i'[n&1]
