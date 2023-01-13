@@ -36,3 +36,19 @@ function duplicates(arr) {
 
 console.log(duplicates([1, 2, 4, 4, 3, 3, 1, 5, 3, "5"])); // [4, 3, 1]
 console.log(duplicates([0, 1, 2, 3, 4, 5])); // []
+
+
+
+function duplicates(arr) {
+  return arr.reduce(function(prev, cur, i, a) {
+    if (i !== a.indexOf(cur) && prev.indexOf(cur) === -1) {
+      prev.push(cur);
+    }
+    return prev;
+  }, []);
+}
+
+
+
+const duplicates = arr => arr.filter((v, i) => arr.indexOf(v) !== i && arr.lastIndexOf(v) === i);
+
