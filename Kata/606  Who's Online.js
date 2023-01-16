@@ -92,3 +92,49 @@ console.log(whosOnline(friends));
   away: ['Bob']
 }
 */
+
+
+
+const whosOnline = (friends) => {
+    let output = {};
+    friends.forEach(e => {
+        let status = e.status;
+        if(status === 'online' && e.lastActivity > 10) status = 'away';
+        let temp = output[status];
+        if(output[status]) {
+            output[status].push(e.username);
+        }
+        else {
+            output[status] = [e.username];
+        }
+    });
+    return output;
+}
+
+
+
+
+const whosOnline = friends => friends.reduce((a,{username, status, lastActivity}) => {
+  const fStatus = status === 'online' && lastActivity > 10 ? 'away' : status;
+  a[fStatus] ? a[fStatus].push(username) : a[fStatus] = [username];
+  return a;
+}, {})
+
+
+
+const whosOnline = (friends) => {
+    const output = {}
+    friends.forEach((n) => {
+        if (n.status === 'online' && n.lastActivity <= 10) {
+            if (!output.online) output.online = [];
+            output.online.push(n.username)
+        } else if (n.status === 'offline') {
+            if(!output.offline) output.offline = [];
+            output.offline.push(n.username)
+        } else {
+            if(!output.away) output.away = [];
+            output.away.push(n.username)
+        }
+    })
+    return output;
+}
