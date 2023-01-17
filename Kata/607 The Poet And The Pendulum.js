@@ -63,3 +63,30 @@ function pendulum(values) {
 console.log(pendulum([4, 10, 9])); // [10,4,9]
 console.log(pendulum([8, 7, 10, 3])); // [8,3,7,10]
 console.log(pendulum([6, 6, 8, 5, 10])); // [10,6,5,6,8]
+
+
+
+const pendulum = values =>
+  values.sort((a, b) => a - b).reduce((pre, val) => pre.length % 2 ? [...pre, val] : [val, ...pre], []);
+
+
+function pendulum(a) {
+  let list = [], arr = [];
+  a.sort((b, c) => b - c).forEach((e, i) => (i % 2 ? arr : list).push(e));
+  return list.reverse().concat(arr);
+}
+
+
+
+
+function pendulum(values) {
+
+  let sort = values.slice().sort((a, b) => a - b)
+  ,  parts = { left: [], right: [] };
+  
+  for (let i = 0; i < sort.length; i++) 
+    parts[i % 2 ? 'right' : 'left'].push(sort[i]);
+
+  return parts.left.reverse().concat(parts.right);
+  
+}
