@@ -24,3 +24,27 @@ function initializeNames(name) {
 console.log(initializeNames("Jack Ryan")); // 'Jack Ryan'
 console.log(initializeNames("Lois Mary Lane")); // 'Lois M. Lane'
 console.log(initializeNames('Alice Betty Catherine Davis')); // 'Alice B. C. Davis'
+
+
+
+function initializeNames(name){
+  return name.split(' ').map((e,i,a) => i == 0 || i == a.length-1 ? e : e[0]+'.').join(' ');
+}
+
+
+function initializeNames(name) {
+  var n = name.split(" ");
+  if (n.length < 3) return name;
+  for (i = 1; i < n.length - 1; i++) {
+    n[i] = n[i][0] + ".";
+  }
+  return n.join(" ");
+}
+
+
+const initializeNames = name => name.replace(/ (\w)\w*(?= )/g, ' $1.')
+
+
+const initializeNames = name =>
+  name.replace(/(?<=\s)(\w)\w+(?=\s)/g, `$1.`);
+
