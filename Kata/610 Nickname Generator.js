@@ -39,3 +39,39 @@ console.log(nicknameGenerator("Jimmy")); // 'Jim'
 console.log(nicknameGenerator("Samantha")); // "Sam"
 console.log(nicknameGenerator("Kayne")); // 'Kay'
 console.log(nicknameGenerator("Douglas")); // 'Doug'
+
+
+
+const nicknameGenerator = (name) => name.length > 3 
+  ? name.slice(0,  3 + 'aeiou'.includes(name[2])) 
+  : 'Error: Name too short'
+
+
+function nicknameGenerator(name) {
+  if (name.length < 4) {
+    return "Error: Name too short";
+  } else if ("aeiou".indexOf(name[2].toLowerCase()) != -1) {
+    return name.slice(0, 4);
+  } else {
+    return name.slice(0, 3);
+  }
+}
+
+
+function nicknameGenerator(name) {
+  if(name.length <= 3) {return 'Error: Name too short';}
+  return !/[aeiou]/i.test(name[2]) ? name.slice(0,3) : name.slice(0,4);
+}
+
+
+
+function nicknameGenerator(name){
+  if (name.length <= 3){
+    return 'Error: Name too short';
+  }
+  let vowels = ["a","e","i","o","u"];
+  if (vowels.indexOf(name[2]) != -1){
+    return name.slice(0,4);
+  };
+  return name.slice(0,3);
+}
