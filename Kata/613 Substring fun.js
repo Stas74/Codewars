@@ -19,3 +19,12 @@ function nthChar(words) {
 }
 
 console.log(nthChar(["yoda", "best", "has"])); // "yes"
+
+
+
+const nthChar = words => words.reduce((a, b, index) => a + b[index], "");
+
+
+function nthChar(words){
+ return words.map((str, i) => str.charAt(i)).join("");
+}
