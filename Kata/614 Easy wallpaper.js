@@ -47,3 +47,41 @@ function wallpaper(l, w, h) {
 console.log(wallpaper(6.3, 4.5, 3.29)); // "sixteen"
 console.log(wallpaper(6.3, 5.8, 3.13)); // "seventeen"
 console.log(wallpaper(4.0, 3.5, 3.0)); // "ten"
+
+
+
+
+function toWord(n) {
+  var words = ["zero", "one", "two", "three", "four", "five", "six", "seven", 
+               "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", 
+               "fifteen", "sixteen", "seventeen", "eighteen", "nineteen", "twenty"];
+  return words[n];
+}
+
+function wallpaper(l, w, h) {
+  if ([l,w,h].indexOf(0) >= 0) {
+    return "zero";
+  } else {
+    var roll = 5.2;
+    var buffer = 1.15;;
+    var need = (l*h)*2 + (w*h)*2;
+    return toWord(Math.ceil(need/roll * buffer));
+  }
+}
+
+
+
+const wallpaper = (l, w, h) =>
+  [`zero`, `one`, `two`, `three`, `four`, `five`, `six`, `seven`, `eight`, `nine`, `ten`, `eleven`, 
+   `twelve`, `thirteen`, `fourteen`, `fifteen`, `sixteen`, `seventeen`, `eighteen`, `nineteen`, `twenty`]
+    [l && w ? Math.ceil(2 * (l + w) * h / 5.2 * 1.15) : 0];
+
+
+
+function wallpaper(l, w, h) {
+    var numbers = ['zero', 'one', 'two', 'three', 'four', 'five',
+                    'six', 'seven', 'eight', 'nine', 'ten', 'eleven',
+                    'twelve', 'thirteen', 'fourteen', 'fifteen',
+                    'sixteen', 'seventeen', 'eighteen', 'nineteen', 'twenty'];
+    return w * h * l === 0 ? numbers[0] : numbers[Math.ceil((l * h * 2 + w * h * 2) * 1.15 / 5.2)];
+}
