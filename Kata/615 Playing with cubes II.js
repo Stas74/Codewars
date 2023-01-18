@@ -32,3 +32,55 @@ console.log(cube.getSide()); // 12
 cube = new Cube(-22);
 console.log(cube.getSide()); // 22
 
+
+
+
+class Cube {
+  constructor(side) {
+    this.setSide(side)
+  }
+
+  getSide() {
+    return this.side
+  }
+  
+  setSide(side = 0) {
+    this.side = Math.abs(side)
+  }
+}
+
+
+
+
+// This Cube is yahhh
+class Cube {
+  constructor(n = 0){
+    this.setSide(n)
+  }
+  
+  setSide(n) {
+    if (isNaN(n) === true) { }
+    this.side = Math.abs(n);
+  };
+  
+  getSide() { 
+    return this.side; 
+  };
+};
+
+
+
+class Cube {
+    constructor(side) {
+        this.setSide(side)
+    }
+    getSide() {
+        return this.side
+    }
+    setSide(n) {
+        this.side = n ? Math.abs(n) : 0
+    }
+}
+
+
+
