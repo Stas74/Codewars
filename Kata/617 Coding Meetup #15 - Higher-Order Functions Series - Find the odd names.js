@@ -44,3 +44,28 @@ var list1 = [
 console.log(findOddNames(list1)); 
 // [{ firstName: 'Abb', lastName: 'O.', country: 'Israel', continent: 'Asia', age: 39, language: 'Java' }];
 
+
+
+
+function findOddNames(list) {
+   return list.filter( (d) => {
+     return d.firstName.split('').reduce(((r, e) => r + e.charCodeAt(0)), 0) % 2 !== 0
+   });
+}
+
+
+
+var findOddNames = (list) =>
+  list.filter(d=>d.firstName
+                  .split('')
+                  .map(c=>c.charCodeAt(0))
+                  .reduce((a,b)=>a+b,0) 
+                  % 2 !== 0);
+
+
+
+const findOddNames = list =>
+  list.filter(val => [...val.firstName].reduce((pre, val) => pre + val.charCodeAt(), 0) % 2);
+
+
+
