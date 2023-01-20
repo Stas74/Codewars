@@ -20,3 +20,33 @@ function rakeGarden(garden) {
 
 console.log(rakeGarden('slug spider rock gravel gravel gravel gravel gravel gravel gravel')); 
 // 'gravel gravel rock gravel gravel gravel gravel gravel gravel gravel'
+
+
+
+const rakeGarden = garden => 
+  garden
+    .split(' ')
+    .map(item => item === 'rock' ? 'rock' : 'gravel')
+    .join(' ')
+
+
+function rakeGarden(garden) {
+  var rakedGarden= garden.split(' ').map(value=>value=='rock'?'rock':'gravel').join(' ')  
+  return rakedGarden;
+}
+
+
+
+function rakeGarden(garden) {
+  return garden.replace(/\b((?!\b(gravel|rock)\b)\w+)\b/g, 'gravel')
+}
+
+
+var rakeGarden=s=>s.replace(/(?!(?:gravel|rock)\b)\b\w+/g,'gravel')
+
+
+const rakeGarden = garden =>
+  garden.replace(/(?!(gravel|rock)\b)\b\w+/g, `gravel`);
+
+
+const rakeGarden = garden => garden.split(' ').map(i => i === 'rock' || i === 'gravel' ? i : 'gravel').join(' ')
