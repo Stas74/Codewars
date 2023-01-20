@@ -16,3 +16,41 @@ function capitalize(s, arr) {
 
 console.log(capitalize("abcdef", [1, 2, 5])); // "aBCdeF"
 console.log(capitalize("codewars", [1, 3, 5, 50])); // "cOdEwArs"
+
+
+
+function capitalize(s,arr){  
+var capS = s.split("");
+
+for(var i = 0; i < arr.length; i++) {
+  if(capS[arr[i]]) {
+    capS[arr[i]] = capS[arr[i]].toUpperCase();
+  }
+}
+capS = capS.join("");
+return capS
+};
+
+
+
+function capitalize(s,arr){
+  return arr.reduce((a,b) => {
+    if (a[b]) {
+      a[b] = a[b].toUpperCase();
+    }
+    return a;
+  }, [...s]).join('');
+}
+
+
+
+
+const capitalize = (string, array) => 
+  string.replace(/./g, (char, index) =>
+    array.includes(index) ? char.toUpperCase() : char
+  );
+
+
+
+const capitalize = (s, arr) =>
+  s.replace(/\w/g, (val, idx) => arr.includes(idx) ? val.toUpperCase() : val);
