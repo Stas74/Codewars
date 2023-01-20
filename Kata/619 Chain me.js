@@ -35,3 +35,22 @@ function mult(x) {
 }
 
 console.log(chain(2, [add, mult])); // 360
+
+
+
+
+function chain(v, fns) {
+  return fns.reduce(function(v, fn) { return fn(v) }, v);
+}
+
+
+
+function chain(x, functions) {
+	functions = functions || [];
+  functions.forEach(function(fn) {
+  	x = fn(x);
+	});
+  return x;
+}
+
+
