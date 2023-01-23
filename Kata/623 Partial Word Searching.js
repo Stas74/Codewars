@@ -23,3 +23,28 @@ console.log(wordSearch("ab", ["za", "ab", "abc", "zab", "zbc"])); // ["ab", "abc
 console.log(wordSearch("ab", ["za", "aB", "Abc", "zAB", "zbc"])); // ["aB", "Abc", "zAB"]
 console.log(wordSearch("abcd", ["za", "aB", "Abc", "zAB", "zbc"])); // ["Empty"]
 
+
+
+function wordSearch(query, seq){
+  var reg = new RegExp(query,"i");
+  var res = seq.filter(function(val){
+    return reg.test(val);
+  });
+  return (res.length > 0) ? res : ["Empty"];
+}
+
+
+
+wordSearch = (q, a) => (a = a.filter(e => e.match(new RegExp(q,'i'))))[0] ? a : ["Empty"];
+
+
+const wordSearch = (query, seq) =>
+  (val => val.length ? val : [`Empty`])
+  (seq.filter(val => new RegExp(query, `i`).test(val)));
+
+
+
+function wordSearch(query, seq) {
+  var res = seq.filter(w => w.toLowerCase().indexOf(query.toLowerCase()) >= 0)
+  return res.length ? res : ["Empty"]
+}
