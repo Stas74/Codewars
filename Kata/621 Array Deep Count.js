@@ -22,3 +22,26 @@ console.log(deepCount([1, 2, 3])); // 3
 console.log(deepCount(["x", "y", ["z"]])); // 4
 console.log(deepCount([1, 2, [3, 4, [5]]])); // 7
 console.log(deepCount([[[[[[[[[]]]]]]]]])); // 8
+
+
+
+function deepCount(a) {
+  let count = a.length;
+  for (let i = 0; i < a.length; i++)
+    if (Array.isArray(a[i])) count += deepCount(a[i]);
+  return count;
+}
+
+
+const deepCount = a =>
+  a.reduce((pre, val) => ++pre + (Array.isArray(val) && deepCount(val)), 0);
+
+
+function deepCount(a){
+  return a.reduce((acc,el) => Array.isArray(el) ? acc+=deepCount(el) : acc, a.length);
+}
+
+
+function deepCount(a) {
+  return JSON.stringify(a).replace(/[^[,]|\[]/g, '').length;
+}
