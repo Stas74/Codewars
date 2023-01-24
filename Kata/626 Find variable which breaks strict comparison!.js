@@ -13,3 +13,20 @@ function findStrangeValue() {
   return NaN;
 }
 
+
+
+
+function findStrangeValue() {
+  return +"YOLO"
+}
+
+
+
+function findStrangeValue() {
+  return +{};
+}
+
+
+function findStrangeValue() {
+  return parseInt("");
+}
