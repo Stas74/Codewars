@@ -48,3 +48,48 @@ console.log(findMissingNumber("1 5")); // 2
 console.log(findMissingNumber("1 2 3 4 5")); // 0
 console.log(findMissingNumber("2 1 4 3 a")); // 1
 console.log(findMissingNumber("2 6 4 5 3")); // 1
+
+
+
+
+function findMissingNumber(sequence){
+  if (sequence === "") return 0;
+  if (!/^(\d+ )+\d+$/gi.test(sequence)) return 1;
+  var arr = sequence.split(' ').map(x => +x);
+  var max = Math.max(...arr);
+  for(var i = 1; i < max; ++i)
+    if (arr.find(x => x == i) == undefined) return i;
+  return 0;
+}
+
+
+
+const findMissingNumber = sequence =>
+  /[^\d\s]/.test(sequence) ? 1 : (sequence.match(/\d+/g) || []).sort((a, b) => a - b).findIndex((val, idx) => val != ++idx) + 1;
+
+
+
+function findMissingNumber(sequence){
+  if (!Number.isInteger(+sequence.split(' ').join(''))) return 1;
+  var arr = sequence.split(' ').map(n => +n);
+  for (i = 1; i < Math.max(...arr); i++) {
+    if (!arr.includes(i)) return i;
+  }
+  return 0;
+}
+
+
+
+function findMissingNumber(sequence){
+  if (sequence.length < 1) return 0;
+  
+  var seq = sequence.split(' ').sort((a,b) => a-b).map(x => parseInt(x, 10));
+  if (!seq.every(x => x % 1 === 0)) return 1;
+  
+  for (var j = 1; j <= seq.length; j++) {
+    if (j !== seq[j - 1]) return j;
+  }  
+  return 0;
+}
+
+
