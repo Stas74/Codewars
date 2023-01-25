@@ -24,3 +24,23 @@ function solve(arr) {
 
 console.log(solve([16, 17, 14, 3, 14, 5, 2]));  // [17,14,5,2]
 console.log(solve([1, 21, 4, 7, 5]));  // [21,7,5]
+
+
+
+function solve(arr){
+  return arr.filter((e, i)=> arr.slice(i + 1).every(x => x < e));
+};
+
+
+
+function solve(arr){
+  return arr.filter((n, i)=>n > Math.max(...arr.slice(i + 1)));
+};
+
+
+
+const solve = (arr) => arr.filter((el,i)=> el > Math.max(...arr.slice(i+1)))
+
+
+const solve = arr =>
+  arr.filter((val, idx) => val > Math.max(...arr.slice(++idx)));
