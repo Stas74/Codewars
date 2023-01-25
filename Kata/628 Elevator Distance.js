@@ -32,3 +32,14 @@ function elevatorDistance(array) {
 console.log(elevatorDistance([5, 2, 8])); // 9
 console.log(elevatorDistance([1, 2, 3])); // 2
 console.log(elevatorDistance([7, 1, 7, 1])); // 18
+
+
+
+
+function elevatorDistance(array) {
+  return array.slice(1).reduce((s,n,i) => s + Math.abs(n - array[i]), 0)
+}
+
+
+const elevatorDistance = array =>
+  array.reduce((pre, val, idx) => pre + Math.abs(val - array[--idx] ^ 0), 0);
