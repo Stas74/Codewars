@@ -59,3 +59,23 @@ var list1 = [
 
 
 console.log(orderFood(list1)); // { vegetarian: 2, standard: 1, vegan: 1 }
+
+
+
+
+function orderFood(list) {
+  var orders = {};
+  list.forEach((d) => {
+    if (orders[d.meal]) orders[d.meal]++;
+    else orders[d.meal] = 1;
+  });
+  return orders;
+}
+
+
+const orderFood = a => a.reduce( (acc, v) => ( acc[v.meal] = ( acc[v.meal] || 0 ) + 1, acc ), {} );
+
+
+
+const orderFood = list =>
+  list.reduce((pre, val) => (pre[val.meal] = -~ pre[val.meal], pre) ,{});
