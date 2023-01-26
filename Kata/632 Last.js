@@ -30,3 +30,28 @@ function last(list){
 console.log(last([1, 2, 3, 4, 5])); // 5 --> array
 console.log(last("abcde")); // e --> string
 console.log(last(1, "b", 3, "d", 5)); // 5 --> arguments
+
+
+
+function last(list) {
+  if (arguments.length > 1) {
+    return arguments[arguments.length - 1];
+  }
+  if (Array.isArray(list)) {
+    return list.pop();
+  } else if (typeof list == 'string') {
+    return list.charAt(list.length - 1)
+  } else {
+    return list;
+  }
+}
+
+
+
+const last = (...list) => (last => last[last.length - 1] || last)(list[list.length - 1]);
+
+
+
+const last = (...list) =>
+  (val => val[val.length - 1] || val)
+  (list[list.length - 1]);
