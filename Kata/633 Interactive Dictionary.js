@@ -42,3 +42,48 @@ d.newEntry('Soccer', 'A sport')
 console.log(d.look('Soccer')); // 'A sport'
 console.log(d.look('Ball')); // 'Can\'t find entry for Ball'
 
+
+
+
+class Dictionary {
+  constructor() {
+    this.dict = new Map();
+  }
+  newEntry(key, value) {
+    this.dict.set(key,value);
+    return this;
+  }
+  look(key) {
+    return this.dict.get(key) || `Can't find entry for ${key}` ;
+  }
+}
+
+
+
+class Dictionary {
+  newEntry(key, value) {
+    this[key] = value;
+  }
+  
+  look(key) {
+    return this[key] || `Can't find entry for ${key}`;
+  }
+}
+
+
+
+class Dictionary {
+  constructor() {
+    this.entries = {};
+  }
+  
+  newEntry(key, value) {
+    this.entries[key] = value;
+  }
+  
+  look(key) {
+    return key in this.entries ? this.entries[key]:
+    `Can't find entry for ${key}`;
+  }
+  
+}
