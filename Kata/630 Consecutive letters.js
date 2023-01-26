@@ -26,3 +26,41 @@ console.log(solve("abc"));  // true
 console.log(solve("dabc"));  // true
 console.log(solve("abd"));  // false
 console.log(solve("abbc"));  // false
+
+
+
+function solve(s) {
+  return 'abcdefghijklmnopqrstuvwxyz'.includes([...s].sort().join(''));
+}
+
+
+
+function solve(s) {
+  const a = [...s].sort();
+  return a.every((v, i) => i === 0 || v.charCodeAt(0) - a[i - 1].charCodeAt(0) === 1);
+}
+
+
+
+function solve(s) {
+  if (s.length === 1) {
+    return true;
+  }
+  const sortedChars = s.split('').sort().join('');
+  for (let i=1; i<sortedChars.length; i++) {
+    if (sortedChars.charCodeAt(i) - sortedChars.charCodeAt(i-1) !== 1) {
+      return false
+    }
+  }
+  return true;
+}
+
+
+
+const letters = 'abcdefghijklmnopqrstuvwxyz'
+const sortLetters = string => [...string].sort().join('')
+
+const solve = series => {
+  const sample = sortLetters(series)
+  return letters.includes(sample)
+}
