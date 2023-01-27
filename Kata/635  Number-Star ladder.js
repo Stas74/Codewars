@@ -36,3 +36,30 @@ function pattern(n) {
 
 console.log(pattern(3)); // "1\n1*2\n1**3"
 console.log(pattern(7)); // "1\n1*2\n1**3\n1***4\n1****5\n1*****6\n1******7"
+
+
+
+const pattern = n =>
+  [...Array(n)].map((_, idx) => `${`*`.repeat(idx)}${++idx}`).join(`\n1`);
+
+
+function pattern(n){
+  if (n < 1) return "";
+  var output = "1";
+  for (let i = 2; i <= n; ++i) {
+    output += "\n1" + Array(i).join("*") + i;
+  }
+  return output;
+}
+
+
+function pattern(n){
+  var result = '1'
+  for (var i = 2; i <= n; i++){
+    result += '\n1' + '*'.repeat(i-1) + i
+  }
+  return result
+}
+
+
+
