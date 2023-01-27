@@ -46,3 +46,20 @@ function circleArea(circle) {
 }
 
 console.log(circleArea( new Circle( new Point(10, 10), 30))); // 2827.433388
+
+
+
+function circleArea({radius}){
+  return radius * radius * Math.PI
+}
+
+
+
+function circleArea(circle){
+  return Math.PI * circle.radius ** 2
+}
+
+
+
+const circleArea = circle =>
+  Math.round(Math.PI * circle.radius ** 2 * 1e6) / 1e6;
