@@ -22,3 +22,17 @@ function uniqueSum(lst) {
 console.log(uniqueSum([1, 2, 3])); // 6
 console.log(uniqueSum([1, 3, 8, 1, 8])); // 12
 console.log(uniqueSum([])); // null
+
+
+
+
+function uniqueSum(lst){
+  return [...new Set(lst)].reduce((a, b) => a + b, null);
+}
+
+
+
+function uniqueSum(lst){
+  return lst.filter((a,b,c) => c.indexOf(a) == b).reduce((a, b)=> a + b, null);
+}
+
