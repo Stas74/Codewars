@@ -59,3 +59,45 @@ function numPrimorial(n) {
 console.log(numPrimorial(3)); // 30
 console.log(numPrimorial(4)); // 210
 console.log(numPrimorial(5)); // 2310
+
+
+
+
+const numPrimorial = n => [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71].slice(0,n).reduce((p,c) => p*c, 1);
+
+
+const numPrimorial = n => {
+  const arr = [];
+  let num = 0;
+  while (arr.length < n) {
+    if (!Array(++num).fill(1).join(``).match(/^1?$|^(11+?)\1+$/)) arr.push(num);
+  }
+  return arr.reduce((pre, val) => pre * val);
+};
+
+
+
+
+const getPrimeRange = n => {
+  let a = [...new Array(n+1).keys()].filter(x=>x%2).slice(1)
+  a.unshift(2)
+  return a
+}
+
+const isPrime = n => {
+  let begin = Math.floor(Math.sqrt(n))
+  let targets = getPrimeRange(begin)
+  return targets.every(x => n%x !== 0)
+}
+
+
+const numPrimorial = n => {
+  let primes = [2]
+  let i = 2
+  while (primes.length <= n-1){
+    if (isPrime(i)) primes.push(i)
+    i++
+  }
+  return primes.reduce((s,v)=>s*=v)
+}
+
