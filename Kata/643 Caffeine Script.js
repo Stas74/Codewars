@@ -32,3 +32,24 @@ console.log(caffeineBuzz(1)); // "mocha_missing!"
 console.log(caffeineBuzz(3)); // "Java"
 console.log(caffeineBuzz(6)); // "JavaScript"
 console.log(caffeineBuzz(12)); // "CoffeeScript"
+
+
+
+
+function caffeineBuzz(n){
+  if (n % 12 === 0) return "CoffeeScript";
+  if (n % 6 === 0) return "JavaScript";
+  if (n % 3 === 0)  return "Java";
+  return "mocha_missing!";
+}
+
+
+
+function caffeineBuzz(n){
+  return (n % 3 == 0) ? ((n % 4 == 0) ? "Coffee" : "Java") + ((n % 2 == 0) ? "Script" : "") : "mocha_missing!";
+}
+
+
+
+const caffeineBuzz = n =>
+  !(n % 3) ? `${!(n % 4) ? `Coffee` : `Java`}${!(n % 2) ? `Script` : ``}` : `mocha_missing!`;
