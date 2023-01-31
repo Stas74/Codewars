@@ -18,3 +18,19 @@ function evenChars(string) {
 console.log(evenChars("1234")); // ["2", "4"]
 console.log(evenChars("a")); // "invalid string"
 console.log(evenChars("abcdefghijklm")); // ["b", "d", "f", "h", "j", "l"]
+
+
+
+
+function evenChars(string) {
+  return (string.length < 2 || string.length > 100) ? "invalid string" : 
+  [...string].filter((x, i) => i % 2);
+}
+
+
+const evenChars = (str) => 1 < str.length && str.length < 100
+  ? Array.from(str).filter((_, i) => i & 1)
+  : "invalid string"
+
+
+
