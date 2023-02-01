@@ -66,3 +66,62 @@ function step(g, m, n) {
 console.log(step(2, 100, 110)); // [101, 103]
 console.log(step(4, 100, 110)); // [103, 107]
 console.log(step(6, 100, 110)); // [101, 107]
+
+
+
+function isPrime(n) {
+  var r = Math.sqrt(n) | 0;
+  for (var i = 2; i <= r && n % i; i++);
+  return i > r;
+}
+
+function step(g, m, n) {
+  for (var i = m; i <= n - g; i++) {
+    if (isPrime(i) && isPrime(i + g)) {
+      return [i, i + g];
+    };
+  }  
+  return null;
+}
+
+
+
+
+function isPrime(n) {
+        for (var i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return 0;
+            }
+        }
+    
+        return 1;
+    }
+function step(g, m, n) {
+        for(m; m <= n-g+1; m++) {
+            if (isPrime(m) && isPrime(m + g)) 
+                return [m, m + g];
+        }
+        return null;
+}
+
+
+
+
+
+const isPrime = num => {
+  for (let i = 2; i <= num ** .5; i++) {
+    if (!(num % i)) return false;
+  }
+  return num > 1;
+};
+
+const step = (g, m, n) => {
+  let arr = [];
+  for (let i = m; i <= n; i++) {
+    if (isPrime(i)) {
+      if (arr.includes(i - g)) return [i - g, i];
+      else arr.push(i);
+    }
+  }
+  return null;
+};
