@@ -33,3 +33,25 @@ function numObj(s) {
 console.log(numObj([118, 117, 120])); // [{'118':'v'}, {'117':'u'}, {'120':'x'}]
 console.log(numObj([101, 121, 110, 113, 113, 103]));
 // [{'101':'e'}, {'121':'y'}, {'110':'n'}, {'113':'q'}, {'113':'q'}, {'103':'g'}]
+
+
+function numObj(s){
+  return s.map(n => {
+    return { [n]: String.fromCharCode(n) };
+  });
+}
+
+
+const numObj = ($) => $.map(el => ( {[el]: String.fromCodePoint(el)} ))
+
+
+
+
+function numObj(s) {
+  const arr = [];
+  s.map((v) => arr.push(String.fromCharCode(v)));
+  const obj = Array.from({ length: s.length }, (x) => (x = {}));
+  obj.map((v, i) => (v[s[i]] = arr[i]));
+  return obj;
+}
+
