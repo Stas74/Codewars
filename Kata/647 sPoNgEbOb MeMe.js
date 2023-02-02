@@ -18,3 +18,14 @@ function spongeMeme(sentence) {
 
 console.log(spongeMeme("stop Making spongebob Memes!")); // "StOp mAkInG SpOnGeBoB MeMeS!"
 
+
+function spongeMeme(sentence) {
+  return sentence.split('').map((v,i) => i % 2 ? v.toLowerCase(): v.toUpperCase()).join('');
+}
+
+
+const spongeMeme = $ => $.replace(/./gi, (x,i)=> i%2 ? x.toLowerCase() : x.toUpperCase() )
+
+
+const spongeMeme = sentence =>
+  sentence.replace(/./g, (val, idx) => val[`to${idx % 2 ? `Low` : `Upp`}erCase`]());
