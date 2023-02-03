@@ -68,3 +68,29 @@ var ownedCatAndDog = function (catYears, dogYears) {
 console.log(ownedCatAndDog(24, 24)); // [2,2]
 console.log(ownedCatAndDog(56, 64)); // [10,10]
 console.log(ownedCatAndDog(9, 7)); // [0,0]
+
+
+
+const ownedCatAndDog = (catYears, dogYears) => [
+    (catYears < 24)? catYears / 15 : (catYears - 16) / 4,
+    (dogYears < 24)? dogYears / 15 : (dogYears - 14) / 5
+    ].map(Math.floor);
+
+
+
+const ownedCatAndDog = (...pets) => pets.map((petYears, i) => { 
+    if (petYears < 15) return 0;
+    if (petYears < 24) return 1;      
+    return 2 + Math.floor((petYears - 24) / (4 + i));
+});
+
+
+
+var ownedCatAndDog = function(cy, dy) {
+  let cat = cy < 15 ? 0: cy < 24? 1: 2 + Math.trunc((cy - 24) / 4)
+  let dog = dy < 15 ? 0: dy < 24? 1: 2 + Math.trunc((dy - 24) / 5)
+  return [cat, dog]
+}
+
+
+let ownedCatAndDog = (c, d) => [c < 15 ? 0 : c < 24 ? 1 : Math.trunc(c / 4 - 4), d < 15 ? 0 : d < 24 ? 1 : Math.trunc((d - 14) / 5)];
