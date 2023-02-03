@@ -24,3 +24,52 @@ function ipToInt32(ip){
 // return (Number(ip.split(".").map(num => ("00000000" + (+num).toString(2)).slice(-8)).join("")))
 
 console.log(ipToInt32("128.32.10.1")); // 2149583361
+
+
+
+function ipToInt32(ip){
+  return parseInt(ip.split('.')
+                      .map(octet => ("00000000" + (+octet)
+                        .toString(2))
+                        .substr(-8))
+                      .join(''), 2)
+}
+
+
+
+const ipToInt32 = ip =>
+  ip.split(`.`).reduce((pre, val) => 2 ** 8 * pre + +val);
+
+
+
+function ipToInt32(ip) {
+  ip = ip.split(".");
+  return ((ip[0] << 24) + (ip[1] << 16) + (ip[2] << 8) + (ip[3] << 0)) >>> 0;
+}
+
+
+
+let ipToInt32 = ip => ip.split(".").reduce((a, b) => a << 8 | b) >>> 0;
+
+
+
+function ipToInt32(ip){
+  var array8 = new Uint8Array(ip.split('.').reverse().map(Number))
+  var array32 = new Uint32Array(array8.buffer);
+  return array32[0];
+}
+
+
+
+function ipToInt32(ip){
+  let arr = ip.split('.').map(n => Number(n));
+  
+  arr[0] *= Math.pow(256, 3);
+  arr[1] *= Math.pow(256, 2);
+  arr[2] *= 256;
+  arr[3];
+    
+  return arr[0] + arr[1] + arr[2] + arr[3];  
+}
+
+
