@@ -21,3 +21,18 @@ var circleArea = function (radius) {
 console.log(circleArea(43.2673)); // 5881.25
 console.log(circleArea(-1485.8)); // false
 console.log(circleArea("number")); // false
+
+
+
+var circleArea = function(radius) {
+  return radius > 0 ? +(radius*radius*Math.PI).toFixed(2) : false;
+};
+
+
+var circleArea = function(radius) {
+  return radius > 0 && +(Math.PI * radius * radius).toFixed(2);
+};
+
+
+const circleArea = radius =>
+  radius > 0 && Math.round(Math.PI * radius ** 2 * 1e2) / 1e2;
