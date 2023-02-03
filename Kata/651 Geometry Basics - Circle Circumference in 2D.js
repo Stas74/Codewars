@@ -31,3 +31,17 @@ function circleCircumference(circle) {
 }
 
 console.log(circleCircumference( new Circle( new Point(10, 10), 30))); // 188.495559
+
+
+
+circleCircumference=({radius})=>2*Math.PI*radius
+
+
+const circleCircumference = circle =>
+  Math.round(Math.PI * circle.radius * 2e6) / 1e6;
+
+
+
+function circleCircumference({center,radius}) {  
+  return Math.PI*radius*2
+}
