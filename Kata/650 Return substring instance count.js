@@ -15,3 +15,12 @@ function solution(fullText, searchText){
 
 console.log(solution('abcdeb','b')); // 2
 console.log(solution('abbc','bb')); // 1
+
+
+
+function solution(fullText, searchText){
+  return (fullText.match(new RegExp(searchText, 'g')) || []).length;
+}
+
+
+
