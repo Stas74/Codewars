@@ -22,3 +22,34 @@ var vampire_test = function (a, b) {
 console.log(vampire_test(21, 6)); // true
 console.log(vampire_test(204, 615)); // true
 console.log(vampire_test(30,-51)); // true
+
+
+
+function vampire_test(a, b){
+  return sortStr(a + '' + b) == sortStr(a * b + '');
+}
+
+function sortStr(v){ return v.split('').sort().join('') }
+
+
+
+var vampire_test = function(a, b){
+    return (''+a+b).split('').sort().join() == (a*b+'').split('').sort().join();
+}
+
+
+
+function vampire_test(a, b) {
+  var x = String(a) + String(b)
+  var y = String(a * b)
+  
+  x = x.split("").sort().join("")
+  y = y.split("").sort().join("")
+  
+  return x === y
+}
+
+
+
+const vampire_test = (a, b) =>
+  [...`` + a + b].sort().join(``) === [...`${a * b}`].sort().join(``);
