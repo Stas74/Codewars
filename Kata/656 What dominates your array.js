@@ -25,3 +25,56 @@ console.log(dominator([3, 4, 3, 2, 3, 1, 3, 3])); // 3
 console.log(dominator([1, 2, 3, 4, 5])); // -1
 console.log(dominator([1, 1, 1, 2, 2, 2])); // -1
 console.log(dominator([1, 1, 1, 2, 2, 2, 2])); // 2
+
+
+
+function dominator(arr) {
+  arr.sort();
+  for (var i = 0, v = 0, c = 0; i < arr.length; i++) {
+     if (v == arr[i]) c++;
+     else { 
+       v = arr[i];
+       c = 1;
+     }
+     if (c > arr.length / 2) return v;
+  }
+  return -1;
+}
+
+
+
+function dominator(arr) {
+  for (let i = 0, obj = {}; i < arr.length; i++) {
+    obj[arr[i]] = obj[arr[i]] + 1 || 1;
+    if (obj[arr[i]] > arr.length / 2) return arr[i];
+  }
+  return -1;
+}
+
+
+
+const dominator = arr =>
+  (obj => arr.find(val => obj[val] > arr.length / 2) || -1)
+  (arr.reduce((pre, val) => (pre[val] = -~pre[val], pre), {}));
+
+
+
+// Boyer's algorithm
+// Learn more about it here:
+// https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm
+
+const dominator = (a) => {
+  let possibleMajority = null,
+    counter = 0;
+  for (const e of a)
+    if (possibleMajority === null) {
+      possibleMajority = e;
+      counter = 1;
+    } else if (e === possibleMajority) ++counter;
+    else if (counter === 0) {
+      possibleMajority = e;
+      counter = 1;
+    } else --counter;
+  if (2 * a.filter((e) => e === possibleMajority).length <= a.length) return -1;
+  return possibleMajority;
+};
