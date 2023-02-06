@@ -18,3 +18,8 @@ function aspectRatio(x, y) {
 console.log(aspectRatio(640, 480)); // [854, 480]
 console.log(aspectRatio(960, 720)); // [1280, 720]
 console.log(aspectRatio(1440, 1080)); // [1920, 1080]
+
+
+function aspectRatio(x,y){
+  return [Math.ceil(y / 0.5625), y];
+}
