@@ -60,3 +60,44 @@ console.log(fizzBuzzCuckooClock("21:00")); // "Cuckoo Cuckoo Cuckoo Cuckoo Cucko
 console.log(fizzBuzzCuckooClock("11:15")); // "Fizz Buzz"
 console.log(fizzBuzzCuckooClock("14:30")); // "Cuckoo"
 console.log(fizzBuzzCuckooClock("12:00")); // "Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo Cuckoo"
+
+
+
+function fizzBuzzCuckooClock(time) {
+  let [hour, minute] = time.split(':');
+  return minute ==  0 ? "Cuckoo ".repeat(hour % 12 || 12).trim() :
+    minute      == 30 ? "Cuckoo" : 
+    minute % 15 ==  0 ? "Fizz Buzz" :
+    minute % 3  ==  0 ? "Fizz" :
+    minute % 5  ==  0 ? "Buzz" : 
+                        "tick";
+}
+
+
+
+const fizzBuzzCuckooClock = time =>
+  (([h, m]) => !m ? `Cuckoo `.repeat(h % 12 || 12).trim() : !(m % 30) ? `Cuckoo` : !(m % 15) ? `Fizz Buzz` : !(m % 5) ? `Buzz` : !(m % 3) ? `Fizz` : `tick`)
+  (time.split(`:`).map(Number));
+
+
+function fizzBuzzCuckooClock(time) {
+  let [h,m] = time.split(":").map(Number);
+  return m==0 || m==30 ? "Cuckoo ".repeat( m==30 || (h%12||12) ).trim() : ['tick','Fizz','Buzz','Fizz Buzz'][+!(m%3)+2*!(m%5)]
+}
+
+
+
+function fizzBuzzCuckooClock(time) {
+  // your code here
+  let a = time.split(':').map(v => parseInt(v));
+  let m = a[1], h = a[0];
+  h = h === 0 ? 12 : h > 12 ? h - 12 : h;
+  if (m === 0) return ('Cuckoo '.repeat(h)).trim();
+  if (m === 30) return 'Cuckoo';
+  if (m % 3 === 0) {
+    if (m % 5 === 0) return 'Fizz Buzz';  
+    return 'Fizz';  
+  }
+  if (m % 5 === 0) return 'Buzz';  
+  return 'tick';
+}
