@@ -23,3 +23,42 @@ function mean(lst) {
 var lst = ["u", "6", "d", "1", "i", "w", "6", "s", "t", "4", "a", "6", "g", "1", "2", "w", "8", "o", "2", "0"];
 console.log(mean(lst)); // [3.6, "udiwstagwo"]
 
+
+
+function mean(lst){
+  var num = 0, str = '';
+  lst.forEach(function(n) {
+    if(!isNaN(n)) {
+      num += +n;
+    }else {
+      str += n;
+    }
+  });  
+  return [num / 10, str];
+}
+
+
+
+const mean=lst=>[lst.filter(a=>"0123456789".indexOf(a)!=-1).reduce((a,b)=>a+ +b,0)/10, lst.filter(a=>"0123456789".indexOf(a)==-1).join("")];
+
+
+
+const mean = lst =>
+  lst.reduce(([num, str], val) => isNaN(val) ? [num, str + val] : [(num * 10 + +val) / 10, str], [0, ``]);
+
+
+
+const mean = lst =>
+  [lst.filter(e=>/\d+/.test(e)).reduce((a,b)=>+a + +b)/10,
+   lst.filter(e=>/[a-z]/i.test(e)).join('')]
+
+
+
+function mean(a) {
+  return [
+    a.reduce((s, x) => (x == +x ? s + +x : s), 0) / 10,
+    a.filter((x) => +x != x).join``,
+  ];
+}
+
+
