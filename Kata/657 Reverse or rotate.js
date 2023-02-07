@@ -47,3 +47,81 @@ function revrot(str, sz) {
 console.log(revrot("1234", 0)); // ""
 console.log(revrot("1234", 5)); // ""
 console.log(revrot("733049910872815764", 5)); // "330479108928157"
+
+
+
+function revrot(str, sz) {
+    if (sz <= 0 || !str || sz > str.length) return '';    
+      
+    const sumCubes = chunk => chunk.split('').reduce((sum, digit) => sum += digit**3, 0);
+    const reverse = chunk => chunk.split('').reverse().join('');
+    const rotate = chunk => chunk.slice(1) + chunk.slice(0, 1);
+    
+    const chunks = [];
+    
+    for (let i = 0; i < str.length; i += sz) {
+      let chunk = str.slice(i, i + sz);
+      
+      if (chunk.length < sz) continue;
+      
+      chunk = sumCubes(chunk) % 2 
+        ? rotate(chunk)   
+        : reverse(chunk);
+      
+      chunks.push(chunk)
+    }
+    
+    return chunks.join('')
+}
+
+
+
+function revrot(str, sz) {
+  if (sz < 1 || sz > str.length) 
+    return '';
+
+  let reverse = s => s.split('').reverse().join('');
+  let rotate  = s => s.slice(1) + s.slice(0, 1);
+  let sum_cubes = c => c.split('').reduce((a, b) => a + +b ** 3, 0); 
+
+  return str
+    .match(new RegExp('.{' + sz + '}', 'g'))
+    .map(c => sum_cubes(c) % 2 ? rotate(c) : reverse(c))
+    .join('');
+}
+
+
+
+function cubeSum(string){
+	return string.split('').map(e=> Math.pow(Number(e),3)).reduce((p,c)=>p+=c);
+}
+
+function revrotEach(string){
+	if(cubeSum(string)%2===0){
+    return string.split('').reverse().join('');
+  }
+  else{
+    return string.slice(1) + string.slice(0,1);
+  }
+}
+
+function revrot(str, sz) {
+  if(sz === 0 || str.length < sz){
+  	return '';
+  }
+  else{
+ 		var arr = [];
+  	for(var c = 0; c < str.length; c+=sz){
+    	arr.push(str.slice(c,c+sz));
+    }
+    return arr.filter(e=> e.length===sz).map(e=>revrotEach(e)).join('');
+  }
+}
+
+
+
+
+const revrot = (str, sz) =>
+  (str.match(new RegExp(`.{${sz}}`, `g`)) || []).map(val => val.replace(/[02468]/g, ``).length % 2 ? val.replace(/(.)(.+)/, `$2$1`) : [...val].reverse().join(``)).join(``);
+
+
