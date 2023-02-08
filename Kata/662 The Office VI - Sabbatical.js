@@ -29,3 +29,49 @@ function sabb(s, val, happiness) {
 
 console.log(sabb("Can I have a sabbatical?", 5, 5)); // 'Sabbatical! Boom!'
 console.log(sabb("Why are you shouting?", 7, 2)); // 'Back to your desk, boy.'
+
+
+
+
+function sabb(x, val, happ) {
+  return (x.match(/[sabbatical]/gi) || []).length + val + happ > 22 ? 'Sabbatical! Boom!' : 'Back to your desk, boy.'
+}
+
+
+function sabb(s, v, h){
+  let r = [...s].filter((el) => 'sabatical'.includes(el)).length;
+  return (r + v + h) > 22 ? 'Sabbatical! Boom!' : 'Back to your desk, boy.';
+}
+
+
+function sabb(x, val, happ) {
+    let count = val + happ;
+    let goal = 'sabbatical'; 
+
+    for (let i = 0; i < x.length; i++) {
+        let letter = x[i];
+        if (goal.includes(letter.toLowerCase())) {
+            count += 1;
+        }
+    }
+
+    if (count > 22) {
+        return 'Sabbatical! Boom!';
+    } else {
+        return'Back to your desk, boy.'
+    }
+}
+
+
+
+function sabb(x, val, happ){
+  let pointsGathered = 0  
+  x.split("").forEach(element => {
+      ['s','a','b','t','i','c','l'].forEach(second => {
+      if (element == second) { ++pointsGathered } 
+    })
+  })  
+  return pointsGathered + val + happ > 22 ? "Sabbatical! Boom!" : "Back to your desk, boy."
+}
+
+
