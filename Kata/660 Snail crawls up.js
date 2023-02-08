@@ -26,3 +26,17 @@ function snail(column, day, night) {
 
 console.log(snail(3, 2, 1)); // 2
 console.log(snail(10, 3, 1)); // 5
+
+
+
+function snail(column, day, night) {
+  const days = (column - night) / (day - night);
+  return days < 1 ? 1 : Math.ceil(days);
+}
+
+
+const snail = (column, day, night) => Math.max(1, Math.ceil((column-day) / (day-night)) + 1);
+
+
+const snail = (column, day, night) =>
+  Math.max(Math.ceil(1 + (column - day) / (day - night)), 1);
