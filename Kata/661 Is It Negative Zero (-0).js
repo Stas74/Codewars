@@ -17,3 +17,35 @@ function isNegativeZero(n) {
 console.log(isNegativeZero(-0)); // true
 console.log(isNegativeZero(-Infinity)); // false
 console.log(isNegativeZero(0)); // false
+
+
+
+const isNegativeZero = n =>
+  1 / Math.sign(n) === -Infinity;
+
+
+const isNegativeZero = n => Object.is(n, -0);
+
+
+
+function isNegativeZero(n) {
+  return Math.atan2(n, n) === -Math.PI;
+}
+
+
+
+function isNegativeZero(n) {
+  return ! n && 1/n < 0 ;
+}
+
+
+
+function isNegativeZero(n) {
+  return util.inspect(n) === '-0'
+}
+
+
+
+// check negative zero func
+const isNegativeZero = n =>
+  n === 0 ? (1 / n) < 0 : false
