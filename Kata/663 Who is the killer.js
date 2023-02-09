@@ -38,3 +38,31 @@ const listObj = {
 };
 
 console.log(killer(listObj, ["Lucas", "Bill"])); // 'James'
+
+
+
+function killer(suspectInfo, dead) {
+  return Object.keys(suspectInfo).find(x => dead.every(y => suspectInfo[x].includes(y)))
+}
+
+
+
+function killer(suspectInfo, dead) {
+  //your code here...
+  for (let name in suspectInfo) {
+    if (dead.every(deadPerson => suspectInfo[name].includes(deadPerson))) {
+      return name;
+    }
+  }
+}
+
+
+
+function killer(obj, dead) {
+  for (let i in obj) 
+    if (obj[i].filter(i => dead.includes(i)).length == dead.length) return i
+}
+
+
+const killer = (suspectInfo, dead) =>
+  Object.keys(suspectInfo).find(val => dead.every(v => suspectInfo[val].includes(v)));
