@@ -16,3 +16,28 @@ console.log(consonantCount("XaeiouX")); // 2
 console.log(consonantCount("helLo world")); // 7
 console.log(consonantCount("012345_Cb")); // 2
 console.log(consonantCount("h^$&^#$&^elLo world")); // 7
+
+
+
+function consonantCount(str) {
+  return (str.match(/[b-df-hj-np-tv-z]/gi) || []).length;
+}
+
+
+
+const consonantCount = str =>
+  str.replace(/[\W\daeiou_]+/gi, ``).length;
+
+
+
+const consonantCount = str => str.replace(/[^a-z]|[aeiou]/gi, '').length;
+
+
+
+const consonantCount = (str) => {
+	let count = 0
+	for (const c of str) {
+		if ("BCDFGHJKLMNPQRSTVWXYZbcdfghjklmnpqrstvwxyz".indexOf(c) >= 0) count++
+	}
+	return count
+}
