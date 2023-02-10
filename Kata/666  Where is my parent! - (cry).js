@@ -28,3 +28,35 @@ function findChildren(dancingBrigade) {
 console.log(findChildren("beeeEBb")); // "BbbEeee"
 console.log(findChildren("uwwWUueEe")); // "EeeUuuWww" 
 
+
+
+function findChildren(dancingBrigade){
+
+  return dancingBrigade.split("")
+                       .sort((a,b)=>a.localeCompare(b,"kf",{caseFirst:"upper"}))
+                       .join("");
+};
+
+
+function findChildren(dancingBrigade){
+  return dancingBrigade.toLowerCase()
+                       .split('')
+                       .sort()
+                       .map((v,i,a)=>{ return (i === 0 || v !== a[i-1]) ? v.toUpperCase() : v;})
+                       .join('');
+};
+
+
+
+const findChildren = dancingBrigade =>
+  [...dancingBrigade].sort((a, b) => a.localeCompare(b, `kf`, {caseFirst: `upper`})).join(``);
+
+
+
+function findChildren(dancingBrigade){
+  const s = "AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz"
+  return [...dancingBrigade].sort((a, b) => s.indexOf(a) - s.indexOf(b)).join``
+};
+
+
+
