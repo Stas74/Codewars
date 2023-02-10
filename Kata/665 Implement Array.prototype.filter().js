@@ -20,3 +20,43 @@ Array.prototype.filter = function (func) {
   return result;
 };
 
+-------------------------------------------------
+
+Array.prototype.filter = function(fn){
+  var res = [];
+  for (var i = 0; i<this.length; i++){
+    if (fn(this[i])){
+      res.push(this[i]);
+    }
+  }
+  return res;
+}
+
+
+
+// This filter function return an array with values that meet 
+// the conditions set in the ruleCondition callback function.
+
+Array.prototype.filter = function( ruleCondition ) {
+// Create an empty array to store the values that satisfy the ruleCondition
+  var arr = [];
+  
+  this.forEach( function( currentValue ) {
+  // Evaluate each element and push the value when content in array meet condition
+    if( ruleCondition( currentValue ) ) arr.push( currentValue );
+  });
+  return arr;
+}
+
+
+
+
+Array.prototype.filter = function(fn) {
+  return this.reduce((s, a) => fn(a) ? (s.push(a), s) : s, []);
+}
+
+
+
+Array.prototype.filter = function (fn) {
+  return this.reduce((pre, val) => fn(val) ? [...pre, val] : pre, []);
+};
