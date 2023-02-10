@@ -20,3 +20,34 @@ function tailSwap(arr) {
 
 console.log(tailSwap(["abc:123", "cde:456"])); // ['abc:456', 'cde:123']
 console.log(tailSwap(["a:12345", "777:xyz"])); // ['a:xyz', '777:12345']
+
+
+
+function tailSwap(arr) {
+  let newArr = arr.map(string => string.split(':'))
+  return [newArr[0][0] + ':' + newArr[1][1], newArr[1][0] + ':' + newArr[0][1]];
+}
+
+
+
+function tailSwap(arr) {
+  const [aa, ab] = arr[0].split(":")
+  const [ba, bb] = arr[1].split(":")
+  return [`${aa}:${bb}`, `${ba}:${ab}`]
+}
+
+
+
+tailSwap = a => (a+"").replace(/(.+:)(.+),(.+:)(.+)/,"$1$4,$3$2").split(",")
+
+
+
+tailSwap = ([a,b],[c,d] = a.split`:`, [e,f]=b.split`:`) => [[c,f].join`:`,[e,d].join`:`]
+
+
+
+const tailSwap = arr =>
+  `${arr}`.replace(/(.+:)(.+),(.+:)(.+)/, `$1$4,$3$2`).split(`,`);
+
+
+
