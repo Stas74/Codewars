@@ -22,3 +22,14 @@ function anyArrows(arrows) {
 console.log(anyArrows([])); // false
 console.log(anyArrows([{ range: 5 }, { range: 10, damaged: true }, { damaged: true }])); // true
 console.log(anyArrows([{ range: 10, damaged: true }, { damaged: true }])); // false
+
+
+
+function anyArrows(arrows){
+  return arrows.some(obj => obj.damaged ? false: true)
+}
+
+
+function anyArrows(arrows) {
+  return arrows.some(q => q.damaged !== true);
+}
