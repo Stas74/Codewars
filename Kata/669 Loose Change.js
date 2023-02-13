@@ -40,3 +40,52 @@ function looseChange(cents) {
 
 console.log(looseChange(56)); // {'Nickels': 1, 'Pennies': 1, 'Dimes': 0, 'Quarters': 2}
 console.log(looseChange(100)); // {'Nickels': 0, 'Pennies': 0, 'Dimes': 0, 'Quarters': 4}
+
+
+
+function looseChange(cents) {
+  var a = { Nickels: 0, Pennies: 0, Dimes: 0, Quarters: 0 };
+  if (cents <= 0) return a;
+  a.Quarters = Math.floor(cents / 25);
+  a.Dimes = Math.floor((cents % 25) / 10);
+  a.Nickels = Math.floor(((cents % 25) % 10) / 5);
+  a.Pennies = Math.floor(((cents % 25) % 10) % 5);
+  return a;
+}
+
+
+
+const looseChange = (cents) => (
+  cents = Math.max(cents, 0),
+  {
+    Quarters: cents / 25 | 0,
+    Dimes: cents % 25 / 10 | 0,
+    Nickels: cents % 25 % 10 / 5 | 0,
+    Pennies: cents % 5 | 0
+})
+
+
+
+const looseChange = cents =>
+  (val => ({Quarters: val / 25 ^ 0, Dimes: val % 25 / 10 ^ 0, Nickels: val % 25 % 10 / 5 ^ 0, Pennies: val % 5 ^ 0}))
+  (Math.max(cents, 0));
+
+
+
+
+const looseChange = cents => {
+    let obj = {'Quarters': 0,
+               'Dimes': 0,
+               'Nickels': 0,
+               'Pennies': 0},
+        val = [25, 10, 5, 1],
+        i = 0;
+    if (cents <= 0) return obj;
+    for (let coin in obj) {
+        obj[coin] = cents / val[i] | 0;
+        cents -= obj[coin] * val[i];
+        i++;
+    }
+    return obj;
+}
+
