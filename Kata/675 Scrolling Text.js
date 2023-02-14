@@ -30,3 +30,37 @@ function scrollingText(text) {
 
 // console.log(text.slice(1, text.length) + text.slice(0, 1));
 console.log(scrollingText("abc")); //  ["ABC","BCA","CAB"]
+
+
+
+function scrollingText(text){
+  let result = []  
+  for( var i = 0; i < text.length; i++){
+    result.push((text.slice(i) + text.slice(0,i)).toUpperCase())
+  }  
+  return result
+}
+
+
+
+function scrollingText(text){
+  text = text.toUpperCase();
+  return [...text].map((_, i) => text.slice(i) + text.slice(0, i));
+}
+
+
+
+function scrollingText(text, result = []){
+  let word = text.toUpperCase();
+  for (let i = 0; i < text.length; i++){
+    result.push(word);
+    word = word.slice(1) + word[0];
+  }
+  return result
+}
+
+
+const scrollingText = (text) =>{
+  let word = text[text.length-1].toUpperCase() + text.toUpperCase().slice(0, text.length-1)
+  return Array.from({length:text.length}, x => word = word.slice(1) + word[0])
+}
