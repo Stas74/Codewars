@@ -26,3 +26,23 @@ function liftoff(instructions){
 }
 
 console.log(liftoff([2, 8, 10, 9, 1, 3, 4, 7, 6, 5])) // "10 9 8 7 6 5 4 3 2 1 liftoff!"
+
+
+
+function liftoff(instructions){
+	return instructions.sort(function(a, b) {return b - a;}).join(' ') + ' liftoff!'
+}
+
+
+function liftoff(instructions) {
+  var countDown = instructions.sort((a, b) => b - a).join(' ');
+  return `${countDown} liftoff!`;
+}
+
+
+function liftoff(instructions){
+  return instructions.sort(function(a,b){ return b - a;}).join(' ').concat(' liftoff!');
+}
+
+
+const liftoff = a => a.reduce((p, _, i) => ++i + ' ' + p, 'liftoff!')
