@@ -16,3 +16,16 @@ function spread(func, args) {
 }
 
 console.log(spread(function(x,y) {return x + y}, [1, 2])) // 3
+
+
+
+function spread(func, args) {
+  return func.apply(null, args);
+}
+
+
+function spread(func, args) {
+  return func.apply(this, args);
+}
+
+
