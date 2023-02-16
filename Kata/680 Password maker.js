@@ -21,3 +21,23 @@ function makePassword(phrase) {
 
 console.log(makePassword("Give me liberty or give me death")); // "Gml0gmd"
 console.log(makePassword("Keep Calm and Carry On")); // 'KCaC0'
+
+
+
+const makePassword = (phrase) => phrase
+    .split(" ")
+    .map((el) => el[0])
+    .join("")
+    .replace(/[iso]/gi, (x) => ({ i: 1, s: 5, o: 0 }[x.toLowerCase()]));
+
+
+
+const makePassword = $ => $.match(/\b\w/g).join('').replace(/i/ig,'1').replace(/o/ig,'0').replace(/s/ig,'5')
+
+
+
+const makePassword = phrase =>
+  phrase.replace(/\s*(\w)\w*/g, `$1`).replace(/o/gi, `0`).replace(/i/gi, `1`).replace(/s/gi, `5`);
+
+
+
