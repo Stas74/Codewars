@@ -20,3 +20,39 @@ function binaryToString(binary) {
 // let binArr = binary.match(new RegExp(".{1," + 8 + "}", "g"));
 console.log(binaryToString("01100001")); // 'a'
 console.log(binaryToString("01001011010101000100100001011000010000100101100101000101")); // 'KTHXBYE'
+
+
+
+function binaryToString(binary) {
+  return binary.replace(/[01]{8}/g, function(v){ 
+    return String.fromCharCode(parseInt(v, 2)); 
+  });
+}
+
+
+
+function binaryToString(binary) {
+  return binary.replace(/[01]{8}/g, n => String.fromCharCode(parseInt(n, 2)))
+}
+
+
+
+const binaryToString = binary =>
+  binary.replace(/[01]{8}/g, val => String.fromCharCode(`0b${val}`));
+
+
+
+function binaryToString(binary) {
+  let arr = [];
+	if (binary.length){
+  	for (let i = 0; i < binary.length; i += 8) {
+    	arr.push(binary.substr(i, 8));
+    }
+  	return arr.map(s => String.fromCharCode(parseInt(s, 2))).join('');
+  }
+  return '';
+}
+
+
+
+const binaryToString = binary => binary.replace(/\d{8}/g, chunk => String.fromCharCode('0b' + chunk));
