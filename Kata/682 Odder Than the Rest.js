@@ -21,3 +21,18 @@ function oddOne(arr) {
 console.log(oddOne([2, 4, 6, 7, 10])); // 3
 console.log(oddOne([2, 16, 98, 10, 13, 78])); // 4
 console.log(oddOne([2, 4, 6, 8])); // -1
+
+
+
+const oddOne = arr => arr.findIndex(x => x & 1)
+
+
+const oddOne = arr =>
+  arr.findIndex(val => val % 2);
+
+
+
+function oddOne(arr) {
+  for (var i = 0; i < arr.length; ++i) if (arr[i] % 2 != 0) return i;
+  return -1;
+}
