@@ -31,3 +31,27 @@ var isMonotone = function (arr) {
 console.log(isMonotone([1, 2, 3])); // true
 console.log(isMonotone([1, 1, 3])); // true
 console.log(isMonotone([3, 2, 1])); // false
+
+
+
+var isMonotone = function(arr){
+  return arr.every(function(x, idx) {
+    return idx === 0 ? true : arr[idx] >= arr[idx-1];
+  });
+}
+
+
+
+var isMonotone = function(arr){
+  for(var i=0;i<arr.length-1;i++) {
+    if(arr[i] > arr[i+1] ) return false;
+  }
+  return true; // << change this
+}
+
+
+const isMonotone = $ => $.slice(1).some((e,i) => e < $[i]) ? false : true
+
+
+const isMonotone = arr =>
+  !arr.some((val, idx) => val < arr[--idx]);
