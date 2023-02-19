@@ -16,3 +16,16 @@ function filterEvenLengthWords(words) {
 }
 
 console.log(filterEvenLengthWords(['One', 'Two', 'Three', 'Four'])); // ["Four"]
+
+
+
+function filterEvenLengthWords(words) {
+  return words.filter(s => s.length % 2 === 0)
+}
+
+
+const filterEvenLengthWords = w => w.filter(e => !(e.length % 2))
+
+
+const filterEvenLengthWords = words =>
+  words.filter(val => !(val.length & 1));
