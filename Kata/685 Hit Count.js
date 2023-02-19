@@ -44,3 +44,33 @@ function counterEffect(hitCount) {
 // console.log(arr);
 
 console.log(counterEffect("1250")); //[[0,1],[0,1,2],[0,1,2,3,4,5],[0]]
+
+
+
+function counterEffect(str) {
+	var output = [];
+	for (var i = 0; i < str.length; i++) {
+		var temp = [];
+		for (var j = 0; j <= Number(str[i]); j++) {
+			temp.push(j);
+		} output.push(temp);
+	} return output;
+}
+
+
+function counterEffect(hitCount) {
+  return [...hitCount].map( d => Array.from({length:+d+1}, (_,i) => i) )
+}
+
+
+function counterEffect(hitCount) {
+   return hitCount.split('').map(function(x){
+     return '0123456789'.substring(0, +x +1).split('').map(y => +y);
+   });
+}
+
+
+const counterEffect = hitCount =>
+  [...hitCount].map(val => [...Array(++val).keys()]);
+
+
