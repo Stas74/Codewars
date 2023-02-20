@@ -30,3 +30,39 @@ function completeSeries(arr) {
 console.log(completeSeries([0, 1, 0])); // [0]
 console.log(completeSeries([1, 4, 6])); // [0,1,2,3,4,5,6]
 console.log(completeSeries([3, 4, 5])); // [0,1,2,3,4,5]
+
+
+
+function completeSeries(arr) {
+    return new Set(arr).size === arr.length ? [...Array(Math.max(...arr)+1).keys()] : [0];
+}
+
+
+
+function completeSeries(arr) {
+  let dup = arr.filter((el) => arr.indexOf(el) !== arr.lastIndexOf(el));
+  let arr1 = [];
+  if (dup.length > 0) return [0];
+  else {
+    for (let i = 0; i <= Math.max(...arr); i++) {
+      arr1.push(i);
+    }
+  }
+  return arr1;
+}
+
+
+
+function completeSeries(arr) {
+  return arr.length == new Set(arr).size ? [...Array(Math.max(...arr) + 1)].map((_, i) => i) : [0];
+}
+
+
+
+const completeSeries = function( arr ) {
+  const maxEl = Math.max(...arr);
+  const arrOut = Array.from({length: maxEl+1}, (_,i)=> i);
+  return arrOut.some(el => arr.filter(e => e == el).length > 1) ? [0] : arrOut
+}
+
+
