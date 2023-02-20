@@ -23,3 +23,32 @@ function solve(a) {
 
 console.log(solve([0, 1, 2, 3])); // 0
 console.log(solve([13, 6, 8, 15, 4, 8, 13])); // 1
+
+
+
+function solve(a){
+  return a.reduce(((x, y) => Number.isInteger(y) ? (y % 2 === 0 ? x + 1 : x - 1) : x), 0);
+} 
+
+
+function solve(a){
+  var count=0;
+  for (var i=0; i<a.length; ++i)
+    if (typeof a[i]=='number')
+    {
+      if (a[i]%2==0) count++;
+      else count--;
+    }
+  return count;
+};
+
+
+function solve(a){    
+    let theEvens = a.filter(number => number % 2 == 0); // find even numbers
+    let theOdds = a.filter(number => number % 2 == 1); // find odd numbers
+    return theEvens.length - theOdds.length; //return number of evens minus number of odds
+  };
+
+
+
+let solve = a => a.filter(n => n % 2 === 0).length - a.filter(n => Math.abs(n % 2) === 1).length;
