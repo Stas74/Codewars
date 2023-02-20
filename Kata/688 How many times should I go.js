@@ -14,3 +14,25 @@ function howManyTimes(annualPrice, individualPrice) {
 console.log(howManyTimes(40, 15)); // 3
 console.log(howManyTimes(30, 10)); // 3
 console.log(howManyTimes(80, 15)); // 6
+
+
+
+function howManyTimes(annual_price, individual_price) {
+  var visits = 0;
+  var cost = 0;
+  
+  while (true) {
+    cost += individual_price;
+    visits++;
+    
+    if (cost >= annual_price) {
+      return visits;
+    }
+  }
+}
+
+
+
+function howManyTimes(annualPrice, individualPrice) {
+ return (annualPrice / individualPrice) % 1 !== 0 ? Math.floor(annualPrice / individualPrice) + 1 : annualPrice / individualPrice
+}
