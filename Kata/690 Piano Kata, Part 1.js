@@ -58,3 +58,31 @@ console.log(blackOrWhiteKey(42)); // "white"
 console.log(blackOrWhiteKey(100)); // "black"
 console.log(blackOrWhiteKey(111)); // "white"
 console.log(blackOrWhiteKey(200)); // "black"
+
+
+
+
+function blackOrWhiteKey(keyPressCount) {
+  return ["black", "white"]["101101011010"[((keyPressCount - 1) % 88) % 12]];
+}
+
+
+const blackOrWhiteKey = keyPressCount =>
+  [1, 4, 6, 9, 11].includes(--keyPressCount % 88 % 12) ? `black` : `white`;
+
+
+const blackOrWhiteKey = count => ['white', 'black'][(2642 >> ((count - 1) % 88) % 12) & 1]
+
+
+function blackOrWhiteKey(key) {
+  key = key % 88;
+  var black = [2, 4, 7, 9, 11];
+  if (key > 3) key = (key - 3) % 12;
+  return black.includes(key) ? "black" : "white";
+}
+
+
+function blackOrWhiteKey(keyPressCount) {
+    let keys = [ "white", "black", "white", "white", "black", "white", "black", "white", "white", "black", "white", "black" ];
+    return keys[((keyPressCount - 1) % 88) % 12];
+}
