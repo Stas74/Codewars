@@ -59,3 +59,49 @@ function minimumNumber(numbers) {
 console.log(minimumNumber([3, 1, 2])); // 1
 console.log(minimumNumber([5, 2])); // 0
 console.log(minimumNumber([2, 12, 8, 4, 6])); // 5
+
+
+
+function minimumNumber(numbers){
+  let sum = numbers.reduce((a,b) => a + b)
+  for(let i = sum; ; i++) {
+    if(prime(i)) return i - sum
+  }
+  function prime(a) {
+    if(a < 2) return false
+    if(a % 2 === 0) return a === 2
+    for(let i = 3; i * i < a; i += 2) {
+      if(a % i === 0) return false
+    }
+    return true
+  }
+}
+
+
+
+function isPrime (n) {
+  for (let i = 2; i < n; i++) {
+    if (n % i === 0) {
+      return false;
+    }
+  }
+  return true;
+}
+
+function minimumNumber(numbers){
+  let count = 0;
+  let sum = numbers.reduce((a,b) => a+b);
+
+  if (isPrime(sum)) return 0;
+
+  while(!isPrime(sum)) {
+    sum++;
+    count++;
+  }
+  return count;
+}
+
+
+
+const minimumNumber = (numbers, sum = numbers.reduce((pre, val) => pre + val), min = 0) =>
+  Array(sum + min).fill(1).join(``).match(/^1?$|^(11+?)\1+$/) ? minimumNumber(numbers, sum, ++min) : min;
