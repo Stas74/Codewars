@@ -31,3 +31,39 @@ function cartesianNeighbor(x, y) {
 }
 
 console.log(cartesianNeighbor(2, 2)); // [[1,1],[1,2],[1,3],[2,1],[2,3],[3,1],[3,2],[3,3]]
+
+
+
+const cartesianNeighbor = (x, y) =>
+  [x - 1, x, x + 1].reduce((pre, val) => [...pre, ...[y - 1, y, y + 1].map(v => [val, v])], []).filter(val => `${val}` !== `${[x, y]}`);
+
+
+function cartesianNeighbor(x, y){    
+    var arr = [];    
+    for (var i = x - 1; i <= x + 1; i++) {
+      for (var j = y - 1; j <= y + 1; j++) {      
+       arr.push([i,j]);      
+      }
+    }     
+    return arr.filter(f => f+'' != [x,y]+'');
+}
+
+
+
+function cartesianNeighbor(x, y){
+    return [-1, 0, 1].reduce((s, v) => s.concat([-1, 0, 1].reduce((si, vi) => si.concat([[x+v, y+vi]]), [])), []).filter(v => v[0] !== x || v[1] != y);
+}
+
+
+
+function cartesianNeighbor(x, y){
+  const ns = [[1,1],[1,2],[1,3],[2,1],[2,3],[3,1],[3,2],[3,3]];
+  return ns.map(([X,Y]) => [X+x-2,Y+y-2])
+}
+
+
+
+function cartesianNeighbor(x, y){
+    const d = [[-1, -1], [-1, 0], [-1, 1], [0,-1], [0,1], [1,-1], [1,0], [1,1]];
+    return d.map((e) => [x+e[0], y+e[1]]);
+}
