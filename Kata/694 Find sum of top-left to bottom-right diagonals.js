@@ -25,3 +25,16 @@ function diagonalSum(matrix){
 console.log(diagonalSum([[12]])); // 12
 console.log(diagonalSum([[1, 2], [3, 4]])); // 5
 console.log(diagonalSum([[1, 2, 3], [4, 5, 6], [7, 8, 9]])); // 15
+
+
+
+function diagonalSum(matrix){
+  var sum = 0;  
+  for(var i = 0, width = matrix.length; i < width; i++) {
+    sum += matrix[i][i];
+  }  
+  return sum;
+}
+
+
+const diagonalSum = m => m.map((e, i) => e[i]).reduce((r, e) => r + e, 0);
