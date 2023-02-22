@@ -22,3 +22,33 @@ function copyList(l) {
 }
 
 console.log(copyList([3, 1, 2])); // [3, 1, 2]
+
+
+
+function copyList(l) {
+  return l.slice();
+}
+
+
+function copyList(l){
+  return [...l];
+}
+
+
+function copyList(l){
+  return (Array.isArray(l)) ? l.slice(0) : "error";
+}
+
+
+
+function copyList(l) {
+  return [].concat(l);
+}
+
+
+function copyList(l){
+  return JSON.parse(JSON.stringify(l));
+}
+
+
+var copyList = Array.from
