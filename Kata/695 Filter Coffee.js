@@ -19,3 +19,19 @@ function search(budget, prices) {
 
 console.log(search(3, [6, 1, 2, 9, 2])); // "1,2,2"
 console.log(search(14, [7, 3, 23, 9, 14, 20, 7])); // "3,7,7,9,14"
+
+
+
+let search = (budget, prices) => prices
+    .filter(p => p <= budget)
+    .sort((a, b) => a - b)
+    .join(',')
+
+
+const search = (budget, prices) => prices.filter(v => v <= budget).sort((a, b) => a - b).toString();
+
+
+const search = (budget, prices) =>
+  `${prices.filter(val => val <= budget).sort((a, b) => a - b)}`;
+
+
