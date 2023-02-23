@@ -23,3 +23,26 @@ function noRepeat(str) {
 console.log(noRepeat("aabbccdde")); // "e"
 console.log(noRepeat("wxyz")); // "w"
 console.log(noRepeat("testing")); // "e"
+
+
+function noRepeat(str) {
+  for (let i of str) {
+    if (str.split(i).length == 2) return i;
+  }
+}
+
+
+function noRepeat(str) {
+  return str
+    .split("")
+    .filter((x, i) => str.indexOf(x) === str.lastIndexOf(x))[0];
+}
+
+
+function noRepeat(str) {  
+  return [...str].find((char, i, arr) =>
+    arr.indexOf(char) === arr.lastIndexOf(char)
+  );
+}
+
+
