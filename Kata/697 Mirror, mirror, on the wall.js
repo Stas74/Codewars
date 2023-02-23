@@ -30,3 +30,33 @@ function mirror(data) {
 console.log(mirror([2, 1])); // [1, 2, 1]
 console.log(mirror([2, 3, 1])); // [1, 2, 3, 2, 1]
 
+
+
+function mirror(data) {
+  const sort = data.slice().sort((a, b) => a - b);
+  return [...sort, ...sort.reverse().slice(1)];
+}
+
+
+function mirror(data) {
+  var result = [].concat(data).sort((a, b) => a - b);
+  result.pop();
+  return result.concat([].concat(data).sort((a, b) => b - a));
+}
+
+
+
+function mirror(data) {
+  const sorted = data.slice().sort((a,b) => a - b)
+  const sortedInverted = sorted.slice().reverse().slice(1)
+  
+  return sorted.concat(sortedInverted)
+}
+
+
+const mirror = data =>
+  (arr => [...arr, ...arr.reverse().slice(1)])
+  ([...data].sort((a, b) => a - b));
+
+
+const mirror = (a, b=a.slice().sort((x,y)=>x-y)) => [...b, ...b.reverse().slice(1)]
