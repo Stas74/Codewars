@@ -24,3 +24,27 @@ function determineTime(durations) {
 console.log(determineTime(["00:30:00", "02:30:00", "00:15:00"])); // true
 console.log(determineTime(["04:30:00", "02:00:00", "01:30:00", "16:00:00"])); // true
 console.log(determineTime(["12:00:00", "12:00:01"])); // false
+
+
+
+function determineTime(durations){
+   let sec = 0;
+   let str = [];
+   for (let i = 0; i < durations.length; i++) {
+     str = durations[i].split(":");
+     sec += +str[0] * 3600 + +str [1] * 60 + +str[2];
+    }
+    return sec/3600 <=24 ? true : false;
+}
+
+
+
+const determineTime = durations =>
+  durations.map(val => val.split(`:`)).reduce((pre, [h, m, s]) => pre + h * 3600 + m * 60 + +s, 0) <= 8.64e4;
+
+
+
+const determineTime = d => d.reduce((p, c) => p + c.split(':').reduce((p, c) => +c + +p * 60), 0) <= 86400;
+
+
+
