@@ -91,3 +91,26 @@ function blackAndWhite(arr) {
 console.log(blackAndWhite(5, 13)); // "It's a fake array"
 console.log(blackAndWhite([5, 13])); // "It's a black array"
 console.log(blackAndWhite([5, 12])); // "It's a white array"
+
+
+
+function blackAndWhite(arr){
+  if ( !Array.isArray( arr ) ) return 'It\'s a fake array'
+  if ( arr.indexOf( 5 ) != -1 && arr.indexOf( 13 ) != -1 ) return 'It\'s a black array'
+  return 'It\'s a white array'
+}
+
+
+const blackAndWhite = arr =>
+  `It's a ${!Array.isArray(arr) ? `fake` : arr.includes(5) && arr.includes(13) ? `black` : `white`} array`;
+
+
+function blackAndWhite(arr){
+  //coding here...
+  return `It's a ${Array.isArray(arr) ? arr.indexOf(5) != -1 && arr.indexOf(13) != -1 ? 'black' : 'white' : 'fake'} array`;
+}
+
+
+function blackAndWhite(arr){
+  return `It's a ${!Array.isArray(arr)?"fake":arr.indexOf(5)>-1&&arr.indexOf(13)>-1?"black":"white"} array`;
+}
