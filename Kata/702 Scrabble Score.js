@@ -74,3 +74,29 @@ function scrabbleScore(str) {
 console.log(scrabbleScore("a")); // 1
 console.log(scrabbleScore("street")); // 6
 console.log(scrabbleScore("st re et")); // 6
+
+
+
+function scrabbleScore(str){
+  return str.toUpperCase().split('').reduce(function(score,v){ return score + ($dict[v] || 0)},0)
+}
+
+
+function scrabbleScore(str){
+  var output = 0;
+  for (var i in str) {
+    output += $dict[str[i].toUpperCase()] || 0;
+  }
+  return output;
+}
+
+
+const scrabbleScore = str => str.replace(/[^a-z]/ig, '')
+                                .split('')
+                                .map(el => $dict[el.toUpperCase()])
+                                .reduce( (a, b) => a + b, 0 )
+
+
+
+const scrabbleScore = str =>
+  [...str.toUpperCase()].reduce((pre, val) => pre + ($dict[val] || 0), 0);
