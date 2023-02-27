@@ -20,3 +20,31 @@ function replaceAll(seq, find, replace) {
 
 console.log(replaceAll([1, 2, 2], 1, 2)); // [2,2,2]
 console.log(replaceAll("122", 1, 2)); // [2,2,2]
+
+
+
+function replaceAll(seq, find, replace) {
+  return Array.isArray(seq) ? seq.map(x => x == find ? replace : x) : seq.split(find).join(replace)
+}
+
+
+
+function replaceAll(seq, find, replace) {
+ if (typeof seq === 'string') return seq.split('').map(x => x===find ? replace : x).join('');
+ return seq.map(x => x===find ? replace : x);
+}
+
+
+
+const replaceAll = (seq, find, replace) =>
+  (val => Array.isArray(seq) ? val : val.join(``))
+  ([...seq].map(val => val === find ? replace : val));
+
+
+
+function replaceAll(seq, find, replace) {
+  return Array.isArray(seq) ? seq.map(x => x==find ? replace : x) : seq.replace(new RegExp(find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g'), replace)
+}
+
+
+
