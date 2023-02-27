@@ -25,3 +25,20 @@ function convertHashToArray(hash) {
 console.log(convertHashToArray({ name: "Jeremy", age: 24 })); // [["age", 24], ["name", "Jeremy"]]
 console.log(convertHashToArray({ product: "CodeWars", powerLevelOver: 9000 })); 
 // [["powerLevelOver", 9000], ["product", "CodeWars"]]
+
+
+
+function convertHashToArray(hash){
+  let result = [];
+  Object.keys(hash).sort().map(item => result.push([item,hash[item]]));
+  return result;
+}
+
+
+const convertHashToArray = hash => Object.keys(hash).sort().map(x => [x, hash[x]]);
+
+
+const convertHashToArray = (hash) => Object.keys(hash).map(key => [key, hash[key]]).sort();
+
+
+
