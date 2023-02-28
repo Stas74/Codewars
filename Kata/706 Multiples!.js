@@ -16,3 +16,22 @@ console.log(multiple(30)); // "BangBoom"
 console.log(multiple(3)); // "Bang"
 console.log(multiple(65)); // "Boom"
 console.log(multiple(23)); // "Miss"
+
+
+
+function multiple(x) {
+ return x % 15 == 0 ? "BangBoom" : x % 3 == 0 ? "Bang" : x % 5 == 0 ? "Boom" : "Miss"
+}
+
+
+const multiple = x => {
+  if (x % 5 === 0 && x % 3 === 0) return "BangBoom"
+  if (x % 3 === 0) return "Bang"
+  if (x % 5 === 0) return "Boom" 
+  return 'Miss'
+}
+
+
+
+const multiple = x =>
+  !(x % 15) ? `BangBoom` : !(x % 3) ? `Bang` : !(x % 5) ? `Boom` : `Miss`;
