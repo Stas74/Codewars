@@ -26,3 +26,19 @@ function solve(s, g) {
 console.log(solve(6, 3)); // [3,3]
 console.log(solve(8, 2)); // [2,6]
 console.log(solve(10, 3)); // -1
+
+
+
+function solve(x, y) {
+  return x % y ? -1 : [y, x - y];
+}
+
+
+function solve(s,g){
+  return !(s % g) ? [g, s - g] : -1;
+}
+
+
+const solve = (s, g) => s % g ? -1 : [g, s - g]
+
+
