@@ -23,3 +23,25 @@ console.log(remove("Hi! Hi! Hi!")); // ""
 console.log(remove("Hi Hi! Hi!")); // "Hi"
 console.log(remove("Hi! Hi!! Hi!")); // "Hi!!"
 console.log(remove("Hi! !Hi! Hi!")); // "Hi!!"
+
+
+function remove(s){
+  return s.split(' ').filter(i => i.split('!').length != 2).join(' ');
+}
+
+
+const remove = $ => $.split(/\s+/).filter(el => !/^(!\w+|\w+!)$/.test(el)).join(" ")
+
+
+function remove (string){
+  const str = string.split(' ');
+  const result = []
+  for (let i of str){
+    if ((i.match(/!/g) || []).length !== 1){
+      result.push(i)
+    }
+  }
+  return result.join(' ')
+}
+
+
