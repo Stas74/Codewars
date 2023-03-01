@@ -41,3 +41,56 @@ console.log(dotCalculator("..... + ...............")); // "...................."
 console.log(dotCalculator("..... - ...")); // ".."
 console.log(dotCalculator("..... * ...")); // "..............."
 console.log(dotCalculator("..... // ..")); // ".."
+
+
+
+const dotCalculator = (equation) => {
+  const operations = {
+    '+' : (a, b) => a + b,
+    '-' : (a, b) => a - b,
+    '*' : (a, b) => a * b,
+    '//': (a, b) => a / b,
+  };
+  const [left, operator, right] = equation.split(' ');
+  return '.'.repeat(operations[operator](left.length, right.length));
+}
+
+
+
+function dotCalculator (equation) {
+	equation = equation.split(' ');
+	
+	let [a, operator, b] = equation;
+	
+	switch (operator) {
+	  case '+':
+	    equation = a.length + b.length;
+	    break;
+	  case '-':
+	    equation = a.length - b.length;
+	    break;
+	  case '*':
+	    equation = a.length * b.length;
+	    break;
+	  case '//':
+	    equation = Math.trunc(a.length / b.length);
+	    break;
+	}
+	a = [];
+	for (let i = equation; i > 0; i--) {
+	  a.push('.');
+	}
+	
+	return a.join('');
+}
+
+
+function dotCalculator (equation) {  
+  let [ a, op, b ] = equation.split(' ');  
+  return '.'.repeat(eval(a.length + op[0] + b.length));  
+}
+
+
+function dotCalculator(s){
+  return '.'.repeat(eval(s.replace(/\.+/g,e=>e.length).replace(/\//,''))|0)
+}
