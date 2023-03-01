@@ -30,3 +30,23 @@ var isSquare = function (arr) {
 console.log(isSquare([1, 4, 9, 16, 25, 36])); // true
 console.log(isSquare([1, 2, 3, 4, 5, 6])); // false
 console.log(isSquare([])); // undefined
+
+
+
+var isSquare = function(arr){
+  return (arr.length) ? arr.every(x => Math.sqrt(x) % 1 == 0) : undefined;
+}
+
+
+
+var isSquare = function(arr){
+  if (!arr.length) return undefined;
+  return arr.every(x => Number.isInteger(Math.sqrt(x)));
+}
+
+
+const isSquare = (arr) => arr.length ? arr.every(x => Number.isInteger(Math.sqrt(x))) : void 0
+
+
+const isSquare = arr =>
+  arr.length ? !arr.some(val => val ** .5 % 1) : void 0;
