@@ -61,3 +61,43 @@ function arrayLeaders(numbers) {
 
 console.log(arrayLeaders([1, 2, 3, 4, 0])); // [4]
 console.log(arrayLeaders([16, 17, 4, 3, 5, 2])); // [17,5,2]
+
+
+
+var arrayLeaders = numbers => {
+  return numbers.filter((a, i) => numbers.slice(i + 1).reduce((sum, b) => sum + b, 0) < a)
+}
+
+
+// O(n) attempt
+var arrayLeaders = numbers => {
+  const sumOfAllAfter = []
+
+  let sum = 0
+  for (let i = numbers.length - 1; i >= 0; i--) {
+    sumOfAllAfter[i] = sum
+    sum += numbers[i]
+  }
+
+  return numbers.filter((num, i) => num > sumOfAllAfter[i])
+}
+
+
+var arrayLeaders = numbers => {
+  let answer = [];
+  for (let i=0; i<numbers.length; i++){          //loop through array
+    let sum = 0;
+    for (let j=i+1; j<numbers.length; j++){      //start one position right of the main loop element
+      sum += numbers[j];                         //add all those numbers together
+    }
+    
+    if(numbers[i] > sum){                        //compare that sum to the initial number
+      answer.push(numbers[i]);                   //if it's bigger push it to the answer array
+    }
+  }
+  return answer;                                 //return it like it's defective
+}
+
+
+
+
