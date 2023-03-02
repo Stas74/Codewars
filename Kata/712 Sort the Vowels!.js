@@ -34,3 +34,24 @@ function sortVowels(s) {
 console.log(sortVowels("Codewars")); // 'C|\n|o\nd|\n|e\nw|\n|a\nr|\ns|'
 console.log(sortVowels("Rnd Te5T")); // 'R|\nn|\nd|\n |\nT|\n|e\n5|\nT|'
 console.log(sortVowels(1337)); // ""
+
+
+
+const sortVowels = s => typeof s !== 'string' ? '' : [...s].map(e => /[aeiou]/i.test(e) ? `|${e}` : `${e}|`).join('\n');
+
+
+
+function sortVowels(s){
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U'];
+  if (typeof s === "string") return [...s].map(letter => vowels.includes(letter) ? `|${letter}` : `${letter}|`).join('\n');
+  return '';
+}
+
+
+
+function sortVowels(s){
+  return s === s + [] ? [...s].map(el => el.match(/[aeiou]/i) ? `|${el}` : `${el}|`).join('\n') : ''
+}
+
+
+const sortVowels = s => typeof s === 'string' && s.split('').map( c => 'aeiou'.includes(c.toLowerCase() )? '|'+c : c+'|').join('\n') || ''
