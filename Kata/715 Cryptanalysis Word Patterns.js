@@ -24,3 +24,20 @@ function wordPattern(word) {
 
 console.log(wordPattern("hello")); // "0.1.2.2.3"
 console.log(wordPattern("heLlo")); // "0.1.2.2.3"
+
+
+const wordPattern = (word)=>{
+    word=word.toLowerCase()
+    const set = [...new Set(word)]
+    return word.split('').map(e=>set.indexOf(e)).join('.')
+  }
+
+
+const wordPattern = word =>
+  [...word.toLowerCase()].map(val => [...new Set(word.toLowerCase())].indexOf(val)).join(`.`);
+
+
+function wordPattern(word) {
+  const seen = [];
+  return [...word.toLowerCase()].map(c => seen.includes(c) ? seen.indexOf(c) : seen.push(c) && seen.indexOf(c)).join`.`;
+}
