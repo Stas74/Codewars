@@ -53,3 +53,22 @@ console.log(addUsername(list1));
 */
 
 
+
+function addUsername(list) {
+  return list.map(function(x){ 
+    x.username = x.firstName.toLowerCase() + x.lastName[0].toLowerCase() + (new Date().getFullYear()-x.age);
+    return x;
+  });
+}
+
+
+
+function addUsername(list) {
+  const currentYear = (new Date()).getFullYear();
+  list.forEach(dev => dev.username = (dev.firstName + dev.lastName.charAt()).toLowerCase() + (currentYear-dev.age));
+  return list;
+}
+
+
+const addUsername = list =>
+  list.forEach(val => val.username = (val.firstName + val.lastName[0] + (new Date().getFullYear() - val.age)).toLowerCase()) || list;
