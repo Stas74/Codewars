@@ -34,3 +34,5 @@ function oddOnesOut(nums) {
 console.log(oddOnesOut([1, 2, 3, 1, 3, 3])); // [1, 1]
 console.log(oddOnesOut([75, 68, 75, 47, 68])); // [75, 68, 75, 68]
 console.log(oddOnesOut([42, 72, 32, 4, 94, 82, 67, 67])); // [67, 67]
+
+
