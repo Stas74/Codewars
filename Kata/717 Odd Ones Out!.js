@@ -36,3 +36,22 @@ console.log(oddOnesOut([75, 68, 75, 47, 68])); // [75, 68, 75, 68]
 console.log(oddOnesOut([42, 72, 32, 4, 94, 82, 67, 67])); // [67, 67]
 
 
+
+function oddOnesOut(nums) {
+  return nums.filter(n => nums.filter(x => x === n).length % 2 === 0);
+}
+
+
+
+function oddOnesOut(a) {
+  let d = a.reduce((x, y) => (x[y] = (x[y] || 0) + 1, x), {});
+  return a.filter(x => d[x] % 2 === 0);
+}
+
+
+
+const oddOnesOut = ($) => $.filter(e => $.filter(el => el === e).length % 2 === 0)
+
+
+const oddOnesOut = nums =>
+  nums.filter(val => !(nums.filter(v => v === val).length % 2));
