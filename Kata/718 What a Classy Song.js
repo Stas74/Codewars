@@ -55,3 +55,38 @@ console.log(mountMoose.title); // 'Mount Moose'
 console.log(mountMoose.artist); // 'The Snazzy Moose'
 console.log(mountMoose.howMany(["John", "Fred", "Bob", "Carl", "RyAn"])); // 5
 console.log(mountMoose.howMany(["JoHn", "Luke", "AmAndA"])); // 2
+
+
+
+
+class Song{
+  constructor(title, artist){
+  this.title = title;
+  this.artist = artist;
+  this.ar = []
+  }
+    
+  howMany(arr){
+    let out = 0
+    for(let i of arr){
+      if(!this.ar.includes(i.toLowerCase())){
+        this.ar.push(i.toLowerCase())
+        out++
+      }
+    }
+    return out
+  }
+}
+
+
+
+
+class Song {
+  constructor(title, artist) {
+    Object.assign(this, {title, artist, set: new Set()});
+  }
+  
+  howMany(people) {
+    return people.reduce((pre, val) => pre - this.set.size + this.set.add(val.toLowerCase()).size, 0);
+  }
+}
