@@ -48,3 +48,20 @@ function decode(code, n) {
 
 console.log(decode([20, 12, 18, 30, 21], 1939)); // "scout"
 console.log(decode([14, 10, 22, 29, 6, 27, 19, 18, 6, 12, 8], 1939)); // "masterpiece"
+
+
+
+function decode(code, n) {
+  const key = String(n)
+  return String.fromCharCode(...code.map((c, i) => c - Number(key[i % key.length]) + 96))
+}
+
+
+const decode = (code, n) =>
+  code.reduce((pre, val, idx) => pre + String.fromCharCode(val - `${n}`[idx % `${n}`.length] + 96), ``);
+
+
+const decode = (code, n, k = `${n}`) => 
+  String.fromCharCode(...code.map((m, i) => m - k[i % k.length] + 96))
+
+
