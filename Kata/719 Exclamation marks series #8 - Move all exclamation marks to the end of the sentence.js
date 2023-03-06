@@ -18,3 +18,29 @@ function remove(string) {
 console.log(remove("Hi!")); // "Hi!"
 console.log(remove("Hi! Hi!")); // "Hi Hi!!"
 console.log(remove("Hi! !Hi Hi!")); // "Hi Hi Hi!!!"
+
+
+
+function remove(s) {
+  return s.replace(/!/g, '') + s.replace(/[^!]/g, '');
+}
+
+
+function remove(s) {
+  const x = s.replace(/!+/g, "")
+  return x + "!".repeat(s.length - x.length)
+}
+
+
+
+function remove(s){
+  let lets="", excs="";
+  for(let i of s){
+    if(i==="!"){
+      excs+=i;
+    }else{
+      lets+=i;
+    }
+  }
+  return lets+excs;
+}
