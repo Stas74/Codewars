@@ -41,3 +41,23 @@ console.log(cake(900, "abcdef")); // 'That was close!'
 console.log(cake(56, "ifkhchlhfd")); // 'Fire!'
 console.log(cake(256, "aaaaaddddr")); // 'Fire!'
 
+
+
+function cake(x, y){
+  let a = y.split("");
+  let res = 0;
+  for (i in a){
+    res += i % 2 == 0 ? a[i].charCodeAt(0) : a[i].charCodeAt(0) - 96;
+  }
+  return res > x * 0.7 ? 'Fire!': 'That was close!';
+}
+
+
+
+const cake = (x, y) => 
+    y.split('').reduce((sum,n,i)=>sum + ((i%2) ? n.charCodeAt(0)-96 : n.charCodeAt(0)),0)/x<0.7 ? 'That was close!' : 'Fire!';
+
+
+const cake = (x, y) =>
+  [...y].reduce((pre, val, idx) => pre + val.charCodeAt() - 97 + (idx % 2 || 97), 0) > x * 0.7 ?
+    `Fire!` : `That was close!`;
