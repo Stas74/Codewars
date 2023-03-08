@@ -31,3 +31,16 @@ var iverson = new NBAplayer("Iverson", "76ers", 11.2);
 var jordan = new NBAplayer("Jordan", "bulls", 20.2);
 
 console.log(sumPPG(iverson, jordan)); // 31.4
+
+
+
+
+function sumPPG(playerOne, playerTwo){
+  if(playerOne.hasOwnProperty('ppg') && playerTwo.hasOwnProperty('ppg'))
+  {
+    return playerOne.ppg + playerTwo.ppg;
+  }
+  return -1;  
+}
+
+
