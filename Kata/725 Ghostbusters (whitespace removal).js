@@ -25,3 +25,21 @@ function ghostBusters(building) {
 console.log(ghostBusters("Factor y")); // "Factory"
 console.log(ghostBusters("O  f fi ce")); // "Office"
 console.log(ghostBusters("BusStation")); // "You just wanted my autograph didn't you?"
+
+
+
+function ghostBusters(building) {
+  return /\s/.test(building) ? building.replace(/\s+/g, '') : "You just wanted my autograph didn't you?";
+}
+
+
+let ghostBusters = s => / /.test(s) ? s.replace(/ /g, '') : 'You just wanted my autograph didn\'t you?';
+
+
+const ghostBusters = ($) => 
+  $.replace(/\s/g, '') === $ ? "You just wanted my autograph didn't you?" : $.replace(/\s/g, '')
+
+
+const ghostBusters = building =>
+  /\s/.test(building)
+    ? building.replace(/\s/g, ``) : `You just wanted my autograph didn't you?`;
