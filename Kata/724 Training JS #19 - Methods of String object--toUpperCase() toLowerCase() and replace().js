@@ -110,3 +110,20 @@ function alienLanguage(str) {
 console.log(alienLanguage("My name is John")); // "My NAMe Is JOHn"
 console.log(alienLanguage("this is an example")); // "THIs Is An EXAMPLe"
 console.log(alienLanguage("Hello World")); // "HELLo WORLd"
+
+
+
+
+function alienLanguage(str){
+  return str.replace(/\w+/g, w => w.slice(0,-1).toUpperCase() + w.slice(-1).toLowerCase());
+}
+
+
+const alienLanguage = str => str.toUpperCase().replace(/\w\b/g, m => m.toLowerCase())
+
+
+function alienLanguage(str){
+  return str.toUpperCase().replace(/.\b/g, x=>x.toLowerCase());
+}
+
+
