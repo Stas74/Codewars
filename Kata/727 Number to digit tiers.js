@@ -22,3 +22,34 @@ function createArrayOfTiers(num) {
 
 console.log(createArrayOfTiers(420)); // ["4", "42", "420"]
 console.log(createArrayOfTiers(2017)); // ["2", "20", "201", "2017"]
+
+
+
+function createArrayOfTiers(num) {
+    let prev = '';
+    return [...num + ''].map((value) => {
+        return prev += value;
+    });
+}
+
+
+function createArrayOfTiers(num) {
+  return Array.prototype.map.call(num.toString(), (_, i, s) => s.slice(0, i + 1));
+}
+
+
+
+function createArrayOfTiers(num) {
+    let a = []
+    for (let i = 0; i < String(num).length; i++) {
+      a.push(String(num).substring(0,i+1))
+    }
+    return a
+}
+
+
+const createArrayOfTiers = (number) => [...`${number}`].map((el, i, arr)=> arr.slice(0,i+1).join(''))
+
+
+const createArrayOfTiers = num =>
+  [...`${num}`].map((_, idx) => `${num}`.slice(0, ++idx));
