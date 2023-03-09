@@ -27,3 +27,15 @@ function firstNonRepeated(s) {
 console.log(firstNonRepeated("test")); // "e"
 console.log(firstNonRepeated("1122321235121222")); // "5"
 console.log(firstNonRepeated("rend")); // "r"
+
+
+
+const firstNonRepeated = s => [...s].find(i => s.indexOf(i) == s.lastIndexOf(i)) || null
+
+
+
+function firstNonRepeated(s) {
+  return s.split('').find(c => s.indexOf(c) == s.lastIndexOf(c)) || null;
+}
+
+
