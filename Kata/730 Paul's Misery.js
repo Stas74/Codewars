@@ -26,3 +26,34 @@ function paul(x){
 
 console.log(paul(['life', 'eating', 'life'])); // "Super happy!"
 console.log(paul(['Petes kata', 'Petes kata', 'eating', 'Petes kata', 'Petes kata', 'eating'])); // "Happy!"
+
+
+function paul(arr){
+  const dic = {kata: 5, 'Petes kata': 10, life: 0, eating: 1}
+  const num = arr.reduce( (a, i)=> +a + dic[i], 0)
+  return num < 40 ? 'Super happy!' : num < 70 ? 'Happy!' : num < 100 ? 'Sad!' : 'Miserable!'
+}
+
+
+
+function paul(activities) {
+  const VALUES = {'Petes kata': 10, 'kata': 5, 'eating': 1, 'life': 0};
+  const score = activities.reduce((s, a) => s + VALUES[a], 0);
+  switch (true) {
+    case score < 40: return 'Super happy!';
+    case score < 70: return 'Happy!';
+    case score < 100: return 'Sad!';
+    default: return 'Miserable!';
+  }
+}
+
+
+const paul = x =>
+  (val => val < 40 ? `Super happy!` : val < 70 ? `Happy!` : val < 100 ? `Sad!` : `Miserable!`)
+  (x.reduce((pre, val) => pre + {kata: 5, 'Petes kata': 10, life: 0, eating: 1}[val], 0));
+
+
+paul = x => {
+  const score = x.map(x => ({ kata: 5, 'Petes kata': 10, life: 0, eating: 1 }[x])).reduce((p,c) => p+c)
+  return score < 40 ? 'Super happy!' : score < 70 ? 'Happy!' : score < 100 ? 'Sad!' : 'Miserable!'
+}
