@@ -26,3 +26,39 @@ console.log(ballCollector([58, 68, 62, 69, 58])); // { weight: 116 }
 console.log(ballCollector([60, 66, 71, 68, 62])); // { weight: 0 }
 console.log(ballCollector([58])); // { weight: 58 }
 console.log(ballCollector([58, 58, 58])); // { weight: 174 }
+
+
+
+function ballCollector(detritus) {
+  var newArr = 0
+  
+  for(var i = 0; i < detritus.length; i++) {
+    if(detritus[i] === 58) {
+       newArr++
+    }
+  }
+    return {weight: newArr * 58}  
+}
+
+
+
+function ballCollector(detritus) {
+  var sack = 0;
+  
+  detritus.forEach(function(item) {
+    if(item == 58) {
+      sack += 58
+    }
+  });
+  
+  return { weight: sack };
+}
+
+
+
+const ballCollector = detritus =>
+  ({weight: detritus.reduce((pre, val) => pre + (val === 58) * 58, 0)});
+
+
+
+const ballCollector = arr => arr.reduce((res, c) => (c == 58 && (res.weight += c), res), {weight: 0})
