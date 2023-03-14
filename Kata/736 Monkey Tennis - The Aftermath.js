@@ -43,3 +43,27 @@ function binRota(arr){
 }
 
 console.log(binRota([["Bob","Nora"],["Ruby","Carl"]])); // ["Bob","Nora","Carl","Ruby"]
+
+
+
+function binRota(arr) {
+    return arr.reduce(function(a, b, index) {
+        return (index % 2 === 0) ? a.concat(b) : a.concat(b.reverse());
+    });
+}
+
+
+const binRota = arr =>
+  [].concat(...arr.map((val, idx) => idx % 2 ? val.reverse() : val));
+
+
+const binRota = arr => {
+  let finalArr = []
+  for (let i = 1; i < arr.length; i = i+2) {
+    arr[i].reverse()
+  }
+  for (let j = 0; j < arr.length; j++) {
+   finalArr = finalArr.concat(arr[j])
+  }
+  return finalArr
+}
