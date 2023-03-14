@@ -27,3 +27,23 @@ function lastDigit(n, d) {
 console.log(lastDigit(1, 1)); // [1]
 console.log(lastDigit(123767, 4)); // [3,7,6,7]
 console.log(lastDigit(1234, 0)); // []
+
+
+
+function lastDigit(n, d) {
+  const nums = String(n).split('').map(Number);
+  const len = nums.length;
+  let index = 0;
+  return nums.filter(el => index++ >= len - d);
+}
+
+
+function lastDigit(n, d) {
+  return (n + '').split('').splice(-d,d).map(Number)
+}
+
+
+
+function lastDigit(n, d) {
+  return d <= 0 ? [] : [...""+n].slice(-d).map(x => +x)
+}
