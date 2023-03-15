@@ -19,3 +19,27 @@ function borrow(s) {
 console.log(borrow("WhAt! FiCK! DaMn CAke?")); // "whatfickdamncake"
 console.log(borrow("THE big PeOpLE Here!!")); // "thebigpeoplehere"
 console.log(borrow("i AM a TINY BoY!!")); // "iamatinyboy"
+
+
+
+const borrow = s => s.toLowerCase().replace(/\W/g,'');
+
+
+function borrow(s){
+  return s.replace(/[^\w]/g, '').toLowerCase();
+}
+
+
+
+function borrow(s){
+  const isChar = c => c.toLowerCase() !== c.toUpperCase()
+  return [...s.toLowerCase()].filter(c => isChar(c) && c.toLowerCase() === c).join('')
+}
+
+
+const borrow = (s) => {
+  return s.toLowerCase().replaceAll(/[.\s,\/#!?$%\^&\*;:{}=\-_`~()]/g, '');
+}
+
+
+
