@@ -33,3 +33,32 @@ function moreZeros(s) {
 console.log(moreZeros("abcde")); // ['a','b','d']
 console.log(moreZeros("abcdeabcde")); // ['a','b','d'] Should not return duplicates values
 console.log(moreZeros("Great job!")); // ['a', ' ', 'b', '!']
+
+
+
+function moreZeros(s){
+  let arrCodePoints = s.split('').map(c => c.charCodeAt(0)).map(n => n.toString(2));
+  let chars = arrCodePoints.filter(s => s.split('0').length > s.split('1').length).map(s => parseInt(s, 2));
+  let uniq = new Set(chars);
+  return String.fromCharCode(...Array.from(uniq)).split('')
+}
+
+
+
+function moreZeros(s){
+  return [...new Set([...s].filter((qure)=>{
+     let f=qure.charCodeAt(0).toString(2).replace(new RegExp('0','g'),'').length,
+         g=qure.charCodeAt(0).toString(2).replace(new RegExp('1','g'),'').length;
+     return g>f
+  }))]
+}
+
+
+
+const moreZeros = s =>
+  [...new Set(s)].filter(val => val.charCodeAt().toString(2).replace(/1/g, ``).length > 3);
+
+
+
+
+moreZeros = a => [...new Set(a)].filter(a=>(a.charCodeAt().toString(2).match(/0/g) || '').length > 3)
