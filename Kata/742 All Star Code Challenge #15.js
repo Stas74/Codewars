@@ -34,3 +34,27 @@ function rotate(str) {
 
 console.log(rotate("Hello")); // ["elloH", "lloHe", "loHel", "oHell", "Hello"]
 console.log(rotate("")); // []
+
+
+
+function rotate(s){
+  return s.split("").map(e => s = s.slice(1) + s.slice(0,1));
+}
+
+
+
+function rotate(str){
+  let res = [];
+  let s = str;
+  for(let i = 0; i < str.length;i++){
+     s = s.slice(1) + s[0];
+    res.push(s);    
+  }
+return res;
+}
+
+
+const rotate = str => [...str].map((_, i) => str.slice(++i) + str.slice(0, i));
+
+
+
