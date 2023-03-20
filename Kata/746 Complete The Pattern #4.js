@@ -36,3 +36,34 @@ console.log(pattern(0)); // "12\n2"
 console.log(pattern(2)); // "12\n2"
 console.log(pattern(5)); // "12345\n2345\n345\n45\n5")
 console.log(pattern(12)); // minus whole numbers 10,11,12
+
+
+
+
+function pattern(n) {
+ var number = "", output = "";
+ while (n > 0) {
+   number = n + number;
+   output = number + (output ? "\n" : "") + output;
+   n--;
+ }
+ return output;
+}
+
+
+
+function pattern(n){
+  let m = ''
+  return Array.from({length:n},()=>m=(n--)+m).reverse().join`\n`
+}
+
+
+
+const pattern = (n, str = ``) =>
+  [...Array(Math.max(0, n))].map(() => str = n-- + str).reverse().join(`\n`);
+
+
+
+const pattern = n => (
+  n <= 0 ? '' : [...Array(n)].map((_, i) => [...Array(n)].map((_, j) => ++j).slice(i).join``).join`\n`
+);
