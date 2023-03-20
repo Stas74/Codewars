@@ -63,3 +63,66 @@ var names = [
 
 console.log(getNiceNames(names)); // [ 'Warrior reading this kata', 'Santa' ]
 console.log(getNaughtyNames(names)); // [ 'xDranik' ]
+
+
+
+function getName(person) {
+  return person.name;
+}
+
+function wasNice(person) {
+  return person.wasNice;
+}
+
+function wasNaughty(person) {
+  return !wasNice(person);
+}
+
+function getNiceNames(people){
+  return people.filter(wasNice).map(getName);
+}
+
+function getNaughtyNames(people){
+  return people.filter(wasNaughty).map(getName);
+}
+
+
+
+
+function getNiceNames(people){
+  return people.filter(p => p.wasNice).map(p => p.name);
+}
+
+function getNaughtyNames(people){
+   return people.filter(p => !p.wasNice).map(p => p.name);
+}
+
+
+
+function getNiceNames(people){
+  return people.filter(function(person) {
+    return person.wasNice;
+  }).map(function(person) {
+    return person.name;
+  });
+}
+
+function getNaughtyNames(people){
+  return people.filter(function(person) {
+    return !person.wasNice;
+  }).map(function(person) {
+    return person.name;
+  });
+}
+
+
+
+
+const getNiceNames = people =>
+  people.reduce((pre, val) => val.wasNice ? [...pre, val.name] : pre, []);
+
+const getNaughtyNames = people =>
+  people.reduce((pre, val) => val.wasNice ? pre : [...pre, val.name], []);
+
+
+
