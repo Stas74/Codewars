@@ -41,3 +41,50 @@ function bald(x) {
 console.log(bald("/---------")); //  ['----------', 'Unicorn!']
 console.log(bald("/-----/-")); //  ['--------', 'Homer!']
 console.log(bald("--/--/---/-/---")); //  ['---------------', ''Careless!']
+
+
+
+
+function bald(x) {
+  const count = x.split('/').length - 1;
+  let look;
+  switch (count) {
+    case 0: look = 'Clean'; break;
+    case 1: look = 'Unicorn'; break;
+    case 2: look = 'Homer'; break;
+    case 3:
+    case 4:
+    case 5: look = 'Careless'; break;
+    default: look = 'Hobo';
+  }
+  return [x.replace(/\//g, '-'), look + '!'];
+}
+
+
+
+
+const bald = function(x){
+  return ['-'.repeat(x.length), 
+          {0:'Clean!', 1:'Unicorn!',2:'Homer!', 3:'Careless!', 
+           4:'Careless!', 5:'Careless!'}[x.replace(/-/g, '').length] || 'Hobo!']
+}
+
+
+
+const bald = x =>
+  [`-`.repeat(x.length), `${[`Clean`, `Unicorn`, `Homer`, `Careless`, `Careless`, `Careless`][--x.split(`/`).length] || `Hobo`}!`];
+
+
+
+const bald = (x, hair = x.replace(/-/g, '').length ) =>
+              [ x.replace(/\//g, '-'), 
+               hair < 1 ? "Clean!": 
+               hair < 2 ? "Unicorn!" : 
+               hair < 3 ? "Homer!" : 
+               hair < 6 ? "Careless!" : "Hobo!" ]
+
+
+
+
+const bald=x=>[(y=x.split("/")).join("-"),["Clean!","Unicorn!","Homer!","Careless!","Careless!","Careless!"][y.length-1]||"Hobo!"]
+
