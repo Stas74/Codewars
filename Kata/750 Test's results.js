@@ -32,3 +32,52 @@ function testResult(array) {
 
 console.log(testResult([10, 9, 9, 10, 9, 10, 9])); //  [9.429, {'h': 7, 'a': 0, 'l': 0}, 'They did well']
 console.log(testResult([5, 6, 4, 8, 9, 8, 9, 10, 10, 10])); //  [7.9, {'h': 5, 'a': 2, 'l': 3}]
+
+
+
+function testResult(array) {
+   let avg = (array.reduce((a,b) => a + b) / array.length).toFixed(3)
+   let h = array.filter(a => a > 8).length
+   let l = array.filter(b => b < 7).length
+   let a = array.filter(c => c > 6 && c < 9).length
+   let result = [Number(avg), {'h': h, 'a': a, 'l': l }]
+   return (l == 0 && a == 0 && h !== 0) ? result.concat(['They did well']) : result
+}
+
+
+
+function testResult(array) {
+
+  let res = array.reduce((a, b) => {
+    a[0] += b;
+    a[1][b > 8 ? 'h' : b > 6 ? 'a' : 'l'] += 1;
+    return a;
+  }, [ 0, { h: 0, a: 0, l: 0 } ]);
+
+  res[0] = Math.round(res[0] / array.length * 1000) / 1000;
+  if (res[1].h && !res[1].a && !res[1].l)
+    res.push('They did well');
+
+  return res;
+}
+
+
+
+const testResult = array =>
+  (obj => [Math.round(array.reduce((pre, val) => pre + val) / array.length * 1e3) / 1e3, obj].concat(obj.a || obj.l ? [] : `They did well`))
+  (array.reduce((pre, val) => (val > 8 ? pre.h++ : val > 6 ? pre.a++ : pre.l++, pre), {h: 0, a: 0, l: 0}));
+
+
+
+function testResult(array) {
+  let sum = 0;
+  let dic = {"h": 0, "a": 0, "l": 0};
+  for (let s of array) {
+    sum += s;
+    dic[s >= 9 ? "h" : s >= 7 ? "a" : "l"]++;
+  }
+  return [+(sum / array.length).toFixed(3), dic].concat(dic["h"] === array.length ? ["They did well"] : []);
+}
+
+
+
