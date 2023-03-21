@@ -26,3 +26,35 @@ function timeConvert(num) {
 console.log(timeConvert(8)); // '0'+0+':'+'0'+8
 console.log(timeConvert(32)); // '0'+0+':'+32
 console.log(timeConvert(75)); // '0'+1+':'+15
+
+
+
+
+function timeConvert(num) { 
+  return num > 0 ? `${(Math.floor(num / 60) + "").padStart(2, "0")}:${(num % 60 + "").padStart(2, "0")}` : "00:00";
+}
+
+
+
+const timeConvert = num =>
+    [num / 60, num % 60].map(n => Math.floor(Math.max(0, n)).toString().padStart(2, '0')).join(':');
+
+
+
+const timeConvert = num =>
+  [num / 60, num % 60].map(val => `${Math.max(0, val) ^ 0}`.padStart(2, 0)).join(`:`);
+
+
+
+function timeConvert(num) { 
+  var h=Math.floor(num/60);
+  var m=num%60;
+  var ans='';
+  if (h<10)
+    ans+='0';
+  ans+=h+':';
+  if (m<10)
+    ans+='0';
+  ans+=m;
+  return num>=0?ans:'00:00';
+}
