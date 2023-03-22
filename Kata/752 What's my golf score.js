@@ -25,3 +25,28 @@ function golfScoreCalculator(parList, scoreList) {
 
 console.log(golfScoreCalculator("443454444344544443", "353445334534445344")); //  -1
 console.log(golfScoreCalculator("123456123456123456", "123456123456123456")); //  0
+
+
+
+const golfScoreCalculator = (parList, scoreList) =>
+  [...scoreList].reduce((result, score, index) => result += score - parList[index], 0)
+
+
+
+function golfScoreCalculator(parList, scoreList){
+    result = 0;
+    for (let i = 0; i < parList.length; ++i) {
+        result += scoreList[i] - parList[i];
+    }
+    return result;
+}
+
+
+
+const golfScoreCalculator = (p, s) => sum(s) - sum(p);
+const sum = s => [...s].map(Number).reduce((a,c)=>a+c);
+
+
+
+const golfScoreCalculator = (parList, scoreList) =>
+  [...scoreList].reduce((pre, val, idx) => pre + (val - parList[idx]), 0);
