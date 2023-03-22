@@ -38,3 +38,36 @@ function singleDigit(n) {
 console.log(singleDigit(5)); //  5
 console.log(singleDigit(999)); //  8
 console.log(singleDigit(1234444123)); //  1
+
+
+
+function singleDigit(n) {
+  while(n > 9){
+    n = n.toString(2).replace(/0/g, "").length
+  }
+  return n
+}
+
+
+
+function singleDigit(n) {   
+  return n < 10 ? n : singleDigit([...n.toString(2)].reduce((a, b) => a + +b, 0)) 
+}
+
+
+const singleDigit = $ => 
+  `${$}`.length < 2 ? $ : 
+    singleDigit( [...$.toString(2)].reduce((acc, el) => acc + Number(el), 0) )
+
+
+
+function singleDigit(n) {
+  while (n >= 10) {
+    n = (n.toString(2).match(/1/g) || []).length;
+  }
+  return n;
+}
+
+
+const singleDigit = n =>
+  n < 10 ? n : singleDigit(n.toString(2).replace(/0/g, ``).length);
