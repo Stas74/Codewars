@@ -36,3 +36,20 @@ console.log(chained([f1, f2, f3], 2)); //  36
 console.log(chained([f4, f5, f6], "lorem ipsum")); //  "merol_muspi"
 
 
+
+function chained(functions) {
+  return input => functions.reduce((res, func) => func(res), input);
+}
+
+
+function chained(functions) {
+  return function(x) {
+    for (var f of functions) {
+      x = f(x);
+    }
+    return x;
+  }
+}
+
+
+const chained = functions => (arg) => functions.reduce((x, y) => y(x), arg)
