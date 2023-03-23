@@ -136,3 +136,32 @@ console.log(cutCube(512, 8)); // true
 console.log(cutCube(512, 64)); // true
 console.log(cutCube(50000, 50)); // false
 console.log(cutCube(432, 16)); // false
+
+
+
+function isIntCube(n) {
+  return Number.isInteger(Math.cbrt(n));
+}
+
+function cutCube(volume, n) {
+  return isIntCube(n) && isIntCube(volume / n);
+}
+
+
+
+const cutCube = (volume, n) =>
+  (fn => fn(n) && fn(volume / n))
+  (val => Number.isInteger(Math.cbrt(val)));
+
+
+
+//method Number.isInteger()
+function cutCube(vol,n){
+  return Number.isInteger(Math.cbrt(vol/n)) && Number.isInteger(Math.cbrt(n))
+}
+
+
+
+function cutCube(volume,n){
+    return [volume/n, n].map(Math.cbrt).every(x=> x==~~x)
+}
