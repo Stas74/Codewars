@@ -58,3 +58,60 @@ function to_nato(words) {
 
 console.log(to_nato('If you can read')); // "India Foxtrot Yankee Oscar Uniform Charlie Alfa November Romeo Echo Alfa Delta"
 console.log(to_nato("go for it!")); // "Golf Oscar Foxtrot Oscar Romeo India Tango !"
+
+
+
+
+function to_nato(words) {
+  return words.split('').filter(c => c !== ' ').map(c => NATO[c.toUpperCase()] || c).join(' ');
+}
+
+
+
+function to_nato(words) {
+  return words.replace(/\s/g, '').toLowerCase().split('').map(e => NATO[e] ? NATO[e] : e).join(' ');
+}
+
+
+
+function to_nato(words) {
+	var translate = {a: "Alfa ", b: "Bravo ", c: "Charlie ", d: "Delta ", e: "Echo ", f: "Foxtrot ", g: "Golf ",
+                  h: "Hotel ", i: "India ", j: "Juliett ", k: "Kilo ", l: "Lima ", m: "Mike ", n: "November ",
+                  o: "Oscar ", p: "Papa ", q: "Quebec ", r: "Romeo ", s: "Sierra ", t: "Tango ", u: "Uniform ",
+                  v: "Victor ", w: "Whiskey ", x: "Xray ", y: "Yankee ", z: "Zulu ",
+                  "?": "? ", ".": ". ", " ": "", "!": "! "};
+
+  return words.toLowerCase().split("").map(char => translate[char]).join("").trim();
+}
+
+
+
+const to_nato = words => words
+  .toLowerCase()
+  .replace(/\s+/g, '')
+  .split('')
+  .map(char => NATO.hasOwnProperty(char) ? NATO[char] : char)
+  .join(' ');
+
+
+
+function to_nato(words) {
+  const solution = []
+
+  for (const letter of [...words.toLowerCase()]) {
+    if (letter !== ' ') {
+      solution.push(NATO[letter] || letter)
+    }
+  }
+  return solution.join(' ')
+}
+
+
+
+const to_nato = words =>
+  (obj => words.toLowerCase().replace(/./g, val => obj[val] || ``).trim())
+  ({a:`Alfa `, b:`Bravo `, c:`Charlie `, d:`Delta `, e:`Echo `, f:`Foxtrot `, g:`Golf `, h:`Hotel `, i:`India `,
+    j:`Juliett `, k:`Kilo `, l:`Lima `, m:`Mike `, n:`November `, o:`Oscar `, p:`Papa `, q:`Quebec `, r:`Romeo `,
+    s:`Sierra `, t:`Tango `, u:`Uniform `, v:`Victor `, w:`Whiskey `, x:`Xray `, y:`Yankee `, z:`Zulu `,
+    '.': `. `, '!':`! `, '?':`? `});
+
