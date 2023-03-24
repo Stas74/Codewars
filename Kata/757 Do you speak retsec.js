@@ -31,3 +31,61 @@ function reverseByCenter(s) {
 console.log(reverseByCenter("secret")); // "retsec"
 console.log(reverseByCenter("agent")); // "nteag"
 console.log(reverseByCenter("raw")); // "war"
+
+
+
+function reverseByCenter(s) {
+  var n = s.length / 2
+  return s.slice(Math.ceil(n)) + s.slice(Math.floor(n), Math.ceil(n)) + s.slice(0, Math.floor(n))
+}
+
+
+
+function reverseByCenter(s) {
+  return (
+    s.substring(Math.ceil(s.length / 2)) +
+    s.substring(s.length / 2, Math.ceil(s.length / 2)) +
+    s.substring(0, s.length / 2)
+  );
+}
+
+
+
+function reverseByCenter(s) {
+  return (
+    s.substring(Math.ceil(s.length / 2)) +
+    s.substring(s.length / 2, Math.ceil(s.length / 2)) +
+    s.substring(0, s.length / 2)
+  );
+}
+
+
+
+function reverseByCenter(s){
+  var halfStrLength = s.length/2;
+  var firstHalf = s.substring(halfStrLength, s.length);
+  var secondHalf = s.substring(0, halfStrLength);
+  var middleChar = s.charAt(halfStrLength);
+    
+  if (s.length % 2 === 0) {
+    return firstHalf + secondHalf; 
+  } else {
+      firstHalf = s.substring(halfStrLength + 1, s.length);
+      return firstHalf + middleChar + secondHalf;
+  }
+}
+
+
+
+const reverseByCenter = s =>
+  (val => s.replace(new RegExp(`(.{${val}})(.?)(.{${val}})`), `$3$2$1`))
+  (s.length / 2 ^ 0);
+
+
+
+const reverseByCenter = str => (
+  len => (
+    midChar => 
+      str.slice(-len) + midChar + str.slice(0, len)
+  )(len % 1 ? str[len | 0] : '')
+)(str.length/2)
