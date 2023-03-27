@@ -36,3 +36,33 @@ const sumSquareEvenRootOdd = ns => {
   let even = ns.filter(e => !(e % 2)).reduce((a,b) => a + Math.pow(b,2),0);
   return +(odd + even).toFixed(2)
 };
+
+
+
+const sumSquareEvenRootOdd = ns => {
+  let newArray = [];
+  for (let i of ns) {
+    if (i % 2 === 0) {
+      newArray.push(i**2); // sq-even
+    } else {
+      newArray.push(i**0.5); //sqrt-odd
+    }
+  }
+  return +newArray.reduce((a, b) => a + b).toFixed(2);
+};
+
+
+
+const sumSquareEvenRootOdd = ns => {
+  // your code goes here
+  var answer = ns.map(n => n % 2 === 0 ? Math.pow(n, 2) : Math.sqrt(n)).reduce((acc, n) => (acc + n)).toFixed(2);
+  return Number(answer);
+};
+
+
+
+const sumSquareEvenRootOdd = ns => {
+  const transform = e => e % 2 ? Math.sqrt(e) : e ** 2;
+  const sum = (a,b) => a+b;
+  return Math.round(ns.map(transform).reduce(sum, 0)*100)/100;
+};
