@@ -20,3 +20,30 @@ function sortDict(dict) {
 
 console.log(sortDict({ 1: 3, 2: 2, 3: 1 })); // [[1,3],[2,2],[3,1]]
 console.log(sortDict({ 1: 2, 2: 4, 3: 6 })); // [[3,6],[2,4],[1,2]]
+
+
+
+
+function sortDict(dict){
+  return Object.keys(dict).map(function (k) {
+    return [isNaN(k) ? k : +k, dict[k]];
+  }).sort(function (a, b) {
+    return b[1] - a[1];
+  });
+}
+
+
+function sortDict(dict){
+  return Object.keys(dict).map(function (k) {
+    return [isNaN(k) ? k : +k, dict[k]];
+  }).sort(function (a, b) {
+    return b[1] - a[1];
+  });
+}
+
+
+
+function sortDict(dict){
+  return Object.entries(dict).sort((a, b) => b[1] - a[1]).map(v => [isNaN(v[0]) ? v[0] : +v[0], v[1]])
+}
+
