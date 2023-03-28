@@ -20,3 +20,21 @@ console.log(
   ultimateReverse(["I", "like", "big", "butts", "and", "I", "cannot", "lie!"])
 );
 // ["!", "eilt", "onn", "acIdn", "ast", "t", "ubgibe", "kilI"]
+
+
+
+function ultimateReverse(words) {
+    let reversed = [...words.join('')].reverse();
+    return words.map(word => reversed.splice(0, word.length).join(''));
+}
+
+
+
+const ultimateReverse = (arr, str = [...arr.join``].reverse().join``, start = 0) => 
+  arr.reduce((a,c) => (a.push(str.slice(start,start+c.length)), start+=c.length, a), []);
+
+
+
+const ultimateReverse = s =>
+  (arr => s.map(val => arr.splice(0, val.length).join(``)))
+  ([...s.join(``)].reverse());
