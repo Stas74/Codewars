@@ -32,3 +32,43 @@ function stringBreakers(n, string) {
 }
 
 console.log(stringBreakers(5, "This is an example string")); // 'Thisi'+'\n'+'sanex'+'\n'+'ample'+'\n'+'strin'+'\n'+'g'
+
+
+
+
+function stringBreakers(n, s){
+  return s.replace(/\s/g,'').replace(new RegExp('.{'+n+'}','g'),'$&\n').trim()
+}
+
+
+
+function stringBreakers(n, string){
+  let result = [];
+  string = string.replace(/\s/g, "");
+  
+  for (let i = 0; i < string.length; i += n) {
+    result.push(string.substr(i, n));
+  }
+
+  return result.join("\n");
+}
+
+
+
+function stringBreakers(n, string){
+  return string.replace(/\s/g,"").match(new RegExp("\\w{1," + n + "}","g")).join("\n");
+}
+
+
+
+const stringBreakers = (n, string) =>
+  string.replace(/\s/g, ``).match(new RegExp(`\\w{1,${n}}`, `g`)).join(`\n`);
+
+
+
+function stringBreakers(n, s){
+  s = s.replace(/ /g, '');
+  
+  return Array.from({length: Math.ceil(s.length/n)}, (_, i) => s.slice(i*n, (i+1)*n))
+              .join('\n');  
+}
