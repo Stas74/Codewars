@@ -29,3 +29,26 @@ function (args){
 */
 
 JSopenSesame();
+
+
+
+
+
+//Do console.log(blackBox.toString());
+JSopenSesame();
+
+
+
+theBoxHasBeenOpenedTheProperWay = "There's more than one way to open the box!";
+
+
+theBoxHasBeenOpenedTheProperWay = true;
+
+
+//JSopenSesame();
+// just to see something different
+theBoxHasBeenOpened = true;
+theBoxHasBeenOpenedTheProperWay = true;
+
+
+
