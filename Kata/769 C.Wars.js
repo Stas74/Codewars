@@ -27,3 +27,28 @@ function initials(n) {
 
 console.log(initials("code wars")); // 'C.Wars'
 console.log(initials("Barack hussain obama")); // 'B.H.Obama'
+
+
+
+
+function initials(n) {
+  return n.split(' ').map((v, i, a) => v.charAt(0).toUpperCase() + (i == a.length - 1 ? v.slice(1) : '.')).join('');
+}
+
+
+initials = n =>
+  (n = n.split(' ')).map(w => w[0].toUpperCase()).join('.') + n.pop().slice(1);
+
+
+const initials = str => str
+  .replace(/\b\w/ig, m => m.toUpperCase())
+  .replace(/\w+\s/ig, m => m[0] + '.');
+
+
+
+const initials = n =>
+  n.replace(/\b\w/g, val => val.toUpperCase())
+    .replace(/\b(\w)\w* /g, `$1.`);
+
+
+
