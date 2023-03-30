@@ -14,3 +14,16 @@ const last = (xs) => (xs.length == 0 ? null : xs.pop());
 
 console.log(last([1, 2, 3])); // 3
 console.log(last([])); // null
+
+
+
+const last = xs => xs.length == 0 ? null : xs[xs.length-1];
+
+
+const last = arr => arr.length <= 0 ? null : arr.pop();
+
+
+const last = xs => xs.length ? xs[xs.length - 1] : null;
+
+
+const last = xs => xs.length ? xs.slice(-1)[0] : null
