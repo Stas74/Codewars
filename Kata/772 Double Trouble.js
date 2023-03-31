@@ -31,3 +31,26 @@ function trouble(x, t) {
 
 console.log(trouble([1, 3, 5, 6, 7, 4, 3], 7)); // [1, 3, 5, 6, 7, 4]
 console.log(trouble([4, 1, 1, 1, 4], 2)); // [4, 1, 4]
+
+
+
+const trouble = (x, t) =>
+  x.reduce((pre, val) => val + pre[pre.length - 1] !== t ? [...pre, val] : pre, []);
+
+
+
+function trouble(x, t){
+	var newArray = [x[0]];
+	for (i = 1; i < x.length; i++) {
+		if (x[i] + newArray[newArray.length-1] != t) {
+			newArray.push(x[i])
+		} 
+	}
+	return newArray;
+}
+
+
+
+const trouble= (x, t) => x.reduce((p,c)=> t==c+p[p.length-1]?p:[...p,c],[])
+
+
