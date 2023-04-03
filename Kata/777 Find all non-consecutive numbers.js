@@ -37,3 +37,28 @@ function allNonConsecutive(arr) {
 }
 
 console.log(allNonConsecutive([1, 2, 3, 4, 6, 7, 8, 10])); // [{i: 4, n:6}, {i: 7, n:10}]
+
+
+
+function allNonConsecutive (arr) {
+    let result = [];
+    arr.forEach((val, index) => {
+        if (val !== arr[index - 1] + 1 && index) {
+            result.push({i: index, n: val});
+        }
+    });
+    return result;
+}
+
+
+
+function allNonConsecutive (arr) {
+  return arr.map((n, i) => ({ i, n })).filter((v, i, a) => (i !== 0 && a[i - 1].n != (v.n - 1)))
+}
+
+
+const allNonConsecutive = arr =>
+  arr.reduce((pre, n, i) => i && n - 1 !== arr[i - 1] ? [...pre, {i, n}] : pre, []);
+
+
+
