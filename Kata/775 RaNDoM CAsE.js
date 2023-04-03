@@ -32,3 +32,21 @@ function randomCase(x) {
 
 console.log(randomCase("this is an all lower string")); //
 console.log(randomCase("peace")); //
+
+
+
+function randomCase(x) {
+  return x.split('')
+          .map(function(e) { return Math.random() < 0.5 ? e.toUpperCase() : e.toLowerCase(); })
+          .join('');
+}
+
+
+var randomCase = s => [...s.toLowerCase()].map(v => Math.random() > .5 ? v.toUpperCase() : v).join``
+
+
+const randomCase = x => x.replace(/\w/g, c => Math.random() > 0.5 ? c.toUpperCase() : c.toLowerCase());
+
+
+const randomCase = x =>
+  x.replace(/\w/gi, val => val[`to${Math.random() < .5 ? `Upp` : `Low`}erCase`]());
