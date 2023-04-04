@@ -15,3 +15,16 @@ console.log(
     return num % 2 == 0;
   })
 ); // [1, 3, 5]
+
+
+
+function reject(array, iterator) {
+	return array.filter(function(x){ if(!iterator(x)) return x; });
+}
+
+
+const not = f => x => !f(x);
+const reject = (arr, f) => arr.filter(not(f));
+
+
+
