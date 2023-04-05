@@ -34,10 +34,29 @@ function ArithmeticSequenceSum(a, r, n) {
 }
 
 console.log(ArithmeticSequenceSum(3, 2, 20)); // 440
-// console.log(ArithmeticSequenceSum(2, 2, 10)); // 110
-// console.log(ArithmeticSequenceSum(1, -2, 10)); // -80
+console.log(ArithmeticSequenceSum(2, 2, 10)); // 110
+console.log(ArithmeticSequenceSum(1, -2, 10)); // -80
 console.log(ArithmeticSequenceSum(1, 4, 1)); // 1
 
-console.log("a = ", a);
-console.log(" r = ", r);
-console.log("n = ", n);
+
+
+const ArithmeticSequenceSum = (a, r, n) => a * n + r * n * (n - 1) / 2;
+
+
+function ArithmeticSequenceSum(a, r, n) {
+  return (n / 2) * (2 * a + (n - 1) * r)
+}
+
+
+function ArithmeticSequenceSum(a, r, n) {
+  for (var sum = 0;n > 0;--n) {
+  	sum += a + r * (n-1);
+  }
+  return sum;
+}
+
+
+const ArithmeticSequenceSum = (a, r, n) => 
+  n * (a + --n / 2 * r);
+
+
