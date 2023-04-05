@@ -190,3 +190,32 @@ function shuffleIt(arr, ...swap) {
 
 console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2])); // [1,3,2,4,5]
 console.log(shuffleIt([1, 2, 3, 4, 5], [1, 2], [3, 4])); // [1,3,2,5,4]
+
+
+
+
+var shuffleIt = (arr, ...ex) => {
+  for ([a, b] of ex) [arr[a], arr[b]] = [arr[b], arr[a]];
+  return arr;
+};
+
+
+
+function shuffleIt(arr, ...exchanges){
+  exchanges.forEach(([i, j]) => [arr[i], arr[j]] = [arr[j], arr[i]]);
+  return arr;
+}
+
+
+
+function shuffleIt(arr, ...rest){
+  rest.forEach(function (a) {
+    [arr[a[0]], arr[a[1]]] = [arr[a[1]], arr[a[0]]]
+  })
+  return arr
+}
+
+
+function shuffleIt(arr,...swaps) {
+  return swaps.reduce((a,[i,j])=>([a[i],a[j]] = [a[j],a[i]],a),arr.slice());
+}
