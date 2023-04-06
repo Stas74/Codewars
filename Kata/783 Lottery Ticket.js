@@ -30,3 +30,48 @@ function bingo(ticket, win){
 console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 2)); // 'Loser!'
 console.log(bingo([['ABC', 65], ['HGR', 74], ['BYHT', 74]], 1)); // 'Winner!'
 console.log(bingo([['HGTYRE', 74], ['BE', 66], ['JKTY', 74]], 3)); // 'Loser!'
+
+
+
+function bingo(ticket, win) {
+  if (
+    ticket.filter((a) => a[0].split("").some((b) => b.charCodeAt(0) == a[1]))
+      .length >= win
+  ) {
+    return "Winner!";
+  }
+  return "Loser!";
+}
+
+
+
+function bingo(ticket, win){
+  var count = 0;  
+  ticket.forEach(game => {
+    if (game[0].includes(String.fromCharCode(game[1]))) {
+      count++;
+    }
+  });  
+  return (count >= win) ? "Winner!" : "Loser!";
+}
+
+
+
+function bingo(ticket, win){
+  return win <= ticket.filter(v => v[0].split('').some(vi => vi.charCodeAt(0) === v[1])).length ? 'Winner!' : 'Loser!';
+}
+
+
+
+const miniwin = pair => 
+  pair[0].indexOf(String.fromCharCode(pair[1])) !== -1
+
+const bingo = (ticket, win) =>
+  ticket.map(miniwin).reduce((a, b) => a + b) >= win
+  ? 'Winner!'
+  : 'Loser!'
+
+
+
+const bingo = (ticket, win) =>
+  ticket.reduce((pre, [str, num]) => pre + [...str].some(val => val.charCodeAt() === num), 0) < win ? `Loser!` : `Winner!`;
