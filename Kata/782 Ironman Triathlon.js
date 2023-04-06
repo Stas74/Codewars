@@ -45,3 +45,61 @@ console.log(iTri(36)); // {'Bike':'104.60 to go!'}
 console.log(iTri(103.5)); // {'Bike':'37.10 to go!'}
 console.log(iTri(0)); // 'Starting Line... Good Luck!'
 console.log(iTri(2)); // {'Swim':'138.60 to go!'}
+
+
+
+function iTri(dist){
+  let totalDist = 2.4 + 112 + 26.2;
+  if (dist === 0) return 'Starting Line... Good Luck!';
+  if (dist <= 2.4) return {'Swim': `${(totalDist - dist).toFixed(2)} to go!`};
+  if (dist <= 114.4) return {'Bike': `${(totalDist - dist).toFixed(2)} to go!`};
+  if (dist <= 127) return {'Run': `${(totalDist - dist).toFixed(2)} to go!`};
+  if (dist < totalDist) return {'Run': `Nearly there!`};
+  return "You're done! Stop running!";
+}
+
+
+
+const iTri = s =>
+  s >= 140.6 ? `You're done! Stop running!` : 
+s ? {[s > 114.4 ? `Run` : s > 2.4 ? `Bike` : `Swim`]: s > 130.6 ? `Nearly there!` : (140.6 - s).toFixed(2) + ` to go!`} : `Starting Line... Good Luck!`;
+
+
+
+
+// swim, bycicle, run
+
+const raceInfo = [
+  {type:'Swim', ml: 2.4}, 
+  {type:'Bike', ml: 112}, 
+  {type:'Run', ml: 26.2}, 
+];
+
+const resultMiles = raceInfo.reduce((a,b) => Number(a) + Number(b.ml),0);
+
+const iTri = (s) => {
+//its gonna be a long day!
+// edge cases
+console.log(s);
+  if( s >= resultMiles) {
+    return `You're done! Stop running!`; 
+  } else if(s === 0) {
+    return 'Starting Line... Good Luck!';
+  } else if ( resultMiles - s  <= 10) {
+    return { 'Run': 'Nearly there!' };
+  } 
+  
+  const togo = `${(resultMiles - s).toFixed(2)} to go!`;
+  let key = raceInfo[raceInfo.length - 1].type;
+
+  if( s <= raceInfo[0].ml) {
+    return {[raceInfo[0].type] : togo};
+  }
+  for(let item of raceInfo) {
+    if(s <= Number(item.ml)) {
+      key = item.type;
+      break;
+    }
+  }
+  return {[key] : togo};
+}
