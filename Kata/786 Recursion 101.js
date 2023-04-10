@@ -30,3 +30,56 @@ console.log(solve(6, 19)); // [6,7]
 console.log(solve(2, 1)); // [0,1]
 console.log(solve(22, 5)); // [0,1]
 console.log(solve(2, 10)); // [2,2]
+
+
+
+function solve(a, b) {
+  if (a === 0 || b === 0) {
+    return [a, b];
+  }
+
+  if (a >= 2 * b) {
+    a = a % (2 * b);
+    return solve(a, b);
+  }
+
+  if (b >= 2 * a) {
+    b = b % (2 * a);
+    return solve(a, b);
+  }
+
+  return [a, b];
+}
+
+
+
+// recursion, iterative process & if-statement
+function solve(a,b) {
+  if (!a || !b) return [a,b]
+  if (a >= 2*b) return solve(a-2*b, b)
+  if (b >= 2*a) return solve(a, b-2*a)    
+  return [a,b]
+}
+
+
+
+const solve = (a, b) => 
+  !a || !b ? [a, b] : a >= 2 * b ? solve(a - 2 * b, b) : b >= 2 * a ? solve(a, b - 2 * a) : [a, b];
+
+
+
+function solve(a, b) {
+  while (a && b) {
+    if (a >= (2 * b)) {
+      a %= 2 * b;
+    } else if (b >= (2 * a)) {
+      b %= 2 * a;
+    } else {
+      return [a, b];
+    }
+  }
+  return [a, b];
+}
+
+
+
