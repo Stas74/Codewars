@@ -30,3 +30,29 @@ console.log(inverseSlice([12, 14, 63, 72, 55, 24], 2, 4));  // [12, 14, 55, 24]
 console.log(inverseSlice([12, 14, 63, 72, 55, 24], 0, 3));  // [72, 55, 24]
 console.log(inverseSlice(['Intuition', 'is', 'a', 'poor', 'guide', 'when', 'facing', 'probabilistic', 'evidence'], 5, 13));
   // [['Intuition', 'is', 'a', 'poor', 'guide']
+
+
+
+function inverseSlice(q, a, b) {
+  q.splice(a,b-a);
+  return q;
+}
+
+
+function inverseSlice(items, a, b) {
+  return items.filter(function(x, i) {
+    return (i < a || i >= b)
+    }
+  )
+}
+
+
+function inverseSlice(items, a, b) {
+  const copyItems = [...items];
+  copyItems.splice(a, b - a);
+  return copyItems;
+}
+
+
+
+const inverseSlice = (items, a, b) => [...items.slice(0, a), ...items.slice(b)];
