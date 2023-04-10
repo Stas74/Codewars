@@ -21,3 +21,33 @@ console.log(toCurrency(123456)); // "123,456"
 console.log(toCurrency(1234)); // "1,234"
 console.log(toCurrency(123)); // "123"
 console.log(toCurrency(123456789012)); // "123,456,789,012"
+
+
+
+function toCurrency(price){
+  return price.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+}
+
+
+function toCurrency(price){
+	return price.toLocaleString();
+}
+
+
+
+function toCurrency(price) {
+  return ("" + price).split('').reverse().map(function(v,i) {
+    return i % 3 == 0 && i > 0 ? v + ',' : v;
+  }).reverse().join('');
+}
+
+
+function toCurrency(price){
+  var price = price.toString().split('');
+  for (var i = price.length-3; i > 0; i -= 3) {
+    price.splice(i, 0, ',');
+  }
+  return price.join('');
+}
+
+
