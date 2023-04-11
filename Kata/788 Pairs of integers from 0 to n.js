@@ -26,3 +26,27 @@ function generatePairs(n) {
 }
 
 console.log(generatePairs(2)); //  [ [0, 0], [0, 1], [0, 2], [1, 1], [1, 2], [2, 2] ]
+
+
+
+const generatePairs = (n, a = 0) => a > n ? [] : Array.from({length: n-a+1}, (_, i) => [a, a+i]).concat(generatePairs(n, a+1));
+
+
+function generatePairs(n) {
+  let rng = (n) => [...Array(n).keys()];
+  return [].concat(...rng(++n).map((x) => rng(n - x).map((y) => [x, x + y])));
+}
+
+
+// recursion
+{const f =generatePairs= (n, a = 0, b = 0) =>
+  b < n ? [[a, b], ...f(n, a, ++b)] :
+  a < n ? [[a, b], ...f(n, ++a, a)] :
+  [[a, b]]}
+
+
+
+const generatePairs = (n, val = 0) =>
+  n < val ? [] : [...Array(n - val + 1)].map((_, idx) => [val, val + idx]).concat(generatePairs(n, ++val));
+
+
