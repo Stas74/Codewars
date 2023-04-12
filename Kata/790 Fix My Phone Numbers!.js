@@ -34,3 +34,23 @@ console.log(isItANum("S:)0207ERGQREG88349F82!efRF)")); // "02078834982"
 console.log(isItANum("sjfniebienvr12312312312ehfWh")); // "Not a phone number"
 console.log(isItANum("0192387415456")); // "Not a phone number"
 console.log(isItANum("v   uf  f 0tt2eg qe0b 8rtyq4eyq564()(((((165")); // "02084564165"
+
+
+
+const isItANum = str => (str.replace(/\D/g,'').match(/^0\d{10}$/) || ['Not a phone number'])[0];
+
+
+function isItANum(s) {
+  let r = s.split('').filter(c=>'0123456789'.includes(c)).join('')
+  return r.length==11 && r[0]=='0' && r || "Not a phone number"
+}
+
+
+function isItANum(str) {
+  str = str.replace(/[^0-9]/g, '');
+  return /^0\d{10}$/.test(str) ? str : "Not a phone number";
+}
+
+
+const isItANum = str =>
+  (str.replace(/\D/g, ``).match(/^0\d{10}$/) || [`Not a phone number`])[0];
