@@ -58,3 +58,52 @@ console.log(
     [17, 26],
   ])
 ); // 25
+
+
+
+
+function daysRepresented(trips) {
+  const set = new Set();
+  trips.map(([a, b]) => {
+    for (let i = a; i <= b; ++i) {
+      set.add(i);
+    }
+  });
+  return set.size;
+}
+
+
+
+function daysRepresented(trips){
+  let days = [];
+  for ( let i = 0; i < trips.length; i++){
+    for (let k = trips[i][0]; k <= trips[i][1]; k++){
+      if (!days.includes(k)){
+        days.push(k);
+      }
+    }
+  }
+  return days.length;
+}
+
+
+function daysRepresented(trips){
+ return  trips.map( (a) => Array.from( {length: a[1] - a[0] + 1}, (_,i) => a[0] + i) )
+ 
+              .reduce(( acc, c )=> acc.concat(c), [])
+              
+              .filter( ( x, i, arr ) => arr.indexOf( x ) == i )
+              
+              .length 
+  
+}
+
+
+
+function daysRepresented(trips) {
+  const days = Array(365).fill(0);
+  for ([a, b] of trips)
+    for (let i = a - 1; i < b; i++)
+      days[i] = 1;
+  return days.reduce((a, b) => a + b);
+}
