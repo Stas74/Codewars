@@ -29,3 +29,27 @@ console.log(gap(9)); // 2
 console.log(gap(529)); // 4
 console.log(gap(20)); // 1
 console.log(gap(15)); // 0
+
+
+
+
+const gap = num => (num.toString(2).match(/10+(?=1)/g) || [' ']).sort().pop().length - 1;
+
+
+
+function gap(num) {
+ 	binary  = num.toString(2)
+  zeros   = binary.match(/0+(?=1)/g) || ['']
+  longest = zeros.sort().pop() 
+  return longest.length
+}
+
+
+const gap = n => n.toString(2).split('1').slice(0, -1).sort().pop().length;
+
+
+function gap(num) {
+    return Math.max.apply(null, num.toString(2).match(/0*(!?1)/g).map(a => a.length - 1));
+}
+
+
