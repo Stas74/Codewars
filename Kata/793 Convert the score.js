@@ -35,3 +35,78 @@ function scoreboard(string) {
 console.log(scoreboard("The score is four nil")); // [4,0]
 console.log(scoreboard("new score: two three")); // [2,3]
 console.log(scoreboard("two two")); // [2,2]
+
+
+
+function scoreboard(string) {
+  var arr = string.split(" ");
+  var a = [
+    "nil",
+    "one",
+    "two",
+    "three",
+    "four",
+    "five",
+    "six",
+    "seven",
+    "eight",
+    "nine",
+  ];
+  return [a.indexOf(arr[arr.length - 2]), a.indexOf(arr[arr.length - 1])];
+}
+
+
+
+function scoreboard(string) {
+  var dict = {'nil': 0, 'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 
+              'six': 6, 'seven': 7, 'eight': 8, 'nine': 9};
+  return string.match(/(nil|one|two|three|four|five|six|seven|eight|nine)/g).map(e => dict[e]);
+}
+
+
+const scoreboard = string => {
+  const dictionary = {
+    'nil': 0,
+    'one': 1,
+    'two': 2,
+    'three': 3,
+    'four': 4,
+    'five': 5,
+    'six': 6,
+    'seven': 7,
+    'eight': 8,
+    'nine': 9,
+  };
+  const scoreOne = string.split(' ').reverse()[1];
+  const scoreTwo = string.split(' ').reverse()[0];
+  return [dictionary[scoreOne], dictionary[scoreTwo]];
+}
+
+
+
+function scoreboard(string) {
+  let score = ['nil','one','two','three','four', 'five','six','seven','eight','nine']
+  return string.split(' ')
+               .filter(x => score.includes(x))
+               .map(x => score.lastIndexOf(x))
+}
+
+
+
+const scores = {
+    nil: '0',
+    one: '1',
+    two: '2',
+    three: '3',
+    four: '4',
+    five: '5',
+    six: '6',
+    seven: '7',
+    eight: '8',
+    nine: '9'
+  }
+
+const scoreboard = (string) => string.split(" ").filter(s => scores[s]).map(v => parseInt(scores[v]));
+
+
+scoreboard = a => a.split` `.slice(-2).map(i=>d={nil:0,one:1,two:2,three:3,four:4,five:5,six:6,seven:7,eight:8,nine:9}[i])
