@@ -47,3 +47,34 @@ console.log(password("AbcdefGhijKlmnopQRsTuvwxyZ1234567890")); // true
 console.log(password("ABCD1234")); // false
 console.log(password("Ab1!@#$%^&*()-_+={}[]|:;?/>.<,")); // true
 console.log(password("!@#$%^&*()-_+={}[]|:;?/>.<,")); // false
+
+
+
+
+function password(str) {
+    return str.length >= 8 &&
+           /[a-z]/.test(str) &&
+           /[A-Z]/.test(str) &&
+           /\d/.test(str);
+}
+
+
+const password = str => /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{8,}$/.test(str);
+
+
+
+function password(str) {
+  return /^(?=.*[0-9])(?=.*[A-Z])(?=.*[a-z]).{8,}$/.test(str);
+}
+
+
+
+function password(str) {
+  return ['[A-Z]','[a-z]','\\d','.{8,}'].every(e => new RegExp(e).test(str));
+}
+
+
+
+function password(str) {
+  return str.length >= 8 && /\d/.test(str) && /[a-z]/.test(str) && /[A-Z]/.test(str)
+}
