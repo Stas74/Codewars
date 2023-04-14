@@ -59,6 +59,48 @@ console.log(cuboid.volume); // 6
 console.log(cuboid.surfaceArea); // 22
 
 cuboid.length = 4;
-
 console.log(cuboid.volume); // 24
 console.log(cuboid.surfaceArea); // 52
+
+
+
+
+class Cuboid {
+  constructor(length, width, height) {
+    Object.assign(this, { length, width, height })
+  }
+  get surfaceArea() {
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height)
+  }
+  get volume() {
+    return this.length * this.width * this.height
+  }
+}
+class Cube extends Cuboid {
+  constructor(length) {
+    super(length, length, length)
+  }
+}
+
+
+
+class Cuboid {
+  constructor(length, width, height) {
+    Object.assign(this, { length, width, height });
+  }
+  get volume() {
+    return this.length * this.width * this.height;
+  }
+  get surfaceArea() {
+    const { length: l, width: w, height: h } = this;
+    return (2 * l * w) + (2 * l * h) + (2 * h * w);
+  }
+}
+class Cube extends Cuboid {
+  constructor(length) {
+    super(length, length, length);
+  }
+}
+
+
+
