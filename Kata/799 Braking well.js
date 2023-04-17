@@ -64,3 +64,54 @@ console.log(dist(142, 0.2)); // 435.94398509960854
 console.log(speed(159, 0.8)); // 153.79671564846308
 console.log(speed(164, 0.7)); // 147.91115701756493
 console.log(speed(153, 0.7)); // 142.14404997566152
+
+
+
+function dist(v, mu) {								    // suppose reaction time is 1
+    var g = 9.81; 									      // acceleration due to gravity in m/s
+    var coef = 1000.0 / 3600.0; 					// km/h -> m/s
+    var dreact = v * coef; 							  // distance of reaction with t = 1
+    var vms = coef * v; 							    // speed in m/s
+    var dbrak = 0.5 * Math.pow(vms, 2) / mu / g; 	// braking distance
+    return dreact + dbrak; 							  // total distance
+}
+
+function speed(d, mu) {								    // suppose reaction time is 1
+    var g = 9.81; 									      // acceleration due to gravity in m/s
+    var coef = 3600 / 1000.0;						  // m/s -> km/h
+    return 0.5 * mu * g * (- 2 + Math.sqrt(4 + 8*d/mu/g)) * coef;
+}
+
+
+
+function dist(v, mu) {
+  v = v * 10 / 36;
+  return v + (v * v) / (2 * mu * 9.81);
+}
+
+function speed(d, mu) {
+  let x = 2 * mu * 9.81;
+  return (-x + Math.sqrt(x * x + 4 * d * x)) * 36 / 20;
+}
+
+
+
+const dist = (v, mu) => Math.pow(v/3.6, 2)/2/9.81/mu + v/3.6;
+
+const speed = (d, mu) => 3.6*9.81*mu*(-1 + Math.sqrt(1 + 4*d/2/9.81/mu));
+
+
+
+const g = 9.81;
+
+const dist = (v, mu) => {
+  const vInMeters = (v * 10) / 36;
+  return vInMeters ** 2 / (2 * g * mu) + vInMeters;
+};
+
+const speed = (d, mu) => {
+  let x = 2 * g * mu;
+  return ((-x + Math.sqrt(x * x + 4 * d * x)) * 36) / 20;
+}
+
+
