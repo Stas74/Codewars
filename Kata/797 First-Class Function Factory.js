@@ -33,3 +33,10 @@ var threes = factory(3);
 console.log(threes(myArray)); // [3, 6, 9]
 var fives = factory(5);
 console.log(fives(myArray)); // [5, 10, 15]
+
+
+
+
+const factory = x => arr => arr.map(n => n * x)
+
+
