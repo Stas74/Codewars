@@ -19,10 +19,6 @@ fives(myArray);               //returns [5, 10, 15];
 
 */
 
-// function scramble(str, arr) {
-//   return arr.map((el, idx) => str[arr[el]]).join("");
-// }
-
 function factory(x) {
   return arr => arr.map( el => el * x );
 }
@@ -33,8 +29,6 @@ var threes = factory(3);
 console.log(threes(myArray)); // [3, 6, 9]
 var fives = factory(5);
 console.log(fives(myArray)); // [5, 10, 15]
-
-
 
 
 const factory = x => arr => arr.map(n => n * x)
