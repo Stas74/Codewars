@@ -33,3 +33,43 @@ console.log(solve("abracadabra", 1)); // 'bracadabra'
 console.log(solve("abracadabra", 2)); // 'brcadabra'
 console.log(solve("abracadabra", 6)); // 'rcdbr'
 console.log(solve("abracadabra", 8)); // 'rdr'
+
+
+
+
+const solve = (s, k) =>
+  [...s].sort().slice(0, k).reduce((pre, val) => pre.replace(val, ``), s);
+
+
+
+function solve(s, k) {
+  let r = s.split("").sort().slice(0, k);
+  for (let i = 0; i < r.length; i++) s = s.replace(r[i], "");
+  return s;
+}
+
+
+function solve(s, k){
+  const indexPair = (e,i) => [e,i];
+  const byLetterIndex = (a,b) => a[0].localeCompare(b[0]) || a[1] - b[1];
+  const byIndex = (a,b) => a[1] - b[1];
+  
+  let letters = s.split('').map(indexPair).sort(byLetterIndex).slice(k);
+    
+  return letters.sort(byIndex).map(e => e[0]).join('');
+}
+
+
+
+// recursion, iterative process
+
+function solve(s, k, ch = 'a') {
+  if (!k || !s) return s
+  if (!s.includes(ch)) return solve(s, k, String.fromCharCode(ch.charCodeAt`` + 1))
+  s = s.replace(ch, '')
+  return solve(s, k-1, ch)
+}
+
+
+
+const solve = (s, k, a='abcdefghijklmnopqrstuvwxyz') =>  k ? solve( s.replace( a[a.split``.findIndex(e=> s.includes(e))],''),k-1,a):s;
