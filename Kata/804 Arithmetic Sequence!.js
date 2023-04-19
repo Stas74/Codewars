@@ -29,3 +29,19 @@ var nthterm = function () {
 console.log(nthterm(1, 2, 3)); // 7
 console.log(nthterm(2, 2, 2)); // 6
 console.log(nthterm(-50, 10, 20)); // 150
+
+
+
+
+var nthterm = function(first, n, c){
+ return first + n * c   
+}
+
+
+const nthterm = (...args) =>
+  args[0] + args[1] * args[2];
+
+
+nthterm = (f, n, c) => f + n * c;
+
+
