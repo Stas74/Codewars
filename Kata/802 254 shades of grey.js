@@ -31,3 +31,53 @@ function shadesOfGrey(n) {
 console.log(shadesOfGrey(-2)); // []
 console.log(shadesOfGrey(2)); // ["#010101", "#020202"]
 console.log(shadesOfGrey(4)); // ["#010101", "#020202", "#030303", "#040404"]
+
+
+
+
+function shadesOfGrey(n) {
+  var shades = []
+  
+  for (var i = 1; i <= Math.min(n, 254); i++) {
+    var grey = ('0' + i.toString(16)).slice(-2)
+    shades.push('#' + grey + grey + grey)
+  }
+  
+  return shades
+}
+
+
+
+const shadesOfGrey = n =>
+  [...Array(n < 0 ? 0 : n > 254 ? 254 : n)].map((_, idx) => `#${(++idx).toString(16).padStart(2, `0`).repeat(3)}`);
+
+
+
+function shadesOfGrey(n){
+  const arr = [];
+  let app = ''
+  for (let i=1; i <= (n < 254 ? n : 254); i++){
+    if ( i < 16 ){
+      app = '#'+ ('0' + i.toString(16)).repeat(3);
+    }else{
+      app = '#'+ (i.toString(16)).repeat(3);
+    }
+    arr.push(app);
+    app = '';
+  }
+  return arr;
+}
+
+
+
+function shadesOfGrey(n){
+  let result = []
+  for (let i = 1; i <= Math.min(n,254); i++) {
+    let gray = ('0' + i.toString(16)).slice(-2)
+    result.push('#' + gray + gray + gray)
+  }
+  return result
+}
+
+
+
