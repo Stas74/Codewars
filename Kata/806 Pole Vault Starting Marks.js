@@ -37,3 +37,32 @@ function startingMark(bodyHeight) {
 console.log(startingMark(1.52)); // 9.45
 console.log(startingMark(1.83)); // 10.67
 console.log(startingMark(2.13)); // 11.85
+
+
+
+function startingMark(bodyHeight) {
+  = (10.67 - 9.45) / (1.83 - 1.52);
+  return Math.round((10.67 + m * bodyHeight - m * 1.83) * 100) / 100;
+}
+
+
+
+const startingMark = bodyHeight =>
+  +(bodyHeight * 3.9354 + 3.4681).toFixed(2);
+
+
+
+function startingMark(bodyHeight) {
+    var a = {x: 1.52, y: 9.45},
+        b = {x: 1.83, y: 10.67},
+        m = (b.y - a.y) / (b.x - a.x);
+    return Math.round((m * bodyHeight + b.y - m * b.x) * 100) / 100;
+}
+
+
+const startingMark = (x) => {
+  const m = 3.93548;
+  const b = 3.46806;
+  const y = m*x + b;
+  return Math.round(y * 100) / 100;
+};
