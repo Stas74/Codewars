@@ -18,3 +18,31 @@ function spacey(array) {
 }
 
 console.log(spacey(["kevin", "has", "no", "space"])); //  [ 'kevin', 'kevinhas', 'kevinhasno', 'kevinhasnospace']
+
+
+
+function spacey(array){
+	let string = ''
+	return array.map( (e) => string += e )
+}
+
+
+function spacey(a) {
+  for (let i = 1; i < a.length; i++) {
+    a[i] = a[i - 1] + a[i];
+  }
+  return a;
+}
+
+
+spacey = (a, s = "") => a.map((a) => (s += a));
+
+
+const spacey = array =>
+  array.map((_, idx) => array.slice(0, ++idx).join(``));
+
+
+function spacey(array){
+  let str = ''
+  return array.map(el => str += el)
+}
