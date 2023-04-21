@@ -43,3 +43,22 @@ console.log(
 //  [ { a: 4, b: 12 }, { a: 3, b: 2 }, { a: 2, b: 40 }, { a: 1, b: 3 } ]
 
 
+
+
+function sortList (sortBy, list) {
+  return list.sort(function(a, b){
+    return a[sortBy] < b[sortBy];  
+  })
+}
+
+
+
+function sortList (sortBy, list) {  
+  return list.sort( function(a, b) {return b[sortBy.toString()] - a[sortBy.toString()] } );
+}
+
+
+sortList = (s, l) => l.sort((a, b) => b[s] - a[s]);
+
+
+
