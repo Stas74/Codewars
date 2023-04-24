@@ -120,3 +120,88 @@ console.log(variance("London", data)); //  57.42833333333374
 console.log(variance("Beijing", data)); //  4808.37138888889
 
 console.log(mean("abc", data)); //  -1
+
+
+
+
+
+Math.sum = function(arr) {
+  return arr.reduce((a, b) => a + b, 0);
+}
+
+Math.mean = function(arr) {
+  return Math.sum(arr) / arr.length;
+}
+
+Math.variance = function(arr) {
+  let mean = Math.mean(arr)
+  , deltas = arr.map((value) => Math.pow(value - mean, 2));
+  
+  return Math.mean(deltas);
+}
+
+function parse(town, str) {
+  let match = str.match(new RegExp(town + ':.*?(?:\n|$)', 'i'));
+  
+  if (!match) return [];
+  return match.pop().match(/\d+(\.\d+)/g).map(Number);
+}
+
+function mean(town, str) {
+  let history = parse(town, str);
+  return history.length ? Math.mean(history) : -1;
+}
+
+function variance(town, str) {
+  let history = parse(town, str);
+  return history.length ? Math.variance(history) : -1;
+}
+
+
+
+
+const annualRecords = (town, s) => s.match(new RegExp(`${town}:(.*)(\n|$)`, ''))[1].match(/\d+\.\d/g).map(Number);
+const mean = (...args) => {
+  try {
+    return annualRecords(...args).reduce((a, b) => a + b) / 12;
+  } catch (err) {
+    return -1;
+  };
+};
+const variance = (...args) => {
+  try {
+    return annualRecords(...args).reduce((res, num) => res + (num - mean(...args)) ** 2, 0) / 12;
+  } catch (err) {
+    return -1;
+  };
+};
+
+
+
+function parse(t,s){
+  var d=s.split('\n').map(x=>x.split(':')).filter(x=>x[0]==t);
+  return d.length?d[0][1].split(',').map(x=>+x.split(' ')[1]):undefined;
+}
+function mean(t,s){
+  var d=parse(t,s);
+  return d?d.reduce((p,c)=>p+c,0)/d.length:-1;
+}
+function variance(t,s){
+  var d=parse(t,s);
+  var m=d?d.reduce((p,c)=>p+c,0)/d.length:-1;
+  return m>-1?d.map(x=>(x-m)**2).reduce((p,c)=>p+c,0)/d.length:m;
+}
+
+
+
+
+const parse = (town, strng) =>
+  strng.includes(`${town}:`) ? strng.match(new RegExp(town + `:.*(\n|$)`))[0].match(/\d+\.\d/g) : null;
+
+const mean = (town, strng) =>
+  (arr => arr ? arr.reduce((pre, val) => +pre + +val) / 12 : -1)
+  (parse(town, strng));
+
+const variance = (town, strng) =>
+  (arr => arr ? arr.reduce((pre, val) => pre + (val - mean(town, strng)) ** 2, 0) / 12 : -1)
+  (parse(town, strng));
