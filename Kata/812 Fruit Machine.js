@@ -130,3 +130,76 @@ reel2 = ["Star", "Bar", "Jack", "Seven", "Queen", "Wild", "King", "Bell", "Cherr
 reel3 = ["King", "Bell", "Jack", "Shell", "Star", "Cherry", "Queen", "Bar", "Wild", "Seven"];
 spin = [0,5,0];
 console.log(fruit([reel1,reel2,reel3],spin)); // 6
+
+
+
+
+function fruit(reels, spins) {
+  let map = ['Jack', 'Queen', 'King', 'Bar', 'Cherry', 'Seven', 'Shell', 'Bell', 'Star', 'Wild'];
+  
+  let [a, b, c] = reels
+    .map((reel, i) => map.indexOf(reel[spins[i]]) + 1)
+    .sort((a, b) => a - b);
+
+  if (a === b && b === c)
+    return a * 10;
+    
+  if (a === b)
+    return c === 10 ? a * 2 : a;
+  
+  return b === c ? b : 0;
+}
+
+
+
+
+function fruit(reels, spins){  
+  var points = {
+    "Wild" : 10,
+    "Star" : 9,
+    "Bell" : 8,
+    "Shell" : 7,
+    "Seven" : 6,
+    "Cherry" : 5,
+    "Bar" : 4,
+    "King" : 3,
+    "Queen" : 2,
+    "Jack" : 1
+  };
+  
+  reels = reels.map(function(reel, spin){
+    return(reel[spins[spin]])
+  })
+  
+  if(reels[0] == reels[1] && reels[1] == reels[2]){
+    var figure = reels[0];
+    var score = points[figure]*10;
+    return score;
+  }
+  
+  else if(reels[0] == reels[1] || reels[1] == reels[2] || reels[0] == reels[2]){
+    var pair = "";
+    if(reels[0] == reels[1] || reels[0] == reels[2]) pair = reels[0];
+    else pair = reels[1];
+    var haveWild = (reels.indexOf("Wild") != -1 && pair != "Wild") ? true : false;
+    var score = (haveWild) ? points[pair]*2 : points[pair];
+    return score
+  } 
+  else return 0;
+}
+
+
+
+const fruitPoints = ['Jack', 'Queen', 'King', 'Bar', 'Cherry', 'Seven', 'Shell', 'Bell', 'Star', 'Wild'];
+const fruitMachine = points => (reels, spins) => {
+  const [a, b, c] = spins.map((spin, i) => reels[i][spin]).sort();
+  return a !== b && b !== c ? 
+    0 : (points.indexOf(b) + 1) * (
+      c === a ? 10 : c === 'Wild' && b !== 'Wild' ? 2 : 1
+    );
+}
+const fruit = fruitMachine(fruitPoints);
+
+
+
+
