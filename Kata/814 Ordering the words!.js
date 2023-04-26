@@ -25,3 +25,28 @@ function orderWord(s) {
 console.log(orderWord("Hello, World!")); //  " !,HWdellloor"
 console.log(orderWord("bobby")); //  "bbboy"
 console.log(orderWord("")); //  "Invalid String!"
+
+
+
+
+const orderWord = s => s ? [...s].sort().join('') : 'Invalid String!';
+
+
+function orderWord(s){
+  if (!s) {
+  	return 'Invalid String!';
+	}
+  else if (s) {
+  return s.split('').sort().join('');
+  }
+}
+
+
+
+function orderWord(s){
+  return s == "" || s == null ? "Invalid String!" : s.split("").sort().join("");
+}
+
+
+const orderWord = s =>
+  s ? [...s].sort().join(``) : `Invalid String!`;
