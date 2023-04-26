@@ -31,3 +31,55 @@ function missingWord(nums, str) {
 console.log(missingWord([5, 0, 3], "I love you")); //  "ivy"
 console.log(missingWord([29, 31, 8], "The quick brown fox jumps over the lazy dog")); //  "bay"
 console.log(missingWord([12, 4, 6], "Good Morning")); //  "No mission today"
+
+
+
+
+const missingWord = (nums, str) =>
+  nums.sort((a, b) => a - b)[nums.length - 1] < (str = str.replace(/\s/g, ``).toLowerCase()).length ?
+    nums.map(val => str[val]).join(``) : `No mission today`;
+
+
+
+function missingWord(nums, str) {
+  var result = "";
+  var string = str.split(" ").join("");
+  nums.sort((a,b) => a - b);
+  nums.forEach(function(x){ 
+    if(string[x]){
+      result += string[x].toLowerCase();
+    }else{
+      result = "No mission today";
+    }
+  });
+  return result;
+}
+
+
+
+function missingWord(nums, str) {
+  var result = "";
+  var string = str.split(" ").join("");
+  nums.sort((a,b) => a - b);
+  nums.forEach(function(x){ 
+    if(string[x]){
+      result += string[x].toLowerCase();
+    }else{
+      result = "No mission today";
+    }
+  });
+  return result;
+}
+
+
+
+const missingWord = (nums, str) => {
+  const arr = str.replace(/ /g, '').toLowerCase().split('');
+  
+  if (Math.max(...nums) > arr.length) return 'No mission today';
+  
+  return nums.sort((a, b) => a - b).map(cur => arr[cur]).join('');
+};
+
+
+
