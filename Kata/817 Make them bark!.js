@@ -51,3 +51,24 @@ var zeus = new Dog('Zeus', 'Dobermann', 'male', '4');
 
 console.log(apollo.bark()); // 'Woof!'
 console.log(zeus.bark()); // 'Woof!'
+
+
+
+
+
+Dog.prototype.bark = () => 'Woof!';
+
+
+
+function Dog(name, breed, sex, age) {
+    this.name  = name;
+    this.breed = breed;
+    this.sex   = sex;
+    this.age   = age;
+    this.bark  = function(){
+        return 'Woof!';
+    };
+}; 
+
+
+
