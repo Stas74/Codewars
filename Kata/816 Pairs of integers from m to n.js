@@ -25,3 +25,17 @@ function generatePairs(m, n) {
 }
 
 console.log(generatePairs(2, 4)); // [ [2, 2], [2, 3], [2, 4], [3, 3], [3, 4], [4, 4] ]
+
+
+
+const generatePairs = (m, n) =>
+  m > n ? [] : [...[...Array(n - m + 1)].map((_, idx) => [m, m + idx]), ...generatePairs(++m, n)];
+
+
+
+range = (a, z, r = []) => (a < z ? range(a + 1, z, [r.push(a), r][1]) : r);
+
+generatePairs = (m, n) =>
+  range(m, ++n).reduce((a, y) => a.concat(range(y, n).map((x) => [y, x])), []);
+
+
