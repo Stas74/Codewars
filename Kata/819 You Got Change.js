@@ -49,3 +49,93 @@ function giveChange(amount) {
 console.log(giveChange(365)); // [0,1,1,0,1,3]
 console.log(giveChange(217)); // [2,1,1,0,0,2]
 console.log(giveChange(8)); // [3,1,0,0,0,0]
+
+
+
+const bills = [100, 50, 20, 10, 5, 1];
+const giveChange = amount => (
+  bills
+    .map(value => {
+      let result = Math.trunc(amount / value);
+      amount = amount % value;
+
+      return result;
+    })
+    .reverse()
+);
+
+
+const giveChange = amount => [100, 50, 20, 10, 5, 1].map(a => 
+  ([a, amount] = [Math.floor(amount/a), amount % a])[0]).reverse();
+
+
+const giveChange = amount => [100, 50, 20, 10, 5, 1].map(item => ([item, amount] = [Math.floor(amount / item), amount % item])[0]).reverse();
+
+
+function giveChange (amount) {
+  let billTypes = [1, 5, 10, 20, 50, 100]
+  let till = [0, 0, 0, 0, 0, 0]
+
+  for (let i=6; i>=0; i--) {
+    while (amount >= billTypes[i]) {
+      amount -= billTypes[i]
+      till[i] += 1
+    }
+  }
+
+  return till
+}
+
+
+const giveChange = amount =>
+  [100, 50, 20, 10, 5, 1].reduce((pre, val) => (pre = [...pre, amount / val ^ 0], amount = amount % val, pre), []).reverse();
+
+
+function giveChange(amount) {
+  const $ = [];
+  const money = [100, 50, 20, 10, 5, 1]
+  for (let i of money){
+    $.unshift(amount / i | 0)
+    amount = amount - i * $[0]
+  }
+  return $
+}
+
+
+function giveChange(amount) {
+  var arr=[0,0,0,0,0,0]
+  while (amount>=100)
+  {
+    arr[5]++;
+    amount-=100;
+  }
+  while (amount>=50)
+  {
+    arr[4]++;
+    amount-=50;
+  }
+  while (amount>=20)
+  {
+    arr[3]++;
+    amount-=20;
+  }
+  while (amount>=10)
+  {
+    arr[2]++;
+    amount-=10;
+  }
+  while (amount>=5)
+  {
+    arr[1]++;
+    amount-=5;
+  }
+  while (amount>=1)
+  {
+    arr[0]++;
+    amount--;
+  }
+  return arr;
+}
+
+
+
