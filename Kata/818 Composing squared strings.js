@@ -36,3 +36,39 @@ function compose(s1, s2) {
 // arr2.map((el, i) => el.slice(0, el.length - i))
 
 console.log(compose("byGt\nhTts\nRTFF\nCnnI", "jIRl\nViBu\nrWOb\nNkTB")); // "bNkTB\nhTrWO\nRTFVi\nCnnIj"
+
+
+
+
+const compose = (s1, s2) => {
+  s1 = s1.split("\n");
+  s2 = s2.split("\n");
+ 
+  const s = s1.map((s1, i) => s1.substr(0, i + 1) + s2[s2.length - i - 1].substr(0, s2.length - i))
+ 
+  return s.join("\n");
+}
+
+
+
+compose = (s1, s2, idx = 0) =>
+  s1.replace(/\S+/g, val => val.slice(0, idx + 1) + s2.split(`\n`).reverse()[idx].slice(0, val.length - idx++));
+
+
+
+compose = (a, b, c = a.split`\n`, d = b.split`\n`.reverse()) =>
+  c.map((e, i) => e.slice(0, i + 1) + d[i].slice(0, e.length - i)).join`\n`;
+
+
+
+// destructuring
+
+{const {transpose} = require('ramda')
+var compose = (s1, s2) =>
+  transpose([s1.split`\n`, s2.split`\n`.reverse``])
+    .map(([a, b], ind) => a.slice(0, ind + 1) + b.slice(0, -ind || b.b))
+    .join`\n`
+}
+
+
+
