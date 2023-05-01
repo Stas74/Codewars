@@ -38,3 +38,26 @@ var dog = new Animal("Max", "dog");
 console.log(dog.toString());
 console.log(dog.type);
 console.log(dog.name);
+
+
+
+
+var Animal = function(name, type) {
+  this.name = name;
+  this.type = type;
+}
+Animal.prototype.toString = function() {
+  return this.name + ' is a ' + this.type;
+}
+
+
+
+// create your Animal class like object here
+Animal = function(name, type){
+this.name = name;
+this.type = type;
+this.toString = function(){return this.name+" is a "+this.type};
+};
+
+
+
