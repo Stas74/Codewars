@@ -23,3 +23,25 @@ console.log(arr2bin([1, 2])); // "11"
 console.log(arr2bin([1, 2, "a"])); // false
 console.log(arr2bin([1, 2, 3, 4, 5])); // "1111"
 console.log(arr2bin([1, 10, 100, 1000])); // "10001010111"
+
+
+
+const arr2bin = arr => arr.every(Number.isInteger) && arr.reduce((sum, n) => sum + n, 0).toString(2);
+
+
+
+function arr2bin (arr) {
+
+  let sum = 0;
+
+  for (let num of arr)
+    if (num !== +num)
+      return false;
+    else
+      sum += num;
+
+  return sum.toString(2);
+}
+
+
+
