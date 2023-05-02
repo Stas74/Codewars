@@ -71,3 +71,56 @@ function makeValley(arr) {
 
 console.log(makeValley([17, 17, 15, 14, 8, 7, 7, 5, 4, 4, 1])); // [17, 15, 8, 7, 4, 1, 4, 5, 7, 14, 17]
 console.log(makeValley([20, 7, 6, 2])); // [20, 6, 2, 7]
+
+
+
+function makeValley(arr) {
+    var leftWing = []
+    var rightWing = []
+    arr.sort((a, b) => b - a)
+      .forEach((el, i) => i % 2 == 0 ? leftWing.push(el) : rightWing.unshift(el))
+    
+    return [...leftWing, ...rightWing]
+}
+
+
+function makeValley(arr) {
+  arr.sort((a, b)=> b - a )
+  const arr1 = [], arr2 = []
+  
+  for ( let i = 0; i < arr.length; i++ ){
+    if ( i % 2 ){
+      arr2.push(arr[i])
+    } else {
+      arr1.unshift(arr[i])
+    }
+  }    
+  return (arr2.concat(arr1)).reverse()
+}
+
+
+
+function makeValley(arr) {
+  return arr.sort((a, b) => b - a).reduce((rtn, x, i) => rtn.splice(Math.ceil(i / 2), 0, x) && rtn, [])
+}
+
+
+
+const makeValley = arr =>
+  [...arr.sort((a, b) => b - a).filter((_, idx) => !(idx % 2)), ...arr.filter((_, idx) => idx % 2).reverse()];
+
+
+
+function makeValley(arr) {
+  const sorted = arr.slice().sort((a, b) => a - b);
+  const ln = sorted.length;
+  const res = [];
+  
+  for (let i = 0; i < ln; i++) {
+    i % 2 ? res.push(sorted[i]) : res.unshift(sorted[i]);
+  }  
+  return ln % 2 ? res : res.reverse();
+}
+
+
+
