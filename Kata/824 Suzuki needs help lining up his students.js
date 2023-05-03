@@ -48,3 +48,51 @@ console.log(
 
 console.log(lineupStudents("xxa xxb xxc xxd xa xb xc xd"));
 // ['xxd', 'xxc', 'xxb', 'xxa', 'xd', 'xc', 'xb', 'xa']
+
+/* The localeCompare() method returns a number indicating whether 
+   the string comes before, after or is equal as the compareString 
+   in sort order. 
+ */
+
+
+function lineupStudents(students) {
+  var list = students.trim().split(" ");
+  
+  return list = list.sort((a,b) => {
+    return b.length - a.length ||
+           b.localeCompare(a);
+  });
+}
+
+
+const lineupStudents = students =>
+  students.trim().split(` `).sort((a, b) => b.length - a.length || b.localeCompare(a));
+
+
+
+function lineupStudents(students){
+  return students
+    .trim()
+    .split(/\s+/)
+    .sort((a, b) => b.length - a.length || b.localeCompare(a));
+}
+
+
+
+function lineupStudents(students) {
+  return students.trim().split(/\s+/).sort((a, b) => {
+    if (a.length > b.length) return -1;
+    if (a.length < b.length) return 1;
+    if (a.length === b.length) {
+      if (a > b) return -1;
+      if (a < b) return 1;
+      return 0;
+    }
+  });
+}
+
+
+
+function lineupStudents(students) {
+  return students.split(' ').sort().sort((a, b) => (a.length > b.length) - (a.length < b.length)).reverse();
+}
