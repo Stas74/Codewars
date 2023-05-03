@@ -34,3 +34,45 @@ const objD = { c: 3 };
 
 console.log(combine(objA, objB)); // { a: 13, b: 20, c: 36, d: 3 }
 console.log(combine(objA, objC)); // {  a: 15, b: 20, c: 30, d: 11, e: 8 }
+
+
+
+const combine = (...params) => params.reduce((a, b) => {
+  for (const x in b) { a[x] = x in a ? a[x] + b[x] : b[x] };
+  return a;
+ }, {});
+
+
+
+function combine() {
+  var obj = {}
+  for (var i = 0; i < arguments.length; i++) {
+        for (var key in arguments[i]) {
+          obj[key] = obj[key] ? obj[key] + arguments[i][key]: arguments[i][key]
+        }
+  }
+  return obj;
+}
+
+
+
+function combine() {
+    let result = {};
+    for (let obj of arguments) {
+        for (let property in obj) {
+            if (property in result) {
+                result[property] += obj[property];
+            } else {
+                result[property] = obj[property];
+            }
+        }
+    }
+    return result;
+}
+
+
+
+const combine = (...args) =>
+  args.reduce((pre, val) => (Object.keys(val).forEach(v => pre[v] = (pre[v] || 0) + val[v]), pre), {});
+
+
