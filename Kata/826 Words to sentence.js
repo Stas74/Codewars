@@ -15,3 +15,20 @@ function wordsToSentence(words) {
 }
 
 console.log(wordsToSentence(["hello", "world"])); // "hello world"
+
+
+
+function wordsToSentence(words) {
+  var x = "";
+  for(let i = 0; i < words.length; i++){
+    x = x + words[i] + " ";
+  }
+  return x.trim();
+}
+
+
+
+const wordsToSentence = (words) => words.reduce((acc,el)=> (acc + ' ').concat(el))
+
+
+
