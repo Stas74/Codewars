@@ -63,3 +63,49 @@ function nameInStr(str, name) {
 console.log(nameInStr("Across the rivers", "chris")); // true
 console.log(nameInStr("Next to a lake", "chris")); // false
 console.log(nameInStr("A live son", "Allison")); // false
+
+
+
+
+function nameInStr(str, name){
+  name = name.toLowerCase()
+  str = str.toLowerCase()  
+  let index = 0
+  
+  for (let char of str) {
+    if (char === name[index])
+      index++
+  }  
+  return index === name.length
+}
+
+
+const nameInStr = (str, name) =>
+  new RegExp([...name].join(`.*`), `i`).test(str);
+
+
+
+function nameInStr(str, name){
+  var newArr = [];
+  name = name.toLowerCase();
+  for(var i=0; i < name.length; i++){
+      if (str.includes(name[i])){
+        newArr.push(true);
+        str = str.slice(str.indexOf(name[i])+1);
+      }else{
+        newArr.push(false);
+      }
+  } 
+  return newArr.reduce((a,b) => a && b);
+}
+
+
+
+const nameInStr = (str, name) =>
+  [...str.toLowerCase()].reduce(
+    (acc, item) => acc < name.length && item === name[acc].toLowerCase() ? acc + 1 : acc,
+    0
+  ) === name.length;
+
+
+
