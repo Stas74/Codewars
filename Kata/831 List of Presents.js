@@ -33,3 +33,44 @@ function howManyGifts(maxBudget, gifts) {
 
 console.log(howManyGifts(20, [13, 2, 4, 6, 1])); // 4
 console.log(howManyGifts(0, [1])); // 0
+
+
+
+
+function howManyGifts(m, g) {
+  var i = 0;
+  g = g.sort(function (a, b) {
+    return a - b;
+  });
+  for (; m - g[i] >= 0; i++) {
+    m = m - g[i];
+  }
+  return i;
+}
+
+
+
+function howManyGifts(maxBudget, gifts){
+  gifts.sort((a,b) => a-b)
+  return gifts.filter(item => (maxBudget -= item) >= 0).length
+}
+
+
+
+function howManyGifts(maxBudget,gifts) {
+  const n = gifts.slice().sort( (v,w) => v-w ).findIndex( v => (maxBudget-=v)<0 );
+  return ~n ? n : gifts.length ;
+}
+
+
+
+function howManyGifts(maxBudget, gifts){
+  return gifts.sort((a, b) => a - b)
+    .reduce((a, c) => ((maxBudget -= c) >= 0 ? ++a : a), 0);
+}
+
+
+
+howManyGifts=(b,g)=>g.sort((a,b)=>a-b).filter(x=>(b-=x)>=0).length
+
+
