@@ -54,3 +54,53 @@ function decode(r) {
 
 console.log(decode("6015ekx")); // "mer"
 console.log(decode("5057aan")); // "Impossible to decode"
+
+
+
+const startCharASCII = 97;
+const letterCount = 26;
+
+function decode(r) {
+    var num = parseInt(r);
+    var letters = [];
+    var codes = [];
+    for (var i = 0; i < letterCount; i++) {
+        letters[i] = String.fromCharCode(startCharASCII + i);
+        codes[i] = String.fromCharCode(i * num % letterCount + startCharASCII);
+    }
+    if (Array.from(new Set(codes)).length != letterCount) return 'Impossible to decode';
+    return r.split(num)[1].split('').map((v, i, a) => letters[codes.indexOf(v)]).join('');
+}
+
+
+
+function decode(r) {
+    let a = "abcdefghijklmnopqrstuvwxyz"
+    let m = r.match(/(\d+)([a-z]+)/);
+    let nb = parseInt(m[1]) % 26;
+    let s = m[2];
+    let dict={3:9, 9:3, 21:5, 5:21, 7:15, 15:7, 11:19, 19:11, 17:23, 23:17, 25:25, 1:1}
+    let n = dict[nb];
+    if (n === undefined)
+        return "Impossible to decode";
+    var res = "";
+    for (let c of s)
+        res += a[(a.indexOf(c) * n) % 26];
+    return res;
+}
+
+
+
+decode=r=>{
+  const m={},[x,k,s]=r.match(/(\d+)(.*)/);
+  for (let i=0;i<26;i++) m[i*k%26]=String.fromCharCode(i+97);  
+  return k%2&&k%13?[...s].map(e=>m[e.charCodeAt``-97]).join``:'Impossible to decode';
+}
+
+
+
+const decode = (a, [b, c] = a.match(/\d+|\D+/g), d=new Set([...Array(26)].map((_,a)=>a* +b%26)).size<26) => d ? 'Impossible to decode' : c.split``.map(a=>{    
+  let c = 0;
+  while (c * +b % 26 !== a.charCodeAt() - 97) c++;    
+  return String.fromCharCode(c + 97)
+}).join``;
