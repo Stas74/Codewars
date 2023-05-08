@@ -38,3 +38,35 @@ function makeSentence(parts) {
 
 console.log(makeSentence(["hello", "world"])); // 'hello world.'
 console.log(makeSentence(["hello", ",", "my", "dear"])); // 'hello, my dear.'
+
+
+
+function makeSentence(parts) {
+  return parts.reduce(function(a,b){
+    return b === ","? a + b : b === "."? a + "" : a + " " + b;
+  }) + ".";
+}
+
+
+function makeSentence(parts) {
+	return (parts.join(' ') + '.').replace(/ \./g, '.').replace(/ ,/g, ',').replace(/\.+$/, '.');
+}
+
+
+
+function makeSentence(parts) {
+    let spaceNearComma = /\s+(?=,)/g,
+        spaceNearPeriod = /\s+(?=\.)/g,
+        endPeriods = /\.*$/;
+
+    return parts.join(" ").replace(spaceNearComma, "").replace(spaceNearPeriod, "").replace(endPeriods, ".");
+}
+
+
+
+makeSentence=a=>a.join` `.replace(/ +(?=,)|[ .]+$/g,'')+'.';
+
+const makeSentence=c=>c.join(' ').replace(/(?<=\w) (?=\W)|[.\s]+$/g,'')+'.'
+
+const makeSentence = parts =>
+  parts.concat(`.`).join(` `).replace(/ ([,.])/g, `$1`).replace(/\.+/, `.`);
