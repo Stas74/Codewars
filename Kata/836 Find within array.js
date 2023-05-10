@@ -38,3 +38,30 @@ console.log(findInArray([1, 3, 5, 6, 7], trueIfEven)); // 3
 console.log(findInArray([2, 4, 6, 8], trueIfEven)); // 0
 console.log(findInArray([13,5,3,1,4,5], trueIfValueEqualsIndex)); // 4
 console.log(findInArray(["one","two","three","four","five","six"], trueIfLengthEqualsIndex)); // 4
+
+
+
+const findInArray = (array, iterator) => array.findIndex(iterator)
+
+
+var findInArray = function(array, iterator) {
+  return array.map(iterator).indexOf(true);
+};
+
+
+var findInArray = function(array, iterator) {
+  var idx
+  return array.some(function (v,i) {idx = i; return iterator(v,i);}) ? idx : -1
+};
+
+
+var findInArray = function(array, iterator) {
+  return array.indexOf(array.find(iterator));
+};
+
+
+var findInArray = function(array, iterator) {
+  var ret = -1;
+  array.some(function(a,i) {if (iterator(a,i)) {ret = i; return true;} return false;});
+  return ret;
+};
