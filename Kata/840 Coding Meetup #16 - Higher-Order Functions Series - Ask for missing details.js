@@ -68,3 +68,42 @@ var answer1 = [
   question: 'Hi, could you please provide your language.' }
 ];
 */
+
+
+
+
+function askForMissingDetails(list) {
+    return list.filter(function(a){
+
+      for(var key in a){
+        if (a[key] === null){
+          a['question'] = `Hi, could you please provide your ${key}.`;
+          return a;
+        }
+      }
+
+    });
+}
+
+
+
+const askForMissingDetails = list => 
+  list.filter(dev => 
+  Object.keys(dev).some(key =>
+  dev[key] === null && (dev.question = `Hi, could you please provide your ${key}.`)));
+
+
+
+function askForMissingDetails(list) {
+    return list.filter(person => {
+        for (var key in person) {
+            if (!person[key])
+                return person.question = 'Hi, could you please provide your ' + key + '.';
+        }
+    });
+}
+
+
+
+const askForMissingDetails = list =>
+  list.filter(val => Object.keys(val).some(v => !val[v] && (val.question = `Hi, could you please provide your ${v}.`)));
