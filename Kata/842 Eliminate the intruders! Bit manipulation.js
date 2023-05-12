@@ -25,3 +25,23 @@ console.log(eliminateUnsetBits("11010101010101")); // 255
 console.log(eliminateUnsetBits("111")); // 7
 console.log(eliminateUnsetBits("1000000")); // 1
 console.log(eliminateUnsetBits("000")); // 0
+
+
+
+function eliminateUnsetBits(number) {
+  return parseInt(number.replace(/0/g,'') || 0, 2)
+}
+
+
+const eliminateUnsetBits = number =>
+  2 ** number.replace(/0+/g, ``).length - 1;
+
+
+
+function eliminateUnsetBits(number) {
+  return number = parseInt((number.split("0").join('')),2) || 0;
+}
+
+
+
+eliminateUnsetBits=n=>2**((n.match(/1/g)||[]).length)-1
