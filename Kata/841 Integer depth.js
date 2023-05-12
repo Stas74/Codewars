@@ -47,3 +47,66 @@ function computeDepth(x) {
 
 console.log(computeDepth(1)); // 10
 console.log(computeDepth(42)); // 9
+
+
+
+
+function computeDepth (x){
+  var digits = [0,1,2,3,4,5,6,7,8,9];
+  var depth  = 0;
+  var multiple;
+  
+  while(digits.length) {
+    multiple = (x * ++depth).toString();
+    digits   = digits.filter(v => multiple.indexOf(v) === -1);
+  }  
+  return depth;
+}
+
+
+const computeDepth = x => {
+  for(var n = 1, a = new Set();; n++) {
+    (x*n+'').split('').forEach(el => a.add(el));
+    if (a.size == 10) return n;
+  }
+};
+
+
+const computeDepth = (n) => {
+  let digits = new Set();
+  let depth = 1;
+  while (digits.size < 10) {
+    let num = depth * n;
+    
+    while (num > 0) {
+      digits.add(num % 10);
+      num = Math.floor(num / 10);
+    }
+    
+    depth++;
+  }
+  return depth - 1;
+}
+
+
+function computeDepth(x, a = [0,1,2,3,4,5,6,7,8,9], n = 0, i = 1){
+  return !a.length ? n : computeDepth(x, a.filter(v=>!(''+(x*i)).includes(v)), n+1, i+1);
+}
+
+
+const computeDepth = x => {
+  let counter = 0;  
+  for(let digits = ''; [...'0123456789'].some(dgt => !digits.includes(dgt)); digits += x * ++counter);  
+  return counter;
+}
+
+
+const computeDepth = x => {
+  let set = new Set(`${x}`),
+      counter = 1;
+  while (set.size < 10) [...`${++counter * x}`].forEach(x => set.add(x));
+  return counter;
+}
+
+
+
