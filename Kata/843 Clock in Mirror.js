@@ -48,3 +48,61 @@ console.log(WhatIsTheTime("12:02")); // "11:58"
 console.log(WhatIsTheTime("04:00")); // "08:00"
 console.log(WhatIsTheTime("06:00")); // "06:00"
 console.log(WhatIsTheTime("12:00")); // "12:00"
+
+
+
+
+let WhatIsTheTime = t => {
+  let [h, m] = t.split(':');
+  h = (+m ? 11 : 12) - h % 12 || 12;
+  m = (60 - m) % 60;
+  return [h, m].map(e => e > 9 ? e : '0' + e).join(':');
+}
+
+
+
+Number.prototype.mod = function(n) {
+  return ((this % n) + n) % n;
+};
+
+function whatIsTheTime(mirrored) {
+  const [mh, mm] = mirrored.split(':').map(Number);
+  const m = (-mm).mod(60);
+  const h = (-mh - (m && 1)).mod(12) || 12;
+  return [h, m].map(n => ('0' + n).slice(-2)).join(':');
+}
+
+const WhatIsTheTime = whatIsTheTime;
+
+
+
+
+const WhatIsTheTime = timeInMirror => {
+  let [hh, mm] = timeInMirror.split(`:`);
+  mm = `${(60 - mm) % 60}`.padStart(2, `0`);
+  hh = `${12 - (+mm ? ++hh : hh) % 12}`.padStart(2, `0`);
+  return `${hh}:${mm}`;
+};
+
+
+
+
+function WhatIsTheTime(t)
+{
+   let min = (60 - +(t.split(':')[1]))%60,    
+       hour = +(t.split(':')[0]);
+       hour  = min == 0 ? 12 - hour%12 : 12 - (hour+1)%12 ;
+      return `${('0'+hour).slice(-2)}:${('0'+min).slice(-2)}`;
+}
+
+
+
+
+function WhatIsTheTime(t){
+  t=t.split(":");
+  t[0]=11+(t[1]==0)-t[0]%12 || 12;
+  t[1]=(60-t[1])%60;
+  if((""+t[0]).length==1){t[0]="0"+t[0]}
+  if((""+t[1]).length==1){t[1]="0"+t[1]}
+  return t.join(":");
+}
