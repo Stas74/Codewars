@@ -24,3 +24,45 @@ function group(arr) {
 
 console.log(group([3, 2, 6, 2, 1, 3])); // [[3, 3], [2, 2], [6], [1]]
 console.log(group([3, 2, 6, 2])); // [3], [2, 2], [6]
+
+
+
+
+function group(arr) {
+  var result = [];
+  while(arr.length > 0)
+  {
+    result.push(arr.filter(a => a == arr[0]));
+    arr = arr.filter(a => a != arr[0]);    
+  }
+  return result;
+}
+
+
+
+function group(arr) {
+  return [...new Set(arr)].map(n => arr.filter(x => x == n));
+}
+
+
+
+function group(arr) {
+  return arr
+    .filter((c, i) => !arr.slice(0, i).some(c2 => c == c2))
+    .map(c => arr.filter(c2 => c == c2));
+}
+
+
+
+const group = arr => [...new Set(arr)].map(c => arr.filter(x => x == c));
+
+
+
+function group(arr) {
+  return arr.map((x,i)=>arr.indexOf(x)===i?arr.filter(y=>x===y):false).filter(Boolean);
+}
+
+
+
+
+
