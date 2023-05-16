@@ -44,3 +44,56 @@ function solve(a, b) {
 console.log(solve([47, 7, 2], [47, 7, 2])); // '0, 0: that looks like a "draw"! Rock on!'
 console.log(solve([47, 67, 22], [26, 47, 12])); // '3, 0: Alice made "Kurt" proud!'
 console.log(solve([25, 50, 22], [34, 49, 50])); // '1, 2: Bob made "Jeff" proud!'
+
+
+
+
+function solve(a, b) {
+  let [x, y] = [0,0];
+  for (let i = 0; i < 3; i++) {
+    if (a[i] > b[i]) x++;
+    else if (a[i] < b[i]) y++;
+  }
+  if (x > y) return `${x}, ${y}: Alice made "Kurt" proud!`;
+  else if (x < y) return `${x}, ${y}: Bob made "Jeff" proud!`;
+  else return `${x}, ${y}: that looks like a "draw"! Rock on!`;
+}
+
+
+
+function solve(a, b) {
+  let pl1 = 0;
+  let pl2 = 0;  
+  a.forEach((cur, i) => cur > b[i] ? pl1++ : cur < b[i] ? pl2++ : 0);  
+  return `${pl1}, ${pl2}: ${pl1 > pl2 ? 'Alice made "Kurt" proud!' : pl1 < pl2 ? 'Bob made "Jeff" proud!' : 'that looks like a "draw"! Rock on!'}`;
+}
+
+
+
+const solve = (a, b) =>
+  ((a, b) => `${a}, ${b}: ${a === b ? `that looks like a "draw"! Rock on!` : `${a > b ? `Alice made "Kurt` : `Bob made "Jeff`}" proud!`}`)
+  (...a.reduce((pre, val, idx) => [pre[0] + (val > b[idx]), pre[1] + (val < b[idx])], [0, 0]));
+
+
+
+
+const wins = (a, b) => a.reduce((n, m, i) => n + (m > b[i]), 0);
+
+function solve(a, b) {
+  const x = wins(a, b)
+  ,     y = wins(b, a);  
+  const quotes = [ 
+    'Alice made "Kurt" proud!',
+    'Bob made "Jeff" proud!',
+    'that looks like a "draw"! Rock on!' 
+  ];  
+  return `${x}, ${y}: ${quotes[(x <= y) + (x === y)]}`;     
+}
+
+
+
+const solve = (a, b) => (s =>
+  `${s[0]}, ${s[1]}: ${s[0] == s[1]
+    ? 'that looks like a "draw"! Rock on!'
+    : `${s[0] > s[1] ? 'Alice made "Kurt"' : 'Bob made "Jeff"'} proud!`}`
+)(a.reduce((r, e, i) => [r[0] + (e > b[i]), r[1] + (b[i] > e)], [0, 0]));
