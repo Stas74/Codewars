@@ -19,3 +19,45 @@ var numberFormat = function (number) {
 console.log(numberFormat(100000)); // '100,000'
 console.log(numberFormat(5678545)); // '5,678,545'
 console.log(numberFormat(-420902)); // '-420,902'
+
+
+
+
+numberFormat = n => n.toLocaleString()
+
+
+const numberFormat = number =>
+  String(number).replace(/\B(?=(\d{3})+\b)/g, `,`);
+
+
+
+var numberFormat = function (number) {
+  return (''+number).replace(/[0-9](?=(?:\d{3})+$)/g,'$&,');
+};
+
+
+
+const numberFormat = number => {return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")};
+
+
+
+// Format a number with commas in the appropriate places
+var numberFormat = function (number) {
+    let numStr = number.toString()
+    let outputString = "";
+    let counter = 0;
+    let pos = 1;
+    while (pos <= numStr.length) {
+        let char = numStr[numStr.length - pos];
+        counter += 1;
+        if (counter === 4) {
+            if (char !== "-") {
+                outputString = "," + outputString;
+            }
+            counter = 1;
+        }
+        outputString = char + outputString;
+        pos += 1;
+    }
+    return outputString;
+};
