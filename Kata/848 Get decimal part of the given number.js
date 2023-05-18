@@ -21,3 +21,21 @@ console.log(getDecimal(10)); // 0
 console.log(getDecimal(-1.2)); // 0.2
 console.log(getDecimal(4.5)); // 0.5
 console.log(getDecimal(NaN)); // 0
+
+
+
+function getDecimal(n){
+  return Math.abs(n % 1);
+}
+
+
+const getDecimal = ($) => Math.abs( ( $ % 1).toFixed(10) )
+
+
+
+function getDecimal(n){
+  return Math.abs(n - ~~n);
+}
+
+
+const getDecimal = n => Math.abs(n) % 1;
