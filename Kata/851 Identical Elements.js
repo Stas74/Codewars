@@ -16,3 +16,23 @@ function duplicateElements(m, n) {
 
 console.log(duplicateElements([1, 2, 3, 4, 5], [1, 6, 7, 8, 9])); // true
 console.log(duplicateElements([9, 8, 7], [8, 1, 3])); // true
+
+
+
+
+function duplicateElements(m, n) {
+  return m.some(v => n.includes(v))
+}
+
+
+const duplicateElements = (m, n) =>
+  m.some(val => n.includes(val));
+
+
+const duplicateElements = (arr, arr2) => arr.map(el => arr2.filter(e => e === el).length > 0).includes(true)
+
+
+const duplicateElements = (a, b) => {
+  const c = new Set(a);
+  return b.some(x => c.has(x));
+};
