@@ -47,3 +47,46 @@ let list = [
 ];
 
 console.log(sentence(list)); // 'Vatsan took his dog for a spin'
+
+
+
+function sentence(List) {
+   return List
+     .sort((a, b) => Object.keys(a) - Object.keys(b))
+     .map((item) => Object.values(item))
+     .join(' ')
+  
+  /*solution with reduce:
+  return List
+  .sort( (a, b) => Object.keys(a) - Object.keys(b))
+  .reduce(((sum, value) => sum += ' ' + Object.values(value)),'')
+  .trim()
+  */
+}
+
+
+
+function sentence(List) {
+  return List
+    .map(e => Object.entries(e)[0])
+    .sort(([a], [b]) => a - b)
+    .map(([a, b]) => b)
+    .join(" ");
+}
+
+
+
+function sentence(List) {
+  let arr = [];
+  let res = '';
+  let min = 0;
+   for (let key of List) {
+     arr.push(+Object.keys(key))
+   }
+  for (let j of arr) {
+    min = Math.min(...arr);
+    res += Object.values(List[arr.indexOf(min)]) + ' ';
+    arr.splice(arr.indexOf(min), 1, 999);  
+  }
+  return res.trim();
+}
