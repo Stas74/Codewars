@@ -65,3 +65,46 @@ console.log(recycle(a));
   ['out of date yogurt']
 ];
 */
+
+
+
+function recycle(arr) {
+  let paper = [], glass = [], organic = [], plastic = [];
+
+  arr.forEach(obj => {  
+    if(obj.material === 'paper' || obj.secondMaterial === 'paper' ) paper.push(obj.type)
+    if(obj.material === 'glass' || obj.secondMaterial === 'glass') glass.push(obj.type)
+    if(obj.material === 'organic' || obj.secondMaterial === 'organic') organic.push(obj.type)
+    if(obj.material === 'plastic' || obj.secondMaterial === 'plastic') plastic.push(obj.type)
+  });
+
+  return [paper, glass, organic, plastic]
+}
+
+
+
+const recyclerMaterials = ['paper', 'glass', 'organic', 'plastic'];
+function recycle(objects) {
+  return recyclerMaterials.map(m => objects.filter(o => o.material == m || o.secondMaterial == m).map(o => o.type));
+}
+
+
+
+function recycle(array) {
+  let materials = { "paper": [], "glass": [], "organic": [], "plastic": [] }
+  
+  array.forEach(o => {
+    materials[o.material].push(o.type);
+    if(o.secondMaterial)
+      materials[o.secondMaterial].push(o.type);
+  });
+  return Object.values(materials);
+  
+}
+
+
+
+const recycle = array =>
+  [ 'paper', 'glass', 'organic', 'plastic' ]
+    .map(mat => array.filter(obj => obj.material === mat || obj.secondMaterial === mat)
+    .map(obj => obj.type))
