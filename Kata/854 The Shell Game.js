@@ -38,3 +38,44 @@ console.log(findTheBall(0, [[0, 1]])); // 1
 console.log(findTheBall(1, [[0, 1]])); // 0
 console.log(findTheBall(0, [[0, 1], [1, 2], [2, 0], [0, 1], [1, 2], [2, 1], [2, 0], [0, 2]])); // 1
 
+
+
+
+function find_the_ball(start,swaps) {
+  return swaps.reduce(function(ball, swap) {
+    if (swap[0] === ball) ball = swap[1];
+    else if (swap[1] === ball) ball = swap[0];
+    return ball;
+  }, start);
+}
+
+
+
+find_the_ball=function(start,swaps){
+  return swaps.reduce((s,v) => { return s == v[0] ? v[1] : s == v[1] ? v[0] : s}, start);
+}
+
+
+
+const find_the_ball = (start, swaps) => {
+    let ball = start;
+    swaps.forEach(s => {
+        if (s[0] == ball) {
+            ball = s[1]
+        } else if (s[1] == ball) {
+            ball = s[0];
+        }
+    });
+    return ball;
+}
+
+
+
+const find_the_ball = (start, swaps) =>
+  swaps.reduce((pre, val) => val.includes(pre) ? val.find(val => val !== pre) : pre, start);
+
+
+
+find_the_ball=function(b,a){
+  return (a.forEach(x=>x.includes(b)&&(b=x.find(x=>x!=b))),b);
+}
