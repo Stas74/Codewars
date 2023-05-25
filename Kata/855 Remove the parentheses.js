@@ -58,3 +58,58 @@ console.log(removeParentheses("a (bc d)e")); // "a e"
 console.log(removeParentheses("a(b(c))")); // "a"
 console.log(removeParentheses("hello example (words(more words) here) something")); // "hello example  something"
 console.log(removeParentheses("(first group) (second group) (third group)")); // "  "
+
+
+
+
+function removeParentheses(s){
+  let r = 0
+  let x = ''
+  for (let c of s) {
+    if (c=='(') r++
+    if (r==0) x+=c
+    if (c==')') r--
+  }
+  return x
+}
+
+
+function removeParentheses(s){
+  let result = "";
+  let count = 0;
+  for (let letter of s){
+    if (letter == "(") count += 1;
+    if (count == 0) result += letter;
+    if (letter == ")") count -= 1
+  }
+  return result
+}
+
+
+
+function removeParentheses(s){
+  while (s.match(/\([\w ]+\)/g)) {
+    s = s.replace(/\([\w ]+\)/g ,'');
+  }  
+  return s;  
+}
+
+
+
+const removeParentheses = s => s.includes('(') ? removeParentheses(s.replace(/\([^()]*?\)/, '')) : s;
+
+
+
+function removeParentheses(s){
+  let lvl=0;
+  return [...s].filter(c=>{ lvl+=c=='(';
+                            let keep = !lvl;
+                            lvl -= c==')';
+                            return keep; })
+               .join('')
+}
+
+
+
+const removeParentheses = s =>
+  /\(/.test(s) ? removeParentheses(s.replace(/\([^()]*\)/, ``)) : s;
