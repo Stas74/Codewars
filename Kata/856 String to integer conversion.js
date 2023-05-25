@@ -30,3 +30,25 @@ console.log(myParseInt("  1 ")); // 1
 console.log(myParseInt("08")); // 8
 console.log(myParseInt("5 friends")); // NaN
 console.log(myParseInt("5.8")); // NaN
+
+
+
+
+function myParseInt(str) {
+  return /^\s*\d+\s*$/.test(str) ? +str : NaN;
+}
+
+
+function myParseInt(str) {
+  return /^\d+$/g.test(str.trim()) ? +str : NaN;
+}
+
+
+const myParseInt = s => /^\d+$/.test(s.trim()) ? +s : 'NaN';
+
+
+function myParseInt(str) {
+  return str.trim().match(/[^0-9]/g) === null ? parseInt(str) : 'NaN'
+}
+
+
