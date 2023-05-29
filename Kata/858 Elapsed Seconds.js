@@ -21,3 +21,18 @@ const end3 = new Date(2013, 1, 1, 0, 1, 20);
 console.log(elapsedSeconds(start, end)); // 1
 console.log(elapsedSeconds(start, end2)); // 19
 console.log(elapsedSeconds(start, end3)); // 79
+
+
+
+const secondsOf = a => ~~(a.getTime() / 1000);
+const elapsedSeconds = (a, b) => secondsOf(b) - secondsOf(a);
+
+
+const elapsedSeconds = (startDate, endDate) =>
+  (endDate - startDate) / 1e3;
+
+
+const elapsedSeconds = (start, end) => (end - start) / 1000;
+
+
+const elapsedSeconds = (sDate, eDate) => (eDate.getTime() - sDate.getTime()) / 1000
