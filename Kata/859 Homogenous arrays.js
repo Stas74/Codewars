@@ -24,3 +24,22 @@ function filterHomogenous(arrays) {
 }
 
 console.log(filterHomogenous([[1, 5, 4], ['a', 3, 5], ['b'], [], ['1', 2, 3]])); // [[1, 5, 4], ['b']]
+
+
+
+let filterHomogenous = a => a.filter(b => b.length > 0 && b.every(e => typeof e == typeof b[0]));
+
+
+function filterHomogenous(arr) {
+  return arr.filter(subArr => subArr.length > 0 && subArr.every(val => typeof val === typeof subArr[0]));
+}
+
+
+const filterHomogenous = arrays =>
+  arrays.filter(val => val.length && val.every(v => typeof v === typeof val[0]));
+
+
+function filterHomogenous(arrays) {
+  const homo = xs => xs.length > 0 && xs.every(y => typeof y === typeof xs[0])
+  return arrays.filter(homo)
+}
