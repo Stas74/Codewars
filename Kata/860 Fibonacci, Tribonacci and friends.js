@@ -43,3 +43,39 @@ console.log(Xbonacci([0, 0, 0, 0, 1], 10)); // [0,0,0,0,1,1,2,4,8,16]
 
 console.log(Xbonacci([ 1, 2, 3, 4, 5, 6, 7, 8, 9], 10)); // [0,0,0,0,1,1,2,4,8,16]
 console.log(Xbonacci([0, 0, 0, 0, 1], 10)); // [0,0,0,0,1,1,2,4,8,16]
+
+
+
+
+const Xbonacci = (sig, n) => {
+	let len = sig.length;
+	for (let i = len; i < n; i++) 
+  	sig[i] = sig.slice(i - len).reduce((a, b) => a + b);
+  return sig.slice(0, n);
+}
+
+
+
+function Xbonacci(arr, n){
+  const result = arr.slice(0, n)
+  const length = arr.length
+  while (result.length < n) {
+    result.push(result.slice(-length).reduce((a, b) => a + b))
+  }
+  return result
+}   
+
+
+
+function Xbonacci(s, n){
+  var len = s.length, i = len - 1;
+  while (i++ < n) {
+    s[i] = s.slice(i - len).reduce(sum, 0);
+  }
+  return s.slice(0, n);
+}
+function sum(s, v){ return s + v }
+
+
+const Xbonacci = (signature, n, l = signature.length) =>
+  signature.length < n ? Xbonacci([...signature, signature.slice(signature.length - l).reduce((pre, val) => pre + val)], n, l) : signature.slice(0, n);
