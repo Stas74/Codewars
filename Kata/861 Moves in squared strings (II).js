@@ -81,3 +81,39 @@ console.log(oper(selfieAndRot, "xZBV\njsbS\nJcpN\nfVnP"));
 // "xZBV....\njsbS....\nJcpN....\nfVnP....\n....PnVf\n....NpcJ\n....Sbsj\n....VBZx"
 console.log(oper(selfieAndRot, "uLcq\nJkuL\nYirX\nnwMB")); 
 // "uLcq....\nJkuL....\nYirX....\nnwMB....\n....BMwn\n....XriY\n....LukJ\n....qcLu"
+
+
+
+
+function rot(s) {
+  return s.split("").reverse().join("");
+}
+
+function selfieAndRot(s) {
+  return (s = s.replace(/.+/g, t => t + t.replace(/./g, "."))) + "\n" + rot(s);
+}
+
+function oper(fn, s) {
+  return fn(s);
+}
+
+
+
+const rot = strng =>
+  [...strng].reverse().join(``);
+
+const selfieAndRot = strng =>
+  (strng = strng.replace(/.+/g, val => val + `.`.repeat(val.length))) + `\n` + rot(strng);
+
+const oper = (fct, s) =>
+  fct(s);
+
+
+
+const rot = s => s.split('\n').reverse().map(s => [...s].reverse().join('')).join('\n');
+const selfieAndRot = s => (s = s.split('\n').map(s => s + '.'.repeat(s.length) + '\n').join(''), (s + rot(s)).replace('\n\n', '\n'));
+const oper = (fct, s) => fct(s)
+
+
+
+
