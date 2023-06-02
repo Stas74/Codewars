@@ -53,3 +53,33 @@ console.log(sortEmotions([":)", "T_T", ":)", ":D", ":D"], true)); // [ ':D', ':D
 console.log(sortEmotions([":D", "T_T", ":D", ":("], false)); // [  'T_T', ':(', ':D', ':D' ]
 console.log(sortEmotions(["T_T", ":D", ":(", ":("], false)); // [  'T_T', ':(', ':(', ':D' ]
 console.log(sortEmotions([":)", "T_T", ":)", ":D", ":D"], false)); // [ 'T_T', ':)', ':)', ':D', ':D' ]
+
+
+
+
+function sortEmotions(arr, order){
+  const emotions = { ':D': 1, ':)': 2, ':|': 3, ':(': 4, 'T_T': 5 }
+  arr = arr.sort((a, b) => emotions[a] - emotions[b]);
+  return order && arr || arr.reverse();
+}
+
+
+function sortEmotions(arr, order){
+  const m = {
+    ":D": 1,
+    ":)": 2,
+    ":|": 3,
+    ":(": 4,
+    "T_T": 5
+  }
+  return arr.sort((a,b) => order ? m[a] - m[b] : m[b] - m[a])
+}
+
+
+function sortEmotions(arr, order){
+  let emo = order? [':D', ':)', ':|', ':(', 'T_T'] : ['T_T', ':(', ':|', ':)', ':D'];
+  return arr.sort((a,b) => emo.indexOf(a)-emo.indexOf(b));
+}
+
+
+
