@@ -27,3 +27,33 @@ function solve(stones) {
 console.log(solve("RRGGBB")); // 3
 console.log(solve("RGBRGB")); // 0
 console.log(solve("BGRBBGGBRRR")); // 4
+
+
+
+// I love RegExp
+const solve = stones => stones.length - stones.replace(/(\w)(?=\1)/g, ``).length
+
+
+const solve = stones =>
+  --stones.match(/(.)(?=\1)|$/g).length;
+
+
+
+function solve(stones) {
+  return stones.split('').reduce((totalRemove, stone, i) => {
+    return i >= 1 && (stones[i - 1] === stone) ? ++totalRemove : totalRemove
+  }, 0) 
+}
+
+
+function solve(stones) {
+  return stones.split('').reduce((res,val,i) => val === stones[i+1] ? ++res : res,0)
+}
+
+
+function solve(stones) {
+  return [...stones].reduce((a, b, i) => a + (b === stones[i + 1]), 0)
+}
+
+
+const solve = stones => (stones.match(/(?<=(.))\1+/g)||[]).join('').length;
