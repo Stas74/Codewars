@@ -42,3 +42,39 @@ function countAdjacentPairs(searchString) {
 console.log(countAdjacentPairs("orange Orange kiwi pineapple apple")); // 1
 console.log(countAdjacentPairs("banana banana banana")); // 1
 console.log(countAdjacentPairs("banana banana banana terracotta banana terracotta terracotta pie!")); // 2
+
+
+
+const countAdjacentPairs=(s)=>(s.match(/(\b\w+\s*\b)\1+/gi)||[]).length
+
+
+function countAdjacentPairs(searchString) {
+  const words = searchString.toLowerCase().split(/\s+/);
+  return words.reduce((repeatedWords, currentWord, i) =>
+    currentWord === words[i + 1] && currentWord !== words[i - 1] ? [...repeatedWords, currentWord] : repeatedWords, []).length;
+}
+
+
+
+function countAdjacentPairs(s) {
+  var c = 0;  
+  s = s.toLowerCase().split(" ");
+  s.forEach( (w, index, s) => {
+    if(s[index] == s[index+1] && s[index+1] != s[index+2]) c++
+  });  
+  return c;
+}
+
+
+function countAdjacentPairs(s) {
+  var res = s.match(/(\b\w+)\s\1/ig);
+  return res == null ? 0 : res.length;
+}
+
+
+
+const countAdjacentPairs = s => s
+  .split` `
+  .map(e => e.toLowerCase())
+  .reduce((r, e, _, a) => r.includes(e) ? r : a.indexOf(e) === a.lastIndexOf(e) ? r : r.concat(e), [])
+  .length;
