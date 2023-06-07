@@ -49,3 +49,37 @@ var answer1 = [
   { firstName: 'Precious', lastName: 'G.', country: 'South Africa', continent: 'Africa', age: 22, language: 'JavaScript' },
   { firstName: 'Nikau', lastName: 'R.', country: 'New Zealand', continent: 'Oceania', age: 39, language: 'Ruby' }
 ];
+
+
+
+
+function sortByLanguage(list) {
+  return require('lodash').sortBy(list, 'language', 'firstName')
+}
+
+
+function sortByLanguage(list) {
+  var ordered = list.sort((a,b) => {
+    if (a.language == b.language) {
+      return a.firstName > b.firstName ? 1 : -1;
+    }
+    return a.language > b.language ? 1 : -1;
+  });
+  
+  return ordered;
+}
+
+
+
+function sortByLanguage(list) {
+  return list.sort((a,b) => {
+    if (a.language > b.language) return 1
+    else if (a.language < b.language) return -1
+    else if (a.firstName > b.firstName) return 1
+    else if (a.firstName < b.firstName) return -1
+    else return 0
+  })
+}
+
+
+
