@@ -42,3 +42,34 @@ function scoreTest(str, right, omit, wrong) {
 
 console.log(scoreTest([0, 0, 0, 0, 2, 1, 0], 2, 0, 1)); // 9
 console.log(scoreTest([0, 1, 0, 0, 2, 1, 0, 2, 2, 1], 3, -1, 2)); // 3
+
+
+
+
+function scoreTest(str, right, omit, wrong){
+  var grades = [right, omit, -wrong];
+  return str.reduce(function(sum, score) {
+  	return sum + grades[score];
+  }, 0);
+}
+
+
+
+const scoreTest = (str, ...vals) => str.reduce((a, v) => a + vals[v] * [1,1,-1][v], 0);
+
+
+
+function scoreTest(str, right, omit, wrong){
+  var correct=0, omitted=0, incorrect=0;
+  for (var i = 0; i<str.length; i++){
+    if      (str[i]==0) { correct+=1; }
+    else if (str[i]==1) { omitted+=1; }
+    else                { incorrect+=1; }
+  }
+  return (correct*right + omitted*omit - incorrect*wrong);
+}
+
+
+
+const scoreTest = (str, right, omit, wrong) =>
+  str.reduce((pre, val) => pre + [right, omit, -wrong][val], 0);
