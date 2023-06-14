@@ -28,3 +28,48 @@ console.log(cost(63)); // 30
 console.log(cost(84)); // 40
 console.log(cost(102)); // 50
 console.log(cost(283)); // 100
+
+
+
+function cost (mins) { 
+  let sum=30
+  mins-=60
+  while (mins>5){sum+=10
+       mins-=30      
+    }
+  return(sum);
+} 
+
+
+
+function cost (mins) { 
+  return 30 + ( mins > 65 ? Math.ceil((mins-65) / 30) : 0 ) * 10
+}
+
+
+
+function cost (mins) { 
+  const firstHrRate = 30;
+  const halfHrRate = 10;
+  var cost = firstHrRate;
+  
+  if (mins > 60){
+    var halfHours = (mins - 60)/30;
+    // Round up if they're out of the 5 min grace period, otherwise round down.
+    cost += ((halfHours * 30 % 30 > 5.1) ? Math.ceil(halfHours): Math.floor(halfHours)) * halfHrRate;
+    console.log(Math.floor(halfHours));
+  }
+  
+  return cost;
+}
+
+
+
+function cost (mins) { 
+  return Math.ceil(Math.max(0 ,mins - 65) / 30 + 3) * 10;
+} 
+
+
+
+const cost = mins =>
+  30 + 10 * Math.max(0, Math.ceil((mins - 65) / 30));
