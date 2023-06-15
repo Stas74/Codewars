@@ -73,3 +73,65 @@ console.log(arrAdder([
   [ '', 'i', '', '', '', '', '', '' ],
   [ '', 'a', '', '', '', '', '', '' ]
     ])); // "The Mitochondria is the powerhouse of the cell"
+
+
+
+function arrAdder(arr) {
+  var sentence = "";
+  for(var i = 0; i < arr[0].length; i++){
+    for(var j = 0; j < arr.length; j++){
+      sentence+=arr[j][i];
+    }
+    sentence+=" ";
+  }
+  return sentence.trim();
+}
+
+
+
+function arrAdder(arr) {
+  let massiv = "";
+  for (let i = 0; i < arr[0].length; i++) {
+    for (let j = 0; j < arr.length; j++) massiv += arr[j][i];
+    if (i < arr[0].length - 1) massiv += " ";
+  }
+  return massiv;
+}
+
+
+
+const arrAdder = arr =>  arr[0].map((_,i)=>  arr.map((_,j)=> arr[j][i]).join('')).join(' ');
+
+
+const arrAdder = a => a[0].map((_, i) => a.map(r => r[i]).join('')).join(' ')
+
+
+
+const arrAdder = arr =>
+  arr[0].map((_, idx) => arr.reduce((pre, val) => pre + val[idx], ``)).join(` `);
+
+
+const arrAdder = arr =>
+{
+  const words = [];
+  
+  for (let i = 0; i < arr[0].length; i++) {
+    let word = '';
+    
+    for (let j = 0; j < arr.length; j++) {
+      const letter = arr[j][i];
+      
+      if (letter !== '') {
+        word += letter;
+      } else {
+        break;
+      }
+    }
+    
+    words.push(word);
+  }
+  
+  return words.join(' ');
+}
+
+
