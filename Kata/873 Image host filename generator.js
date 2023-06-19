@@ -30,3 +30,37 @@ function generateName() {
 
 console.log(generateName()); // 
 
+
+
+function generateName(){
+  function * randomNames() {
+    const alpha = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    while (true) {
+      yield Array(6).fill(0).map(ch => alpha[Math.floor(Math.random() * 52)]).join('');
+    }
+  }
+  let name = randomNames().next().value;
+  return photoManager.nameExists(name) ? generateName() : name;
+}
+
+
+let i = 60466175
+let generateName = () => (++i).toString(36)
+
+
+const generateName = () =>
+  Math.random()
+    .toString(36)
+    .slice(2,8)
+
+
+generateName=_=>[...Array(6)].map(_=>String.fromCharCode(Math.round(Math.random() * 57 + 65))).join``
+
+
+const generateName = () => photoManager.nameExists(n = (Math.random() + 1).toString(36).substr(2, 6)) ? generateName() : n
+
+
+function generateName() {
+    let str = Math.random().toString(36).substring(0, 6);
+    return str;
+}
