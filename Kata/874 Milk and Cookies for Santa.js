@@ -24,3 +24,44 @@ function timeForMilkAndCookies(date) {
 console.log(timeForMilkAndCookies(new Date(2013, 11, 24))); // true
 console.log(timeForMilkAndCookies(new Date(2013, 0, 23))); // false
 console.log(timeForMilkAndCookies(new Date(3000, 11, 24))); // true
+
+
+
+const timeForMilkAndCookies = date => date.getMonth() === 11 && date.getDate() === 24;
+
+
+function timeForMilkAndCookies(date){
+  d=date+""; return d.indexOf("Dec")>=0&&d.indexOf("24")==8
+}
+
+
+function timeForMilkAndCookies(date){
+  if (!!date && typeof date === 'object') {
+    return (date.getMonth() === 11 && date.getDate() === 24);
+  }
+  return false;
+}
+
+
+timeForMilkAndCookies = d => String(d).indexOf('Dec 24') > 0;
+
+
+function timeForMilkAndCookies(date){
+  return date.toString().indexOf("Dec 24") > -1;
+}
+
+
+function timeForMilkAndCookies(date){
+  return /dec 24/gi.test(date.toString());
+}
+
+
+// functional programming & ramda & with
+function timeForMilkAndCookies(date) {
+  with (Object)
+    var isEveMonth = date => is(date.getMonth``, 11),
+        isEveDay = date => is(date.getDate``, 24)
+  return require('ramda').both(isEveMonth, isEveDay)(date)
+}
+
+
