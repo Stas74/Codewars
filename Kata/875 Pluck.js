@@ -16,3 +16,34 @@ function pluck(objs, name) {
 }
 
 console.log(pluck([{ a: 1 }, { a: 2 }], "a")); // [1,2]
+
+
+
+const pluck = (objs, name) => objs.map(obj => obj[name]);
+
+
+function pluck(objs, name) {
+  var length = objs.length;
+  var pluck = new Array(length);
+  for (var i = 0; i < length; i++) {
+    pluck[i] = objs[i][name];
+  }
+  return pluck;
+}
+
+
+function pluck(objs, name) {
+  var array = [];
+  objs.forEach(function(value){
+    array.push(value[name]);
+  });
+  return array;
+}
+
+
+
+function pluck(objs, name) {
+  return objs.reduce((acc, cur) => 
+    acc = cur[name] ? [ ...acc, cur[name] ] : [ ...acc, undefined ]
+  , [])
+}
