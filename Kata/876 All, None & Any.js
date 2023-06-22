@@ -42,3 +42,48 @@ function isLessThanZero(num) {
 }
 
 console.log([1, 2, 3].all(isGreaterThanZero)); //
+
+
+
+
+Array.prototype.all = function (p) {
+  for (var i=0; i<this.length; i++) {
+    if (!p(this[i]))
+      return false;
+  }
+  return true;
+};
+
+Array.prototype.none = function (p) {
+  for (var i=0; i<this.length; i++) {
+    if (p(this[i]))
+      return false;
+  }
+  return true;
+};
+
+Array.prototype.any = function (p) {
+  for (var i=0; i<this.length; i++) {
+    if (p(this[i]))
+      return true;
+  }
+  return false;
+};
+
+
+
+
+Array.prototype.all = function (p) {
+  return this.length === this.filter(p).length ? true : false;
+};
+
+Array.prototype.none = function (p) {
+  return this.filter(p).length === 0 ? true : false;
+};
+
+Array.prototype.any = function (p) {
+  return this.filter(p).length > 0 ? true : false;
+};
+
+
+
