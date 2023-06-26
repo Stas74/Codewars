@@ -30,3 +30,46 @@ console.log(money_value("-$ 0.1")); // -0.10
 console.log(money_value("$-2.3456")); // -2.3456
 console.log(money_value("007")); // 7.00
 console.log(money_value(" $ 89")); // 89.0
+
+
+
+const money_value = s => +s.replace(/\s|\$/g, '') || 0
+
+
+const money_value = s =>
+  +s.replace(/[^-\d.]/g, ``) || 0;
+
+
+const money_value = s => 
+  +s.replace(/[$ ]/g, '') || 0
+
+
+function money_value(s)
+{
+  const regex = /([$ ]*)/g;
+  let sNew = s.replace(regex, '');
+  let sFloat = parseFloat(sNew);
+  return isNaN(sFloat) ? 0 : sFloat;
+}
+
+
+
+money_value = a => /\d/.test(a)?+a.replace(/[ $]/g,'') : 0.0
+
+
+
+function money_value(s){
+   console.log(s);
+   var arr = s.split("");
+   var sN = "";
+   
+   for(let i = 0; i < arr.length; i++){
+     if(arr[i] == "$" || arr[i] == " "){
+     }
+     else{
+       sN += arr[i];
+     }
+   }
+   if(sN == "" || sN == "-") return 0;
+   return parseFloat(sN);
+}
