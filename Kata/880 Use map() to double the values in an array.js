@@ -25,3 +25,30 @@ function double(array) {
 
 console.log(double([1, 2, 3, 4, 5])); // [2,4,6,8,10]
 console.log(double([71, -548, 12.3, 31415])); // [142,-1096,24.6,62830]
+
+
+
+function double(array) {
+  return array.map(function(c){ return c * 2 });
+}
+
+
+
+function double(array) {
+    // Use array.map() to return a new array with each value twice
+    // as large as the corresponding value in the passed in array.
+    
+    var doubler = function(num){
+      return num*2;
+    }
+    
+    var final = array.map(doubler)
+    return final;
+}
+
+
+ 
+const double = a => a.map(e => e + e);
+
+
+
