@@ -32,3 +32,20 @@ console.log(fibonacci(2)); // 1
 console.log(fibonacci(3)); // 2
 console.log(fibonacci(4)); // 3
 console.log(fibonacci(5)); // 5
+
+
+
+var cache = { 1 : 1, 2 : 1}
+const fibonacci = n => cache[n] || (cache[n] = fibonacci(n - 1) + fibonacci(n - 2))
+
+
+const fibonacci = n => {
+  return (n <= 2) ? 1 : fibonacci(n - 2) + fibonacci(n - 1);
+};
+
+
+const fibonacci = n => 2 < n ? fibonacci(n-1) + fibonacci(n-2) : 1;
+
+
+const fibonacci = n =>
+  n > 2 ? fibonacci(--n) + fibonacci(--n) : 1;
