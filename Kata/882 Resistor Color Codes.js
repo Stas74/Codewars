@@ -70,3 +70,84 @@ function decodeResistorColors(bands) {
 console.log(decodeResistorColors("yellow violet black")); // "47 ohms, 20%"
 console.log(decodeResistorColors("yellow violet red gold")); // "4.7k ohms, 5%"
 console.log(decodeResistorColors("brown black green silver")); // "1M ohms, 10%"
+
+
+
+
+
+const decodeResistorColors = bands => {
+  const colors = {black:0,brown:1,red:2,orange:3,yellow:4,green:5,blue:6,violet:7,gray:8,white:9,gold:5,silver:10},
+    [first, second, multiplier, tolerance] = bands.split(' ').map(color => colors[color]),
+    ohm = (10 * first + second) * 10**multiplier;
+  return `${ohm >= 10**6 ? ohm / 10**6 + 'M' : ohm >= 1000 ? ohm / 1000 + 'k' : ohm} ohms, ${tolerance || 20}%`;
+}
+
+
+
+const colors = {
+ black: 0,
+ brown: 1,
+ red: 2,
+ orange: 3,
+ yellow: 4,
+ green: 5,
+ blue: 6,
+ violet: 7,
+ gray: 8,
+ white: 9,
+ gold: 5,
+ silver: 10
+};
+const decodeResistorColors = bands => {
+  const vals = bands.split(' ').map(a => colors[a]);
+  const ohms = (vals[0]*10 + vals[1]) * 10**vals[2];
+  const prettyOhms = ohms < 1e3 ? ohms
+                   : ohms < 1e6 ? ohms / 1e3 + 'k'
+                   : ohms / 1e6 + 'M';
+  const tol = vals[3] || 20;
+  return `${prettyOhms} ohms, ${tol}%`;
+}
+
+
+
+const decodeResistorColors = bands => {
+  const obj = {black: 0, brown: 1, red: 2, orange: 3, yellow: 4, green: 5, blue: 6, violet: 7, gray: 8, white: 9, gold: 5, silver: 10};
+  const arr = bands.split(` `);
+  const res = (10 * obj[arr[0]] + obj[arr[1]]) * 10 ** obj[arr[2]];
+  return `${res >= 1e6 ? `${res / 1e6}M` : res >= 1e3 ? `${res / 1e3}k` : res} ohms, ${obj[arr[3]] || 20}%`;
+}  
+
+
+
+function decodeResistorColors(s) {
+  "use strict";
+  const CODES = ["black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "gray", "white"];
+  let a = s.split(" ");
+  var ohms = eval(CODES.indexOf(a[0]).toString() + CODES.indexOf(a[1]).toString() + ` * Math.pow(10, ${CODES.indexOf(a[2])})`);
+  return `${ohms < 1000 ? ohms : ohms < 1e6 ? ohms / 1000 + "k" : ohms / 1e6 + "M"} ohms, ${s.split(" ").length === 3 ? 20 : s.split(" ")[3] === "silver" ? 10 : 5}%`;
+}
+
+
+
+function decodeResistorColors(bands) {
+  const colors = ["black","brown","red","orange","yellow",
+                  "green","blue","violet","gray","white", "gold", "silver"];
+  
+  bands = bands.split(/\s/).map(band => colors.indexOf(band.toLowerCase()));
+  
+  let [d1, d2, exp, tol] = bands;
+  
+  tol = tol ? (tol === colors.indexOf("gold") ? 5 : 10) : 20;
+  
+  let amount = (d1 * 10 + d2) * Math.pow(10, exp);
+  
+  if ( amount < 1000) {
+    return `${amount} ohms, ${tol}%`;
+  } 
+  
+  if (amount < 1000000) {
+    return `${amount/1000}k ohms, ${tol}%`;
+  }
+  
+  return `${amount/1000000}M ohms, ${tol}%`;
+}
