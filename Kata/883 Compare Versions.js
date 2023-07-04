@@ -47,3 +47,66 @@ console.log(compareVersions("11", "11")); // returns true
 console.log(compareVersions("10.4", "11")); // returns false
 console.log(compareVersions("10.4", "10.10")); // returns false
 console.log(compareVersions("10.4.9", "10.5")); // returns false
+
+
+
+const compareVersions = (v1, v2) => {
+  const a1 = v1.split('.').map(Number);
+  const a2 = v2.split('.').map(Number);
+  for (let i = 0; i < Math.max(a1.length, a2.length); i++) {
+    let n1 = a1[i] || 0, n2 = a2[i] || 0;
+    if (n1 === n2) continue;
+    return (n1 > n2) ? true : false;
+  }
+  return true;
+};
+
+
+
+function compareVersions (version1, version2) {
+      version1 = version1.split('.')
+      version2 = version2.split('.')
+  
+      while (version1.length && version2.length) {
+        const ver1 = Number(version1.shift())
+        const ver2 = Number(version2.shift())
+        
+        if (ver1 !== ver2) {
+          return ver1 > ver2
+        }
+      }
+      
+      return version2.length === 0
+}
+
+
+
+function compareVersions (version1, version2) {
+  version1 = version1.split('.').map(e=>+e);
+  version2 = version2.split('.').map(e=>+e);
+  
+  const limit = Math.min(version1.length, version2.length);
+  
+  for (let i=0; i<limit; ++i) {
+    if (version1[i] < version2[i]) { return false; }
+    if (version1[i] > version2[i]) { return true;}
+  }
+  
+  if (version1.length > limit || version2.length === limit) { return true; }
+  return false;
+}
+
+
+
+function compareVersions (version1, version2) {
+  let v1 = version1.split(".");
+  let v2 = version2.split(".");
+  for (let i = 0; i < v1.length; i++) {
+    if (+v1[i] > +v2[i]) { return true  }
+    if (+v1[i] < +v2[i]) { return false }
+  }
+  return v1.length >= v2.length;
+}
+
+
+
