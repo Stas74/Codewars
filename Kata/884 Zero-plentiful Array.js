@@ -36,3 +36,63 @@ console.log(zeroPlentiful([0, 0, 0, 0, 0, 1])); // 1
 console.log(zeroPlentiful([0, 0, 0, 0, 1, 0, 0, 0, 0])); // 2
 console.log(zeroPlentiful([0, 0, 0, 0, 1, 0])); // 0
 console.log(zeroPlentiful([0, 2, 0, 0, 0, 0, 3, 4, 5, 0, 0, 0, 0, 0])); // 0
+
+
+
+
+function zeroPlentiful(arr){
+  var sequences = arr.map((x) => !x ? x : ',').join('').split(',').filter((str) => str);
+  return sequences.every((str) => str.length >= 4) ? sequences.length : 0;
+}
+
+
+
+function zeroPlentiful(arr) {
+  let count = 0
+  let total = 0
+  for (const x of arr) {
+    if (x === 0) {
+      if (count++ === 3) {
+        total++
+      }
+    } else {
+      if (count > 3) {
+        count = 0
+      } else if (count > 0) {
+        count = 0
+        total = 0
+        break
+      }
+    }
+  }
+  return count > 0 && count < 4 ? 0 : total
+}
+
+
+
+function zeroPlentiful(arr) {
+  let counter = [];
+  let index = 0;
+  arr.forEach((num, idx) => {
+   if (num === 0) {
+     counter[index] = counter[index] ? counter[index] + 1 : 1;
+   } else {
+     index = counter.length;
+   } 
+  });
+  return counter.every(item => item >= 4) ? counter.length : 0;
+}
+
+
+
+function zeroPlentiful(arr, a=arr.join``){
+  return !/(?<!0)0{1,3}(?!0)/.test(a)?(a.match(/0{4,}/g)||'').length:0;
+}
+
+
+
+function zeroPlentiful(arr){
+   const sequence = arr.map(num => num !== 0 ? '.' : num).join('').split('.').filter(x => x.length > 0);
+    const zeros = sequence.filter(elem => elem.length >= 4);
+    return zeros.length == sequence.length ? zeros.length : 0;
+}
