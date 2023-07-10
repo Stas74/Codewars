@@ -91,3 +91,31 @@ function isolateIt(arr) {
 console.log(isolateIt(["abcd", "efgh"])); // ["ab|cd","ef|gh"]
 console.log(isolateIt(["abcde", "fghij"])); // ["ab|de","fg|ij"]
 console.log(isolateIt(["1234", "56789"])); // ["12|34","56|89"]
+
+
+
+
+function isolateIt(arr){
+  return arr.map(s => s.slice(0, s.length / 2) + "|" + s.slice(-s.length / 2));
+}
+
+
+
+const isolateIt = arr =>
+  arr.map(val => `${val.slice(0, val.length / 2)}|${val.slice(-val.length / 2)}`);
+
+
+
+function isolateIt(arr){
+  //coding here...
+  return arr.map(function(value) {
+    return value.substring(0, value.length/2) + "|" + value.slice(Math.round(value.length/2));
+  });
+}
+
+
+const isolateIt = a => a.map(x => x.slice(0, x.length / 2 | 0) + '|' + x.slice(Math.ceil(x.length / 2)));
+
+
+const isolateIt = arr =>
+  arr.map( el => el.slice(0, el.length/2) + '|' + el.slice(-el.length/2) );
