@@ -18,3 +18,32 @@ console.log(equableTriangle(5, 12, 13)); // true
 console.log(equableTriangle(2, 3, 4)); // false
 console.log(equableTriangle(6, 8, 10)); // true
 console.log(equableTriangle(17, 17, 30)); // false
+
+
+
+
+function equableTriangle(a, b, c) {
+  const p = (a + b + c) / 2;
+  return 4 * p == (p - a) * (p - b) * (p - c);
+}
+
+
+
+function equableTriangle(a,b,c) {
+  var heron = (a+b+c) / 2;
+  return Math.sqrt(heron * (heron - a) * (heron - b) * (heron - c)) == heron * 2;
+}
+
+
+
+const equableTriangle = (a, b, c) =>
+  a + b + c === (4 * a ** 2 * b ** 2 - (a ** 2 + b ** 2 - c ** 2) ** 2) ** .5 / 4;
+
+
+
+function equableTriangle(a, b, c) {
+  let p = (a+b+c) / 2;
+  return 4 * p == (p-a) * (p-b) * (p-c);
+}
+
+
