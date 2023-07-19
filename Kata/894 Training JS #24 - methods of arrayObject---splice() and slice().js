@@ -152,3 +152,54 @@ function threeInOne(arr) {
 console.log(threeInOne([1, 2, 3])); // [6]
 console.log(threeInOne([1, 2, 3, 4, 5, 6])); // [6, 15]
 console.log(threeInOne([1, 2, 3, 4, 5, 6, 7, 8, 9])); // [6, 15, 24]
+
+
+
+
+function threeInOne(arr){
+  var result = [];
+  for(var i=0;i<arr.length;i+=3) {
+    result.push(arr[i] + arr[i+1] + arr[i+2]);
+  }
+  return result
+}
+
+
+
+function threeInOne(arr){
+  var newArr = arr.slice();
+  var arrs = []
+  for (var i=0;i<arr.length/3;i++) {    
+    arrs.push(newArr.splice(0,3).reduce(function(a, b) { return a + b; }, 0))
+  }
+  return arrs; 
+}
+
+
+
+function threeInOne(arr){
+  var na = [];
+  var index = -1;
+  for ( var now = 0; now < arr.length; ++now )
+  {
+    if ( now % 3 == 0 ) {
+      index++;
+      na[index] = 0;
+    }
+    na[index] += arr[now];
+  }
+  return na;
+}
+
+
+
+const sum = a => a.reduce((s,v)=>s+v,0) 
+const threeInOne=a=>{
+  let A = a.slice()
+  return Array.from(Array(a.length/3),x=>sum(A.splice(0,3)))
+}
+
+
+
+const threeInOne = arr =>
+  [...Array(arr.length / 3)].map((_, idx) => arr.slice(idx *= 3, idx + 3).reduce((pre, val) => pre + val));
