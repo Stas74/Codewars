@@ -47,3 +47,55 @@ console.log(climb(1)); // [1]
 console.log(climb(10)); // [1, 2, 5, 10]
 console.log(climb(13)); // [1, 3, 6, 13]
 console.log(climb(100)); // [1, 3, 6, 12, 25, 50, 100]
+
+
+
+
+function climb(n) {
+  var res = [n];  
+  while (n > 1) {
+    n = Math.floor(n / 2);
+    res.push(n)
+  }  
+  return res.reverse();
+}
+
+
+
+//in ascending order
+const climb = n =>
+  [...n.toString(2)].map((_, idx, arr) => n >> arr.length - ++idx);
+
+
+
+function climb(n){
+  for (var rs=[];n;n= ~~(n/2)) rs.unshift(n)
+  return rs;
+}
+
+
+
+const climb = (n, acc = []) => n ? climb(~~(n/2), [n].concat(acc)) : acc;
+
+
+
+const climb = n => [ ...( n-1 ? climb(n>>1): [] ), n ] ;
+
+
+
+function climb(n){
+  var results = [];  
+  if(n === 1) {
+    results.push(n);
+  }  
+  else {
+    return climb(Math.floor(n / 2)).concat(n);
+  } 
+  return results;
+};
+
+
+
+function climb(n) {
+  return n == 1 ? [1] : climb(n >> 1).concat([n]);
+}
