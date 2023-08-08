@@ -50,3 +50,49 @@ function isSantaClausable(obj) {
 
 console.log(isSantaClausable(santa)); // true
 console.log(isSantaClausable(notSanta)); // false
+
+
+
+
+function isSantaClausable(obj) {
+  return 'function' == typeof (obj.sayHoHoHo && obj.distributeGifts && obj.goDownTheChimney);
+}
+
+
+
+function isSantaClausable(obj) {
+  return 'function' == typeof (obj.sayHoHoHo && obj.distributeGifts && obj.goDownTheChimney);
+}
+
+
+
+function isSantaClausable(obj) {
+ /*return (
+ obj.hasOwnProperty('sayHoHoHo') && 
+ obj.hasOwnProperty('distributeGifts') && 
+ obj.hasOwnProperty('goDownTheChimney')
+   );*/
+   return (
+   (typeof obj.sayHoHoHo==='function')
+   &&(typeof obj.distributeGifts=== 'function')
+   &&(typeof obj.goDownTheChimney==='function')
+   );
+}
+
+
+
+function isSantaClausable(obj) {
+  if(typeof obj.sayHoHoHo !== 'function' ) return false;
+  if(typeof obj.distributeGifts !== 'function') return false;
+  if(typeof obj.goDownTheChimney !== 'function') return false;
+  else return true;
+}
+
+
+
+const isSantaClausable = obj =>
+[`sayHoHoHo`, `distributeGifts`, `goDownTheChimney`].every(val => typeof obj[val] === `function`);
+
+
+
+const isSantaClausable = o => typeof (o.sayHoHoHo && o.distributeGifts && o.goDownTheChimney) === 'function';
