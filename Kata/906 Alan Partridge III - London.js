@@ -44,3 +44,57 @@ console.log(
   ])
 );
 // 'Smell my cheese you mother!'
+
+
+
+
+
+function alan(x){
+  return ['Rejection', 'Disappointment', 'Backstabbing Central', 'Shattered Dreams Parkway'].every(e => x.indexOf(e) != -1) 
+  ? 'Smell my cheese you mother!' 
+  : 'No, seriously, run. You will miss it.';  
+}
+
+
+
+const alan = (arr) => 
+          ['Rejection', 'Disappointment', 'Backstabbing Central', 
+           'Shattered Dreams Parkway'].every(el => arr.includes(el)) ?
+          'Smell my cheese you mother!' : 'No, seriously, run. You will miss it.'
+
+
+
+function alan(x){
+  if (x.includes('Rejection') && x.includes('Disappointment') && x.includes('Backstabbing Central') && x.includes('Shattered Dreams Parkway')) {
+    return 'Smell my cheese you mother!'
+  }
+  return 'No, seriously, run. You will miss it.'
+}
+
+
+
+const alan = x =>
+  [`Rejection`, `Disappointment`, `Backstabbing Central`, `Shattered Dreams Parkway`].every(val => x.includes(val)) ?
+    `Smell my cheese you mother!` : `No, seriously, run. You will miss it.`;
+
+
+
+
+function alan(x) {  
+  let stations = new Set([ 
+    'Rejection', 
+    'Disappointment', 
+    'Backstabbing Central', 
+    'Shattered Dreams Parkway'
+  ]);  
+  
+  for (let stop of x)
+    stations.delete(stop);  
+  
+  return stations.size
+    ? 'No, seriously, run. You will miss it.'
+    : 'Smell my cheese you mother!';  
+}
+
+
+
