@@ -100,3 +100,63 @@ function infiniteLoop(arr, d, n) {
 console.log(infiniteLoop( [[1,2,3],[4,5,6],[7,8,9]],"left",1)); // [[2,3,4],[5,6,7],[8,9,1]]
 console.log(infiniteLoop([[1,2,3],[4,5,6],[7,8,9]],"right",1)); // [[9,1,2],[3,4,5],[6,7,8]]
 console.log(infiniteLoop( [[1,2],[3,4,5,6],[7,8,9,10]],"left",2)); // [[3,4],[5,6,7,8],[9,10,1,2]]
+
+
+
+
+function infiniteLoop(arr,d,n){  
+  var len = arr.length;
+  while(n--){
+    for(var i=0;i<len;i++){
+      if(d === "left") arr[i].push( arr[(i+1)%len].shift() ) 
+      if(d === "right") arr[(i+1)%len].unshift( arr[i].pop() );
+    }
+  }
+  return arr;  
+}
+
+
+
+function infiniteLoop(arr,d,n){
+  var [x, y, z] = arr.map(x => x.length),
+      arr = arr.reduce((a, b) => a.concat(b)),
+      remover = d == 'right' ? 'pop' : 'shift',
+      adder = d == 'right' ? 'unshift' : 'push';
+  for(var i = 0; i < n; i++){
+    var e = arr[remover]();
+    arr[adder](e);
+  }
+  return [arr.splice(0, x), arr.splice(0, y), arr]
+}
+
+
+
+const infiniteLoop = (arr, d, n) => {
+  while (n--) {
+    arr.forEach((val, idx) =>
+      d === `left` ? val.push(arr[++idx % arr.length].shift()) : arr[++idx % arr.length].unshift(val.pop()));
+  }
+  return arr;
+};
+
+
+
+function infiniteLoop(arr,d,n){
+  for(var i=0;i<n;i++)
+    switch(d){
+      case "right":
+        arr[0].unshift(arr[2].pop());
+        arr[1].unshift(arr[0].pop());
+        arr[2].unshift(arr[1].pop());
+      break;
+      case "left":
+        arr[2].push(arr[0].shift());
+        arr[1].push(arr[2].shift());
+        arr[0].push(arr[1].shift());
+      break;
+    }
+  return arr;
+}
+
+
+
