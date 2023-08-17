@@ -34,3 +34,15 @@ console.log(formatPoem('Beautiful is better than ugly. Explicit is better than i
 console.log(formatPoem("Flat is better than nested. Sparse is better than dense. Readability counts. Special cases aren't special enough to break the rules.")); 
 // "Flat is better than nested.\nSparse is better than dense.\nReadability counts.\nSpecial cases aren't special enough to break the rules."
 
+
+
+const formatPoem = s => {
+  return s.replace(/\. /g, '.\n');
+}
+
+
+const formatPoem = poem => poem.replace(/\.\s/g, '.\n');
+
+
+
+const formatPoem = str => str.split(/(?<=[.!?])\s/).join('\n');
