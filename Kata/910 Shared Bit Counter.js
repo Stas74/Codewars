@@ -36,3 +36,57 @@ console.log(sharedBits(7, 15)); // true
 console.log(sharedBits(43, 77)); // true
 console.log(sharedBits(7, 10)); // false
 console.log(sharedBits(7, 56)); // false
+
+
+
+
+function sharedBits(a, b) {
+ return (a & b).toString(2).replace(/0/g, '').length > 1
+}
+
+
+
+function sharedBits(a, b) {
+  a = [...a.toString(2)].reverse();
+  b = [...b.toString(2)].reverse();
+  return a.filter((e,i)=> e > 0 && e === b[i]).length > 1
+} //dupa
+
+
+
+// I like RegEXp
+const sharedBits = (a, b) => ((a & b).toString(2).match(/1/g) || []).length  > 1
+
+
+
+function sharedBits(a, b) {
+  return a & b & (a & b) - 1 ? true : false;  //  from Python solution by Mercy Madmask
+}
+
+
+sharedBits = (a, b) => !!(a & b & (a & b) - 1);
+
+
+function sharedBits(a, b) {  
+  a = a.toString(2).split('').map(Number);
+  b = b.toString(2).split('').map(Number);
+  let count = 0;
+  
+  const normalizeLength = (arr) => {
+    //when 8 bits just isn't enough... >:)
+    while(arr.length <= 32) {
+      arr.unshift(0);
+    }
+  }
+  
+  normalizeLength(a);
+  normalizeLength(b);  
+  
+  for(let i=0; i<a.length; i++) {
+    if(a[i] == 1 && b[i] == 1) {
+      count += 1;
+      
+    }
+  }  
+  return count >= 2 ? true : false;
+}
