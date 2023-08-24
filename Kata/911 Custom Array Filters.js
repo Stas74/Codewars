@@ -59,3 +59,110 @@ console.log([1, 2, 3, 4, 5].odd()); // [1,3,5]
 console.log([1, 2, 3, 4, 5].under(4)); // [1,2,3]
 console.log([1, 2, 3, 4, 5].over(4)); // [5]
 console.log([1, 2, 3, 4, 5].inRange(1, 3)); // [1,2,3]
+
+
+
+
+Array.prototype.int = function (){
+  return this.filter(function (x) { return typeof x == 'number' && x == ~~x });
+}
+Array.prototype.even = function(){
+  return this.int().filter(function (x) { return ~x & 1 });
+}
+
+Array.prototype.odd = function(){
+  return this.int().filter(function (x) { return x & 1 });
+}
+
+Array.prototype.under = function(x){
+  return this.int().filter(function (y) { return y < x });
+}
+
+Array.prototype.over = function(x){
+  return this.int().filter(function (y) { return y > x });
+}
+
+Array.prototype.inRange = function(min,max){
+  return this.int().filter(function (x) { return x >= min && x <= max });
+}
+
+
+
+
+
+Array.prototype.even = function(){
+  // ...
+  return this.filter(function(v) {
+    return typeof(v) == 'number' && v % 2 == 0;
+  });
+}
+
+Array.prototype.odd = function(){
+  // ...
+  return this.filter(function(v) {
+    return typeof(v) == 'number' && v % 2 == 1;
+  });
+}
+
+Array.prototype.under = function(x){
+  // ...
+  return this.filter(function(v) {
+    return typeof(v) == 'number' && Math.floor(v) == v && v < x;
+  });
+}
+
+Array.prototype.over = function(x){
+  // ...
+  return this.filter(function(v) {
+    return typeof(v) == 'number' && Math.floor(v) == v && v > x;
+  });
+}
+
+Array.prototype.inRange = function(min,max){
+  // ...
+  return this.filter(function(v) {
+    return typeof(v) == 'number' && Math.floor(v) == v && v >= min && v <= max;
+  });
+}
+
+
+
+
+Array.prototype.even = function () {
+  return this.filter(Number.isInteger).filter(val => ~val & 1);
+};
+
+Array.prototype.odd = function () {
+  return this.filter(Number.isInteger).filter(val => val & 1);
+};
+
+Array.prototype.under = function (x) {
+  return this.filter(Number.isInteger).filter(val => val < x);
+};
+
+Array.prototype.over = function (x) {
+  return this.filter(Number.isInteger).filter(val => val > x);
+};
+
+Array.prototype.inRange = function (min, max) {
+  return this.filter(Number.isInteger).filter(val => val >= min && val <= max);
+};
+
+
+
+
+
+filters = {
+  even:"x%2==0",
+  odd:"x%2==1",
+  under:"x<y",
+  over:"x>y",
+  inRange:"(y<=x)&&(x<=z)"  
+}
+
+for (f in filters) {
+  Array.prototype[f] = new Function("y","z",
+    "return this.filter(function(x){return "+
+    "typeof(x) == 'number' && x%1 === 0 &&" +
+    filters[f]+"})")  
+}
