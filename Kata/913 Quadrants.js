@@ -32,3 +32,23 @@ console.log(quadrant(3, 5)); // 1
 console.log(quadrant(-10, 100)); // 2
 console.log(quadrant(-1, -9)); // 3
 console.log(quadrant(19, -56)); // 4
+
+
+
+
+function quadrant(x, y) {
+  if (x > 0 && y > 0) return 1;
+  if (x < 0 && y > 0) return 2;
+  if (x < 0 && y < 0) return 3;
+  return 4;
+}
+
+
+function quadrant(x, y) {
+  return x > 0 ? y > 0 ? 1 : 4 : y > 0 ? 2 : 3;
+}
+
+
+const quadrant = (x, y) => [3, 4, 2, 1][Math.sign(x) / 2 + Math.sign(y) + 1.5]
+
+
