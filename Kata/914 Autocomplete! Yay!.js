@@ -31,3 +31,31 @@ function autocomplete(input, dictionary){
 
 console.log(autocomplete('ai', ['airplane','airport','apple','ball'])); // ['airplane','airport']
 
+
+
+
+function autocomplete(input, dictionary){
+  var r = new RegExp('^' + input.replace(/[^a-z]/gi,''), 'i');
+  return dictionary.filter(function(w){ return r.test(w); }).slice(0, 5);
+}
+
+
+
+function autocomplete(input, dictionary){
+  input = input.toLowerCase().replace(/[^a-z]/g, '');
+  return dictionary.filter(function (x) {
+    return x.slice(0, input.length).toLowerCase() == input;
+  }).slice(0, 5);
+}
+
+
+
+const autocomplete = (input, dictionary) => dictionary.filter(w => w.toLowerCase().startsWith(input.replace(/[^A-Z]/gi,''))).slice(0,5);
+
+
+
+const autocomplete = (input, dictionary) =>
+  dictionary.filter(val => new RegExp(`^${input.replace(/[^A-Z]/gi, ``)}`, `i`).test(val))
+    .slice(0, 5);
+
+
