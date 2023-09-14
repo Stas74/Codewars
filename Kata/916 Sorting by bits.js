@@ -34,3 +34,59 @@ function sortByBit(arr) {
 }
 
 console.log(sortByBit([3, 8, 3, 6, 5, 7, 9, 1])); // [1, 8, 3, 3, 5, 6, 9, 7]
+
+
+
+
+const sortByBit = arr => arr.sort((a, b) => a.toString(2).replace(/0/g, '') - b.toString(2).replace(/0/g, '') || a - b)
+
+
+
+function sortByBit(arr) {
+  
+  function numberOfBits(num){
+    let bits=num.toString(2);
+    let arrBits = bits.split('');
+    let numOfOnes=0;
+    for (let i=0; i<arrBits.length;i++){
+      if(arrBits[i] == '1'){
+        numOfOnes++;
+      }
+    } return numOfOnes;
+  }
+  
+  return arr.sort((a,b)=> {if(numberOfBits(a)==numberOfBits(b)){return a-b} else {return numberOfBits(a)-numberOfBits(b)}})
+}
+
+
+
+function sortByBit(arr) {
+  arr.sort( (a,b) => a.toString(2).split`1`.length - b.toString(2).split`1`.length || a - b);
+}
+
+
+
+
+function sortByBit(arr) {
+
+  function bits(num) {
+      return Array.from((num).toString(2), (a)=>Number(a)).reduce((a,b) => a + b);
+  };
+
+  function cmp (a, b) {
+     var result = bits(a) - bits(b);
+     if (result != 0) {
+         return result;
+     } else {
+         return a - b;
+     };
+  };
+  arr.sort(cmp);
+}
+
+
+
+  const sortByBit = (arr) => {
+    const bitCount = (n) => n.toString(2).replace(/0/g, '').length;
+    return arr.sort((a, b) => bitCount(a) - bitCount(b) || a - b);
+  }
