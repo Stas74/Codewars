@@ -117,3 +117,90 @@ Average expense  53.41`
 
 console.log(balance(b1)); // b1sol
 console.log(balance(b2)); // b2sol
+
+
+
+
+function balance(book) {
+
+  let totalExpense = 0
+  , [ originalBalance, ...entries ] = book
+    .trim()
+    .replace(/[^a-z0-9\s.]+/gi, '')
+    .replace(/\s{2,}/g, m => m[0])
+    .split(/\n/);
+
+  originalBalance = parseFloat(originalBalance);
+
+  entries = entries.map(row => 
+    row.replace(/\S+$/g, m => {
+      totalExpense += parseFloat(m);
+      return parseFloat(m).toFixed(2) + ' Balance ' + (originalBalance - totalExpense).toFixed(2);
+    })
+  );
+
+  entries.unshift('Original Balance: ' + originalBalance.toFixed(2));
+  entries.push('Total expense  ' + totalExpense.toFixed(2));
+  entries.push('Average expense  ' + (totalExpense / (entries.length - 2)).toFixed(2));
+  return entries.join("\r\n");
+   
+}
+
+
+
+
+function balance(book) {
+  const round=x=>Number(x).toFixed(2);
+  book=book.split("\n").filter(Boolean).map(x=>x.replace(/[^a-z0-9.]/gi," ").split(" ").filter(Boolean));
+  var balance=book[0];
+  var totalExpence=0;
+  var result=["Original Balance: "+round(balance)];
+  book.forEach((x,i)=>{
+    if(i>0){
+      totalExpence+=Number(book[i][2]);
+      balance-=Number(book[i][2])
+      result.push(book[i][0]+" "+book[i][1]+" "+round(book[i][2])+" Balance "+round(balance));
+    }
+  });
+  result.push("Total expense  "+round(totalExpence));
+  result.push("Average expense  "+round(totalExpence/(book.length-1)));
+  return result.join("\r\n");
+}
+
+
+
+const balance = book => {
+  book = book.replace(/[^a-z\d.\s]/gi, ``).split(`\n`).filter(Boolean);
+  let original = +book.shift();
+  let total = 0;
+  book = book.map(val => `${val} Balance ${original - (total += +val.match(/\S+$/))}`.replace(/[\d.]+/g, (val, idx) => idx ? (+val).toFixed(2) : val));
+  book.unshift(`Original Balance: ${original.toFixed(2)}`);
+  book.push(`Total expense  ${total.toFixed(2)}`);
+  book.push(`Average expense  ${(total / (book.length - 2)).toFixed(2)}`);
+  return book.join(`\r\n`);
+};
+
+
+
+function balance(book) {
+  const arr = book
+  .replace(/[^a-z0-9\\.\n ]/gi,'')
+  .split('\n')
+  .filter(el => el != '');
+  const orgBalance = arr.shift() * 1;
+  let str = `Original Balance: ${orgBalance.toFixed(2)}\r\n`;
+  let total = 0;
+  let balance = orgBalance;
+  arr.forEach(r => {
+    let row = r.split(' ')
+    balance -= row[2];
+    str += `${row[0]} ${row[1]} ${(row[2] * 1).toFixed(2)} Balance ${balance.toFixed(2)}\r\n`;
+    total += row[2] * 1;
+  });
+  str += `Total expense  ${total.toFixed(2)}\r\n`;
+  str += `Average expense  ${(total / arr.length).toFixed(2)}`;
+  return str;
+}
+
+
+
