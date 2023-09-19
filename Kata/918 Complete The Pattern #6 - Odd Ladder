@@ -40,3 +40,38 @@ function pattern(n) {
 console.log(pattern(4)); // "1\n333"
 console.log(pattern(5)); // "1\n333\n55555"
 console.log(pattern(0)); // ""
+
+
+
+function pattern(n){
+  for(var output=[],o=1;o<=n;o+=2){
+    output.push(Array(o+1).join(o))
+  }
+  return output.join("\n");
+}
+
+
+
+function pattern(n){
+ var output="";
+ for(var i = 1; i <= n; i+=2) {
+   output += new Array(i+1).join(i) + '\n';
+ }
+ return output.trim();
+}
+
+
+
+const pattern = n =>
+  [...Array(Math.max(0, ++n))].reduce((pre, _, idx) => idx % 2 ? [...pre, `${idx}`.repeat(idx)] : pre, []).join(`\n`);
+
+
+
+function pattern(n) {
+  for (var lines = [], i=1; i<=n; i+=2) lines.push(Array(i+1).join(i));
+  return lines.join('\n');
+}
+
+
+
+const pattern = n => Array.from({length: Math.floor((n + 1) / 2)}, (_, i) => (i = 2 * i + 1).toString().repeat(i)).join`\n`;
