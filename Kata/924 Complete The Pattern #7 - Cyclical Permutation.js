@@ -58,36 +58,84 @@ console.log(pattern(4)); // "1234\n2341\n3412\n4123"
 
 
 function pattern(n) {
-  for (var output = [], o = 1; o <= n; o += 2) {
-    output.push(Array(o + 1).join(o));
-  }
-  return output.join("\n");
-}
-
-
-function pattern(n){
- var output = "";
- for(var i = 1; i <= n; i+=2) {
-   output += new Array(i+1).join(i) + '\n';
- }
- return output.trim();
-}
-
-
-
-function pattern(n){
-  return n = n % 2 == 0 ? n - 1 : n, n > 1 ? pattern(n - 2) + '\n' + Array.apply(0, Array(n)).map(function(_, i) {return n;}).join('') : n > 0 ? '1' : '';
+  return Array.from({ length: n }, (x, i) =>
+    Array.from({ length: n }, (x, j) => (i + j) % n + 1).join('')
+  ).join('\n');
 }
 
 
 
 const pattern = n =>
-  [...Array(Math.max(0, ++n))].reduce((pre, _, idx) => idx % 2 ? [...pre, `${idx}`.repeat(idx)] : pre, []).join(`\n`);
+  n > 0? [...Array(n)].map((_, idx) => [...Array(n)].map((_, i) => (i + idx) % n + 1).join(``)).join(`\n`) : ``;
 
 
 
 function pattern(n) {
-  for (var lines = [], i=1; i<=n; i+=2) 
-    lines.push(Array(i+1).join(i));
-  return lines.join('\n');
+
+  let res = []
+  , terms = [];
+  
+  for (let i = 1; i <= n; i++)
+    terms.push(i);
+    
+  for (let j = 0; j < n; j++)
+    res.push(terms.slice(j).join('') + terms.slice(0, j).join(''));
+  
+  return res.join("\n");
+
+}
+
+
+
+function pattern(n) {
+  return n < 1 ? '' : Array.apply(0, Array(n)).map(function(_, i) {return Array.apply(0, Array(n)).map(function(_, j) {return (i + j) % n + 1;}).join('');}).join('\n');
+}
+
+
+
+function pattern(n){
+ var output=[],row=[];
+ for (var i=1;i<=n;i++) row.push(i);
+ for (var i=1;i<=n;i++){
+   output.push(row.join(""));
+   row=row.concat(row.shift());
+ }
+ return output.join("\n");
+}
+
+
+
+function pattern(n) {
+  return Array.from({length: n}, function(v, i) {
+    return Array.from({length: n}, function(v, j) {
+      return (i + j + 1) % n || n;
+    }).join('');
+  }).join('\n');
+}
+
+
+
+function pattern(n){
+ if (n<=0) return "";
+ o=""; c=1; d=1;
+ for (i=1;i<=n;i++) {
+    c=d;
+    for (j=1;j<=n;j++) {o+=c+""; if(++c>n) c=1}
+    o+="\n"; d++;
+ }
+ return o.substr(0,o.length-1)
+}
+
+
+
+function pattern(n){
+ var output="";
+ for(var i = 1; i<=n;i++){
+   var t = i;
+   for(var k = 1; k<=n;k++){
+     output += (t==n)?t++:t++%n;
+   }
+   if(i!=n)output +="\n";
+  }
+ return output;
 }
