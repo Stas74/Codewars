@@ -21,3 +21,51 @@ var Singleton = function () {
   }
   Singleton.__instance = this;
 };
+
+
+
+
+
+var Singleton = (function () {
+  var instance = null;
+
+  return function(){
+    return instance || (instance = this);
+  };
+})();
+
+
+
+
+var Singleton = function(){
+  return Singleton.ins = Singleton.ins ? Singleton.ins : this;
+};
+
+
+
+
+var Singleton = function Singleton() {
+  
+  // Returns singleton in case it was already defined
+  if (Singleton.prototype._singletonInstance) {
+  	return Singleton.prototype._singletonInstance;
+  }
+  
+  // Otherwise defines singleton (to be returned next time around)
+  Singleton.prototype._singletonInstance = this;
+
+	// Defining properties
+	this.test = 1;
+
+};
+
+
+
+var Singleton = (function(){
+  let singleton;
+  return function _() {
+    if (singleton)
+      return singleton;
+    singleton = this;
+  };
+})();
