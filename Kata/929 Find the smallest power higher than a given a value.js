@@ -32,3 +32,48 @@ console.log(findNextPower(12385, 3)); // 13824
 console.log(findNextPower(1245678, 5)); // 1419857
 console.log(findNextPower(1245678, 6)); // 1771561
 console.log(findNextPower(4782969, 7)); // 10000000
+
+
+
+
+function findNextPower(val, pow_) {
+   for (let i = 1; i <= val; i++) {
+    if (Math.pow(i, pow_) > val) {
+      return Math.pow(i, pow_);
+    }
+  }
+}
+
+
+const findNextPower = (val, pow_) => Math.pow(Math.ceil(Math.pow(val+1, 1/pow_)),pow_)
+
+
+
+function findNextPower(val, pow_) {
+  if (val == 1) {
+    return 2 ** pow_
+  }
+  for (let i = 0; i <= val; i++) {
+    if (i ** pow_ > val) {
+      return i ** pow_
+    }
+  }
+}
+
+
+
+const findNextPower = (val, pow_) => (((val + 0.1) ** (1 / pow_) | 0) + 1) ** pow_;
+
+
+
+
+const findNextPower = (val, pow_) =>
+  (++val ** (1 / pow_) + 1 | 0) ** pow_;
+
+
+
+function findNextPower(val, pow_) {
+  return (Math.floor( Math.round(val**(1/pow_) * 100)/100 ) + 1) ** pow_;
+}
+
+
