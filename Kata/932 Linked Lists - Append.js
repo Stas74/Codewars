@@ -38,3 +38,73 @@ function append(listA, listB) {
   listA.next = append(listA.next, listB);
   return listA;
 }
+
+// --------------------------
+
+
+function append(a,b) {
+  if(!a)return b;
+  a.next=append(a.next,b);
+  return a;
+}
+
+
+
+function append(listA, listB) {
+  if (!listA) return listB;
+  if (!listB) return listA;
+  var node = listA;
+  while (node.next !== null) node = node.next;
+  node.next = listB;
+  return listA;
+}
+
+
+
+
+function Node(data, nxt = null) {
+  this.data = data, this.next = nxt;
+}
+
+function append(listA, listB) {
+  if(!listA) return listB;
+  if(!listB) return listA;
+  return new Node(listA.data, append(listA.next, listB));
+}
+
+
+
+
+class Node {
+  constructor(data) {
+    Object.assign(this, {data, next: null});
+  }
+}
+
+const append = (listA, listB) =>
+  !listA ? listB : (listA.next = append(listA.next, listB), listA);
+
+
+
+
+const Node = (data, next = null) => ({ data, next });
+const append = (l1, l2) => l1 ? new Node(l1.data, append(l1.next, l2)) : l2;
+
+
+
+
+function Node(data) {
+  this.data = data
+  this.next = null
+}
+
+function append(listA, listB) {
+  if (listA) {
+    let node = listA
+    while (node.next) node = node.next
+    node.next = listB
+    return listA
+  } else {
+    return listB
+  }
+}
