@@ -23,3 +23,38 @@ function secondSymbol(s, symbol) {
 console.log(secondSymbol('Hello world!!!','l')); // 3
 console.log(secondSymbol('Hello world!!!','o')); // 7
 console.log(secondSymbol('Hello world!!!','A')); // -1
+
+
+
+function secondSymbol(s, symbol) {
+  return s.indexOf(symbol, s.indexOf(symbol) + 1);
+}
+
+
+
+
+function secondSymbol(s, symbol) {
+  let count = 0  
+  
+  return [...s].findIndex(c => {
+    if(c === symbol) count++
+    return count === 2 && c === symbol
+  })
+}
+
+
+
+function secondSymbol(s, symbol) {
+  const index = s.indexOf(symbol);
+  return s.indexOf(symbol, index + 1)
+}
+
+
+
+secondSymbol = (a, b) => (a.match(RegExp(`(?<=${b}.*)${b}`)) || []).index || -1;
+
+
+
+function secondSymbol(s, symbol) {
+  return s.replace(symbol, '#').indexOf(symbol);
+}
