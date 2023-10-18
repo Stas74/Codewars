@@ -49,3 +49,75 @@ var fizzBuzzCustom = function (stringOne, stringTwo, numOne, numTwo) {
 
 console.log(fizzBuzzCustom()); //
 console.log(fizzBuzzCustom("Hey", "lol")); //
+
+
+
+
+var fizzBuzzCustom = function(stringOne, stringTwo, numOne, numTwo) {
+	stringOne = stringOne || 'Fizz';
+  stringTwo = stringTwo || 'Buzz';
+  numOne = numOne || 3;
+  numTwo = numTwo || 5;
+  
+  var ret = []
+  for (var i = 1; i <= 100; ++i) {
+  	if (i % numOne === 0 && i % numTwo === 0) {
+    	ret.push(stringOne + stringTwo);
+    } else if (i % numOne === 0) {
+    	ret.push(stringOne);
+    } else if (i % numTwo === 0) {
+    	ret.push(stringTwo);
+    } else {
+    	ret.push(i);
+    }
+  }
+  return ret;
+};
+
+
+
+const fizzBuzzCustom = (fizz='Fizz', buzz='Buzz', num1=3, num2=5) => {
+  return Array.from(new Array(100), (nums, i) => i + 1).map((num) => {
+    if (!(num % (num1 * num2))) return fizz + buzz;
+    else if (!(num % num1)) return fizz;
+    else if (!(num % num2)) return buzz;
+    else return num;
+  })
+}
+
+
+
+var fizzBuzzCustom = function(stringOne, stringTwo, numOne, numTwo) {
+  var arr = [];
+  this.checker = function(x){
+      if(x % (numOne || 3 ) === 0 && x % (numTwo || 5) === 0) {
+          return (stringOne || 'Fizz') + (stringTwo || 'Buzz')
+      }
+      if(x % (numOne || 3) === 0) {
+          return stringOne || 'Fizz'
+      }
+      if(x % (numTwo || 5) === 0){
+          return stringTwo || 'Buzz'
+      }
+      return x
+  }
+  for(i=1;i<100;i++){
+    arr.push(this.checker(i));
+  }
+  return arr
+};
+
+
+
+var fizzBuzzCustom = function (stringOne, stringTwo, numOne, numTwo)
+{
+	return new Array(100).join().split(',').map(function (a, i)
+	{
+		return ('' + (((i + 1) % (numOne || 3)) ? '' : (stringOne || 'Fizz')) + (((i + 1) % (numTwo || 5)) ? '' : (stringTwo || 'Buzz'))) || (i + 1);
+	})
+};
+
+
+
+const fizzBuzzCustom = (stringOne = `Fizz`, stringTwo = `Buzz`, numOne = 3, numTwo = 5) =>
+  [...Array(100)].map((_, idx) => !(++idx % (numOne * numTwo)) ? stringOne + stringTwo : !(idx % numOne) ? stringOne : !(idx % numTwo) ? stringTwo : idx);
