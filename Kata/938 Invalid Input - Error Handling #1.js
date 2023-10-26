@@ -41,3 +41,59 @@ function getCount(words) {
 
 console.log(getCount("Test")); // {vowels:1,consonants:3}
 console.log(getCount("Here is some text")); // {vowels:6,consonants:8}
+
+
+
+
+function getCount(words) {
+  let f = typeof words === 'string';
+  return {
+    vowels: f ? words.replace(/[^aeiou]/gi,'').length : 0,
+    consonants: f ? words.replace(/[^bcdfghjklmnpqrstvwxyz]/gi,'').length : 0
+  }
+}
+
+
+
+
+function getCount(words) { 
+  var vowels = 0
+  var consonants = 0
+  
+  if (typeof words == "string") {
+    for (var c of words.toLowerCase().trim()) {
+      if ("aeiou".indexOf(c) >= 0) vowels++
+      else if ("bcdfghjklmnpqrstvwxyz".indexOf(c) >= 0) consonants++
+    }
+  }
+  
+  return { vowels, consonants }
+}
+
+
+
+const getCount = words =>
+  (words => ({vowels: (words.match(/[aieou]/ig) || []).length, consonants: (words.match(/[b-df-hj-np-tv-z]/ig) || []).length}))
+  (typeof words === `string` ? words : ``);
+
+
+
+
+const getCount = words => {
+  const out = {vowels: 0, consonants: 0};
+  if (typeof words !== 'string') return out;
+  out.vowels = (words.match(/[aeiouAEIOU]/g) || []).length;
+  out.consonants = (words.match(/[b-df-hj-nJ-Np-tP-Tv-zB-DF-HV-Z]/g) || []).length;
+  return out;
+}
+
+
+
+function getCount(words) {
+  let letterSort = {vowels: 0, consonants: 0}; 
+  if(typeof words === 'string' ){
+    letterSort.vowels     = (words.match(/[aeyuio]/gi) || []).length;
+    letterSort.consonants = (words.match(/[qwrtpsdfghjklzxcvbnm]/gi) || []).length;
+  }
+  return letterSort; 
+}
