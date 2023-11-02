@@ -30,3 +30,39 @@ function convert(number) {
 console.log(convert("65")); // "A"
 console.log(convert("656667")); // "ABC"
 console.log(convert("73327673756932858080698267658369")); // "I LIKE UPPERCASE"
+
+
+
+
+function convert(number) {
+  return String.fromCharCode(...number.match(/../g))
+}
+
+
+
+function convert(number) {
+  var decoded = '';
+  for(var i = 1; i < number.length; i+=2) {
+    decoded += String.fromCharCode(number[i-1] + number[i]);
+  }
+  return decoded;
+}
+
+
+
+const convert = (n) => n.match(/(\d){2}/g).map(el=> String.fromCodePoint(+el)).join('')
+
+
+
+const letters = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ']
+
+const convert = number => (
+  number.replace(/\d{2}/g, pair => letters[Number(pair) - 65] || ' ')
+)
+
+
+
+const convert = num => 
+	String.fromCharCode(...num.match(/\d{2}/g))
+
+
