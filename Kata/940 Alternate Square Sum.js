@@ -34,3 +34,37 @@ function alternateSqSum(arr) {
 
 console.log(alternateSqSum([1, 2, 3, 4, 5])); // 29
 console.log(alternateSqSum([-1, 2, -3, 4, -5])); // 11
+
+
+
+function alternateSqSum(arr){
+  return arr.reduce(function(prev, cur, index) {
+    return prev + ( index % 2 ? Math.pow(cur, 2) : cur );
+  }, 0);
+}
+
+
+
+function alternateSqSum(arr){
+  // happy coding :D
+  var res = 0;
+  for(var index in arr) {
+    if(index % 2) {
+      res += arr[index] * arr[index];
+    } else {
+      res += arr[index];
+    }
+  }
+  return res;
+}
+
+
+
+const alternateSqSum = arr =>
+  arr.reduce((pre, val, idx) => pre + (idx % 2 ? val ** 2 : val), 0);
+
+
+
+function alternateSqSum(arr) {
+  return arr.reduce((a, b, i) => a + (i & 1 ? b * b : b), 0)
+}
