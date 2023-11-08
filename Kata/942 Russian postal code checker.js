@@ -35,3 +35,28 @@ console.log(zipvalidate("198328")); // true
 console.log(zipvalidate("310003")); // true
 console.log(zipvalidate("12A483")); // false
 console.log(zipvalidate("056879")); // false
+
+
+
+function zipvalidate(postcode){
+  return /^[12346]\d{5}$/.test(postcode)
+}//z.
+
+
+
+function zipvalidate(postcode) {
+  return /^[1-46]\d{5}$/.test(postcode);
+}
+
+
+
+var zipvalidate = RegExp.prototype.test.bind(/^[12346]\d{5}$/);
+
+
+
+function zipvalidate(postcode){
+  if (parseInt(postcode).toString() !== postcode || postcode < 100000 || postcode >= 700000 || (postcode < 600000 && postcode >= 500000)) return false;
+  return true;
+}
+
+
