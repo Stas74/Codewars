@@ -71,3 +71,77 @@ console.log(happyCoding("XQXGPRlo sjyGzum Up hapPy")); // 4
 console.log(happyCoding("wLKByfG coDing")); // 3
 console.log(happyCoding("CodING FLCyQ gJwL haPPy")); // 2
 console.log(happyCoding("dATBF hAppy UlFqtQ xXaSI codiNg teMQB")); // 1
+
+
+
+
+
+function happyCoding(nickname){
+  let codingMood = nickname.split(' ').filter(a => a.match(/happy/i) || a.match(/coding/i)).join('');
+  if (codingMood.toLowerCase() === 'happycoding') return 1;
+  if (codingMood.toLowerCase() === 'codinghappy') return 2;
+  if (codingMood.toLowerCase() === 'coding') return 3;
+  if (codingMood.toLowerCase() === 'happy') return 4;
+  
+  return 5;
+}
+
+
+
+function happyCoding(nickname){
+  return [/[^\s\S]/,
+    /\bhappy\b.*\bcoding\b/i,
+    /\bcoding\b.*\bhappy\b/i,
+    /\bcoding\b/i,
+    /\bhappy\b/i,
+    /./].findIndex(re => re.test(nickname))
+}
+
+
+
+function happyCoding(nickname){
+  var s=nickname.toLowerCase().split` `,happy=s.indexOf("happy")+1,coding=s.indexOf("coding")+1
+  return happy?coding?happy<coding?1:2:4:coding?3:5
+}
+
+
+
+function happyCoding(s) {
+  s = s.toLowerCase().split(" ");
+  let i = s.indexOf("happy");
+  let j = s.indexOf("coding");
+  let k = s.indexOf("programmer");
+  if (i >= 0 && j > i) return 1;
+  if (j >= 0 && i > j) return 2;
+  if (j >= 0) return 3;
+  if (i >= 0) return 4;
+  return 5;
+}
+
+
+
+happyCoding=a=>/happy.*coding\b/i.test(a)?1:/coding.*happy/i.test(a)?2:/\bcoding\b/i.test(a)?3:/\bhappy\b/i.test(a)?4:5
+
+
+
+function happyCoding(s){
+  if(/\bhappy\b.*\bcoding\b/i.test(s)) return 1;
+  if(/\bcoding\b.*\bhappy\b/i.test(s)) return 2;
+  if(/\bcoding\b/i.test(s)) return 3;
+  if(/\bhappy\b/i.test(s)) return 4;
+  return 5;
+}
+
+
+
+function happyCoding(n){
+  n = n.toLowerCase().split(' ')
+  if(!n.includes('happy') && !n.includes('coding')) return 5
+  else if(n.includes('happy') && !n.includes('coding')) return 4
+  else if(n.includes('coding') && !n.includes('happy')) return 3
+  else if(n.indexOf('coding') < n.indexOf('happy')) return 2
+  else return 1  
+}
+
+
+
