@@ -31,3 +31,30 @@ function wrap(height, width, length) {
 console.log(wrap(17, 32, 11)); // 162
 console.log(wrap(13, 13, 13)); // 124
 console.log(wrap(1, 3, 1)); // 32
+
+
+
+
+function wrap(height, width, length){
+  return 2 * (height + width + length + Math.min(height, width, length) + 10);
+}
+
+
+
+const wrap = (height, width, length) =>
+  20 + 2 * (height + width + length + Math.min(height, width, length));
+
+
+
+function wrap(height, width, length){
+  //your code here
+  let [a,b,c] = [height,width,length].sort((x,y) => x-y)
+  return 2*(c+b) +a*4 + 20;
+}
+
+
+
+function wrap(height, width, length){
+  return Math.min(height, width, length) * 2 + 20 + (height + width + length) * 2;
+}
+
