@@ -100,3 +100,68 @@ function countGrade(scores) {
 console.log(countGrade([50, 60, 70, 80, 90, 100])); //  {S:1, A:1, B:1, C:2, D:1, X:0}
 console.log(countGrade([65, 75, , 85, 85, 95, 100, 100])); //  {S:2, A:1, B:2, C:2, D:0, X:0}
 console.log(countGrade([-1, -1, -1, -1, -1, -1])); //  {S:0, A:0, B:0, C:0, D:0, X:6}
+
+
+
+
+function countGrade(scores){
+  return {
+    'S': scores.filter(function(x){return x == 100}).length,
+    'A': scores.filter(function(x){return (x < 100 && x >= 90)}).length,
+    'B': scores.filter(function(x){return (x < 90 && x >= 80)}).length,
+    'C': scores.filter(function(x){return (x < 80 && x >= 60)}).length,
+    'D': scores.filter(function(x){return (x < 60 && x >= 0)}).length,
+    'X': scores.filter(function(x){return x == -1}).length,
+  };
+}
+
+
+
+countGrade = scores => ({
+    S: scores.filter(x => x >= 100).length,
+    A: scores.filter(x => x >=  90).filter(x => x < 100).length,
+    B: scores.filter(x => x >=  80).filter(x => x <  90).length,
+    C: scores.filter(x => x >=  60).filter(x => x <  80).length,
+    D: scores.filter(x => x >=   0).filter(x => x <  60).length,
+    X: scores.filter(x => x ==  -1).length
+  })
+
+
+
+function countGrade(arr){
+  get = (a,b) => arr.filter(i => i >= a && i < b).length
+  return {S:get(100,101), A:get(90,100), B:get(80,90), C:get(60,80), D:get(0,60), X:get(-1,0)} 
+}
+
+
+
+function countGrade(scores) {
+  const score = x => x >= 0 ? 'DDDDDDCCBAS'[~~(x / 10)] : 'X'
+  return scores.reduce((grades, s) => (grades[score(s)] += 1, grades), { S:0, A:0, B:0, C:0, D:0, X:0 })
+}
+
+
+
+const countGrade = scores =>
+  (fn => ({S: fn(100), A: fn(90, 100), B: fn(80, 90), C: fn(60, 80), D: fn(0, 60), X: fn(-1)}))
+  ((min, max = min + 1) => scores.filter(val => val >= min && val < max).length);
+
+
+
+function grade(marks) {
+  if (marks == 100) return "S";
+  if (marks >= 90) return "A";
+  if (marks >= 80) return "B";
+  if (marks >= 60) return "C";
+  if (marks >= 0) return "D";
+  return "X";
+}
+
+function countGrade(scores){
+  let result = {S: 0, A: 0, B: 0, C: 0, D: 0, X: 0};
+  scores.forEach(score => result[grade(score)] += 1);
+  return result;
+}
+
+
+
