@@ -39,3 +39,49 @@ console.log(
 // "I'm having trouble staying focussed.  Let's get some COFFEE."
 console.log(coffee("Coffee! Buy me a COFFEE!"));
 // "COFFEE! Buy me a COFFEE!"
+
+
+
+
+function coffee(str) {
+  return str.replace(/coffee/gi, word=> word.toUpperCase())
+}
+
+
+
+function coffee(str) {
+  let res= []
+  
+  str.split(' ').forEach(val => {
+    if(val.toLowerCase().includes('coffee')) res.push(val.toUpperCase())
+    else res.push(val)
+  })
+    
+    return res.join(' ')
+}
+
+
+
+function coffee(str) {
+        return str
+        .split(' ')
+        .map(word =>
+            word
+                .toLowerCase()
+                .includes('coffee') 
+                  ? word
+                      .toLowerCase()
+                      .replace('coffee', 'COFFEE') 
+                  : word
+        )
+        .join(' ')
+}
+
+
+
+function coffee(str) {
+  return str.replace(/\bCOFFEE\w?\b/gi, 'COFFEE')
+}
+
+
+
