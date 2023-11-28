@@ -47,3 +47,85 @@ console.log(howMuchCoffee(["CW"])); // 2
 console.log(howMuchCoffee(["cw", "CAT"])); // 3
 console.log(howMuchCoffee(["cw", "CAT", "DOG"])); // 'You need extra sleep'
 console.log(howMuchCoffee(["cw", "CAT", "cw=others"])); // 3
+
+
+
+
+function howMuchCoffee(e) {
+  var count=0;
+  for (var i=0; i<e.length; ++i)
+  {
+    if (e[i]=='cw' || e[i]=='cat' || e[i]=='dog' || e[i]=='movie')
+      count++;
+    if (e[i]=='CW' || e[i]=='CAT' || e[i]=='DOG' || e[i]=='MOVIE')
+      count+=2;  
+  }
+  return count>3?'You need extra sleep':count;
+}
+
+
+
+function howMuchCoffee(events) {
+  var coffeeCount = 0; 
+  events.forEach(function(entry) {
+    var matches = /^((cw|cat|dog|movie)|(CW|CAT|DOG|MOVIE))$/.exec(entry);
+    coffeeCount += matches ? (matches[2] ? 1 : (matches[3]? 2:0)):0;
+
+  });
+  return coffeeCount > 3 ? "You need extra sleep":coffeeCount;
+}
+
+
+
+
+function howMuchCoffee(events) {
+
+  const lower = /^(cw|dog|cat|movie)+$/
+  ,     upper = /^(CW|DOG|CAT|MOVIE)+$/
+  ,    coffee = events.reduce((a, b) => a + (lower.test(b) || upper.test(b) * 2), 0);
+      
+  return coffee > 3 ? 'You need extra sleep' : coffee;
+}
+
+
+
+
+function howMuchCoffee(events) {
+  var res = events.map(function(x){
+    return /^(cw|dog|cat|movie)$/.test(x) ? 1 : /^(CW|DOG|CAT|MOVIE)$/.test(x) ? 2 : x;
+  }).filter(x => /^[12]$/.test(x)).reduce((x,y) => x+y,0);
+  return res > 3 ? 'You need extra sleep' : res;
+}
+
+
+
+function howMuchCoffee(events) {
+  const validEvents = /^(cw|cat|dog|movie)$/i;
+  const coffes = events.filter(val => validEvents.test(val))
+    .reduce((sum, event) => sum + (event.toLowerCase() !== event ? 2 : 1), 0);
+  return coffes > 3 ? 'You need extra sleep' : coffes;
+}
+
+
+
+howMuchCoffee=(a,b=a.reduce((a,b)=>a+(/^(cw|dog|cat|movie)$/.test(b)?1:/^(CW|DOG|CAT|MOVIE)$/.test(b)?2:0),0))=>b>3?'You need extra sleep':b
+
+
+
+function howMuchCoffee(events) {
+  // count the events score
+  let count = events.reduce((sum,event) =>{
+    if (['dog','cat','cw','movie'].includes(event)) return sum + 1;
+    if (['DOG','CAT','CW','MOVIE'].includes(event)) return sum + 2;
+    return sum;
+  }, 0);
+  // return the appropriate string
+  return count > 3 ? 'You need extra sleep' : count;
+}
+
+
+
+function howMuchCoffee(events) {
+  let num = events.join(' ').replace(/DOG|CAT|CW|MOVIE/g,2).replace(/DOG|CAT|CW|MOVIE/gi,1).split(' ').reduce((a,c) => a+ (+c?+c:0),0);
+  return num>3? 'You need extra sleep' : num;
+}
