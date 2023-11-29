@@ -30,3 +30,43 @@ function unique(arr) {
 
 console.log(unique([4])); // [4]
 console.log(unique([1, 2, 2, 3])); // [1,2,3]
+
+
+
+
+const unique = arr =>
+  arr.filter((val, idx) => !arr.slice(0, idx).includes(val))
+
+
+
+function unique(arr) {
+  let encountered = {};  
+  return arr.filter(e => !encountered[e] ? (encountered[e] = true) : false);
+}
+
+
+
+function unique(arr) {
+return Array.from(new Set(arr)).filter(x => x > -Infinity)
+}
+
+
+
+
+function unique(arr) {
+  let s=new Set();
+  return arr.filter(v=>!s.has(v)&&s.add(v));
+}
+
+
+
+function unique(arr) {
+  return arr.sort().filter((v,i,a) => a[i - 1] !== v);
+}
+
+
+
+function unique(arr) {
+  const seen = new Set();
+  return arr.filter(v => !seen.has(v) && seen.add(v));
+}
