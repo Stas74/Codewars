@@ -21,3 +21,23 @@ function sort(initialArray, sortingArray) {
 }
 
 console.log(sort([1, 2, 3, 4, 5], [0, 2, 1, 4, 3])); // [1, 3, 2, 5, 4]
+
+
+
+
+const sort = (initialArray, sortingArray) =>
+  initialArray.map((_, idx) => initialArray[sortingArray.indexOf(idx)]);
+
+
+
+const sort = (a, i) => [...Array(a.length)].map((_,k)=> a[i.indexOf(k)]); 
+
+
+
+const sort = (initArr, sortArr) => sortArr.reduce((arr, el, i) => (arr[el] = initArr[i], arr), []);
+
+
+
+function sort(iArray, sArray){
+  return iArray.map(( element, i) => iArray[ sArray.indexOf(i) ]);
+}
