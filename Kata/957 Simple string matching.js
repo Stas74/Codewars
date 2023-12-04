@@ -39,3 +39,42 @@ console.log(solve("code*warrior", "codewars")); // false
 console.log(solve("c", "c")); // true
 console.log(solve("*s", "codewars")); // true
 console.log(solve("*s", "s")); // true
+
+
+
+const solve =(a,b) => new RegExp(`^${a.replace('*','.*')}$`).test(b);
+
+
+
+function solve(a,b){
+  let asterix = a.split('*')
+  if (asterix.length === 1){ return a === b }
+  return b.startsWith(asterix[0]) && b.endsWith(asterix[1]) && a.length <= b.length + 1
+}
+
+
+
+solve=(a,b)=>new RegExp('^'+a.replace('*','.*')+'$').test(b)
+
+
+
+function solve(a, b) {
+  const regexp = new RegExp('^' + a.replace('*', '.*') + '$');
+  return regexp.test(b);
+}
+
+
+
+const solve = (a, b) =>
+  new RegExp(`^${a.replace(`*`, `.*`)}$`).test(b);
+
+
+
+function solve(a,b){
+    a = a.replace("*", "\\S*");
+    var re = new RegExp(a);
+    return b.match(re) == b ? true : false
+}
+
+
+
