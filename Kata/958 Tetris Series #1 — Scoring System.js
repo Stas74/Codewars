@@ -84,3 +84,91 @@ console.log(
     1, 2, 2, 1, 1, 2, 1, 0, 0, 0, 3, 2, 3, 1, 4, 0, 3, 3, 4,
   ])
 ); // 47920
+
+
+
+
+
+function getScore(arr) {
+   let score = 0,
+       count = 0,
+       sum = 0,
+       level = 0;
+
+   for(let i = 0; i < arr.length; i++) {
+     count = count + arr[i];
+
+     switch (arr[i]){
+      case 0 : sum = 0;
+             break;
+      case 1 : sum = 40 + 40*level;
+              break;
+      case 2 : sum = 100 + 100*level;
+              break;   
+      case 3 : sum = 300 + 300*level;
+              break;    
+      case 4 : sum = 1200 + 1200*level;
+              break;        
+     }
+     score = score + sum;
+        if (count >= 10) {
+        count = count - 10;
+        level++;
+      }
+   }
+
+  return score;
+}
+
+
+
+const score = [0,40,100,300,1200]
+
+function getScore(arr) {
+  let level = 1
+  let line = 0
+  let result = 0
+  arr.forEach(item => {
+    result += score[item] * level
+    line += item
+    if(line >= 10 * level) level++
+  })
+  return result
+}
+
+
+
+function getScore(arr) {
+   const firstValues = [0, 40, 100, 300, 1200]
+   let linesCleared = 0
+   let level = 0
+   let score = 0
+   
+   for (let i = 0; i < arr.length; i++) {
+     linesCleared += arr[i]
+     score += firstValues[arr[i]] * (level + 1)
+     level = Math.floor(linesCleared / 10)
+   }
+   
+   return score  
+}
+
+
+
+function getScore(arr) {
+  const points = [0,40,100,300,1200]
+  let p = 1;
+  return arr.reduce((a,v,i)=>{
+    p+=arr[i-1]||0
+    return a+points[v]*Math.ceil(p/10)
+  },0)
+}
+
+
+
+const getScore = arr => arr.reduce((o, c) => (o.s += [0,40,100,300,1200][c] * (o.t / 10 | 0), o.t += c, o), {s: 0, t: 10}).s;
+
+
+
+const getScore = arr => 
+  arr.reduce((pre, val) => (pre[0] += [0, 40, 100, 300, 1200][val] * (pre[1] / 10 + 1 | 0), pre[1] += val, pre), [0, 0])[0];
