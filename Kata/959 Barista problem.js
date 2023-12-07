@@ -67,3 +67,61 @@ function barista(coffees) {
 console.log(barista([2, 10, 5, 3, 9])); // 85
 console.log(barista([4, 3, 2])); // 22
 console.log(barista([20, 5])); // 32
+
+
+
+
+function barista(coffees){
+  //TODO: Maths are cool!
+  
+  // 0 + 2 + 4 + 6 + 8
+  // 0 + 2(1) + 2(2) + 2(3) + 2(4)
+  
+  var sum = 0;
+  var coffees = coffees.sort(function(a, b) {return a - b;});
+  console.log(coffees);
+  coffees.reduce(
+    (previousValue, currentValue, currentIndex) => {
+      var waitTime = currentIndex < 1 ? currentValue : previousValue + currentValue + 2;
+      console.log(waitTime);
+      sum += waitTime;
+      return waitTime;
+    }, 0);
+  return sum;
+}
+
+
+
+function barista(coffees){
+    let cleanTime = 2
+    let line = coffees.sort((a, b) => a - b)
+    let time = 0
+    while(line.length){
+        time += line[0] * line.length
+        line.shift()
+        time += cleanTime * line.length
+    }
+    return time
+  }
+
+
+
+const barista = (arr) => 
+  [...arr.sort((a, b)=> a - b)].reduce((acc, el, i, arr) => acc + (arr.slice(0, i).reduce((ac, e) => ac + e +2, 0) + el), 0)
+
+
+
+function barista(coffees){
+    coffees = coffees.sort((a, b) => a - b);
+    let totalTime = 0;
+    let sum = 0;
+    for (let i = 0; i < coffees.length; i++) {
+      sum += (i === 0) ? coffees[i] : coffees[i] + 2;
+      totalTime += (i === 0) ? coffees[0] : sum;
+    }
+    return totalTime;
+}
+
+
+
+barista=a=>a.sort((a,b)=>a-b).reduce((a,b,c)=>c?[...a,a.slice(-1)[0]+b+2]:[b],[]).reduce((a,b)=>a+b,0)
