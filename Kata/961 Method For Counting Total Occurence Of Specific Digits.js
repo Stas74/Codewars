@@ -63,3 +63,93 @@ integersList = [1, 1, 2, 3, 1, 2, 3, 4];
 digitsList = [1, 3];
 
 console.log(l.countSpecDigits(integersList, digitsList)); // [[1, 3], [3, 2]]
+
+
+
+
+function List() {
+  this.countSpecDigits = function (integersList, digitsList) {
+    var result = [];
+    for (var i = 0; i < digitsList.length; i++) {
+      result.push([
+        digitsList[i],
+        integersList.join().split(digitsList[i]).length - 1,
+      ]);
+    }
+    return result;
+  };
+}
+
+
+
+class List {
+  countSpecDigits (integersList, digitsList) {
+    return digitsList.map(val => [val, `${integersList}`.split(val).length - 1]);
+  }
+}
+
+
+
+class List { countSpecDigits(array, digits) { return digits.map(digit => [digit, array.join``.split(digit).length - 1]); } }
+
+
+
+function List(){
+  this.countSpecDigits=function(integersList, digitsList){
+    //your code here
+    return digitsList.map(el => [el, (integersList.join("")).split(el).length -1]);
+  }
+}
+
+
+
+class List {
+  countSpecDigits (i, d) {
+    d = d.map(e => [e, 0]);
+    return i.reduce((r, e) => r.concat(Math.abs(e).toString().split``), [])
+            .reduce((r, e) => d.map(d => d[0] == e ? [d[0], ++d[1]] : d) , d);
+  }
+}
+
+
+
+function List() {
+  this.countSpecDigits = (intList, digitList) => digitList.map(digit => [digit, intList.join('').split(digit).length - 1]);
+}
+
+
+
+function List() {
+  this.countSpecDigits = function (integersList, digitsList) {
+    let digs = [...integersList.join('')];
+    let result = [];
+    digitsList.forEach(digit => {
+      let x = digs.reduce((acc, el) => {
+        return (+el == digit) ? acc += 1 : acc;
+      }, 0);
+      result.push([digit, x]);
+    });
+
+    return result;
+  };
+}
+
+
+
+function List(){}
+List.prototype.countSpecDigits = function(nums, digits) {
+  let counts = {};
+  
+  nums.forEach(n => {
+    n = (n<0 ? -n : n).toString(10).split('');
+    n.forEach(digit => {
+      counts[digit] = (counts[digit] || 0) + 1;
+    });
+  });
+  
+  return digits.map(e => [e, (counts[e] || 0)]) 
+};
+
+
+
+
