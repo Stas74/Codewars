@@ -31,3 +31,50 @@ console.log(steer(1, 1)); // "R: 45"
 console.log(steer(1, 0)); // "R: 90"
 console.log(steer(-1, Math.sqrt(3))); // "L: 30"
 console.log(steer(0, 1)); // "R: 0"
+
+
+
+
+const steer = (x, y) => (angle = Math.atan2(x, y) * 180 / Math.PI, `${angle < 0 ? 'L' : 'R'}: ${Math.round(Math.abs(angle) * 100) / 100}`);
+
+
+
+var steer = function(x, y) {
+  let deg = Math.atan2(-x, y) * 180 / Math.PI
+  return 'RL'[+(deg>0)] + ': ' + +Math.abs(deg).toFixed(2)
+}
+
+
+
+var steer = function(x, y) {
+    var s;
+    if (x>=0)
+      s=Math.atan(x/y)*180/Math.PI;
+    else
+      s=Math.atan(-x/y)*180/Math.PI;
+    if (s<0||(x==0 && y<0))
+      s+=180;
+    s=Math.round(s*100)/100;
+    return x>0?'R: '+s:'L: '+s;
+}
+
+
+
+var steer = function(x, y) {
+  const direction = +(Math.atan2(x, y) * 180 / Math.PI).toFixed(2);
+  if (direction < 0) {
+    return `L: ${-direction}`;
+  } else {
+    return `R: ${direction}`;
+  }
+}
+
+
+
+function steer(x, y) {
+  let d = 90 - Math.atan2(y, x) * 180 / Math.PI;
+  d = d > 180 ? d - 360 : d;
+  return `${'RL'[+(d < 0)]}: ${+Math.abs(d).toFixed(2)}`;
+}
+
+
