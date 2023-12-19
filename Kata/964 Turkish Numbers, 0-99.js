@@ -84,3 +84,119 @@ console.log(getTurkishNumber(0)); // "sıfır"
 console.log(getTurkishNumber(16)); // "on altı"
 console.log(getTurkishNumber(26)); // "yirmi altı"
 console.log(getTurkishNumber(70)); // "yetmiş"
+
+
+
+
+const getTurkishNumber = (num) => {
+    let nums = {
+        0: 'sıfır',
+        1: 'bir',
+        2: 'iki',
+        3: 'üç',
+        4: 'dört',
+        5: 'beş',
+        6: 'altı',
+        7: 'yedi',
+        8: 'sekiz',
+        9: 'dokuz',
+        10: 'on',
+        20: 'yirmi',
+        30: 'otuz',
+        40: 'kırk',
+        50: 'elli',
+        60: 'altmış',
+        70: 'yetmiş',
+        80: 'seksen',
+        90: 'doksan',
+    }
+
+    if (num in nums) return nums[num];
+    else {
+        return nums[num.toString().split('')[0] + '0'] + ' ' + nums[num.toString().split('')[1]]
+    }
+}
+
+
+
+const getTurkishNumber = num =>
+  (obj => obj[num] || `${obj[num - num % 10]} ${obj[num % 10]}`)
+  ({0 : `sıfır`, 1 : `bir`, 2 : `iki`, 3 : `üç`, 4 : `dört`, 5 : `beş`, 6 : `altı`, 7 : `yedi`, 8 : `sekiz`, 9 : `dokuz`, 10 : `on`, 20 : `yirmi`, 30 : `otuz`, 40 : `kırk`, 50 : `elli`, 60 : `altmış`, 70 : `yetmiş`, 80 : `seksen`, 90 : `doksan`});
+
+
+
+const getTurkishNumber = (num) => {
+	const first = ['sıfır','bir','iki','üç','dört','beş','altı','yedi','sekiz','dokuz']
+    const second = ['on','yirmi','otuz','kırk','elli','altmış','yetmiş','seksen','doksan']
+    return num < 10 ? first[num] : num % 10 ? second[Math.floor(num / 10 - 1)]+' '+ first[num%10]: second[num/10 - 1]
+}
+
+
+
+// ...
+var getTurkishNumber = (num) => {
+    const dic = { 0:'sıfır', 1:'bir',2:'iki',3:'üç',4:'dört',5:'beş',6:'altı',
+              7:'yedi',8:'sekiz',9:'dokuz', 10:'on',20:'yirmi',30:'otuz',
+             40:'kırk',50:'elli',60:'altmış',70:'yetmiş',80:'seksen',90:'doksan'}
+  
+  return num < 11 ? dic[num] : num < 20 ? `${dic[10]} `+dic[num-10] : num === 20 ? dic[num] : num < 30 ? `${dic[20]} ` + dic[num-20] : num === 30 ? dic[num] : num < 40 ? `${dic[30]} `+dic[num-30] : num === 40 ? dic[num] : num < 50 ? `${dic[40]} `+dic[num-40] : num === 50 ? dic[num] : num < 60 ? `${dic[50]} `+dic[num-50] : num === 60 ? dic[num] : num < 70 ? `${dic[60]} `+dic[num-60] : num === 70 ? dic[num] : num < 80 ? `${dic[70]} `+dic[num-70] : num === 80 ? dic[num] : num < 90 ? `${dic[80]} `+dic[num-80] : num === 90 ? dic[num] : `${dic[90]} `+dic[num-90];
+}
+
+
+
+const getTurkishNumber = (num) => {
+  var ans=''
+  var arr=['sıfır','bir','iki','üç','dört','beş','altı','yedi','sekiz','dokuz'];
+  var arr2=['','on','yirmi','otuz','kırk','elli','altmış','yetmiş','seksen','doksan'];
+  if (Math.floor(num/10)>0)
+    ans+=arr2[Math.floor(num/10)];
+  if (num%10!=0 && ans!='')
+    ans+=' '+arr[num%10];
+  if (num<10)
+    return arr[num];
+  return ans;
+}
+
+
+
+const getTurkishNumber = (num) => {
+const str = `${num}`;
+const turkishNames = {
+    0: 'sıfır',
+    1: 'bir',
+    2: 'iki',
+    3: 'üç',
+    4: 'dört',
+    5: 'beş',
+    6: 'altı',
+    7: 'yedi',
+    8: 'sekiz',
+    9: 'dokuz',
+    10: 'on',
+    20: 'yirmi',
+    30: 'otuz',
+    40: 'kırk',
+    50: 'elli',
+    60: 'altmış',
+    70: 'yetmiş',
+    80: 'seksen',
+    90: 'doksan',
+};
+return turkishNames[num] ?? `${turkishNames[str[0] + 0]} ${turkishNames[str[1]]}`
+}
+
+
+
+const getTurkishNumber = (num) => {
+	let underTen = {0 : 'sıfır', 1 : 'bir', 2 : 'iki', 3 : 'üç',
+                4 : 'dört', 5 : 'beş', 6 : 'altı', 7 : 'yedi',
+                8 : 'sekiz', 9 : 'dokuz'}
+  
+let tens = {10 : 'on', 20 : 'yirmi', 30 : 'otuz',
+            40 : 'kırk', 50 : 'elli', 60 : 'altmış',
+            70 : 'yetmiş', 80 : 'seksen', 90 : 'doksan'}
+
+let firstDigit = Math.floor(num/10) * 10;
+
+return num<10 ? underTen[num] : num % 10 == 0 ? tens[num] : tens[firstDigit] + " " + underTen[num%10];
+}
