@@ -22,3 +22,56 @@ function lottery(str) {
 
 console.log(lottery("wQ8Hy0y5m5oshQPeRCkG")); // "805"
 console.log(lottery("ffaQtaRFKeGIIBIcSJtg")); // "One more run!"
+
+
+
+
+function lottery(str){
+   res = str.replace(/[a-zA-Z]/g,'')
+     .split('')
+     .filter((x,n,s) => s.indexOf(x) == n)
+     .join('');
+   return res ? res : 'One more run!'
+}
+
+
+
+const lottery = str => [...new Set(str.match(/\d/g)).values()].join('') || 'One more run!';
+
+
+
+function lottery(str){
+  return [...new Set(str.replace( /\D/g, '' ))].join('') || "One more run!"
+}
+
+
+
+const lottery = str =>
+  [...new Set(str.replace(/\D/g, ``))].join(``) || `One more run!`;
+
+
+
+lottery = s => (s.match(/\d/g)||[]).reduce((a,n)=>a.indexOf(n)<0?[...a,n]:a,[]).join``||'One more run!'
+
+
+
+function lottery(str){
+  const chars = str.split("");
+  const digitsFiltered = chars.filter(char => char >= 0)
+  const removedDuplicatedDigits = [...new Set(digitsFiltered)].join("")
+  
+  return removedDuplicatedDigits.length > 0 ? removedDuplicatedDigits : "One more run!"
+}
+
+
+
+function lottery(str) {
+  let a = str
+    .split("")
+    .map((x) => +x)
+    .filter((x) => x >= 0);
+
+  if (typeof a[0] === "number") {
+    return [...new Set(a)].join("");
+  } else return "One more run!";
+}
