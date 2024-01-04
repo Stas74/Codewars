@@ -30,3 +30,35 @@ function binaryPyramid(m, n) {
 
 console.log(binaryPyramid(1, 4)); // "1111010"
 console.log(binaryPyramid(1, 6)); // "101001101"
+
+
+
+
+function BinaryPyramid(m, n) {
+  let sm = 0;
+  for (let i = m; i <= n; i++)     
+     sm += parseInt(i.toString(2));  
+  return sm.toString(2);
+}
+
+
+
+function BinaryPyramid(m,n){
+  return [...Array(n-m+1)].reduce((a,b,i)=>a+ +(m+i).toString(2),0).toString(2);
+}
+
+
+
+const BinaryPyramid = (m, n) => Array.from( {length:n-m+1}, (_,i) => (i + m).toString(2) ).reduce((acc, el) => acc + +el, 0).toString(2)
+
+
+
+const BinaryPyramid = (m, n) => Array(n - m + 1)
+  .fill(0)
+  .map((_, i) => m + i)
+  .reduce((s, n) => s + +n.toString(2), 0)
+  .toString(2);
+
+
+
+const BinaryPyramid = (m, n) => Array.from(Array(n - m + 1), (_, i) => i + m).map(i => +i.toString(2)).reduce((a, b) => a + b, 0).toString(2)
