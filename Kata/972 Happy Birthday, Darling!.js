@@ -25,3 +25,42 @@ function womensAge(n) {
 console.log(womensAge(32)); // "32? That's just 20, in base 16!"
 console.log(womensAge(39)); // "39? That's just 21, in base 19!"
 console.log(womensAge(22)); // "22? That's just 20, in base 11!"
+
+
+
+
+function womensAge(n) {
+  let alternativeAgeBase = Math.floor(n/2);
+  let alternativeAge = n%2? 21: 20;
+  
+  return `${n}? That\'s just ${alternativeAge}, in base ${alternativeAgeBase}!`;
+}
+
+
+
+const womensAge = ($) => $ % 2 ? `${$}? That's just 21, in base ${Math.floor($ / 2)}!` : `${$}? That's just 20, in base ${Math.floor($ / 2)}!` 
+
+
+
+const womensAge = n =>
+  `${n}? That's just 2${n % 2}, in base ${n / 2 ^ 0}!`;
+
+
+
+function womensAge(n) {
+  return `${n}? That's just ${20 + n % 2}, in base ${~~(n / 2)}!`;
+}
+
+
+
+const womensAge = (n) =>
+  n +
+  "? That's just " +
+  (20 + (n % 2)) +
+  ", in base " +
+  (10 + (n - (20 + (n % 2))) / 2) +
+  "!";
+
+
+
+const womensAge = (n) => `${n}? That's just ${20 + n % 2}, in base ${n / 2 | 0}!`;
