@@ -19,3 +19,40 @@ function squareOrSquareRoot(array) {
 
 console.log(squareOrSquareRoot([4, 3, 9, 7, 2, 1])); // [ 2, 9, 3, 49, 4, 1 ]
 console.log(squareOrSquareRoot([100, 101, 5, 5, 1, 1])); // [ 10, 10201, 25, 25, 1, 1 ]
+
+
+
+function squareOrSquareRoot(array) {
+  return array.map(x => {
+    const r = Math.sqrt(x);
+    return (r % 1 == 0) ? r : (x * x);
+  });  
+}
+
+
+
+const squareOrSquareRoot = array => array.map(a => Math.sqrt(a) % 1 == 0 ? Math.sqrt(a) : (a * a));
+
+
+
+function squareOrSquareRoot(array) {
+  return array.map(x => {
+    const n = Math.sqrt(x)
+    return Number.isInteger(n) ? n : x * x
+  })
+}
+
+
+
+function squareOrSquareRoot(array) {
+  return array.map(e => Number.isInteger(Math.sqrt(e)) ? Math.sqrt(e) : e*e);  
+}
+
+
+
+const squareOrSquareRoot = $ => $.map(el => el**.5 % 1 ? el*el : el**.5)
+
+
+
+const squareOrSquareRoot = array =>
+  array.map(val => Number.isInteger(val ** .5) ? val ** .5 : val ** 2);
