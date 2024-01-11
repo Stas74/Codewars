@@ -35,3 +35,36 @@ String.prototype.eachChar = function (n) {
 console.log("hello".eachChar(" ")); // "h e l l o "
 console.log("hello".eachChar("123")); // "h123e123l123l123o123"
 console.log("hello".eachChar(c => c.toUpperCase())); // "h123e123l123l123o123"
+
+
+
+
+String.prototype.eachChar = function(fn) {
+  return [...this]
+    .map((typeof fn === 'string') ? c => c + fn : fn)
+    .join('');
+};
+
+
+
+String.prototype.eachChar = function (x) {
+  return this.replace(/(.)/g, typeof x == "string" ? "$1" + x : x)
+}
+
+
+
+String.prototype.eachChar = function(f){  
+  var mapFunc = f instanceof Function ? f : function(char){
+    return char + f;
+  }  
+  return Array.prototype.map.call(this, mapFunc).join("");  
+}
+
+
+
+String.prototype.eachChar = function(arg) {
+  return typeof arg === 'string' ? [...this].map(el => el + arg).join('') : [...this].map(el => arg(el)).join('');
+}
+
+
+
