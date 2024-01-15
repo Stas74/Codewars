@@ -21,7 +21,6 @@ function Node(data) {
 
 function getNth(node, index) {
   if (!node) throw new Error("Invalid node at " + index);
-
   return index === 0 ? node : getNth(node.next, index - 1);
 }
 
@@ -47,3 +46,108 @@ let list123 = buildOneTwoThree();
 console.log(getNth(list123, 1)); // 2
 console.log(getNth(list123, 2)); // 3
 console.log(getNth(list123, 100)); // "Invalid index value should throw error."
+
+
+
+
+function Node(data) {
+  this.data = data;
+  this.next = null;
+}
+
+function getNth(node, index) {
+  // Your code goes here.
+  if (index < 0) {
+    throw new Exception("index below zero");
+  } else if (index % 1 != 0) {
+    throw new Exception("index not integer enough")
+  } else if (!node) {
+    throw new Exception("index later than end of list");
+  } else if (index == 0) {
+    return node;
+  } else {
+    return getNth(node.next, index - 1);
+  }
+}
+
+
+
+
+
+class Node {
+  constructor (data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+const getNth = (node, i) => {
+  if (!node) throw 'Invalid node';
+  while (i--) {
+    const next = node.next
+    if (next) node = next;
+    else throw 'Invalid index value'; 
+  }
+  return node;
+}
+
+
+
+
+
+function Node(data) {
+  [ this.data, this.next ] = [ data, null ];
+}
+
+function getNth(node, index = 0){
+  if ( node && !index ) return node;
+  return getNth(node.next, index - 1)
+} 
+
+
+
+
+
+function Node(data) {
+  this.data = data;
+  this.next = null;
+}
+
+function getNth(node, index) {
+  if (!node) throw true;
+  return index === 0 ? node : getNth(node.next, index - 1);
+}
+
+
+
+
+
+
+
+class Node {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+  }
+}
+
+const getNth = (node, index) =>
+  !node ? (() => {throw new Error()})() : index ? getNth(node.next, --index) : node;
+
+
+
+
+
+
+
+function Node(data) {
+  this.data = data;
+  this.next = null;
+}
+
+function getNth(node, index) {
+  if (node != null)
+    return index == 0 ? node : getNth(node.next, index - 1);
+  else
+    throw "invalid argument";  
+}
