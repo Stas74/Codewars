@@ -46,3 +46,41 @@ console.log(myFirstKata(3, 5)); // 3 % 5 + 5 % 3
 console.log(myFirstKata("hello", 3)); // false
 console.log(myFirstKata(true, true)); // false
 console.log(myFirstKata(19483, 9)); // 9 % 19483 + 19483 % 9
+
+
+
+
+function myFirstKata(a,b) {
+  if (typeof a!="number"||typeof b!="number") return false;
+  return a % b + b % a
+}
+
+
+
+
+function myFirstKata(a, b) {
+  if ([a, b].some(x => typeof x !== 'number')) return false;
+  return (a % b) + (b % a);
+}
+
+
+
+var myFirstKata =(a, b)=> (+a === a && +b === b) ? (a % b + b % a) : !!0
+
+
+
+
+const myFirstKata = (a, b) => 
+  +a === a && +b === b ? a % b + b % a : false;
+
+
+
+
+const areNumber = (...ns) => ns.every(n => typeof n === 'number');
+const myFirstKata = (a, b) => areNumber(a, b) ? a % b + b % a : false;
+
+
+
+function myFirstKata(a, b) {
+  return a % b + b % a || false;
+}
