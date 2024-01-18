@@ -31,3 +31,33 @@ const numberGrid = [
 ];
 
 console.log(gridMap((x) => x + 1, numberGrid)); // [[2,3,4,5],[6,7,8,9,10],[1,3,5]]
+
+
+
+
+function gridMap(fn, a) {
+  return a.map((x) => x.map(fn));
+}
+
+
+
+const gridMap = (fn, a) =>
+  a.map(val => val.map(fn));
+
+
+
+function gridMap(fn, a) {
+  let lst = [];
+  for (let i of a) {
+    lst.push(i.map(fn));
+  }
+  return lst;
+}
+
+
+
+const gridMap = G = (fn, a) =>
+   a.map?.(G.bind(null, fn)) ?? fn(a);
+
+
+
