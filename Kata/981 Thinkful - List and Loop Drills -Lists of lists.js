@@ -22,3 +22,31 @@ function processData(data) {
 
 console.log(processData([[2, 5], [3, 4], [8, 7]])); // 3
 console.log(processData([[2, 9], [2, 4], [7, 5]])); // 28
+
+
+
+function processData(data){
+  return data.reduce((a, [b, c]) => a * (b - c), 1)
+}
+
+
+
+function processData(data){
+  return data.map(el => el[0] - el[1]).reduce((result, el) => result * el) 
+}
+
+
+
+function processData(data){
+  //your code here
+  let result = 1;
+
+    for(let i = 0;i<data.length;i++){
+      result *= data[i][0] - data[i][1]
+    }
+  
+  return result;
+}
+
+
+
