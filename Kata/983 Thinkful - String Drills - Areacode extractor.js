@@ -19,3 +19,40 @@ function areaCode(text) {
 console.log(areaCode("The supplier's phone number is (555) 867-5309")); // '555'
 console.log(areaCode("Grae's cell number used to be (123) 456-7890")); // '123'
 console.log(areaCode("The 102nd district court's fax line is (124) 816-3264")); // '124'
+
+
+
+
+function areaCode(text) {
+  return text.slice(text.indexOf('(') + 1, text.indexOf(')'));
+}
+
+
+function areaCode(text) {
+  return text.match(/\((\d{3})\)/)[1];
+}
+
+
+function areaCode(s) {
+  return s.replace(/^.*\(|\).*$/g, "");
+}
+
+
+function areaCode(text) {
+  let arr = text.split('(')
+  return arr[1].slice(0, 3)
+}
+
+
+const areaCode = text =>
+  text.match(/\d+(?=\))/)[0];
+
+
+function areaCode(text) {
+  return text.slice(text.indexOf("(")).match(/\d+/)[0];
+}
+
+
+function areaCode(text) {
+  return text.match(/(?<=\()\d{3}(?=\))/).toString();
+}
