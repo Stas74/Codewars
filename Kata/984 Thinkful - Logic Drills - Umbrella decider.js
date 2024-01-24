@@ -23,3 +23,37 @@ console.log(takeUmbrella("sunny", 0.4)); // false
 console.log(takeUmbrella("rainy", 0)); // true
 console.log(takeUmbrella("cloudy", 0.2)); // false
 console.log(takeUmbrella("sunny", 0.62)); // true
+
+
+
+
+function takeUmbrella(weather, chance) {
+  return weather == 'rainy' ||  (weather == 'cloudy' && chance > 0.2) || (weather == 'sunny' && chance > 0.5);
+}
+
+
+
+const takeUmbrella = (weather, chance) =>
+  weather === `rainy` || chance > .5 || weather === `cloudy` && chance > .2;
+
+
+function takeUmbrella(weather, chance) {
+  switch(weather) {
+    case 'sunny': return chance > 0.5
+    case 'rainy': return true
+    case 'cloudy': return chance > 0.2
+    default: return false
+  }
+}
+
+
+
+function takeUmbrella(weather, chance) {
+  if(weather == "rainy") return true;
+  if(weather == "cloudy" && chance > 0.2) return true;
+  if(weather == "sunny" && chance > 0.5) return true;
+  return false;
+}
+
+
+
