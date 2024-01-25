@@ -29,3 +29,44 @@ function quadraticFormula(a, b, c) {
 
 console.log(quadraticFormula(2, 16, 1)); // [-7.937003937005906, -0.06299606299409444]
 console.log(quadraticFormula(4, 21, 3)); // [-5.103028450199876, -0.14697154980012384]
+
+
+
+
+function quadraticFormula(a, b, c) {
+  // code goes here
+  var determinant = b * b - 4 * a * c
+  var root1 = (-b + Math.sqrt(determinant))/(2 * a)
+  var root2 = (-b - Math.sqrt(determinant))/(2 * a)
+  return [root1, root2];
+}
+
+
+
+const quadraticFormula = (a, b, c) =>
+  [(-b + Math.sqrt(b * b - 4 * a * c)) / (2 * a),
+   (-b - Math.sqrt(b * b - 4 * a * c)) / (2 * a)]
+
+
+
+function quadraticFormula(a, b, c) {
+  const root = m => (-b + m * Math.sqrt(b * b - 4 * a * c)) / (2 * a);
+  return [ root(-1), root(+1) ];
+}
+
+
+
+quadraticFormula = (a, b, c, d = Math.sqrt(b * b - 4 * a * c)) => [
+  (-b + d) / 2 / a,
+  (-b - d) / 2 / a,
+];
+
+
+
+
+function quadraticFormula(a, b, c) {
+    return [((-b + (Math.sqrt((b * b) - (4 * a * c)))) / (2 * a)), ((-b - (Math.sqrt((b * b) - (4 * a * c)))) / (2 * a))];
+}
+
+
+
