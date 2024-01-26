@@ -24,3 +24,27 @@ function celsiusToRomer(temp) {
 console.log(celsiusToRomer(24)); // 20.1
 console.log(celsiusToRomer(8)); // 11.7
 console.log(celsiusToRomer(29)); // 22.725
+
+
+
+function celsiusToRomer(temp) {
+  var celsius = temp;
+  var romer = ((celsius * 21) / 40) + 7.5;
+  return romer;
+}
+
+
+
+function celsiusToRomer(temp) {
+  return temp * 0.525 + 7.5;
+}
+
+
+
+const celsiusToRomer = temporary => temporary * 0.525 + 7.5
+
+
+
+function celsiusToRomer(x) {
+  return x * 21 / 40 + 7.5;
+}
