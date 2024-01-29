@@ -27,3 +27,52 @@ function boxCapacity(length, width, height) {
 console.log(boxCapacity(32, 64, 16)); // 13824
 console.log(boxCapacity(20, 20, 20)); // 3375
 console.log(boxCapacity(79, 80, 59)); // 155760 fractional part
+
+
+
+
+const boxCapacity = (...args) =>
+  args.reduce((pre, val) => pre * (val * 3 >> 2), 1);
+
+
+
+function boxCapacity(length, width, height) {
+  var ltoInches = length * 12;
+  var wtoInches = width * 12;
+  var htoInches = height * 12;
+
+  var lengthCapacity = Math.floor(ltoInches / 16);
+  var widthCapacity = Math.floor(wtoInches / 16);
+  var heightCapacity = Math.floor(htoInches / 16);
+
+  return lengthCapacity * widthCapacity * heightCapacity; //code here
+}
+
+
+
+const boxCapacity = (length, width, height) =>  (length  / 1.33333 | 0) * (width  / 1.333333 | 0) * (height / 1.333333 | 0)
+
+
+
+const boxCapacity = (...size) => size.reduce((a, b) => a * (b * 3 / 4 | 0), 1);
+
+
+
+const boxCapacity = (..._) => _.reduce((c, d) => c * ~~(d * 0.75), 1);
+
+
+
+
+function boxCapacity(length, width, height) {
+  length = Math.floor((length * 12) / 16);
+  width = Math.floor((width * 12) / 16);
+  height = Math.floor((height * 12) / 16);
+  return length * width * height; //code here
+}
+
+
+
+function boxCapacity(length, width, height) {
+  var boxSide = 16 / 12;
+ return Math.floor(length / boxSide) * Math.floor( width / boxSide) * Math.floor( height / boxSide);
+}
