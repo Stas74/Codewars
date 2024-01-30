@@ -52,3 +52,36 @@ String.prototype.toString = function () {
 console.log(true.toString()); // "true"
 console.log(false.toString()); // "false"
 console.log((1234).toString()); // "1234"
+
+
+
+Boolean.prototype.toString = Number.prototype.toString = Array.prototype.toString =
+function() { return JSON.stringify(this); }
+
+
+
+Number.prototype.toString = function() {return "" + this;}
+Array.prototype.toString = function() {return "[" + this.join(",") + "]";}
+Boolean.prototype.toString = function() {return "" + this;}
+Object.prototype.toString = function() {return "" + this;}
+
+
+
+[Boolean, Number, Array].forEach( obj => obj.prototype.toString = function(){ return JSON.stringify(this) } );
+
+
+
+[Number, Boolean, Array].forEach(val => val.prototype.toString = function () {
+  return JSON.stringify(this);
+});
+
+
+
+// Recover toString() here :)
+String.prototype.toString = function(){
+return new String(this);
+}
+
+
+
+
