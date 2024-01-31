@@ -18,3 +18,27 @@ function arrayPlusArray(arr1, arr2) {
 console.log(arrayPlusArray([1, 2, 3], [4, 5, 6])); // 21
 console.log(arrayPlusArray([-1, -2, -3], [-4, -5, -6])); // -21
 console.log(arrayPlusArray([100, 200, 300], [400, 500, 600])); // 2100
+
+
+
+
+function arrayPlusArray(arr1, arr2) {
+  let arr = [...arr1, ...arr2];
+  return arr.reduce((a, b) => a + b);
+}
+
+
+
+function arrayPlusArray(...arrays) {
+  return [].concat(...arrays).reduce((a,b) => a + b,0)
+}
+
+
+
+const arrayPlusArray = (arr1, arr2) => [...arr1, ...arr2].reduce((a, b) => a + b, 0);
+
+
+
+function arrayPlusArray(arr1, arr2) {
+  return arr1.reduce((sum, cur) => sum + cur) + arr2.reduce((sum, cur) => sum + cur);
+}
