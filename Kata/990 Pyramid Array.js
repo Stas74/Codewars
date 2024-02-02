@@ -22,3 +22,39 @@ console.log(pyramid(0)); // []
 console.log(pyramid(1)); // [[1]]
 console.log(pyramid(2)); // [[1], [1, 1]]
 console.log(pyramid(3)); // [[1], [1, 1], [1, 1, 1]]
+
+
+
+
+function pyramid(n) {
+  const res = [];
+  for(let i = 0; i < n; i++){
+    res.push([...Array(i+1)].fill(1))
+  }
+  return res;
+}
+
+
+
+function pyramid(n) {
+  return Array(n).fill().map((e,i) => Array(i+1).fill(1))
+}
+
+
+
+
+const pyramid = n => Array(n).fill(1).map((x, i) => Array(i + 1).fill(1))
+
+
+
+
+function pyramid(n) {
+  let arr = (n > 0) ? [[1]] : [];
+  for (let i = 0; i < n - 1; i++) {
+    arr.push([...arr[i], 1]);
+  }
+  return arr;
+}
+
+
+
