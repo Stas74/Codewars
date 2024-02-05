@@ -29,3 +29,38 @@ console.log(mathEngine([1, 2, 3, -4, -5])); // -3
 console.log(mathEngine([2])); // 2
 console.log(mathEngine([-5])); // -4
 console.log(mathEngine([0, -5])); // -5
+
+
+
+
+const mathEngine = (array) => array === null ? 0 : array.filter(el => el < 0).reduce((a, b)=> a + b, 0) + array.filter(el => el > -1).reduce((a, b)=> a * b, 1)
+
+
+
+function mathEngine(arr) {
+    return (arr)?
+        arr.filter(x => x >= 0).reduce((a, b) => a * b, 1) +
+        arr.filter(x => x < 0).reduce((a, b) => a + b, 0) :
+        0;
+}
+
+
+
+const mathEngine = a => a === null ? 0 : a.reduce((p, x) => (x < 0 ? p[0] += x : p[1] *= x, p), [0, 1]).reduce((a, b) => a + b);
+
+
+
+function mathEngine(arr) {  
+  if (!arr)
+    return 0;
+  
+  let prod = 1;
+  let sum = 0;
+  
+  for (let num of arr)
+    if (num >= 0) 
+      prod *= num;
+    else
+      sum += num;
+  return prod + sum;  
+}
