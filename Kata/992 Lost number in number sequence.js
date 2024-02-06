@@ -25,3 +25,36 @@ console.log(
 console.log(
   findDeletedNumber([1, 2, 3, 4, 5, 6, 7, 8, 9], [5, 7, 6, 9, 4, 8, 1, 2, 3])
 ); // 0
+
+
+
+function findDeletedNumber(arr, mixArr) {
+  return arr.filter((v) => mixArr.indexOf(v) == -1)[0] || 0;
+}
+
+
+
+const findDeletedNumber = (arr, mixArr) =>
+  arr.find(val => !mixArr.includes(val)) || 0;
+
+
+
+function findDeletedNumber(arr, mixArr) {
+  return arr.find ((element) => {return !mixArr.includes (element)}) || 0;
+}
+
+
+
+function findDeletedNumber(a, b) {
+  return [...a, ...b].reduce((c,d) => c ^ d, 0);
+}
+
+
+
+const findDeletedNumber = (arr, mixArr) => {
+  for (let n of arr) {
+    if (!mixArr.includes(n)) return n
+  }
+
+  return 0
+}
