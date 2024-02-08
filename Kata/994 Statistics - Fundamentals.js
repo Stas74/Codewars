@@ -61,3 +61,158 @@ console.log(myData1.data); // [1,2,3,4,5,6,7]
 console.log(myData1.mean); // 4
 console.log(myData1.variance); // 4
 console.log(myData1.stdDeviation); // 2
+
+
+
+
+function mean(list) {
+	return list.reduce((sum, n) => sum + n) / list.length;
+}
+
+class DataSet {
+	constructor(...data) {
+  	this.data = data;
+    this.setMean();
+    this.setVar();
+	}
+  
+  setMean() {
+  	return this.mean = mean(this.data);
+  }
+  
+  setVar() {
+  	const m = mean(this.data);
+		this.variance = mean(this.data.map(x => (x - m) ** 2));
+    this.stdDeviation = Math.sqrt(this.variance);
+    return this.variance;
+  }
+}
+
+
+
+
+const DataSet = function(...data) {
+  const calcMean = d => d.reduce((c,p)=>c+p,0)/d.length;
+  const calcVariance = (d, m) => calcMean(d.map(a => Math.pow(a-m,2)));
+
+  var _data = data;
+  var _mean = calcMean(_data);
+  var _variance = calcVariance(_data,_mean);
+  var _stdDeviation = Math.sqrt(_variance);
+    
+  return {
+    get mean() { return _mean; },
+    get data() { return _data; },
+    set data(d) { _data = d; },
+    get variance() { return _variance },
+    get stdDeviation() { return _stdDeviation },
+    setMean:_=> {
+      _mean = calcMean(_data);
+      return _mean;
+    },
+    setVar:_=> {
+      _variance = calcVariance(_data,_mean);
+      _stdDeviation = Math.sqrt(_variance);
+      return _variance;
+    }
+  };
+}
+
+
+
+
+
+function DataSet(...a) {
+   this.data=[];
+   for (i=0;i<a.length;i++) this.data.push(a[i]);
+   this.mean=setMean(this.data);
+   this.variance=setVar(this.mean, this.data);
+   this.stdDeviation=this.variance**0.5;
+}
+
+function setMean(data) {c=0; for (i=0;i<data.length;i++) c+=data[i]; return c/data.length}
+function setVar(mean,data) {c=0; for (i=0;i<data.length;i++) c+=(data[i]-mean)**2; return c/data.length} 
+
+DataSet.prototype.setMean=function() {this.mean=setMean(this.data); return this.mean}
+DataSet.prototype.setVar=function() {this.variance=setVar(this.mean,this.data); this.stdDeviation=this.variance**0.5; return this.variance}
+
+
+
+
+
+class DataSet {
+  constructor(...data) {
+    // Define your constructor here
+    this.data = data;
+  }
+  get mean() {
+    let maine = 0;
+    this.data.forEach((e) => (maine += e));
+    return maine / this.data.length;
+  }
+  get variance() {
+    let vari = 0;
+    this.data.forEach((e) => (vari += (e - this.mean) ** 2));
+    return vari / this.data.length;
+  }
+  get stdDeviation() {
+    return Math.sqrt(this.variance);
+  }
+  setMean() {
+    return this.mean;
+  }
+  setVar() {
+    return this.variance;
+  }
+  // Define the rest of your class here
+}
+
+
+
+
+
+class DataSet {
+  constructor(...data) {
+    this.data = data;
+    this.setMean();
+    this.setVar();
+  }
+  
+  calcMean(arr) {
+    return arr.reduce((a, b) => a + b, 0) / arr.length;
+  }
+  
+  setMean() {
+    this.mean = this.calcMean(this.data);
+    return this.mean;
+  }
+  
+  setVar() {
+    this.variance = this.calcMean(this.data.map(n => Math.pow((n - this.mean), 2)));
+    this.stdDeviation = Math.sqrt(this.variance);
+    return this.variance;
+  }
+}
+
+
+
+
+class DataSet {
+  constructor(...data) {
+    this.data = data;
+    this.mean = this.data.reduce((acc, cur) => acc + cur, 0) / this.data.length;
+    this.variance = this.data.map(v => (v - this.mean) ** 2).reduce((acc, cur) => acc + cur, 0) / this.data.length;
+    this.stdDeviation = this.variance ** 0.5;
+  }
+  
+  setMean() {
+    this.mean = this.data.reduce((acc, cur) => acc + cur, 0) / this.data.length;
+    return this.mean;
+  }
+  
+  setVar() {
+    this.variance = this.data.map(v => (v - this.mean) ** 2).reduce((acc, cur) => acc + cur, 0) / this.data.length;
+    this.stdDeviation = this.variance ** 0.5;
+    return this.variance;
+  }
+}
