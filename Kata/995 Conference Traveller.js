@@ -64,3 +64,41 @@ console.log(
     ['London','Berlin','Mexico City','Melbourne','Buenos Aires','Hong Kong','Madrid','Paris'],['Berlin','Melbourne']
   )
 ); // 'No worthwhile conferences this year!'
+
+
+
+
+function conferencePicker (citiesVisited, citiesOffered) {
+	return citiesOffered.find(city => !citiesVisited.includes(city)) || 'No worthwhile conferences this year!'
+}
+
+
+
+const conferencePicker = (citiesVisited, citiesOffered) =>
+  citiesOffered.find(val => !citiesVisited.includes(val)) || `No worthwhile conferences this year!`;
+
+
+
+const conferencePicker = (cV, cO) => cO.filter(x => cV.indexOf(x) < 0)[0] || 'No worthwhile conferences this year!'
+
+
+
+
+function conferencePicker (citiesVisited, citiesOffered) {
+  let visited = new Set(citiesVisited);
+  return citiesOffered.find(e => !visited.has(e))||'No worthwhile conferences this year!';
+}
+
+
+// Recursion
+const conferencePicker = (visited, offered) => 
+  function f([city, ...offered]){
+    if (!city) return 'No worthwhile conferences this year!'
+    if (visited.includes(city)) return f(offered)
+    return city
+  }(offered)
+
+
+
+
+const conferencePicker = (v,o) =>o.filter(c => !v.includes(c))[0] ||'No worthwhile conferences this year!'
