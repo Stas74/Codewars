@@ -20,3 +20,38 @@ function monkeyCount(n) {
 
 console.log(monkeyCount(3)); // [1, 2, 3]
 console.log(monkeyCount(10)); // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+
+
+
+function monkeyCount(n) {
+  return Array.from({length:n}, (_,i)=> i + 1)
+}
+
+
+
+function monkeyCount(n) {
+ var monkeys = [];
+ for(var i=1; i<n+1; i++){
+   monkeys.push(i);
+ }
+ return monkeys;
+}
+
+
+
+function monkeyCount(n) {
+  return Array.from(Array(n), (_,i)=>++i)
+}
+
+
+
+function monkeyCount(n) {
+    return [...Array(n+1).keys()].slice(1);
+}
+
+
+
+
+const monkeyCount = n =>
+  [...Array(n)].map((_, idx) => ++idx);
