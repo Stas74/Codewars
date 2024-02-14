@@ -20,3 +20,32 @@ console.log(multiply(5)); // 25
 console.log(multiply(200)); // 25000
 console.log(multiply(0)); // 0
 console.log(multiply(-2)); // -10
+
+
+
+
+function multiply(number) {
+  return number * Math.pow(5, Math.abs(number).toString().length);
+}
+
+
+
+const multiply = number => number * Math.pow(5, (Math.abs(number) + "").length);
+
+
+
+function multiply(number){
+  //your code here
+  let numStr = number.toString().replace("-", "");
+  return number* Math.pow(5,numStr.length)
+}
+
+
+
+function multiply(n) {
+  const digCount = Math.floor(Math.log10(Math.abs(n)) + 1) || 1
+  return n * 5**digCount
+}
+
+
+
