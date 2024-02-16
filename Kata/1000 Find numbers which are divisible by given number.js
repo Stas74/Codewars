@@ -15,3 +15,24 @@ function divisibleBy(numbers, divisor) {
 console.log(divisibleBy([1, 2, 3, 4, 5, 6], 2)); // [2,4,6]
 console.log(divisibleBy([1, 2, 3, 4, 5, 6], 3)); // [3,6]
 console.log(divisibleBy([0, 1, 2, 3, 4, 5, 6], 4)); // [0,4]
+
+
+
+
+function divisibleBy(numbers, divisor) {
+  return numbers.filter(n => n % divisor === 0)
+}
+
+
+
+function divisibleBy(numbers, divisor) {
+	var newArr = [];
+	for (let i = 0; i < numbers.length; i++) {
+		if (numbers[i] % divisor === 0) {
+			newArr.push(numbers[i]);
+		} 
+	}
+return newArr;
+}
+
+
