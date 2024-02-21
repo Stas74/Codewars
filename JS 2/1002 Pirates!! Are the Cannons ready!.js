@@ -34,3 +34,22 @@ let b = { Mike: "aye", Joe: "nay", Johnson: "aye", Peter: "aye" };
 
 console.log(cannonsReady(a)); // 'Fire!'
 console.log(cannonsReady(b)); // 'Shiver me timbers!'
+
+
+
+const cannonsReady = (gunners) => {
+  return Object.values(gunners).some(m => m === 'nay') ? 'Shiver me timbers!' : 'Fire!';
+}
+
+
+
+const cannonsReady = (gunners) => {
+  return Object.values(gunners).includes('nay')?'Shiver me timbers!':'Fire!';
+}
+
+
+
+const cannonsReady = a => Object.keys(a).every(g => a[g] === "aye") ? "Fire!" : "Shiver me timbers!";
+
+
+
