@@ -23,3 +23,26 @@ function converter (mpg) {
 console.log(converter(10)); // 3.54
 console.log(converter(20)); // 7.08
 console.log(converter(30)); // 10.62
+
+
+
+
+var LITRES_PER_GALLON = 4.54609188;
+var KILOMETERS_PER_MILE = 1.609344;
+function converter (mpg) {
+  return Math.round(100 * mpg * KILOMETERS_PER_MILE / LITRES_PER_GALLON) / 100;
+}
+
+
+
+function converter (mpg) {
+  return +(mpg * .354006043538).toFixed(2)
+}
+
+
+
+function converter(mpg) {
+  return Math.round(mpg * 35.400604353821375031) / 100;
+}
+
+
