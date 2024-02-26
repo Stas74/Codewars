@@ -36,3 +36,31 @@ console.log(howManyDalmatians(14)); // "More than a handful!"
 console.log(howManyDalmatians(80)); // "Woah that's a lot of dogs!"
 console.log(howManyDalmatians(100)); // "Woah that's a lot of dogs!"
 console.log(howManyDalmatians(101)); // "101 DALMATIANS!!!"
+
+
+
+
+function howManyDalmatians(number){
+  if (number <= 10) {
+    return "Hardly any"
+  } else if (number <= 50) {
+    return "More than a handful!"
+  } else if (number === 101) {
+    return "101 DALMATIANS!!!"
+  } else {
+    return "Woah that's a lot of dogs!" 
+  }
+}
+
+
+
+const dogs = ["Hardly any", "More than a handful!", "Woah that's a lot of dogs!", "101 DALMATIANS!!!"];
+const howManyDalmatians = number  => number <= 10 ? dogs[0] : (number <= 50 ? dogs[1] : (number == 101 ? dogs[3] : dogs[2]));
+
+
+
+const howManyDalmatians = number =>
+  number <= 10 ? `Hardly any` : number <= 50 ? `More than a handful!` : number === 101 ? `101 DALMATIANS!!!` : `Woah that's a lot of dogs!`;
+
+
+
