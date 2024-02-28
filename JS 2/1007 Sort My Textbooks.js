@@ -22,3 +22,41 @@ function sorter(textbooks) {
 
 console.log(sorter(["Algebra", "History", "Geometry", "English"])); // ['Algebra', 'English', 'Geometry', 'History']
 console.log(sorter(["Algebra", "history", "Geometry", "english"])); // ['Algebra', 'english', 'Geometry', 'history']
+
+
+
+function sorter(textbooks) {
+  return textbooks.sort((a, b) => a.toLowerCase() > b.toLowerCase() ? 1 : 
+                                  a.toLowerCase() < b.toLowerCase() ? -1  : 0)
+}
+
+
+
+function sorter(textbooks) {
+  return [...textbooks].sort((a, b) => {
+    a = a.toLowerCase();
+    b = b.toLowerCase();
+    return (a > b) - (a < b);
+  });
+}
+
+
+
+const sorter = (textbooks) => textbooks
+  .sort((a, b) => {
+    const aa = a.toLowerCase()
+    const bb = b.toLowerCase()
+    if (aa > bb) return 1
+    if (aa < bb) return -1
+    return 0
+  });
+
+
+
+function sorter(arr) {
+  return arr.sort((a, b) => a.toLowerCase() > b.toLowerCase() ? 1 : -1);
+}
+
+
+
+
