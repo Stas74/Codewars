@@ -33,3 +33,45 @@ function validate(username, password) {
 
 console.log(validate("Timmy", "password")); // 'Successfully Logged in!'
 console.log(validate("Timmy", 'password"||""=="')); // 'Wrong username or password!'
+
+
+
+
+
+function validate(username, password){
+  var valid = new Validator();
+  return valid.login(username, escape(password));
+}
+
+
+
+function validate(username, password){
+  var database = new Database();
+  return database.login(username, encodeURI(password));
+}
+
+
+
+function validate(username, password){
+  for (let str of [username, password]) {
+    if (/\/\/|\|\|/.test(str)) {
+      return "Wrong username or password!";
+    }
+  }
+  var valid = new Validator();
+  return valid.login(username, password);
+}
+
+
+
+function validate(username, password) {
+  if(password.indexOf('||') > -1 || password.indexOf('//') > -1) return 'Wrong username or password!';
+  return new Database().login(username, password);
+}
+
+
+
+const validate = (username, password) =>
+  /\/\/|\|\|/.test(password) ? `Wrong username or password!` : new Database().login(username, password);
+
+
