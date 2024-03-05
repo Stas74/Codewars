@@ -50,3 +50,54 @@ console.log(animals(72, 200)); // [44, 28]
 console.log(animals(116, 282)); // [91, 25]
 console.log(animals(25, 555)); // "No solutions"
 console.log(animals(54, 956)); // "No solutions"
+
+
+
+
+function animals(heads, legs) {
+  const cows = legs / 2 - heads;
+  const chickens = heads - cows;
+  
+  if (legs & 1 || chickens > heads || cows > heads)
+    return "No solutions";
+  else
+    return [chickens, cows];
+}
+
+
+
+function animals(heads, legs){
+  for(var i = 0; i <= heads; i++){
+    if( (i * 4 + (heads- i) * 2) == legs){
+      return [heads- i,i];
+    }
+  }
+  return 'No solutions';
+}
+
+
+
+
+function animals(heads, legs){
+  var cows = legs%2 ? -1 : legs/2-heads;
+  return heads>=cows && cows>=0 ? [heads-cows, cows] : "No solutions";
+}
+
+
+
+
+const animals = (h, l) => {
+  const cows = (l - h * 2) / 2;
+  const chickens = (l - cows * 4) / 2;
+  
+  if(/\.|-/g.test(`${chickens}${cows}`)) return 'No solutions'
+  
+  return [chickens, cows]
+}
+
+
+
+
+const animals = (heads, legs) =>
+  (cows => cows >= 0 && heads >= cows ? [heads - cows, cows] : `No solutions`)
+  (legs % 2 ? -1 : legs / 2 - heads);
