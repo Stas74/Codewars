@@ -25,3 +25,24 @@ function formatMoney(amount) {
 }
 
 console.log(formatMoney(39.99)); // '$39.99'
+
+
+
+
+let formatMoney = (amount) => `$${amount.toFixed(2)}`
+
+
+
+function formatMoney(amount){
+  const usd = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+    minimumFractionDigits: 2,
+    useGrouping: false
+  });
+  return usd.format(amount);
+}
+
+
+
+
