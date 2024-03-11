@@ -29,3 +29,27 @@ function wrap(value) {
 }
 
 console.log(wrap(343).value); // 343
+
+
+
+
+function wrap(value) {
+  return  {
+    "value":value 
+  };
+}
+
+
+
+const wrap = value => ({value});
+
+
+
+const wrap = value => ({value: value})
+
+
+
+function wrap(value) {
+//Converted key to string to avoid original conflicting key value name
+  return {"value":value};
+}
