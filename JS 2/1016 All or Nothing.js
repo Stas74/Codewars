@@ -47,6 +47,7 @@ Test has at least one question.
 len(key) == len(answers)
 */
 
+
 function possiblyPerfect(key, answers) {
   let counter = 0;
   for (let i = 0; i < key.length; i++) {
@@ -57,6 +58,38 @@ function possiblyPerfect(key, answers) {
   return counter == 0 || key.filter((el) => el != "_").length == counter;
 }
 
+
 console.log(possiblyPerfect(["B", "A", "_", "_"], ["B", "A", "C", "C"])); // true
 console.log(possiblyPerfect(["A", "B", "C", "_"], ["B", "A", "C", "C"])); // false
 console.log(possiblyPerfect([..."T_FFF"], [..."FFTTT"])); // true
+
+
+
+
+function possiblyPerfect(key,answers) {
+  return key.every((k, i) => k === '_' || k === answers[i]) || key.every((k, i) => k !== answers[i]);
+}
+
+
+
+const possiblyPerfect = (key, answers) => {
+  const allCorrect = answers.every((answer, i) => key[i] === '_' || answer === key[i]);
+  const allWrong = answers.every((answer, i) => key[i] === '_' || answer !== key[i]);
+  return allCorrect || allWrong;
+}
+
+
+
+function possiblyPerfect(key,answers) {
+  let x = 0, y = 0;
+  let a = key.filter(und => und === "_").length;
+  
+  key.forEach((k, i) => {
+    k === answers[i] ? x++ : k === "_" ? null : y++;
+  });
+    
+  return (key.length - a === x) || (key.length - a === y);
+}
+
+
+
