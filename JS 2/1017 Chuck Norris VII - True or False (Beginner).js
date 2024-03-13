@@ -15,3 +15,31 @@ function ifChuckSaysSo() {
 }
 
 console.log(ifChuckSaysSo()); // false
+
+
+
+
+function ifChuckSaysSo() {
+  return !true;
+}
+
+
+
+function ifChuckSaysSo() {
+  return !1;
+}
+
+
+
+const ifChuckSaysSo = Boolean;
+
+
+
+const ifChuckSaysSo = () => true !== true
+
+
+
+ifChuckSaysSo = () => !!0;
+
+
+
