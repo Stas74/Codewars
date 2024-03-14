@@ -36,3 +36,22 @@ function whoseMove(lastPlayer, win) {
 console.log(whoseMove("black", false)); // "white"
 console.log(whoseMove("white", true)); // "white"
 console.log(whoseMove("white", false)); // "black"
+
+
+
+
+function whoseMove(lastPlayer, win) {
+  const opp = lastPlayer === 'black' ? 'white' : 'black';
+  return  win ? lastPlayer : opp;
+}
+
+
+
+whoseMove = (l, w) => w ? l : l === 'black' ? 'white' : 'black';
+
+
+const whoseMove = (lastPlayer, win) =>
+  lastPlayer === `black` ^ win ? `white` : `black`;
+
+
+
