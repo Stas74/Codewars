@@ -30,3 +30,17 @@ function sixToast(num) {
 console.log(sixToast(6)); // 0
 console.log(sixToast(17)); // 11
 console.log(sixToast(3)); // 3
+
+
+
+
+function sixToast(num) {
+  return Math.abs(num-6)
+}
+
+
+
+let sixToast = num => num < 6 ? num % 6 : (num - 6);
+
+
+
