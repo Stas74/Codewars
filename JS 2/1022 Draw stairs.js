@@ -33,3 +33,32 @@ function drawStairs(n) {
 console.log(drawStairs(1)); // "I"
 console.log(drawStairs(3)); // "I\n I\n  I"
 console.log(drawStairs(5)); // "I\n I\n  I\n   I\n    I"
+
+
+
+
+const drawStairs = n => [...Array(n)].map((_, i) => " ".repeat(i) + "I").join("\n");
+
+
+
+function drawStairs(n) {
+  let step = "I";
+  for (let i = 1; i < n; i++) {
+    step += "\n" + " ".repeat(i) + "I";
+  }
+  return step;
+}
+
+
+
+function drawStairs(n) {
+  return Array(n).fill("I").map((e,i)=>e.padStart(i+1," ")).join("\n")
+}
+
+
+
+const drawStairs = n =>
+  [...Array(n)].map((_, idx) => `I`.padStart(++idx)).join(`\n`);
+
+
+
