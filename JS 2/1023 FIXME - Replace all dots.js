@@ -17,3 +17,39 @@ var replaceDots = function (str) {
 };
 
 console.log(replaceDots("one.two.three")); // "one-two-three"
+
+
+
+
+var replaceDots = function(str) {
+  return str.replace(/\./g,'-');
+}
+
+
+
+var replaceDots = function(str) {
+// added the \ to escape special characters
+// added the g so that replace is run for all occurences in the string
+  return str.replace(/\./g, '-');
+}
+
+
+
+
+var replaceDots = s => s.split('.').join('-');
+
+
+
+
+var replaceDots = function(str) {
+  return str.replace(/[.]/g, '-');
+}
+
+
+
+const replaceDots = function (str) {
+  return str.replaceAll(".", "-");
+};
+
+
+
