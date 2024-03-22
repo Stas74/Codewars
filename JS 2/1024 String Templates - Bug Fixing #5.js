@@ -16,3 +16,10 @@ function buildString(...template) {
 console.log(buildString("Cheese", "Milk", "Chocolate")); // 'I like Cheese, Milk, Chocolate!'
 console.log(buildString("Cheese", "Milk")); // ''I like Cheese, Milk!'
 console.log(buildString("Chocolate")); // 'I like Chocolate!'
+
+
+
+const buildString = (...template) => `I like ${template.join(', ')}!`;
+
+
+
