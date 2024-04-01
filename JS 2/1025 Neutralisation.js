@@ -40,3 +40,34 @@ function neutralise(s1, s2) {
 console.log(neutralise("--++--", "++--++")); // "000000"
 console.log(neutralise("-+-+-+", "-+-+-+")); // "-+-+-+"
 console.log(neutralise("-++-", "-+-+")); // "-+00"
+
+
+
+
+const neutralise = (a, b) => a.split('').map((el,i) => el === b[i] ? el : 0).join('')
+
+
+
+const neutralise = (str1, str2) =>
+  str1.replace(/./g, (chr, idx) => +(chr === str2[idx]) && chr);
+
+
+
+function neutralise(s1, s2) {
+  return s1.replace(/./g, (x, i) => x == s2[i] ? x : "0")
+}
+
+
+
+function neutralise(s1, s2) {
+  return [...s1].map((e,i) => e==s2[i]?e:0).join('');
+}
+
+
+
+function neutralise(s1, s2) {
+  return [...s1].reduce(
+    (acc, e, i) => (e === s2[i] ? acc.concat(e) : acc.concat(0)),
+    ""
+  );
+}
