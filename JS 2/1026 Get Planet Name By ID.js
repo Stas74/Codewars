@@ -39,6 +39,9 @@ function getPlanetName(id) {
   return planet[id - 1];
 }
 
+
+// To solve original function: add break; in each case!
+
 // function getPlanetName(id) {
 //   var name;
 //   switch (id) {
@@ -74,3 +77,44 @@ function getPlanetName(id) {
 console.log(getPlanetName(2)); // 'Venus'
 console.log(getPlanetName(5)); // 'Jupiter'
 console.log(getPlanetName(3)); // 'Earth'
+
+
+
+
+function getPlanetName(id){
+  return {
+    1: 'Mercury',
+    2: 'Venus',
+    3: 'Earth',
+    4: 'Mars',
+    5: 'Jupiter',
+    6: 'Saturn',
+    7: 'Uranus',
+    8: 'Neptune'
+  }[id]
+}
+
+
+
+function getPlanetName(id) {
+  var name = {
+    1: "Mercury",
+    2: "Venus",
+    3: "Earth",
+    4: "Mars",
+    5: "Jupiter",
+    6: "Saturn",
+    7: "Uranus",
+    8: "Neptune",
+  };
+  return name[id];
+}
+
+
+
+const getPlanetName = id => ['Mercury', 'Venus', 'Earth', 'Mars', 'Jupiter', 'Saturn', 'Uranus', 'Neptune'][id-1];
+
+
+
+const getPlanetName = id =>
+  [`Mercury`, `Venus`, `Earth`, `Mars`, `Jupiter`, `Saturn`, `Uranus`, `Neptune`][--id];
