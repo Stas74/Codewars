@@ -34,3 +34,20 @@ const checkAlive = (health) => health > 0;
 
 console.log(checkAlive(5)); // true
 console.log(checkAlive(0)); // false
+
+
+
+
+function checkAlive(health) {
+  return health > 0;
+}
+
+
+
+const checkAlive = h => h > 0;
+
+
+
+const checkAlive = _ => _ < 1 ? !!0 : !0
+
+
