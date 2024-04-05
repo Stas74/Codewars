@@ -22,3 +22,15 @@ function mystery() {
 }
 
 console.log(mystery()); //
+
+
+
+const mystery = () => ({sanity: 'Hello'});
+
+
+
+const sanity = { sanity: 'Hello' };
+const mystery = () => sanity;
+
+
+
