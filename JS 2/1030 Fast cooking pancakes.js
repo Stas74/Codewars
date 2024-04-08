@@ -24,3 +24,38 @@ console.log(cookPancakes(3, 2)); // 3
 console.log(cookPancakes(583, 144)); // 9
 console.log(cookPancakes(3, 1)); // 6
 console.log(cookPancakes(920, 584)); // 4
+
+
+
+
+function cookPancakes(n, m) { 
+  const time = Math.ceil((n * 2) / m);
+  return time === 1 ? 2 : time;
+}
+
+
+
+function cookPancakes(n, m) {
+  // worst pancakes ever
+  return Math.max(Math.ceil((n*2)/m), 2)
+}
+
+
+
+const cookPancakes = (n, m) => n>m ? Math.ceil((n/m)*2) : Math.ceil(n/m)*2;
+
+
+
+function cookPancakes(n, m) {
+  let sides = n * 2;
+  let xd  =  Math.ceil(sides / m);
+  return xd < 2 ? 2 : xd;
+}
+
+
+
+const cookPancakes = (n, m) => Math.ceil(Math.max(n, m) / m * 2);
+
+
+
+
