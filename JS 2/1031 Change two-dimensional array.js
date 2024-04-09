@@ -55,3 +55,33 @@ console.log(
 //   [1, 5, -7, 0, -9],
 //   [-3, 2, 1, -5, 1],
 // ];
+
+
+
+
+function matrix(array) {
+    for (let i=0; i<array.length; i++) {
+      array[i][i] = array[i][i] < 0 ? 0 : 1
+    }
+    return array;
+}
+
+
+
+function matrix(a) {
+  return a.map((a, i) => a.map((a, j) => (i == j ? +!(a < 0) : a)));
+}
+
+
+
+const matrix = array => array.map((i, x) => i.map((j, y) => x == y ? +!(j < 0) : j))
+
+
+
+const matrix = (arr) => 
+  arr.map((part, i)=> part.map((el, j) => j === i ? el < 0 ? 0 : 1 : el))
+
+
+
+const matrix = array =>
+  array.map((val, idx) => val.map((v, i) => i === idx ? +(v >= 0) : v));
