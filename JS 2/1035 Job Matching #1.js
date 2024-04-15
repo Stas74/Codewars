@@ -44,3 +44,55 @@ console.log(match(candidate1, job2)); // false
 
 console.log(match({ minSalary: 190000 }, { maxSalary: 171000 })); // true
 console.log(match({}, { maxSalary: 171000 })); // error
+
+
+
+
+const match = (candidate, job) => {
+  if (!job.maxSalary || !candidate.minSalary) throw TypeError('Missing salary');
+  return job.maxSalary >= (candidate.minSalary * .9);
+};
+
+
+
+function match(candidate, job) {
+  if(!candidate.minSalary || !job.maxSalary)
+    throw "Error!!";
+  return (candidate.minSalary * 0.9) <= job.maxSalary;
+}
+
+
+
+function match(candidate, job) {
+  if ("minSalary" in candidate && "maxSalary" in job) {
+    return candidate.minSalary * .9 <= job.maxSalary
+  }  
+  throw new Error()
+}
+
+
+
+function match(candidate, job) {
+  if (!candidate.minSalary || !job.maxSalary) throw "Invalid Job or Candidate";
+  return job.maxSalary >= candidate.minSalary * 0.9;
+}
+
+
+
+function match(candidate, job) {
+  if ((candidate.minSalary == undefined) || (job.maxSalary == undefined)) {throw 'error'};
+  return (candidate.minSalary * 0.9 <= job.maxSalary)
+}
+
+
+
+const match = (candidate, job) =>
+  candidate.minSalary && job.maxSalary ? candidate.minSalary * 0.9 <= job.maxSalary : (function () {throw new Error()})();
+
+
+
+function match(candidate, job) {
+  if (!candidate.minSalary || !job.maxSalary) throw "Sorry, No Matches"  
+  
+  return job.maxSalary >= candidate.minSalary * .9 
+}
