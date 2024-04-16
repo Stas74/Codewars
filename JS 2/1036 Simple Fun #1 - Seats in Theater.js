@@ -61,3 +61,24 @@ function seatsInTheater(nCols, nRows, col, row) {
 
 console.log(seatsInTheater(16, 11, 5, 3)); // 96
 console.log(seatsInTheater(13, 6, 8, 3)); // 18
+
+
+
+
+function seatsInTheater(nCols, nRows, col, row) {
+  let leftFromMe = nCols - col;
+  let behindMe = nRows - row;
+  return leftFromMe * behindMe + behindMe;    
+}
+
+
+
+function seatsInTheater(nCols, nRows, col, row) {
+  var totalObstructedRows = nRows - row;
+  var totalObstructedCols = nCols - (col - 1);
+  
+  return totalObstructedRows * totalObstructedCols;
+}
+
+
+
