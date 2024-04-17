@@ -95,3 +95,79 @@ console.log(trilingualDemocracy("FFF")); // "F"
 console.log(trilingualDemocracy("IIK")); // "K"
 console.log(trilingualDemocracy("DFK")); // "I"
 console.log(trilingualDemocracy("IKF")); // 'D'
+
+
+
+
+function trilingualDemocracy(group) {
+  return String.fromCharCode(group.charCodeAt(0) ^ group.charCodeAt(1) ^ group.charCodeAt(2));
+}
+
+
+
+
+// input is a string of three chars from the set 'D', 'F', 'I', 'K'
+// output is a single char from this set
+function trilingualDemocracy(group) {
+  return String.fromCharCode(group.split('').map((x) => x.charCodeAt(0)).reduce((a, b) => a ^ b))
+}
+
+
+
+
+function trilingualDemocracy(group) {
+  group = group.split('').sort().join('')
+    switch (group) {
+        case 'FFF':
+        case 'DDF':
+        case 'FII':
+        case 'FKK':
+        case 'DIK':
+            return 'F'
+        case 'DDD':
+        case 'FIK':
+        case 'DFF':
+        case 'DII':
+        case 'DKK':
+            return 'D'
+        case 'III':
+        case 'DDI':
+        case 'FFI':
+        case 'IKK':
+        case 'DFK':
+            return 'I'
+        case 'KKK':
+        case 'DDK':
+        case 'FFK':
+        case 'IIK':
+        case 'DFI':
+            return 'K'    
+    }
+}
+
+
+
+function trilingualDemocracy(group) {
+  const regex = new RegExp(`[${group}]`, 'g')
+  return group[0] === group[1] === group[2] ? group[0] :
+    group[0] === group[1] ? group[2] :
+      group[0] === group[1] ? group[2] :
+        group[2] === group[1] ? group[0] :
+          group[0] === group[2] ? group[1] :
+            "DFKI".replace(regex, '')
+}
+
+
+
+function trilingualDemocracy(group) {
+  return String.fromCharCode(group[0].charCodeAt()^group[1].charCodeAt()^group[2].charCodeAt());
+}
+
+
+
+const LANGS = 'DFIK';
+const trilingualDemocracy = group =>
+  LANGS[[...group].reduce((acc, lang) => acc ^ LANGS.indexOf(lang), 0)];
+
+
+
