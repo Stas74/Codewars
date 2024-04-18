@@ -24,3 +24,26 @@ function capitalizeWord(word) {
 console.log(capitalizeWord("word")); // "Word"
 console.log(capitalizeWord("i")); // "I"
 console.log(capitalizeWord("glasswear")); // "Glasswear"
+
+
+
+function capitalizeWord(word) {
+  return word[0].toUpperCase() + word.slice(1);
+}
+
+
+
+const capitalizeWord = (word) => word.replace(word.charAt(0), word.charAt(0).toUpperCase());
+
+
+
+const capitalizeWord = w => `${w[0].toUpperCase()}${w.slice(1)}`;
+
+
+
+const capitalizeWord = word =>
+  word.replace(/^\w/, val => val.toUpperCase());
+
+
+
+const capitalizeWord = word => word[0].toUpperCase() + word.substr(1);
