@@ -39,3 +39,36 @@ function sentencify(words) {
 console.log(sentencify(["i", "am", "an", "AI"])); // "I am an AI."
 console.log(sentencify(["yes"])); // "Yes.")
 console.log(sentencify(["FIELDS", "of", "CORN", "are", "to", "be", "sown"])); // "FIELDS of CORN are to be sown."
+
+
+
+
+function sentencify(words) {
+  return words.join(' ').replace(/^[a-z]/,m=>m.toUpperCase())+'.'
+}
+
+
+
+function sentencify(words) 
+{
+  var str=words.join(' ');
+  return str.charAt(0).toUpperCase() + str.substr(1) +'.';
+}
+
+
+
+
+const sentencify = words =>
+  `${words[0][0].toUpperCase()}${words.join(` `).slice(1)}.`;
+
+
+
+
+const sentencify = words =>
+  words.join` `.replace(/./, ch => ch.toUpperCase()) + '.';
+
+
+
+function sentencify(words) {
+  return (s=`${words.join` `}.`,`${s[0].toUpperCase()}${s.slice(1)}`);
+}
