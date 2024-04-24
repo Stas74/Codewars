@@ -19,3 +19,25 @@ function reverseWords(str) {
 console.log(reverseWords("hello world!")); // "world! hello"
 console.log(reverseWords("yoda doesn't speak like this")); // "this like speak doesn't yoda"
 console.log(reverseWords("row row row your boat")); // "boat your row row row"
+
+
+
+
+function reverseWords(str){
+  return str.trim().split(' ').reverse().join(' '); // reverse those words
+}
+
+
+
+function reverseWords(str){
+  var reverse = [];
+  var words = str.split(" ");
+  for(let i=words.length-1; i>=0; i--){
+    reverse.push(words[i]);
+    
+  }
+  return reverse.join(" ")
+}
+
+
+
