@@ -45,3 +45,17 @@ console.log(describeAge(9)); // "You're a(n) kid"
 console.log(describeAge(14)); // "You're a(n) teenager"
 console.log(describeAge(18)); // "You're a(n) adult"
 console.log(describeAge(66)); // "You're a(n) elderly"
+
+
+
+
+var describeAge=a=>`You're a(n) ${a<13?"kid":a<18?"teenager":a<65?"adult":"elderly"}`;
+
+
+describeAge=a=>a<13?"You're a(n) kid":a>12&&a<18?"You're a(n) teenager":a>17&&a<65?"You're a(n) adult":"You're a(n) elderly"
+
+describeAge=a=>`You're a(n) ${['kid','teenager','adult','elderly'][(a>12)+(a>17)+(a>64)]}`
+
+describeAge=a=>`You're a(n) `+'kid,teenager,adult,elderly'.split`,`[(a>12)+(a>17)+(a>64)]
+
+describeAge=a=>`You're a(n) ${a<13?"kid":a<18?"teenager":a<65?"adult":"elderly"}`
