@@ -29,3 +29,22 @@ function createArray(number) {
 console.log(createArray(1)); // [1]
 console.log(createArray(2)); // [1,2]
 console.log(createArray(3)); // [1,2,3]
+
+
+
+
+const createArray = n => Array(...Array(n)).map((v, i) => i + 1);
+
+
+
+function createArray(number){
+  return Array.from({length:number},(v,i)=>i+1)
+}
+
+
+
+const createArray = number =>
+  [...Array(number)].map((_, idx) => ++idx);
+
+
+
