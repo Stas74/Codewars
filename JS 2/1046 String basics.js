@@ -55,3 +55,54 @@ console.log(getUsersIds("uid12 ab, uid#, uidMiXeDcHaRs")); // "12 ab", "", "mixe
 console.log(getUsersIds(" uidT#e#S#t# ")); // "test"
 
 console.log(getUsersIds('uid1 2  34 , uid 123456, uid123, uid123456 789#')); // [\'1 2  34\', \'123456\', \'123\', \'123456 789\']
+
+
+
+
+const getUsersIds = s => s.split(',').map(e => e.replace(/#/g, '').replace(/uid/, '').trim().toLowerCase());
+
+
+
+function getUsersIds(str){
+  return str.toLowerCase().split(', ').map(e=>e.trim().replace(/^(\#*uid)|\#+/g,'').trim());
+}
+
+
+
+const getUsersIds = str =>
+  str.toLowerCase().split(`,`).map(val => val.replace(/#/g, ``).replace(/uid/, ``).trim());
+
+
+
+function getUsersIds(str) {
+  let output = str.replace(/#/gu, '').split(',')
+  output = output.map(entry => entry.trim().toLowerCase())
+  return output.map(entry => entry.replace(/^uid/u, '').trim())
+}
+
+
+
+const getUsersIds = str =>
+  str.toLowerCase()
+     .replace(/^[\s#]*uid[\s#]*|#|[\s#]+$/g, '')
+     .split(/\s*,\s+uid\s*/);
+
+
+
+
+const getUsersIds = str => {
+  const arr = str.toLowerCase().split(/,\s+/)
+
+  return arr.map(val => val.replace(/^\s*#*uid\s*|#|\s*$/g, ''))
+}
+
+
+
+
+function getUsersIds(str){
+  return str.replace(/^\s+|\s*\buid\s*|#|(?<=,)\s+|\s+(?=,)|\s+$/g, "").toLowerCase().split(",");
+}
+
+
+
+const getUsersIds = (str) => str.toLowerCase().split(',').map(id => id.replace(/^[\s#]*uid|#/g, '').trim());
