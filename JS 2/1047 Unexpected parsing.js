@@ -27,3 +27,32 @@ function getStatus(isBusy) {
 }
 
 console.log(getStatus(true).status); // "busy"
+
+
+
+
+function getStatus(isBusy) {
+  var msg = (isBusy ? "busy" : "available");
+  return {
+    status: msg
+  };
+}
+
+// For anyone confused by this see the following: http://stackoverflow.com/questions/18221963/javascript-function-fails-to-return-object-when-there-is-a-line-break-between-th
+
+
+
+
+const getStatus = isBusy => ({ status: isBusy ? "busy" : "available" });
+
+
+
+
+function getStatus(isBusy) {
+  return { status: isBusy ? "busy" : "available" }
+}
+
+
+
+const getStatus = isBusy => 
+  ({status: isBusy ? `busy` : `available`});
