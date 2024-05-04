@@ -17,3 +17,25 @@ function pak(s) {
 console.log(pak("Take me to Semynak!")); // "Take pak me pak to pak Semynak!"
 console.log(pak("    ")); // ""
 
+
+
+function pak(s){
+  return s.split(' ').filter(e => e.length).join(' pak ');
+}
+
+
+function pak(s){
+  const stringArray = s.replace(/\s+/g, " pak ")
+  if (stringArray == " pak ") return ""
+  return stringArray
+}
+
+
+
+const pak = s => s.trim().replace(/(\s)/g, `$1pak `)
+
+
+
+pak=p=>p.trim().split` `.join` pak `
+
+
