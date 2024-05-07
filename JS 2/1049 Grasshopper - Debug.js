@@ -44,3 +44,41 @@ function convertToCelsius (temperature) {
 
 console.log(weatherInfo(50)); // '10 is above freezing temperature'
 console.log(weatherInfo(23)); // '-5 is freezing temperature'
+
+
+
+const weatherInfo = t => `${t = (t - 32) * (5 / 9)} is ${t > 0 ? 'above ': ''}freezing temperature`;
+
+
+
+const weatherInfo = temperature => temperatureMesage(convertToCelsius(temperature));
+
+const convertToCelsius = temperature => (temperature - 32) * (5 / 9);
+
+const temperatureMesage = temperature => temperature + ((temperature <= 0) ? " is freezing temperature" : " is above freezing temperature")
+
+
+
+
+function weatherInfo(t) {
+  var c = convertToCelsius(t)
+  return c > 0 ? `${c} is above freezing temperature` : `${c} is freezing temperature`
+}
+
+function convertToCelsius(t) {
+  return (t - 32) * (5 / 9)
+}
+
+
+
+
+function weatherInfo(t) {
+  var c = (t - 32) * (5 / 9);
+  return c <= 0 ? c + " is freezing temperature" : c + " is above freezing temperature";
+}
+
+
+
+const weatherInfo = temp =>
+  (val => `${val} is ${val > 0 ? `above ` : ``}freezing temperature`)
+  ((temp - 32) * (5 / 9));
