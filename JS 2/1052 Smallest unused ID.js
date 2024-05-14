@@ -31,3 +31,48 @@ console.log(nextId([0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); // 11
 console.log(nextId([1, 2, 0, 2, 3, 5])); // 4
 
 console.log(nextId([5, 3, 3, 4, 9, 6, 8, 3])); // 0
+
+
+
+
+ function nextId(ids){
+  var x = 0;
+  while (ids.includes(x)) x++;
+  return x;
+}
+
+
+
+function nextId(ids){
+	const used = new Set(ids);
+  for (let i = 0; i <= ids.length; i++) {
+  	if (!used.has(i)) return i;
+  }
+}
+
+
+
+function nextId(ids){
+  for (i = 0; i < ids.length; i++) { 
+    if (ids.indexOf(i) == -1){
+      return i;
+    }
+  }
+  return ids.length;
+}
+
+
+
+function nextId(ids){
+  var i = 0;
+  while (ids.includes(i))
+  {
+    i++;
+  }
+  return i;
+}
+
+
+const nextId = ids =>
+  (val => val < 0 ? Math.max(...ids) + 1 : val)
+  (ids.findIndex((_, idx) => !ids.includes(idx)));
