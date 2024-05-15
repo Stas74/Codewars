@@ -24,3 +24,17 @@ function sakuraFall(v) {
 console.log(sakuraFall(5)); // 80
 console.log(sakuraFall(10)); // 40
 console.log(sakuraFall(-1)); // 0
+
+
+
+
+const sakuraFall = velocity => velocity > 0 ? 400 / velocity : 0;
+
+
+
+function sakuraFall(speed) {
+  return 400/speed < 0 || 400/speed === Infinity ? 0 : 400/speed
+}
+
+
+
