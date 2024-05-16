@@ -43,3 +43,33 @@ function squaresOnly(array) {
 console.log(squaresOnly([0,1,2,3,4,5,6,7,8,9,10])); // [0,1,4,9]
 console.log(squaresOnly([31,33,35,37,39,38,36,34,32])); // [36]
 console.log(squaresOnly([0,10,20,30,40,50,60,70,80,90,100])); // [0, 10]
+
+
+
+function squaresOnly(array) {
+  return array.filter(n => Number.isInteger(Math.sqrt(n)))
+}
+
+
+
+function squaresOnly(a) {
+  return a.filter(x => x ** 0.5 % 1 == 0);
+}
+
+
+
+var squaresOnly = array => array.filter(number => Math.sqrt(number) % 1 === 0);
+
+
+
+squaresOnly = a => a.filter(x => !(x ** .5 % 1))
+
+
+
+/*
+var squaresOnly=a=>a.filter(v=>~Array.from(Array(11),(v,i)=>i*i).indexOf(v))
+var squaresOnly=a=>a.map(Math.sqrt).filter(v=>!(v%1)).map(v=>v*v)
+var squaresOnly=a=>a.reduce((t,v)=>Math.sqrt(v)%1?t:[...t,v],[])
+var squaresOnly=a=>a.filter(v=>s(v)==~~s(v)),s=Math.sqrt
+*/
+var squaresOnly=a=>a.filter(v=>!(Math.sqrt(v)%1))
