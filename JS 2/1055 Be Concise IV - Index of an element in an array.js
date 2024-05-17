@@ -27,3 +27,27 @@ var array = [2,3,5,7,11];
 console.log(find(array, 5)); // 2
 console.log(find(array, 11)); // 4
 console.log(find(array, 1)); // "Not found"
+
+
+
+
+const find = (a, x) => (x = a.indexOf(x)) < 0 ? 'Not found' : x
+
+
+
+const find = (array, element) =>
+  array.includes(element) ? array.indexOf(element) : `Not found`;
+
+
+
+const find = (a, e) => {
+  const i = a.indexOf(e);
+  return i < 0 ? 'Not found' : i;
+}
+
+
+
+const find = (arr, elem) => arr.indexOf(elem) > -1 ? arr.indexOf(elem) : "Not found"
+
+
+
