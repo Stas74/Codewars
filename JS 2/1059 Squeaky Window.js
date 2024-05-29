@@ -42,3 +42,40 @@ function sliding(nums, k) {
 }
 
 console.log(sliding([1, 3, -1, -3, 5, 3, 6, 7], 3)); // [3, 3, 5, 5, 6, 7]
+
+
+
+
+function sliding(nums, k) {
+  k--;
+  return nums.reduce((t, x, i) => {
+    if (i >= k) {
+      t.push(Math.max(...nums.slice(i - k, i + 1)));
+    }
+    return t;
+  }, []);
+}
+
+
+
+function sliding(a, k) {
+  return a.length ? Array.from({length: a.length - k + 1}, (x, i) => Math.max(...a.slice(i, i + k))) : [];
+}
+
+
+
+// IIFE & NFE & recursion
+
+function sliding(arr, k) {
+  return function f({length:l}){
+    if (!l | l < k) return []
+    return [Math.max(...arr.slice(0, k)), ...f((arr.splice(0, 1), arr))]
+  }(arr)
+}
+
+
+
+const sliding = (nums, k) => nums.length ? Array.from({ length: nums.length - k + 1 }, (_, i) => Math.max(...nums.slice(i, i + k))) : [];
+
+
+
