@@ -47,3 +47,42 @@ function appleBoxes(k) {
 console.log(appleBoxes(5)); // -15
 console.log(appleBoxes(15)); // -120
 console.log(appleBoxes(36)); // 666
+
+
+function appleBoxes(k) {
+  var result = 0;
+  for (let i = 1; i <= k; i++) result += i * i * (i % 2 ? -1 : 1);
+  return result;
+}
+
+
+
+const appleBoxes = k => k * ++k / 2 * (k % 2 * 2 - 1);
+
+
+
+function appleBoxes(k) {
+  return 2 * ~~(k / 2) * ~~(k / 2) + ~~(k / 2) - (k % 2 ? k * k : 0);
+}
+
+
+
+const appleBoxes = k =>
+  (k ** 2 + k) / (k % 2 ? -2 : 2);
+
+
+
+// recursion, recursive process
+let appleBoxes =f= k => k && (k&1 ? -k*k : k*k) + f(--k)
+
+
+
+// recursion
+let appleBoxes = (k, y = 0, r = 0) => {
+  if (!k) return r - y
+  k & 1 ? y += k**2 : r += k**2
+  return appleBoxes(k-1, y, r)
+}
+
+
+
