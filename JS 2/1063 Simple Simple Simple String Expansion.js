@@ -38,7 +38,7 @@ function stringExpansion(s) {
     }
   }
 
-  return 123;
+  return 123; // ??????
 }
 
 console.log(stringExpansion("3abc")); // 'aaabbbccc'
