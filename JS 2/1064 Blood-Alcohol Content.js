@@ -51,3 +51,44 @@ console.log(bloodAlcoholContent({ ounces: 12.5, abv: 0.4 }, 190, "male", 1)); //
 console.log(bloodAlcoholContent({ ounces: 180, abv: 0.05 }, 160, "female", 1)); // 0.1758
 console.log(bloodAlcoholContent({ ounces: 50, abv: 0.14 }, 250, "male", 3)); //0.0601
 console.log(bloodAlcoholContent({ ounces: 20, abv: 0.4 }, 100, "female", 2)); // 0.2414
+
+
+
+function bloodAlcoholContent(drinks, weight, sex, time){
+  return parseFloat(((drinks.ounces * drinks.abv * 5.14 / weight * (sex == 'male' ? 0.73 : 0.66)) - 0.015 * time).toFixed(4));
+}
+
+
+
+function bloodAlcoholContent(drinks, weight, sex, time){
+
+	if (sex == "female") {
+		r = 0.66;
+	} else {
+		r = 0.73;
+	}
+  bac = ((drinks.ounces * drinks.abv) * 5.14 / weight * r) - 0.015 * time ;
+  return Number(bac.toFixed(4));
+}
+
+
+
+const bloodAlcoholContent = (drinks, weight, sex, time) =>
+  +(drinks.ounces * drinks.abv * 5.14 / weight * (sex === `male` ? 0.73 : 0.66) - 0.015 * time).toFixed(4);
+
+
+
+const bloodAlcoholContent = ({ ounces, abv }, weight, sex, time) => {
+  const ratio = sex === 'male' ? 0.73 : 0.66
+  const bac = ounces * abv * 5.14 / weight * ratio - 0.015 * time
+  
+  return Number(bac.toFixed(4))
+}
+
+
+
+function bloodAlcoholContent(drinks, weight, sex, time){
+  const r = sex == 'male' ? 0.73 : 0.66;
+  const bac = (drinks.ounces * drinks.abv * 5.14 / weight * r) - 0.015 * time;
+  return Math.round(bac * 10000) / 10000;
+}
