@@ -26,3 +26,32 @@ function smallWordHelper(sentence){
 
 console.log(smallWordHelper("The quick brown fox jumps over the lazy dog")); // "THE qck brwn FOX jmps vr THE lzy DOG"
 console.log(smallWordHelper("I'm just a small word from a small word family")); // "I'M jst A smll wrd frm A smll wrd fmly"
+
+
+
+
+function smallWordHelper(s){
+  return s.replace(/[^\s]+/gi,x => x.length>3?x.replace(/[aeiou]/gi,''):x.toUpperCase());
+}
+
+
+
+const smallWordHelper = sentence =>
+  sentence.split(" ").map(word => (
+    word.length <= 3) ? word.toUpperCase() : word.replace(/[aeiouAEIOU]/g,"")).join(" ");
+
+
+
+function smallWordHelper(sentence) {
+  return sentence.replace(/\S+/gi, x => x.length <= 3 ? x.toUpperCase() : x.replace(/[aeiou]/gi, ''));
+}
+
+
+
+function smallWordHelper(sentence){
+  return sentence .split(' ')
+                  .map(e => e.length <= 3 
+                      ? e.toUpperCase() 
+                      : e.match(/[^aeiou]/gi).join('')
+                  ).join(' ')
+}
