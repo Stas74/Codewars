@@ -34,3 +34,45 @@ console.log(getPercentage(256, 300)); // "85%"
 console.log(getPercentage(259)); // "25%"
 console.log(getPercentage(0)); // "No e-mails sent"
 console.log(getPercentage(1000, 1000)); // "Daily limit is reached"
+
+
+
+const getPercentage = (sent, limit = 1000) =>
+  !sent ? `No e-mails sent` : sent >= limit ? `Daily limit is reached` : `${sent / limit * 100 ^ 0}%`;
+
+
+
+function getPercentage(sent, limit = 1000){
+  return sent === 0 ? 'No e-mails sent' : sent >= limit ? 'Daily limit is reached' : Math.floor(sent/limit*100) + '%';
+}
+
+
+
+function getPercentage(sent, limit){
+  limit = limit || 1000;
+  if(sent == 0) {
+    return "No e-mails sent";
+  } else if (sent>=limit) {
+    return "Daily limit is reached";
+  } else {
+    return Math.floor(sent/limit*100) + '%'
+  }
+}
+
+
+
+function getPercentage(sent, limit = 1000) {
+    return (sent === 0)    ? "No e-mails sent" :
+           (sent >= limit) ? "Daily limit is reached" : `${100 * sent / limit | 0}%`
+}
+
+
+const getPercentage = (sent, limit = 1000) => {
+  const res = sent / (limit * 0.01)
+
+  return !res
+    ? 'No e-mails sent'
+    : res < 100
+    ? `${~~res}%`
+    : 'Daily limit is reached'
+}
