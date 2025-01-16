@@ -33,3 +33,35 @@ function makeParts(arr, chunkSize) {
 
 console.log(makeParts([1, 2, 3, 4, 5], 2)); // [[1,2],[3,4],[5]]
 console.log(makeParts([1, 2, 3], 1)); // [[1],[2],[3]]
+
+
+
+
+function makeParts(arr, chunkSize) {
+	let newArr = [];
+  while (arr.length > 0){
+    newArr.push(arr.splice(0, chunkSize));
+    }
+  return newArr;
+}
+
+
+
+const makeParts = (arr, chunkSize) =>
+  [...Array(Math.ceil(arr.length / chunkSize))].map(val => arr.splice(0, chunkSize));
+
+
+
+function makeParts(arr, chunkSize) {
+  return arr.length <= chunkSize ? [arr] : ([arr.slice(0, chunkSize), ...makeParts(arr.slice(chunkSize), chunkSize)]);
+}
+
+
+const makeParts = require('lodash').chunk;
+
+
+
+const makeParts = (a, k) => Array.from({length: Math.ceil(a.length/k)}, (_, i) => a.slice(k*i, k*(i + 1)));
+
+
+
