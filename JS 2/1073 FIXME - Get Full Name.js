@@ -37,3 +37,52 @@ class Dinglemouse {
 }
 
 console.log(new Dinglemouse("Clint", "Eastwood").getFullName()); // "Clint Eastwood"
+
+
+
+function Dinglemouse(r, s) {
+  this.getFullName = _ => (r + ' ' + s).trim();
+}
+
+
+class Dinglemouse{
+  constructor(a,b) {    
+    this.name = [a, b];
+  }
+  
+  getFullName() {
+      return this.name.filter(Boolean).join` `;
+  }
+  
+}
+
+
+class Dinglemouse{
+
+  constructor( firstName, lastName ){
+    this._firstName=firstName;
+    this._lastName=lastName;
+  }
+  
+  getFullName(){
+    return `${this._firstName} ${this._lastName}`.trim();
+  }
+  
+}
+
+
+
+class Dinglemouse{
+  constructor( firstName, lastName ){
+    this.firstName = firstName.concat(" ");
+    this.lastName = lastName;
+  }
+  
+  getFullName(){
+    return this.firstName.concat(this.lastName).trim();
+  }
+  
+}
+
+
+
