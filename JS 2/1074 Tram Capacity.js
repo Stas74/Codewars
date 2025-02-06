@@ -47,3 +47,61 @@ console.log(tram(2, [0, 2, 4, 4], [3, 5, 2, 0])); // 6
 console.log(tram(1, [0, 2, 4, 4], [3, 5, 2, 0])); // 3
 console.log(tram(10, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], [9, 8, 7, 6, 5, 4, 3, 2, 1, 0])); // 25
 console.log(tram(5, [0, 2, 4, 14, 2], [3, 5, 14, 0, 0])); // 16
+
+
+
+tram=(i,a,b)=>Math.max(...a.reduce((a,e,i)=>i?[a[0]-e+b[i],...a]:[b[0]],[]).slice(-i))
+
+
+function tram(stops, descending, onboarding){
+  let max = 0;
+  let passengers = 0;
+  for (let i = 0; i < stops; ++i) {
+    passengers += onboarding[i] - descending[i];
+    if (max < passengers) {
+      max = passengers;
+    }
+  }
+  
+  return max;
+}
+
+
+
+function tram(stops, descending, onboarding) {
+  let output = 0
+  let passengers = 0
+
+  while (stops--) {
+    passengers -= descending.shift()
+    passengers += onboarding.shift()
+    output = Math.max(output, passengers)
+  }
+  return output
+}
+
+
+
+function tram(stops, descending, onboarding){
+  return Array.from({length:stops}).reduce((accarr,_,i)=>{
+    accarr[0]+=-descending[i]+onboarding[i];
+    accarr[1]=Math.max(accarr[0],accarr[1]);
+    return accarr;
+  },[0,0])[1];
+}
+
+
+
+function tram(stops, descending, onboarding){
+    let result = 0;
+    let count = 0;
+    for(let i=0; i < stops; i+=1) {
+      count += onboarding[i] - descending[i]
+      result = Math.max(result,count);
+    }
+    
+   return result;
+}
+
+
+
