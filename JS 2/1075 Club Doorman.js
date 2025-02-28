@@ -35,3 +35,31 @@ function passTheDoorMan(word) {
 console.log(passTheDoorMan("lettuce")); // 60
 console.log(passTheDoorMan("hill")); // 36
 console.log(passTheDoorMan("apple")); // 48
+
+
+
+const passTheDoorMan = w => ((w.match(/(.)\1/)[1]).charCodeAt(0) - 96) * 3
+
+
+const passTheDoorMan = word => (word.match(/(.)\1/)[1].charCodeAt() - 96) * 3
+
+
+const passTheDoorMan = word => 
+  [...word].slice(1).filter((el, i)=>[...word][i] === el ).reduce((acc, e)=> acc + (e.charCodeAt()-96) * 3, 0)
+
+
+function passTheDoorMan (word){
+  let alphabet = 'abcdefghijklmnopqrstuvwxyz';
+  let letter;
+  for (let i = 0; i < word.length; i += 1) {
+    if (word[i] === word[i + 1]) {
+      letter = word[i];
+    }
+  }
+  return (alphabet.indexOf(letter) + 1) * 3
+}
+
+
+const passTheDoorMan = word => (word.match(/(.)\1/)[1].charCodeAt() & 31) * 3;
+
+
